@@ -10,11 +10,11 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - API Management
-  - API Gateway
-  - Microsoft Azure
-  - Enterprise
   - AI Gateway
+  - API Gateway
+  - API Management
+  - Enterprise
+  - Microsoft Azure
 url: >-
   https://raw.githubusercontent.com/api-evangelist/microsoft-azure-api-management/refs/heads/main/apis.yml
 created: '2026-03-16'
@@ -33,10 +33,10 @@ apis:
     humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
     baseURL: https://management.azure.com/
     tags:
-      - Management Plane
-      - REST
       - Azure Resource Manager
       - Configuration
+      - Management Plane
+      - REST
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -56,8 +56,8 @@ apis:
     baseURL: https://azure-api.net
     tags:
       - API Gateway
-      - Proxy
       - Policies
+      - Proxy
       - Traffic Management
     properties:
       - type: Documentation
@@ -80,10 +80,10 @@ apis:
     humanURL: https://learn.microsoft.com/en-us/azure/api-management/self-hosted-gateway-overview
     baseURL: https://mcr.microsoft.com/product/azure-api-management/gateway
     tags:
-      - Self-Hosted
-      - Kubernetes
       - Hybrid
+      - Kubernetes
       - On-Premises
+      - Self-Hosted
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/azure/api-management/self-hosted-gateway-overview
@@ -100,8 +100,8 @@ apis:
     baseURL: https://management.azure.com/
     tags:
       - AI Gateway
-      - LLM
       - Azure OpenAI
+      - LLM
       - MCP
     properties:
       - type: Documentation
@@ -119,10 +119,10 @@ apis:
     humanURL: https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize
     baseURL: https://developer.azure-api.net
     tags:
+      - API Discovery
       - Developer Portal
       - Documentation
       - Self-Service
-      - API Discovery
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize
