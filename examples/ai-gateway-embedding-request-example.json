@@ -1,0 +1,4 @@
+{
+  "input": "Azure API Management provides a unified gateway for securing, monitoring, and scaling APIs including Azure OpenAI endpoints.",
+  "model": "text-embedding-ada-002"
+}

@@ -1,0 +1,1356 @@
+vocabulary:
+  name: Microsoft Azure API Management
+  version: "2024-05-01"
+  generated: "2026-04-21"
+  description: >-
+    Vocabulary and taxonomy schema mapping operational (OpenAPI) and capability
+    (Naftiko) dimensions for Azure API Management service.
+
+apis:
+  - name: Azure API Management AI Gateway
+    namespace: azure-apim-ai-gateway
+    version: "2024-05-01"
+    baseUrl: https://{service-name}.azure-api.net
+    status: active
+    openapi: openapi/microsoft-azure-api-management-ai-gateway-openapi.yaml
+
+  - name: Azure API Management Developer Portal
+    namespace: azure-apim-dev-portal
+    version: "2024-05-01"
+    baseUrl: https://{service-name}.developer.azure-api.net
+    status: active
+    openapi: openapi/microsoft-azure-api-management-developer-portal-openapi.yaml
+
+  - name: Azure API Management Gateway
+    namespace: azure-apim-gateway
+    version: "2024-05-01"
+    baseUrl: https://{service-name}.azure-api.net
+    status: active
+    openapi: openapi/microsoft-azure-api-management-gateway-openapi.yaml
+
+  - name: Azure API Management REST API
+    namespace: azure-apim-rest
+    version: "2024-05-01"
+    baseUrl: https://management.azure.com
+    status: active
+    openapi: openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+
+  - name: Azure API Management Self-Hosted Gateway
+    namespace: azure-apim-self-hosted-gw
+    version: "2.6.0"
+    baseUrl: https://{gateway-hostname}
+    status: active
+    openapi: openapi/microsoft-azure-api-management-self-hosted-gateway-openapi.yaml
+
+domains:
+  - name: AI Gateway
+    description: AI/LLM proxy capabilities including chat completions, embeddings, and MCP
+    resources:
+      - chat-completions
+      - completions
+      - embeddings
+      - mcp
+
+  - name: API Lifecycle
+    description: Full API lifecycle including versioning, revisions, releases, schemas, and operations
+    resources:
+      - api
+      - api-operation
+      - api-policy
+      - api-version-set
+      - api-release
+      - api-revision
+      - api-schema
+      - api-diagnostic
+
+  - name: Gateway Infrastructure
+    description: Cloud and self-hosted gateway deployment, routing, and health
+    resources:
+      - gateway
+      - gateway-api
+      - gateway-certificate-authority
+      - gateway-hostname-configuration
+      - proxy
+      - health
+
+  - name: Products and Subscriptions
+    description: API packaging, access control, and subscription key management
+    resources:
+      - product
+      - product-api
+      - product-policy
+      - product-group
+      - subscription
+
+  - name: Developer Experience
+    description: Developer portal, user management, and onboarding
+    resources:
+      - portal
+      - apis
+      - products
+      - authentication
+      - profile
+      - user
+      - group
+      - group-user
+
+  - name: Platform Administration
+    description: Service instances, policies, backends, certificates, tags, named values, workspaces
+    resources:
+      - service
+      - policy
+      - backend
+      - certificate
+      - tag
+      - named-value
+      - workspace
+      - diagnostic
+      - logger
+
+resources:
+  # --- AI Gateway domain ---
+  - name: chat-completions
+    label: Chat Completions
+    domain: AI Gateway
+    api: azure-apim-ai-gateway
+    path: /deployments/{deployment-id}/chat/completions
+    actions:
+      - name: AIGateway_ChatCompletions
+        verb: create
+        method: POST
+    workflows:
+      - ai-gateway-management
+
+  - name: completions
+    label: Completions
+    domain: AI Gateway
+    api: azure-apim-ai-gateway
+    path: /deployments/{deployment-id}/completions
+    actions:
+      - name: AIGateway_Completions
+        verb: create
+        method: POST
+    workflows:
+      - ai-gateway-management
+
+  - name: embeddings
+    label: Embeddings
+    domain: AI Gateway
+    api: azure-apim-ai-gateway
+    path: /deployments/{deployment-id}/embeddings
+    actions:
+      - name: AIGateway_Embeddings
+        verb: create
+        method: POST
+    workflows:
+      - ai-gateway-management
+
+  - name: mcp
+    label: MCP Server
+    domain: AI Gateway
+    api: azure-apim-ai-gateway
+    path: /mcp
+    actions:
+      - name: AIGateway_MCP
+        verb: create
+        method: POST
+    workflows:
+      - ai-gateway-management
+
+  # --- API Lifecycle domain ---
+  - name: service
+    label: API Management Service
+    domain: Platform Administration
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}
+    actions:
+      - name: ApiManagementService_List
+        verb: list
+        method: GET
+      - name: ApiManagementService_Get
+        verb: get
+        method: GET
+      - name: ApiManagementService_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: ApiManagementService_Update
+        verb: update
+        method: PATCH
+      - name: ApiManagementService_Delete
+        verb: delete
+        method: DELETE
+      - name: ApiManagementService_CheckNameAvailability
+        verb: check
+        method: POST
+      - name: ApiManagementService_Backup
+        verb: backup
+        method: POST
+      - name: ApiManagementService_Restore
+        verb: restore
+        method: POST
+      - name: ApiManagementService_ApplyNetworkConfigurationUpdates
+        verb: apply
+        method: POST
+      - name: ApiManagementService_MigrateToStv2
+        verb: migrate
+        method: POST
+    workflows:
+      - api-lifecycle-management
+      - gateway-operations
+
+  - name: api
+    label: APIs
+    domain: API Lifecycle
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}
+    actions:
+      - name: Api_ListByService
+        verb: list
+        method: GET
+      - name: Api_Get
+        verb: get
+        method: GET
+      - name: Api_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: Api_Update
+        verb: update
+        method: PATCH
+      - name: Api_Delete
+        verb: delete
+        method: DELETE
+    workflows:
+      - api-lifecycle-management
+      - ai-gateway-management
+
+  - name: api-operation
+    label: API Operations
+    domain: API Lifecycle
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/operations/{operationId}
+    actions:
+      - name: ApiOperation_ListByApi
+        verb: list
+        method: GET
+      - name: ApiOperation_Get
+        verb: get
+        method: GET
+      - name: ApiOperation_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: ApiOperation_Delete
+        verb: delete
+        method: DELETE
+    workflows:
+      - api-lifecycle-management
+
+  - name: api-policy
+    label: API Policies
+    domain: API Lifecycle
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/policies/{policyId}
+    actions:
+      - name: ApiPolicy_ListByApi
+        verb: list
+        method: GET
+      - name: ApiPolicy_Get
+        verb: get
+        method: GET
+      - name: ApiPolicy_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: ApiPolicy_Delete
+        verb: delete
+        method: DELETE
+    workflows:
+      - api-lifecycle-management
+      - ai-gateway-management
+
+  - name: api-version-set
+    label: API Version Sets
+    domain: API Lifecycle
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apiVersionSets/{versionSetId}
+    actions:
+      - name: ApiVersionSet_ListByService
+        verb: list
+        method: GET
+      - name: ApiVersionSet_Get
+        verb: get
+        method: GET
+      - name: ApiVersionSet_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: ApiVersionSet_Delete
+        verb: delete
+        method: DELETE
+    workflows:
+      - api-lifecycle-management
+
+  - name: api-release
+    label: API Releases
+    domain: API Lifecycle
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/releases/{releaseId}
+    actions:
+      - name: ApiRelease_ListByService
+        verb: list
+        method: GET
+      - name: ApiRelease_Get
+        verb: get
+        method: GET
+      - name: ApiRelease_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: ApiRelease_Delete
+        verb: delete
+        method: DELETE
+    workflows:
+      - api-lifecycle-management
+
+  - name: api-revision
+    label: API Revisions
+    domain: API Lifecycle
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/revisions
+    actions:
+      - name: ApiRevision_ListByService
+        verb: list
+        method: GET
+    workflows:
+      - api-lifecycle-management
+
+  - name: api-schema
+    label: API Schemas
+    domain: API Lifecycle
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/schemas/{schemaId}
+    actions:
+      - name: ApiSchema_ListByApi
+        verb: list
+        method: GET
+      - name: ApiSchema_Get
+        verb: get
+        method: GET
+      - name: ApiSchema_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: ApiSchema_Delete
+        verb: delete
+        method: DELETE
+    workflows:
+      - api-lifecycle-management
+
+  - name: api-diagnostic
+    label: API Diagnostics
+    domain: API Lifecycle
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/diagnostics/{diagnosticId}
+    actions:
+      - name: ApiDiagnostic_ListByService
+        verb: list
+        method: GET
+      - name: ApiDiagnostic_Get
+        verb: get
+        method: GET
+      - name: ApiDiagnostic_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: ApiDiagnostic_Delete
+        verb: delete
+        method: DELETE
+    workflows:
+      - ai-gateway-management
+
+  # --- Gateway Infrastructure domain ---
+  - name: gateway
+    label: Gateways
+    domain: Gateway Infrastructure
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}
+    actions:
+      - name: Gateway_ListByService
+        verb: list
+        method: GET
+      - name: Gateway_Get
+        verb: get
+        method: GET
+      - name: Gateway_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: Gateway_Update
+        verb: update
+        method: PATCH
+      - name: Gateway_Delete
+        verb: delete
+        method: DELETE
+      - name: Gateway_GenerateToken
+        verb: generate-token
+        method: POST
+      - name: Gateway_ListKeys
+        verb: list-keys
+        method: POST
+      - name: Gateway_RegenerateKey
+        verb: regenerate-key
+        method: POST
+      - name: Gateway_InvalidateDebugCredentials
+        verb: invalidate
+        method: POST
+      - name: Gateway_ListDebugCredentials
+        verb: list-debug-credentials
+        method: POST
+      - name: Gateway_ListTrace
+        verb: list-trace
+        method: POST
+    workflows:
+      - gateway-operations
+
+  - name: gateway-api
+    label: Gateway APIs
+    domain: Gateway Infrastructure
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/apis/{apiId}
+    actions:
+      - name: GatewayApi_ListByService
+        verb: list
+        method: GET
+      - name: GatewayApi_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: GatewayApi_Delete
+        verb: delete
+        method: DELETE
+    workflows:
+      - gateway-operations
+
+  - name: gateway-certificate-authority
+    label: Gateway Certificate Authorities
+    domain: Gateway Infrastructure
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/certificateAuthorities/{certificateId}
+    actions:
+      - name: GatewayCertificateAuthority_ListByService
+        verb: list
+        method: GET
+      - name: GatewayCertificateAuthority_Get
+        verb: get
+        method: GET
+      - name: GatewayCertificateAuthority_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: GatewayCertificateAuthority_Delete
+        verb: delete
+        method: DELETE
+    workflows:
+      - gateway-operations
+
+  - name: gateway-hostname-configuration
+    label: Gateway Hostname Configurations
+    domain: Gateway Infrastructure
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/hostnameConfigurations/{hcId}
+    actions:
+      - name: GatewayHostnameConfiguration_ListByService
+        verb: list
+        method: GET
+      - name: GatewayHostnameConfiguration_Get
+        verb: get
+        method: GET
+      - name: GatewayHostnameConfiguration_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: GatewayHostnameConfiguration_Delete
+        verb: delete
+        method: DELETE
+    workflows:
+      - gateway-operations
+
+  - name: proxy
+    label: Gateway Proxy
+    domain: Gateway Infrastructure
+    api: azure-apim-gateway
+    path: /{api-path}
+    actions:
+      - name: Gateway_ProxyGet
+        verb: get
+        method: GET
+      - name: Gateway_ProxyPost
+        verb: create
+        method: POST
+      - name: Gateway_ProxyPut
+        verb: update
+        method: PUT
+      - name: Gateway_ProxyDelete
+        verb: delete
+        method: DELETE
+    workflows:
+      - developer-onboarding
+      - gateway-operations
+
+  - name: self-hosted-proxy
+    label: Self-Hosted Gateway Proxy
+    domain: Gateway Infrastructure
+    api: azure-apim-self-hosted-gw
+    path: /{api-path}
+    actions:
+      - name: SelfHostedGateway_ProxyGet
+        verb: get
+        method: GET
+      - name: SelfHostedGateway_ProxyPost
+        verb: create
+        method: POST
+    workflows:
+      - gateway-operations
+
+  - name: health
+    label: Gateway Health Check
+    domain: Gateway Infrastructure
+    api: azure-apim-gateway
+    path: /status-0123456789abcdef
+    actions:
+      - name: Gateway_HealthCheck
+        verb: get
+        method: GET
+    workflows:
+      - gateway-operations
+
+  - name: self-hosted-health
+    label: Self-Hosted Gateway Health
+    domain: Gateway Infrastructure
+    api: azure-apim-self-hosted-gw
+    path: /status-0123456789abcdef
+    actions:
+      - name: SelfHostedGateway_HealthCheck
+        verb: get
+        method: GET
+    workflows:
+      - gateway-operations
+
+  - name: self-hosted-internal-status
+    label: Self-Hosted Gateway Internal Status
+    domain: Gateway Infrastructure
+    api: azure-apim-self-hosted-gw
+    path: /internal/status
+    actions:
+      - name: SelfHostedGateway_InternalStatus
+        verb: get
+        method: GET
+    workflows:
+      - gateway-operations
+
+  # --- Products and Subscriptions domain ---
+  - name: product
+    label: Products
+    domain: Products and Subscriptions
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}
+    actions:
+      - name: Product_ListByService
+        verb: list
+        method: GET
+      - name: Product_Get
+        verb: get
+        method: GET
+      - name: Product_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: Product_Update
+        verb: update
+        method: PATCH
+      - name: Product_Delete
+        verb: delete
+        method: DELETE
+    workflows:
+      - api-lifecycle-management
+      - developer-onboarding
+      - ai-gateway-management
+
+  - name: product-api
+    label: Product APIs
+    domain: Products and Subscriptions
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/apis/{apiId}
+    actions:
+      - name: ProductApi_ListByProduct
+        verb: list
+        method: GET
+      - name: ProductApi_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: ProductApi_Delete
+        verb: delete
+        method: DELETE
+    workflows:
+      - api-lifecycle-management
+
+  - name: product-policy
+    label: Product Policies
+    domain: Products and Subscriptions
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/policies/{policyId}
+    actions:
+      - name: ProductPolicy_ListByProduct
+        verb: list
+        method: GET
+      - name: ProductPolicy_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: ProductPolicy_Delete
+        verb: delete
+        method: DELETE
+    workflows:
+      - api-lifecycle-management
+
+  - name: product-group
+    label: Product Groups
+    domain: Products and Subscriptions
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/groups/{groupId}
+    actions:
+      - name: ProductGroup_ListByProduct
+        verb: list
+        method: GET
+      - name: ProductGroup_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: ProductGroup_Delete
+        verb: delete
+        method: DELETE
+    workflows:
+      - developer-onboarding
+
+  - name: subscription
+    label: Subscriptions
+    domain: Products and Subscriptions
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/subscriptions/{sid}
+    actions:
+      - name: Subscription_List
+        verb: list
+        method: GET
+      - name: Subscription_Get
+        verb: get
+        method: GET
+      - name: Subscription_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: Subscription_Update
+        verb: update
+        method: PATCH
+      - name: Subscription_Delete
+        verb: delete
+        method: DELETE
+      - name: Subscription_ListSecrets
+        verb: list-secrets
+        method: POST
+      - name: Subscription_RegeneratePrimaryKey
+        verb: regenerate-primary-key
+        method: POST
+      - name: Subscription_RegenerateSecondaryKey
+        verb: regenerate-secondary-key
+        method: POST
+    workflows:
+      - api-lifecycle-management
+      - developer-onboarding
+      - ai-gateway-management
+
+  # --- Developer Experience domain ---
+  - name: portal
+    label: Portal Home
+    domain: Developer Experience
+    api: azure-apim-dev-portal
+    path: /
+    actions:
+      - name: DevPortal_Home
+        verb: get
+        method: GET
+    workflows:
+      - developer-onboarding
+
+  - name: portal-apis
+    label: API Catalog
+    domain: Developer Experience
+    api: azure-apim-dev-portal
+    path: /apis/{api-id}
+    actions:
+      - name: DevPortal_ListApis
+        verb: list
+        method: GET
+      - name: DevPortal_GetApi
+        verb: get
+        method: GET
+    workflows:
+      - developer-onboarding
+
+  - name: portal-products
+    label: Portal Products
+    domain: Developer Experience
+    api: azure-apim-dev-portal
+    path: /products
+    actions:
+      - name: DevPortal_ListProducts
+        verb: list
+        method: GET
+    workflows:
+      - developer-onboarding
+
+  - name: portal-auth
+    label: Portal Authentication
+    domain: Developer Experience
+    api: azure-apim-dev-portal
+    path: /signin
+    actions:
+      - name: DevPortal_SignIn
+        verb: get
+        method: GET
+      - name: DevPortal_SignUp
+        verb: get
+        method: GET
+    workflows:
+      - developer-onboarding
+
+  - name: portal-profile
+    label: User Profile
+    domain: Developer Experience
+    api: azure-apim-dev-portal
+    path: /profile
+    actions:
+      - name: DevPortal_Profile
+        verb: get
+        method: GET
+    workflows:
+      - developer-onboarding
+
+  - name: user
+    label: Users
+    domain: Developer Experience
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}
+    actions:
+      - name: User_ListByService
+        verb: list
+        method: GET
+      - name: User_Get
+        verb: get
+        method: GET
+      - name: User_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: User_Delete
+        verb: delete
+        method: DELETE
+      - name: User_GenerateSsoUrl
+        verb: generate-sso
+        method: POST
+      - name: User_GetSharedAccessToken
+        verb: get-token
+        method: POST
+    workflows:
+      - developer-onboarding
+
+  - name: group
+    label: Groups
+    domain: Developer Experience
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups/{groupId}
+    actions:
+      - name: Group_ListByService
+        verb: list
+        method: GET
+      - name: Group_Get
+        verb: get
+        method: GET
+      - name: Group_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: Group_Delete
+        verb: delete
+        method: DELETE
+    workflows:
+      - developer-onboarding
+
+  - name: group-user
+    label: Group Users
+    domain: Developer Experience
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups/{groupId}/users/{userId}
+    actions:
+      - name: GroupUser_List
+        verb: list
+        method: GET
+      - name: GroupUser_Create
+        verb: create
+        method: PUT
+      - name: GroupUser_Delete
+        verb: delete
+        method: DELETE
+    workflows:
+      - developer-onboarding
+
+  # --- Platform Administration domain ---
+  - name: policy
+    label: Global Policies
+    domain: Platform Administration
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/policies/{policyId}
+    actions:
+      - name: Policy_ListByService
+        verb: list
+        method: GET
+      - name: Policy_Get
+        verb: get
+        method: GET
+      - name: Policy_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: Policy_Delete
+        verb: delete
+        method: DELETE
+    workflows:
+      - api-lifecycle-management
+
+  - name: backend
+    label: Backends
+    domain: Platform Administration
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backends/{backendId}
+    actions:
+      - name: Backend_ListByService
+        verb: list
+        method: GET
+      - name: Backend_Get
+        verb: get
+        method: GET
+      - name: Backend_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: Backend_Update
+        verb: update
+        method: PATCH
+      - name: Backend_Delete
+        verb: delete
+        method: DELETE
+      - name: Backend_Reconnect
+        verb: reconnect
+        method: POST
+    workflows:
+      - api-lifecycle-management
+      - ai-gateway-management
+
+  - name: certificate
+    label: Certificates
+    domain: Platform Administration
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates/{certificateId}
+    actions:
+      - name: Certificate_ListByService
+        verb: list
+        method: GET
+      - name: Certificate_Get
+        verb: get
+        method: GET
+      - name: Certificate_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: Certificate_Delete
+        verb: delete
+        method: DELETE
+      - name: Certificate_RefreshSecret
+        verb: refresh
+        method: POST
+    workflows:
+      - api-lifecycle-management
+      - gateway-operations
+
+  - name: tag
+    label: Tags
+    domain: Platform Administration
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}
+    actions:
+      - name: Tag_ListByService
+        verb: list
+        method: GET
+      - name: Tag_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: Tag_Delete
+        verb: delete
+        method: DELETE
+      - name: Tag_AssignToApi
+        verb: assign
+        method: PUT
+      - name: Tag_AssignToProduct
+        verb: assign
+        method: PUT
+    workflows:
+      - api-lifecycle-management
+
+  - name: named-value
+    label: Named Values
+    domain: Platform Administration
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/namedValues/{namedValueId}
+    actions:
+      - name: NamedValue_ListByService
+        verb: list
+        method: GET
+      - name: NamedValue_Get
+        verb: get
+        method: GET
+      - name: NamedValue_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: NamedValue_Delete
+        verb: delete
+        method: DELETE
+    workflows:
+      - api-lifecycle-management
+
+  - name: workspace
+    label: Workspaces
+    domain: Platform Administration
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}
+    actions:
+      - name: Workspace_ListByService
+        verb: list
+        method: GET
+      - name: Workspace_Get
+        verb: get
+        method: GET
+      - name: Workspace_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: Workspace_Delete
+        verb: delete
+        method: DELETE
+    workflows:
+      - api-lifecycle-management
+
+  - name: diagnostic
+    label: Diagnostics
+    domain: Platform Administration
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/diagnostics/{diagnosticId}
+    actions:
+      - name: Diagnostic_ListByService
+        verb: list
+        method: GET
+      - name: Diagnostic_Get
+        verb: get
+        method: GET
+      - name: Diagnostic_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: Diagnostic_Update
+        verb: update
+        method: PATCH
+      - name: Diagnostic_Delete
+        verb: delete
+        method: DELETE
+    workflows:
+      - gateway-operations
+
+  - name: logger
+    label: Loggers
+    domain: Platform Administration
+    api: azure-apim-rest
+    path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/loggers/{loggerId}
+    actions:
+      - name: Logger_ListByService
+        verb: list
+        method: GET
+      - name: Logger_Get
+        verb: get
+        method: GET
+      - name: Logger_CreateOrUpdate
+        verb: create
+        method: PUT
+      - name: Logger_Update
+        verb: update
+        method: PATCH
+      - name: Logger_Delete
+        verb: delete
+        method: DELETE
+    workflows:
+      - ai-gateway-management
+      - gateway-operations
+
+actions:
+  verbs:
+    - name: list
+      description: Retrieve a collection of resources
+      methods: [GET]
+    - name: get
+      description: Retrieve a single resource by identifier
+      methods: [GET]
+    - name: create
+      description: Create or replace a resource
+      methods: [PUT, POST]
+    - name: update
+      description: Partially update a resource
+      methods: [PATCH]
+    - name: delete
+      description: Remove a resource
+      methods: [DELETE]
+    - name: check
+      description: Validate resource constraints (e.g., name availability)
+      methods: [POST]
+    - name: backup
+      description: Create a backup of a service
+      methods: [POST]
+    - name: restore
+      description: Restore a service from backup
+      methods: [POST]
+    - name: apply
+      description: Apply configuration changes
+      methods: [POST]
+    - name: migrate
+      description: Migrate service to new platform version
+      methods: [POST]
+    - name: generate-token
+      description: Generate an authentication token
+      methods: [POST]
+    - name: regenerate-key
+      description: Regenerate a cryptographic key
+      methods: [POST]
+    - name: regenerate-primary-key
+      description: Regenerate subscription primary key
+      methods: [POST]
+    - name: regenerate-secondary-key
+      description: Regenerate subscription secondary key
+      methods: [POST]
+    - name: list-keys
+      description: List gateway keys
+      methods: [POST]
+    - name: list-secrets
+      description: List subscription secrets
+      methods: [POST]
+    - name: list-debug-credentials
+      description: List debug credentials
+      methods: [POST]
+    - name: list-trace
+      description: List gateway trace data
+      methods: [POST]
+    - name: invalidate
+      description: Invalidate credentials
+      methods: [POST]
+    - name: reconnect
+      description: Reconnect to a backend
+      methods: [POST]
+    - name: refresh
+      description: Refresh secret from key vault
+      methods: [POST]
+    - name: assign
+      description: Associate a tag with a resource
+      methods: [PUT]
+    - name: generate-sso
+      description: Generate single sign-on URL
+      methods: [POST]
+    - name: get-token
+      description: Get shared access token
+      methods: [POST]
+
+schemas:
+  ai-gateway:
+    - ChatCompletionRequest
+    - ChatCompletionResponse
+    - CompletionRequest
+    - CompletionResponse
+    - EmbeddingRequest
+    - EmbeddingResponse
+    - MCPRequest
+    - MCPResponse
+
+  developer-portal:
+    - PortalPage
+    - ApiList
+    - ApiSummary
+    - ApiDetail
+    - ProductList
+    - ProductSummary
+    - UserProfile
+
+  gateway:
+    - GatewayResponse
+    - HealthStatus
+
+  self-hosted-gateway:
+    - GatewayResponse
+    - HealthStatus
+    - InternalStatus
+
+  rest-api:
+    - OperationListResult
+    - ServiceNameAvailabilityResult
+    - DomainOwnershipIdentifierResult
+    - ApiManagementServiceListResult
+    - ApiManagementServiceResource
+    - ApiCollection
+    - ApiContract
+    - ApiCreateOrUpdateParameter
+    - DiagnosticCollection
+    - DiagnosticContract
+
+parameters:
+  identifiers:
+    - name: subscriptionId
+      in: path
+      description: Azure subscription identifier
+    - name: resourceGroupName
+      in: path
+      description: Resource group name
+    - name: serviceName
+      in: path
+      description: API Management service instance name
+    - name: apiId
+      in: path
+      description: API identifier
+    - name: operationId
+      in: path
+      description: API operation identifier
+    - name: productId
+      in: path
+      description: Product identifier
+    - name: userId
+      in: path
+      description: User identifier
+    - name: groupId
+      in: path
+      description: Group identifier
+    - name: sid
+      in: path
+      description: Subscription identifier
+    - name: backendId
+      in: path
+      description: Backend identifier
+    - name: gatewayId
+      in: path
+      description: Gateway identifier
+    - name: certificateId
+      in: path
+      description: Certificate identifier
+    - name: policyId
+      in: path
+      description: Policy identifier
+    - name: diagnosticId
+      in: path
+      description: Diagnostic identifier
+    - name: loggerId
+      in: path
+      description: Logger identifier
+    - name: tagId
+      in: path
+      description: Tag identifier
+    - name: namedValueId
+      in: path
+      description: Named value identifier
+    - name: workspaceId
+      in: path
+      description: Workspace identifier
+    - name: versionSetId
+      in: path
+      description: API version set identifier
+    - name: releaseId
+      in: path
+      description: API release identifier
+    - name: schemaId
+      in: path
+      description: API schema identifier
+    - name: deployment-id
+      in: path
+      description: AI model deployment identifier
+    - name: api-id
+      in: path
+      description: API identifier (developer portal)
+    - name: api-path
+      in: path
+      description: Backend API path for gateway proxying
+
+  filters:
+    - name: api-version
+      in: query
+      description: Azure REST API version
+    - name: $filter
+      in: query
+      description: OData filter expression
+    - name: $top
+      in: query
+      description: Number of records to return
+    - name: $skip
+      in: query
+      description: Number of records to skip
+
+authentication:
+  schemes:
+    - name: azure_auth
+      type: oauth2
+      flow: implicit
+      authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+      scopes:
+        - user_impersonation
+      apis:
+        - azure-apim-rest
+
+    - name: api-key
+      type: apiKey
+      in: header
+      name: api-key
+      apis:
+        - azure-apim-ai-gateway
+
+    - name: subscription-key
+      type: apiKey
+      in: header
+      name: Ocp-Apim-Subscription-Key
+      apis:
+        - azure-apim-gateway
+        - azure-apim-self-hosted-gw
+
+workflows:
+  - name: ai-gateway-management
+    label: AI Gateway Management
+    description: Manage AI backends and LLM deployments through Azure API Management
+    capability: capabilities/ai-gateway-management.yaml
+    shared: capabilities/shared/ai-gateway.yaml
+    apis:
+      - azure-apim-ai-gateway
+      - azure-apim-rest
+    toolCount: 25
+    personas:
+      - AI Engineer
+    domains:
+      - AI Gateway
+      - API Lifecycle
+      - Products and Subscriptions
+      - Platform Administration
+    resources:
+      - chat-completions
+      - completions
+      - embeddings
+      - mcp
+      - api
+      - api-policy
+      - api-diagnostic
+      - backend
+      - logger
+      - product
+      - subscription
+
+  - name: api-lifecycle-management
+    label: API Lifecycle Management
+    description: Manage full API lifecycle including versioning, policies, products, and subscriptions
+    capability: capabilities/api-lifecycle-management.yaml
+    shared: capabilities/shared/rest-api.yaml
+    apis:
+      - azure-apim-rest
+    toolCount: 55
+    personas:
+      - API Platform Admin
+    domains:
+      - API Lifecycle
+      - Products and Subscriptions
+      - Platform Administration
+    resources:
+      - service
+      - api
+      - api-operation
+      - api-policy
+      - api-version-set
+      - api-release
+      - api-revision
+      - api-schema
+      - product
+      - product-api
+      - product-policy
+      - subscription
+      - policy
+      - backend
+      - certificate
+      - tag
+      - named-value
+      - workspace
+
+  - name: developer-onboarding
+    label: Developer Onboarding
+    description: Discover, test, and subscribe to APIs through the developer portal
+    capability: capabilities/developer-onboarding.yaml
+    shared: capabilities/shared/developer-portal.yaml
+    apis:
+      - azure-apim-dev-portal
+      - azure-apim-rest
+      - azure-apim-gateway
+    toolCount: 27
+    personas:
+      - API Developer
+    domains:
+      - Developer Experience
+      - Products and Subscriptions
+      - Gateway Infrastructure
+    resources:
+      - portal
+      - portal-apis
+      - portal-products
+      - portal-auth
+      - portal-profile
+      - user
+      - group
+      - group-user
+      - subscription
+      - product
+      - product-group
+      - proxy
+
+  - name: gateway-operations
+    label: Gateway Operations
+    description: Deploy, configure, and monitor API gateways including self-hosted
+    capability: capabilities/gateway-operations.yaml
+    shared:
+      - capabilities/shared/gateway.yaml
+      - capabilities/shared/self-hosted-gateway.yaml
+    apis:
+      - azure-apim-rest
+      - azure-apim-gateway
+      - azure-apim-self-hosted-gw
+    toolCount: 38
+    personas:
+      - DevOps Engineer
+    domains:
+      - Gateway Infrastructure
+      - Platform Administration
+    resources:
+      - service
+      - gateway
+      - gateway-api
+      - gateway-certificate-authority
+      - gateway-hostname-configuration
+      - diagnostic
+      - logger
+      - certificate
+      - proxy
+      - self-hosted-proxy
+      - health
+      - self-hosted-health
+      - self-hosted-internal-status
+
+personas:
+  - name: API Platform Admin
+    description: Manages the full API lifecycle, products, policies, and platform configuration
+    workflows:
+      - api-lifecycle-management
+
+  - name: API Developer
+    description: Discovers, tests, and subscribes to APIs via the developer portal
+    workflows:
+      - developer-onboarding
+
+  - name: DevOps Engineer
+    description: Deploys, configures, and monitors cloud and self-hosted API gateways
+    workflows:
+      - gateway-operations
+
+  - name: AI Engineer
+    description: Manages AI backends, LLM deployments, and AI gateway capabilities
+    workflows:
+      - ai-gateway-management

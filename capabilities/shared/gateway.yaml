@@ -1,0 +1,48 @@
+naftiko: "1.0.0-alpha1"
+info:
+  label: Azure API Management Gateway
+  description: >-
+    The Azure API Management gateway acts as a reverse proxy between API
+    consumers and backend services. It routes requests, applies policies
+    including authentication, rate limiting, caching, and transformation,
+    and emits telemetry.
+  tags:
+    - Gateway
+    - Azure
+    - Reverse Proxy
+    - API Routing
+  created: "2026-04-21"
+  modified: "2026-04-21"
+capability:
+  consumes:
+    - type: http
+      namespace: azure-apim-gateway
+      baseUri: https://{service-name}.azure-api.net
+      auth:
+        type: apiKey
+        in: header
+        name: Ocp-Apim-Subscription-Key
+      resources:
+        - name: proxy
+          label: API Proxy
+          path: /{api-path}
+          operations:
+            - name: Gateway_ProxyGet
+              label: Proxy GET Request
+              method: GET
+            - name: Gateway_ProxyPost
+              label: Proxy POST Request
+              method: POST
+            - name: Gateway_ProxyPut
+              label: Proxy PUT Request
+              method: PUT
+            - name: Gateway_ProxyDelete
+              label: Proxy DELETE Request
+              method: DELETE
+        - name: health
+          label: Health Check
+          path: /status-0123456789abcdef
+          operations:
+            - name: Gateway_HealthCheck
+              label: Gateway Health Check
+              method: GET

@@ -1,0 +1,235 @@
+naftiko: "1.0.0-alpha1"
+info:
+  label: Gateway Operations
+  description: >-
+    Workflow capability for DevOps Engineers to deploy, configure, and monitor
+    API gateways including cloud-hosted and self-hosted gateways. Covers gateway
+    provisioning, API routing, hostname configuration, certificate management,
+    health monitoring, diagnostics, and logging.
+  tags:
+    - Gateway Operations
+    - DevOps
+    - Monitoring
+    - Self-Hosted Gateway
+    - Kubernetes
+    - Diagnostics
+  created: "2026-04-21"
+  modified: "2026-04-21"
+capability:
+  consumes:
+    - type: http
+      namespace: azure-apim-rest
+      baseUri: https://management.azure.com
+      auth:
+        type: oauth2
+        scopes:
+          - user_impersonation
+      resources:
+        - name: service
+          label: API Management Service
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}
+          operations:
+            - name: ApiManagementService_Get
+              label: Get Service
+              method: GET
+            - name: ApiManagementService_CreateOrUpdate
+              label: Create Or Update Service
+              method: PUT
+            - name: ApiManagementService_Backup
+              label: Backup Service
+              method: POST
+            - name: ApiManagementService_Restore
+              label: Restore Service
+              method: POST
+            - name: ApiManagementService_ApplyNetworkConfigurationUpdates
+              label: Apply Network Configuration Updates
+              method: POST
+            - name: ApiManagementService_MigrateToStv2
+              label: Migrate To STv2
+              method: POST
+        - name: gateway
+          label: Gateways
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}
+          operations:
+            - name: Gateway_ListByService
+              label: List Gateways
+              method: GET
+            - name: Gateway_Get
+              label: Get Gateway
+              method: GET
+            - name: Gateway_CreateOrUpdate
+              label: Create Or Update Gateway
+              method: PUT
+            - name: Gateway_Update
+              label: Update Gateway
+              method: PATCH
+            - name: Gateway_Delete
+              label: Delete Gateway
+              method: DELETE
+            - name: Gateway_GenerateToken
+              label: Generate Gateway Token
+              method: POST
+            - name: Gateway_ListKeys
+              label: List Gateway Keys
+              method: POST
+            - name: Gateway_RegenerateKey
+              label: Regenerate Gateway Key
+              method: POST
+            - name: Gateway_InvalidateDebugCredentials
+              label: Invalidate Debug Credentials
+              method: POST
+            - name: Gateway_ListDebugCredentials
+              label: List Debug Credentials
+              method: POST
+            - name: Gateway_ListTrace
+              label: List Gateway Trace
+              method: POST
+        - name: gateway-api
+          label: Gateway APIs
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/apis/{apiId}
+          operations:
+            - name: GatewayApi_ListByService
+              label: List Gateway APIs
+              method: GET
+            - name: GatewayApi_CreateOrUpdate
+              label: Add API To Gateway
+              method: PUT
+            - name: GatewayApi_Delete
+              label: Remove API From Gateway
+              method: DELETE
+        - name: gateway-certificate-authority
+          label: Gateway Certificate Authorities
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/certificateAuthorities/{certificateId}
+          operations:
+            - name: GatewayCertificateAuthority_ListByService
+              label: List Gateway Certificate Authorities
+              method: GET
+            - name: GatewayCertificateAuthority_Get
+              label: Get Gateway Certificate Authority
+              method: GET
+            - name: GatewayCertificateAuthority_CreateOrUpdate
+              label: Create Or Update Gateway Certificate Authority
+              method: PUT
+            - name: GatewayCertificateAuthority_Delete
+              label: Delete Gateway Certificate Authority
+              method: DELETE
+        - name: gateway-hostname-configuration
+          label: Gateway Hostname Configurations
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/hostnameConfigurations/{hcId}
+          operations:
+            - name: GatewayHostnameConfiguration_ListByService
+              label: List Gateway Hostname Configurations
+              method: GET
+            - name: GatewayHostnameConfiguration_Get
+              label: Get Gateway Hostname Configuration
+              method: GET
+            - name: GatewayHostnameConfiguration_CreateOrUpdate
+              label: Create Or Update Gateway Hostname Configuration
+              method: PUT
+            - name: GatewayHostnameConfiguration_Delete
+              label: Delete Gateway Hostname Configuration
+              method: DELETE
+        - name: diagnostic
+          label: Diagnostics
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/diagnostics/{diagnosticId}
+          operations:
+            - name: Diagnostic_ListByService
+              label: List Diagnostics
+              method: GET
+            - name: Diagnostic_Get
+              label: Get Diagnostic
+              method: GET
+            - name: Diagnostic_CreateOrUpdate
+              label: Create Or Update Diagnostic
+              method: PUT
+            - name: Diagnostic_Update
+              label: Update Diagnostic
+              method: PATCH
+            - name: Diagnostic_Delete
+              label: Delete Diagnostic
+              method: DELETE
+        - name: logger
+          label: Loggers
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/loggers/{loggerId}
+          operations:
+            - name: Logger_ListByService
+              label: List Loggers
+              method: GET
+            - name: Logger_Get
+              label: Get Logger
+              method: GET
+            - name: Logger_CreateOrUpdate
+              label: Create Or Update Logger
+              method: PUT
+            - name: Logger_Update
+              label: Update Logger
+              method: PATCH
+            - name: Logger_Delete
+              label: Delete Logger
+              method: DELETE
+        - name: certificate
+          label: Certificates
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates/{certificateId}
+          operations:
+            - name: Certificate_ListByService
+              label: List Certificates
+              method: GET
+            - name: Certificate_Get
+              label: Get Certificate
+              method: GET
+            - name: Certificate_CreateOrUpdate
+              label: Create Or Update Certificate
+              method: PUT
+            - name: Certificate_Delete
+              label: Delete Certificate
+              method: DELETE
+            - name: Certificate_RefreshSecret
+              label: Refresh Certificate Secret
+              method: POST
+    - type: http
+      namespace: azure-apim-gateway
+      baseUri: https://{service-name}.azure-api.net
+      auth:
+        type: apiKey
+        in: header
+        name: Ocp-Apim-Subscription-Key
+      resources:
+        - name: health
+          label: Gateway Health
+          path: /status-0123456789abcdef
+          operations:
+            - name: Gateway_HealthCheck
+              label: Gateway Health Check
+              method: GET
+    - type: http
+      namespace: azure-apim-self-hosted-gw
+      baseUri: https://{gateway-hostname}
+      auth:
+        type: apiKey
+        in: header
+        name: Ocp-Apim-Subscription-Key
+      resources:
+        - name: proxy
+          label: Self-Hosted Gateway Proxy
+          path: /{api-path}
+          operations:
+            - name: SelfHostedGateway_ProxyGet
+              label: Proxy GET Request
+              method: GET
+            - name: SelfHostedGateway_ProxyPost
+              label: Proxy POST Request
+              method: POST
+        - name: health
+          label: Self-Hosted Gateway Health
+          path: /status-0123456789abcdef
+          operations:
+            - name: SelfHostedGateway_HealthCheck
+              label: Self-Hosted Gateway Health Check
+              method: GET
+        - name: internal-status
+          label: Self-Hosted Gateway Internal Status
+          path: /internal/status
+          operations:
+            - name: SelfHostedGateway_InternalStatus
+              label: Internal Status
+              method: GET

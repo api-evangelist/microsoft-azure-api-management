@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CompletionRequest",
+  "type": "object",
+  "properties": {
+    "prompt": {
+      "type": "string",
+      "example": "Explain the benefits of API management in"
+    },
+    "max_tokens": {
+      "type": "integer",
+      "example": 128
+    },
+    "temperature": {
+      "type": "number",
+      "example": 0.7
+    }
+  }
+}

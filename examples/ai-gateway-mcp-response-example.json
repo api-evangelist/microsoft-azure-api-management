@@ -1,0 +1,12 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Found 3 API products in contoso-apim: 1) AI Gateway Standard - includes GPT-4o and text-embedding-ada-002 endpoints with 10K tokens/min limit. 2) AI Gateway Premium - includes GPT-4, GPT-4o, and DALL-E 3 with 100K tokens/min limit. 3) Internal APIs - employee-facing REST APIs for inventory and order management."
+      }
+    ]
+  }
+}

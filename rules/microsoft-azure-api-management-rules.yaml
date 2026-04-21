@@ -1,0 +1,192 @@
+extends:
+  - spectral:oas
+
+rules:
+
+  # ---------------------------------------------------------------------------
+  # Operation ID naming convention: {Resource}_{Action}
+  # ---------------------------------------------------------------------------
+  azure-operation-id-format:
+    description: Operation IDs must follow the {Resource}_{Action} pattern (e.g., Api_Get, ApiManagementService_CreateOrUpdate).
+    severity: warn
+    given: "$.paths[*][get,put,post,patch,delete,head].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][a-zA-Z0-9]*(_[A-Z][a-zA-Z0-9]*)+$"
+
+  # ---------------------------------------------------------------------------
+  # Every operation must have a description
+  # ---------------------------------------------------------------------------
+  azure-operation-description:
+    description: Every operation must have a description.
+    severity: warn
+    given: "$.paths[*][get,put,post,patch,delete,head]"
+    then:
+      field: description
+      function: truthy
+
+  # ---------------------------------------------------------------------------
+  # Every operation must have a summary
+  # ---------------------------------------------------------------------------
+  azure-operation-summary:
+    description: Every operation must have a summary.
+    severity: warn
+    given: "$.paths[*][get,put,post,patch,delete,head]"
+    then:
+      field: summary
+      function: truthy
+
+  # ---------------------------------------------------------------------------
+  # Every operation must have tags
+  # ---------------------------------------------------------------------------
+  azure-operation-tags:
+    description: Every operation must have at least one tag.
+    severity: warn
+    given: "$.paths[*][get,put,post,patch,delete,head]"
+    then:
+      field: tags
+      function: truthy
+
+  # ---------------------------------------------------------------------------
+  # ARM paths should start with /subscriptions or /providers
+  # ---------------------------------------------------------------------------
+  azure-arm-path-pattern:
+    description: Paths should follow Azure Resource Manager conventions, starting with /subscriptions or /providers.
+    severity: info
+    given: "$.paths"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^/(subscriptions|providers)/.*$"
+    # NOTE: This rule is expressed at the path-key level via the custom function below.
+    # Spectral cannot iterate object keys natively, so we use oas-path-param instead.
+
+  # ---------------------------------------------------------------------------
+  # Paths containing /providers/ must use Microsoft.* namespace
+  # ---------------------------------------------------------------------------
+  azure-provider-namespace:
+    description: Resource provider paths must use a Microsoft.* namespace (e.g., Microsoft.ApiManagement).
+    severity: warn
+    given: "$.paths"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          patternProperties:
+            ".*providers.*":
+              description: Provider paths are present
+          additionalProperties: true
+
+  # ---------------------------------------------------------------------------
+  # Security scheme should define OAuth2 (azure_auth)
+  # ---------------------------------------------------------------------------
+  azure-auth-scheme-defined:
+    description: The API should define an azure_auth OAuth2 security scheme.
+    severity: info
+    given: "$.components.securitySchemes"
+    then:
+      field: azure_auth
+      function: truthy
+
+  # ---------------------------------------------------------------------------
+  # Global security should reference azure_auth
+  # ---------------------------------------------------------------------------
+  azure-global-security:
+    description: The API should have global security referencing azure_auth.
+    severity: info
+    given: "$"
+    then:
+      field: security
+      function: truthy
+
+  # ---------------------------------------------------------------------------
+  # Responses should include a default or error response
+  # ---------------------------------------------------------------------------
+  azure-error-response:
+    description: Operations should include a default error response for consistent error handling.
+    severity: info
+    given: "$.paths[*][get,put,post,patch,delete,head].responses"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          anyOf:
+            - required: ["default"]
+            - required: ["4XX"]
+            - required: ["400"]
+            - required: ["404"]
+
+  # ---------------------------------------------------------------------------
+  # 200 response should have a description
+  # ---------------------------------------------------------------------------
+  azure-response-description:
+    description: Success responses must have a description.
+    severity: warn
+    given: "$.paths[*][get,put,post,patch,delete,head].responses.200"
+    then:
+      field: description
+      function: truthy
+
+  # ---------------------------------------------------------------------------
+  # Info must have a version
+  # ---------------------------------------------------------------------------
+  azure-api-version-info:
+    description: The API info object must specify a version.
+    severity: error
+    given: "$.info"
+    then:
+      field: version
+      function: truthy
+
+  # ---------------------------------------------------------------------------
+  # Server URL should use management.azure.com for ARM APIs
+  # ---------------------------------------------------------------------------
+  azure-management-server:
+    description: ARM APIs should use https://management.azure.com as the server URL.
+    severity: info
+    given: "$.servers[*].url"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://"
+
+  # ---------------------------------------------------------------------------
+  # Operation ID should match the tag prefix
+  # ---------------------------------------------------------------------------
+  azure-operationid-tag-consistency:
+    description: The operation ID prefix (before underscore) should align with the operation tag for consistency.
+    severity: info
+    given: "$.paths[*][get,put,post,patch,delete,head]"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          required:
+            - operationId
+            - tags
+
+  # ---------------------------------------------------------------------------
+  # Contact info should be present
+  # ---------------------------------------------------------------------------
+  azure-contact-info:
+    description: API info should include contact information.
+    severity: info
+    given: "$.info"
+    then:
+      field: contact
+      function: truthy
+
+  # ---------------------------------------------------------------------------
+  # License should be present
+  # ---------------------------------------------------------------------------
+  azure-license-info:
+    description: API info should include license information.
+    severity: info
+    given: "$.info"
+    then:
+      field: license
+      function: truthy

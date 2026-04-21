@@ -1,0 +1,265 @@
+{
+  "@context": {
+    "pan": "https://schemas.providerapis.net/microsoft-azure-api-management/ai-gateway#",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "ChatCompletionRequest": {
+      "@id": "pan:ChatCompletionRequest",
+      "@context": {
+        "messages": {
+          "@id": "pan:messages",
+          "@container": "@list"
+        },
+        "role": {
+          "@id": "pan:role",
+          "@type": "xsd:string"
+        },
+        "content": {
+          "@id": "pan:content",
+          "@type": "xsd:string"
+        },
+        "max_tokens": {
+          "@id": "pan:max_tokens",
+          "@type": "xsd:integer"
+        },
+        "temperature": {
+          "@id": "pan:temperature",
+          "@type": "xsd:decimal"
+        }
+      }
+    },
+
+    "ChatCompletionResponse": {
+      "@id": "pan:ChatCompletionResponse",
+      "@context": {
+        "id": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "object": {
+          "@id": "pan:object",
+          "@type": "xsd:string"
+        },
+        "created": {
+          "@id": "dcterms:created",
+          "@type": "xsd:integer"
+        },
+        "model": {
+          "@id": "pan:model",
+          "@type": "xsd:string"
+        },
+        "choices": {
+          "@id": "pan:choices",
+          "@container": "@list"
+        },
+        "index": {
+          "@id": "pan:index",
+          "@type": "xsd:integer"
+        },
+        "message": {
+          "@id": "pan:message"
+        },
+        "finish_reason": {
+          "@id": "pan:finish_reason",
+          "@type": "xsd:string"
+        },
+        "usage": {
+          "@id": "pan:usage"
+        },
+        "prompt_tokens": {
+          "@id": "pan:prompt_tokens",
+          "@type": "xsd:integer"
+        },
+        "completion_tokens": {
+          "@id": "pan:completion_tokens",
+          "@type": "xsd:integer"
+        },
+        "total_tokens": {
+          "@id": "pan:total_tokens",
+          "@type": "xsd:integer"
+        }
+      }
+    },
+
+    "CompletionRequest": {
+      "@id": "pan:CompletionRequest",
+      "@context": {
+        "prompt": {
+          "@id": "pan:prompt",
+          "@type": "xsd:string"
+        },
+        "max_tokens": {
+          "@id": "pan:max_tokens",
+          "@type": "xsd:integer"
+        },
+        "temperature": {
+          "@id": "pan:temperature",
+          "@type": "xsd:decimal"
+        }
+      }
+    },
+
+    "CompletionResponse": {
+      "@id": "pan:CompletionResponse",
+      "@context": {
+        "id": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "object": {
+          "@id": "pan:object",
+          "@type": "xsd:string"
+        },
+        "created": {
+          "@id": "dcterms:created",
+          "@type": "xsd:integer"
+        },
+        "model": {
+          "@id": "pan:model",
+          "@type": "xsd:string"
+        },
+        "choices": {
+          "@id": "pan:choices",
+          "@container": "@list"
+        },
+        "index": {
+          "@id": "pan:index",
+          "@type": "xsd:integer"
+        },
+        "text": {
+          "@id": "schema:text",
+          "@type": "xsd:string"
+        },
+        "finish_reason": {
+          "@id": "pan:finish_reason",
+          "@type": "xsd:string"
+        },
+        "usage": {
+          "@id": "pan:usage"
+        },
+        "prompt_tokens": {
+          "@id": "pan:prompt_tokens",
+          "@type": "xsd:integer"
+        },
+        "completion_tokens": {
+          "@id": "pan:completion_tokens",
+          "@type": "xsd:integer"
+        },
+        "total_tokens": {
+          "@id": "pan:total_tokens",
+          "@type": "xsd:integer"
+        }
+      }
+    },
+
+    "EmbeddingRequest": {
+      "@id": "pan:EmbeddingRequest",
+      "@context": {
+        "input": {
+          "@id": "pan:input",
+          "@type": "xsd:string"
+        },
+        "model": {
+          "@id": "pan:model",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "EmbeddingResponse": {
+      "@id": "pan:EmbeddingResponse",
+      "@context": {
+        "object": {
+          "@id": "pan:object",
+          "@type": "xsd:string"
+        },
+        "data": {
+          "@id": "pan:data",
+          "@container": "@list"
+        },
+        "index": {
+          "@id": "pan:index",
+          "@type": "xsd:integer"
+        },
+        "embedding": {
+          "@id": "pan:embedding",
+          "@container": "@list"
+        },
+        "model": {
+          "@id": "pan:model",
+          "@type": "xsd:string"
+        },
+        "usage": {
+          "@id": "pan:usage"
+        },
+        "prompt_tokens": {
+          "@id": "pan:prompt_tokens",
+          "@type": "xsd:integer"
+        },
+        "total_tokens": {
+          "@id": "pan:total_tokens",
+          "@type": "xsd:integer"
+        }
+      }
+    },
+
+    "MCPRequest": {
+      "@id": "pan:MCPRequest",
+      "@context": {
+        "jsonrpc": {
+          "@id": "pan:jsonrpc",
+          "@type": "xsd:string"
+        },
+        "method": {
+          "@id": "pan:method",
+          "@type": "xsd:string"
+        },
+        "id": {
+          "@id": "schema:identifier",
+          "@type": "xsd:integer"
+        },
+        "params": {
+          "@id": "pan:params"
+        },
+        "name": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "arguments": {
+          "@id": "pan:arguments"
+        }
+      }
+    },
+
+    "MCPResponse": {
+      "@id": "pan:MCPResponse",
+      "@context": {
+        "jsonrpc": {
+          "@id": "pan:jsonrpc",
+          "@type": "xsd:string"
+        },
+        "id": {
+          "@id": "schema:identifier",
+          "@type": "xsd:integer"
+        },
+        "result": {
+          "@id": "pan:result"
+        },
+        "content": {
+          "@id": "pan:content",
+          "@container": "@list"
+        },
+        "type": {
+          "@id": "pan:contentType",
+          "@type": "xsd:string"
+        },
+        "text": {
+          "@id": "schema:text",
+          "@type": "xsd:string"
+        }
+      }
+    }
+  }
+}

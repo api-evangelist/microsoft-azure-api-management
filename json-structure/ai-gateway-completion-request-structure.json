@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "CompletionRequest",
+  "type": "object",
+  "properties": {
+    "prompt": {
+      "type": "string",
+      "example": "Explain the benefits of API management in"
+    },
+    "max_tokens": {
+      "type": "int32",
+      "example": 128
+    },
+    "temperature": {
+      "type": "float",
+      "example": 0.7
+    }
+  }
+}

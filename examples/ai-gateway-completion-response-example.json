@@ -1,0 +1,18 @@
+{
+  "id": "cmpl-7Qm3kVxNpL8rW2tYs5bA",
+  "object": "text_completion",
+  "created": 1714003200,
+  "model": "gpt-4",
+  "choices": [
+    {
+      "index": 0,
+      "text": "organizations includes centralized governance, built-in token rate limiting, semantic caching for reduced latency and cost, load balancing across multiple Azure OpenAI endpoints, and comprehensive logging of all AI API traffic through Azure Monitor and Application Insights.",
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 14,
+    "completion_tokens": 42,
+    "total_tokens": 56
+  }
+}

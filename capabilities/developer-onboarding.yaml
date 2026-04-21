@@ -1,0 +1,188 @@
+naftiko: "1.0.0-alpha1"
+info:
+  label: Developer Onboarding
+  description: >-
+    Workflow capability for API Developers to discover, test, and subscribe to
+    APIs through the developer portal and management plane. Covers user
+    registration, API discovery, product subscription, API key management,
+    and interactive API testing.
+  tags:
+    - Developer Experience
+    - API Discovery
+    - Onboarding
+    - Self Service
+    - Subscriptions
+  created: "2026-04-21"
+  modified: "2026-04-21"
+capability:
+  consumes:
+    - type: http
+      namespace: azure-apim-dev-portal
+      baseUri: https://{service-name}.developer.azure-api.net
+      resources:
+        - name: portal
+          label: Portal Home
+          path: /
+          operations:
+            - name: DevPortal_Home
+              label: Developer Portal Home Page
+              method: GET
+        - name: apis
+          label: API Catalog
+          path: /apis/{api-id}
+          operations:
+            - name: DevPortal_ListApis
+              label: List Available APIs
+              method: GET
+            - name: DevPortal_GetApi
+              label: Get API Details
+              method: GET
+        - name: products
+          label: Products
+          path: /products
+          operations:
+            - name: DevPortal_ListProducts
+              label: List Available Products
+              method: GET
+        - name: authentication
+          label: Authentication
+          path: /signin
+          operations:
+            - name: DevPortal_SignIn
+              label: Sign In
+              method: GET
+            - name: DevPortal_SignUp
+              label: Sign Up
+              method: GET
+        - name: profile
+          label: User Profile
+          path: /profile
+          operations:
+            - name: DevPortal_Profile
+              label: User Profile And Subscriptions
+              method: GET
+    - type: http
+      namespace: azure-apim-rest
+      baseUri: https://management.azure.com
+      auth:
+        type: oauth2
+        scopes:
+          - user_impersonation
+      resources:
+        - name: user
+          label: Users
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}
+          operations:
+            - name: User_ListByService
+              label: List Users
+              method: GET
+            - name: User_Get
+              label: Get User
+              method: GET
+            - name: User_CreateOrUpdate
+              label: Create Or Update User
+              method: PUT
+            - name: User_Delete
+              label: Delete User
+              method: DELETE
+            - name: User_GenerateSsoUrl
+              label: Generate SSO URL
+              method: POST
+            - name: User_GetSharedAccessToken
+              label: Get Shared Access Token
+              method: POST
+        - name: group
+          label: Groups
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups/{groupId}
+          operations:
+            - name: Group_ListByService
+              label: List Groups
+              method: GET
+            - name: Group_Get
+              label: Get Group
+              method: GET
+            - name: Group_CreateOrUpdate
+              label: Create Or Update Group
+              method: PUT
+            - name: Group_Delete
+              label: Delete Group
+              method: DELETE
+        - name: group-user
+          label: Group Users
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups/{groupId}/users/{userId}
+          operations:
+            - name: GroupUser_List
+              label: List Group Users
+              method: GET
+            - name: GroupUser_Create
+              label: Add User To Group
+              method: PUT
+            - name: GroupUser_Delete
+              label: Remove User From Group
+              method: DELETE
+        - name: subscription
+          label: Subscriptions
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/subscriptions/{sid}
+          operations:
+            - name: Subscription_List
+              label: List Subscriptions
+              method: GET
+            - name: Subscription_Get
+              label: Get Subscription
+              method: GET
+            - name: Subscription_CreateOrUpdate
+              label: Create Or Update Subscription
+              method: PUT
+            - name: Subscription_Delete
+              label: Delete Subscription
+              method: DELETE
+            - name: Subscription_ListSecrets
+              label: List Subscription Secrets
+              method: POST
+            - name: Subscription_RegeneratePrimaryKey
+              label: Regenerate Primary Key
+              method: POST
+            - name: Subscription_RegenerateSecondaryKey
+              label: Regenerate Secondary Key
+              method: POST
+        - name: product
+          label: Products
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}
+          operations:
+            - name: Product_ListByService
+              label: List Products
+              method: GET
+            - name: Product_Get
+              label: Get Product
+              method: GET
+        - name: product-group
+          label: Product Groups
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/groups/{groupId}
+          operations:
+            - name: ProductGroup_ListByProduct
+              label: List Product Groups
+              method: GET
+            - name: ProductGroup_CreateOrUpdate
+              label: Add Group To Product
+              method: PUT
+            - name: ProductGroup_Delete
+              label: Remove Group From Product
+              method: DELETE
+    - type: http
+      namespace: azure-apim-gateway
+      baseUri: https://{service-name}.azure-api.net
+      auth:
+        type: apiKey
+        in: header
+        name: Ocp-Apim-Subscription-Key
+      resources:
+        - name: proxy
+          label: API Testing
+          path: /{api-path}
+          operations:
+            - name: Gateway_ProxyGet
+              label: Test GET Request
+              method: GET
+            - name: Gateway_ProxyPost
+              label: Test POST Request
+              method: POST

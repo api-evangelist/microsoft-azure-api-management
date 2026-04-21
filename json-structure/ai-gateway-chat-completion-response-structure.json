@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "ChatCompletionResponse",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "chatcmpl-abc123def456"
+    },
+    "object": {
+      "type": "string",
+      "example": "chat.completion"
+    },
+    "created": {
+      "type": "int32",
+      "example": 1714000000
+    },
+    "model": {
+      "type": "string",
+      "example": "gpt-4o"
+    },
+    "choices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "int32",
+            "example": 0
+          },
+          "message": {
+            "type": "object",
+            "properties": {
+              "role": {
+                "type": "string",
+                "example": "assistant"
+              },
+              "content": {
+                "type": "string",
+                "example": "Azure API Management is a hybrid, multicloud management platform for APIs across all environments."
+              }
+            }
+          },
+          "finish_reason": {
+            "type": "string",
+            "example": "stop"
+          }
+        }
+      }
+    },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "prompt_tokens": {
+          "type": "int32",
+          "example": 24
+        },
+        "completion_tokens": {
+          "type": "int32",
+          "example": 18
+        },
+        "total_tokens": {
+          "type": "int32",
+          "example": 42
+        }
+      }
+    }
+  }
+}

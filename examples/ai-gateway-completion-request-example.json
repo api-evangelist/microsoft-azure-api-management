@@ -1,0 +1,5 @@
+{
+  "prompt": "Explain the benefits of using Azure API Management as an AI gateway for enterprise",
+  "max_tokens": 128,
+  "temperature": 0.7
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EmbeddingRequest",
+  "type": "object",
+  "properties": {
+    "input": {
+      "type": "string",
+      "example": "Azure API Management provides a unified gateway for APIs."
+    },
+    "model": {
+      "type": "string",
+      "example": "text-embedding-ada-002"
+    }
+  }
+}

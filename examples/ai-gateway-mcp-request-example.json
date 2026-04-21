@@ -1,0 +1,13 @@
+{
+  "jsonrpc": "2.0",
+  "method": "tools/call",
+  "id": 1,
+  "params": {
+    "name": "list_api_products",
+    "arguments": {
+      "service_name": "contoso-apim",
+      "resource_group": "rg-api-platform",
+      "subscription_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+    }
+  }
+}

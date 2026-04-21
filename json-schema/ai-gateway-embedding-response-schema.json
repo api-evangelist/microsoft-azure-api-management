@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EmbeddingResponse",
+  "type": "object",
+  "properties": {
+    "object": {
+      "type": "string",
+      "example": "list"
+    },
+    "data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "object": {
+            "type": "string",
+            "example": "embedding"
+          },
+          "index": {
+            "type": "integer",
+            "example": 0
+          },
+          "embedding": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "model": {
+      "type": "string",
+      "example": "text-embedding-ada-002"
+    },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "prompt_tokens": {
+          "type": "integer",
+          "example": 12
+        },
+        "total_tokens": {
+          "type": "integer",
+          "example": 12
+        }
+      }
+    }
+  }
+}

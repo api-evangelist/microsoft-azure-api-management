@@ -1,0 +1,3569 @@
+openapi: 3.0.3
+info:
+  title: Azure API Management REST API
+  description: REST APIs for managing Azure API Management service instances and their entities including APIs, products,
+    subscriptions, users, groups, policies, gateways, backends, certificates, and workspaces. Uses Azure Resource Manager
+    conventions.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/rest/api/apimanagement/
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  x-source: https://github.com/Azure/azure-rest-api-specs/tree/main/specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01
+externalDocs:
+  description: Azure API Management REST API Reference
+  url: https://learn.microsoft.com/en-us/rest/api/apimanagement/
+servers:
+- url: https://management.azure.com
+security:
+- azure_auth:
+  - user_impersonation
+paths:
+  /providers/Microsoft.ApiManagement/operations:
+    get:
+      summary: Microsoft Azure API Management ApiManagementOperations_List
+      operationId: ApiManagementOperations_List
+      description: Lists all of the available REST API operations of the Microsoft.ApiManagement provider.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationListResult'
+              examples:
+                OperationListExample:
+                  summary: List of available operations
+                  value:
+                    value:
+                    - name: Microsoft.ApiManagement/service/read
+                      display:
+                        provider: Microsoft API Management
+                        resource: Service
+                        operation: Read API Management Service
+                    - name: Microsoft.ApiManagement/service/write
+                      display:
+                        provider: Microsoft API Management
+                        resource: Service
+                        operation: Create or Update API Management Service
+                    nextLink: ''
+              x-microcks-default:
+                value: []
+                nextLink: ''
+      tags:
+      - ApiManagementOperations
+  /subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/checkNameAvailability:
+    post:
+      summary: Microsoft Azure API Management ApiManagementService_CheckNameAvailability
+      operationId: ApiManagementService_CheckNameAvailability
+      description: Checks availability and correctness of a name for an API Management service.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: contoso-apim
+            examples:
+              CheckNameExample:
+                summary: Check name availability
+                value:
+                  name: contoso-apim
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceNameAvailabilityResult'
+              examples:
+                NameAvailableExample:
+                  summary: Name is available
+                  value:
+                    nameAvailable: true
+                    message: ''
+                    reason: ''
+              x-microcks-default:
+                nameAvailable: true
+                message: ''
+                reason: ''
+      tags:
+      - ApiManagementService
+  /subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/getDomainOwnershipIdentifier:
+    post:
+      summary: Microsoft Azure API Management ApiManagementService_GetDomainOwnershipIdentifier
+      operationId: ApiManagementService_GetDomainOwnershipIdentifier
+      description: Get the custom domain ownership identifier for an API Management service.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainOwnershipIdentifierResult'
+              examples:
+                DomainOwnershipExample:
+                  summary: Domain ownership identifier
+                  value:
+                    domainOwnershipIdentifier: abc123def456ghi789
+              x-microcks-default:
+                domainOwnershipIdentifier: abc123def456ghi789
+      tags:
+      - ApiManagementService
+  /subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/service:
+    get:
+      summary: Microsoft Azure API Management ApiManagementService_List
+      operationId: ApiManagementService_List
+      description: Lists all API Management services within an Azure subscription.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiManagementServiceListResult'
+              examples:
+                ServiceListExample:
+                  summary: List of APIM services
+                  value:
+                    value:
+                    - id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim
+                      name: contoso-apim
+                      type: Microsoft.ApiManagement/service
+                      location: West US 2
+                      sku:
+                        name: Developer
+                        capacity: 1
+                      properties:
+                        publisherEmail: admin@contoso.com
+                        publisherName: Contoso
+                        provisioningState: Succeeded
+                        gatewayUrl: https://contoso-apim.azure-api.net
+                        portalUrl: https://contoso-apim.developer.azure-api.net
+                        managementApiUrl: https://contoso-apim.management.azure-api.net
+                        createdAtUtc: '2024-01-10T08:00:00Z'
+                    count: 1
+                    nextLink: ''
+              x-microcks-default:
+                value: []
+                count: 0
+                nextLink: ''
+      tags:
+      - ApiManagementService
+  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service:
+    get:
+      summary: Microsoft Azure API Management ApiManagementService_ListByResourceGroup
+      operationId: ApiManagementService_ListByResourceGroup
+      description: List all API Management services within a resource group.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiManagementServiceListResult'
+              examples:
+                ServiceListByRgExample:
+                  summary: List of APIM services in resource group
+                  value:
+                    value:
+                    - id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim
+                      name: contoso-apim
+                      type: Microsoft.ApiManagement/service
+                      location: West US 2
+                      sku:
+                        name: Developer
+                        capacity: 1
+                      properties:
+                        publisherEmail: admin@contoso.com
+                        publisherName: Contoso
+                        provisioningState: Succeeded
+                        gatewayUrl: https://contoso-apim.azure-api.net
+                        portalUrl: https://contoso-apim.developer.azure-api.net
+                        managementApiUrl: https://contoso-apim.management.azure-api.net
+                        createdAtUtc: '2024-01-10T08:00:00Z'
+                    count: 1
+                    nextLink: ''
+              x-microcks-default:
+                value: []
+                count: 0
+                nextLink: ''
+      tags:
+      - ApiManagementService
+  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}:
+    put:
+      summary: Microsoft Azure API Management ApiManagementService_CreateOrUpdate
+      operationId: ApiManagementService_CreateOrUpdate
+      description: Creates or updates an API Management service. This is long running operation and could take several minutes
+        to complete.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiManagementServiceResource'
+            examples:
+              CreateServiceExample:
+                summary: Create a Developer tier APIM service
+                value:
+                  location: West US 2
+                  sku:
+                    name: Developer
+                    capacity: 1
+                  properties:
+                    publisherEmail: admin@contoso.com
+                    publisherName: Contoso
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiManagementServiceResource'
+              examples:
+                CreateServiceExample:
+                  summary: Created APIM service
+                  value:
+                    id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim
+                    name: contoso-apim
+                    type: Microsoft.ApiManagement/service
+                    location: West US 2
+                    sku:
+                      name: Developer
+                      capacity: 1
+                    properties:
+                      publisherEmail: admin@contoso.com
+                      publisherName: Contoso
+                      provisioningState: Created
+                      gatewayUrl: https://contoso-apim.azure-api.net
+                      portalUrl: https://contoso-apim.developer.azure-api.net
+                      managementApiUrl: https://contoso-apim.management.azure-api.net
+                      createdAtUtc: '2024-01-10T08:00:00Z'
+              x-microcks-default:
+                id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim
+                name: contoso-apim
+                type: Microsoft.ApiManagement/service
+      tags:
+      - ApiManagementService
+    patch:
+      summary: Microsoft Azure API Management ApiManagementService_Update
+      operationId: ApiManagementService_Update
+      description: Updates an existing API Management service.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiManagementServiceResource'
+            examples:
+              UpdateServiceExample:
+                summary: Update publisher name
+                value:
+                  properties:
+                    publisherName: Contoso Ltd
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiManagementServiceResource'
+              examples:
+                UpdateServiceExample:
+                  summary: Updated APIM service
+                  value:
+                    id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim
+                    name: contoso-apim
+                    type: Microsoft.ApiManagement/service
+                    location: West US 2
+                    sku:
+                      name: Developer
+                      capacity: 1
+                    properties:
+                      publisherEmail: admin@contoso.com
+                      publisherName: Contoso Ltd
+                      provisioningState: Succeeded
+                      gatewayUrl: https://contoso-apim.azure-api.net
+                      portalUrl: https://contoso-apim.developer.azure-api.net
+                      managementApiUrl: https://contoso-apim.management.azure-api.net
+                      createdAtUtc: '2024-01-10T08:00:00Z'
+              x-microcks-default:
+                id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim
+                name: contoso-apim
+      tags:
+      - ApiManagementService
+    get:
+      summary: Microsoft Azure API Management ApiManagementService_Get
+      operationId: ApiManagementService_Get
+      description: Gets an API Management service resource description.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiManagementServiceResource'
+              examples:
+                GetServiceExample:
+                  summary: Get APIM service details
+                  value:
+                    id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim
+                    name: contoso-apim
+                    type: Microsoft.ApiManagement/service
+                    location: West US 2
+                    sku:
+                      name: Developer
+                      capacity: 1
+                    properties:
+                      publisherEmail: admin@contoso.com
+                      publisherName: Contoso
+                      provisioningState: Succeeded
+                      gatewayUrl: https://contoso-apim.azure-api.net
+                      portalUrl: https://contoso-apim.developer.azure-api.net
+                      managementApiUrl: https://contoso-apim.management.azure-api.net
+                      createdAtUtc: '2024-01-10T08:00:00Z'
+              x-microcks-default:
+                id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim
+                name: contoso-apim
+      tags:
+      - ApiManagementService
+    delete:
+      summary: Microsoft Azure API Management ApiManagementService_Delete
+      operationId: ApiManagementService_Delete
+      description: Deletes an existing API Management service.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiManagementService
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis
+  : get:
+      summary: Microsoft Azure API Management Api_ListByService
+      operationId: Api_ListByService
+      description: Lists all APIs of the API Management service instance.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiCollection'
+              examples:
+                ApiListExample:
+                  summary: List of APIs
+                  value:
+                    value:
+                    - id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api
+                      name: petstore-api
+                      type: Microsoft.ApiManagement/service/apis
+                      properties:
+                        displayName: Petstore API
+                        description: A sample API for managing pets.
+                        serviceUrl: https://petstore.example.com/v1
+                        path: petstore
+                        protocols:
+                        - https
+                        subscriptionRequired: true
+                        apiRevision: '1'
+                    count: 1
+                    nextLink: ''
+              x-microcks-default:
+                value: []
+                count: 0
+                nextLink: ''
+      tags:
+      - Api
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}
+  : head:
+      summary: Microsoft Azure API Management Api_GetEntityTag
+      operationId: Api_GetEntityTag
+      description: Gets the entity state (Etag) version of the API specified by its identifier.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Api
+    get:
+      summary: Microsoft Azure API Management Api_Get
+      operationId: Api_Get
+      description: Gets the details of the API specified by its identifier.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiContract'
+              examples:
+                ApiGetExample:
+                  summary: Get API details
+                  value:
+                    id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api
+                    name: petstore-api
+                    type: Microsoft.ApiManagement/service/apis
+                    properties:
+                      displayName: Petstore API
+                      description: A sample API for managing pets.
+                      serviceUrl: https://petstore.example.com/v1
+                      path: petstore
+                      protocols:
+                      - https
+                      subscriptionRequired: true
+                      apiRevision: '1'
+              x-microcks-default:
+                id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api
+                name: petstore-api
+      tags:
+      - Api
+    put:
+      summary: Microsoft Azure API Management Api_CreateOrUpdate
+      operationId: Api_CreateOrUpdate
+      description: Creates new or updates existing specified API of the API Management service instance.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiCreateOrUpdateParameter'
+            examples:
+              CreateApiExample:
+                summary: Create a new API
+                value:
+                  properties:
+                    displayName: Petstore API
+                    description: A sample API for managing pets.
+                    serviceUrl: https://petstore.example.com/v1
+                    path: petstore
+                    protocols:
+                    - https
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiContract'
+              examples:
+                CreateApiExample:
+                  summary: Created API
+                  value:
+                    id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api
+                    name: petstore-api
+                    type: Microsoft.ApiManagement/service/apis
+                    properties:
+                      displayName: Petstore API
+                      description: A sample API for managing pets.
+                      serviceUrl: https://petstore.example.com/v1
+                      path: petstore
+                      protocols:
+                      - https
+                      subscriptionRequired: true
+                      apiRevision: '1'
+              x-microcks-default:
+                id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api
+                name: petstore-api
+      tags:
+      - Api
+    patch:
+      summary: Microsoft Azure API Management Api_Update
+      operationId: Api_Update
+      description: Updates the specified API of the API Management service instance.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiCreateOrUpdateParameter'
+            examples:
+              UpdateApiExample:
+                summary: Update API description
+                value:
+                  properties:
+                    description: Updated API description for managing pets and inventory.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiContract'
+              examples:
+                UpdateApiExample:
+                  summary: Updated API
+                  value:
+                    id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api
+                    name: petstore-api
+                    type: Microsoft.ApiManagement/service/apis
+                    properties:
+                      displayName: Petstore API
+                      description: Updated API description for managing pets and inventory.
+                      serviceUrl: https://petstore.example.com/v1
+                      path: petstore
+                      protocols:
+                      - https
+                      subscriptionRequired: true
+                      apiRevision: '1'
+              x-microcks-default:
+                id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api
+                name: petstore-api
+      tags:
+      - Api
+    delete:
+      summary: Microsoft Azure API Management Api_Delete
+      operationId: Api_Delete
+      description: Deletes the specified API of the API Management service instance.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Api
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/diagnostics
+  : get:
+      summary: Microsoft Azure API Management ApiDiagnostic_ListByService
+      operationId: ApiDiagnostic_ListByService
+      description: Lists all diagnostics of an API.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiagnosticCollection'
+              examples:
+                DiagnosticListExample:
+                  summary: List of API diagnostics
+                  value:
+                    value:
+                    - id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api/diagnostics/applicationinsights
+                      name: applicationinsights
+                      type: Microsoft.ApiManagement/service/apis/diagnostics
+                      properties:
+                        loggerId: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/loggers/appinsights-logger
+                        alwaysLog: allErrors
+                        sampling:
+                          samplingType: fixed
+                          percentage: 100
+                    count: 1
+                    nextLink: ''
+              x-microcks-default:
+                value: []
+                count: 0
+                nextLink: ''
+      tags:
+      - ApiDiagnostic
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/diagnostics/{diagnosticId}
+  : head:
+      summary: Microsoft Azure API Management ApiDiagnostic_GetEntityTag
+      operationId: ApiDiagnostic_GetEntityTag
+      description: Gets the entity state (Etag) version of the Diagnostic for an API specified by its identifier.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiDiagnostic
+    get:
+      summary: Microsoft Azure API Management ApiDiagnostic_Get
+      operationId: ApiDiagnostic_Get
+      description: Gets the details of the Diagnostic for an API specified by its identifier.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiagnosticContract'
+              examples:
+                DiagnosticGetExample:
+                  summary: Get API diagnostic
+                  value:
+                    id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api/diagnostics/applicationinsights
+                    name: applicationinsights
+                    type: Microsoft.ApiManagement/service/apis/diagnostics
+                    properties:
+                      loggerId: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/loggers/appinsights-logger
+                      alwaysLog: allErrors
+                      sampling:
+                        samplingType: fixed
+                        percentage: 100
+              x-microcks-default:
+                id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api/diagnostics/applicationinsights
+                name: applicationinsights
+      tags:
+      - ApiDiagnostic
+    put:
+      summary: Microsoft Azure API Management ApiDiagnostic_CreateOrUpdate
+      operationId: ApiDiagnostic_CreateOrUpdate
+      description: Creates a new Diagnostic for an API or updates an existing one.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DiagnosticContract'
+            examples:
+              CreateDiagnosticExample:
+                summary: Create Application Insights diagnostic
+                value:
+                  properties:
+                    loggerId: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/loggers/appinsights-logger
+                    alwaysLog: allErrors
+                    sampling:
+                      samplingType: fixed
+                      percentage: 100
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiagnosticContract'
+              examples:
+                CreateDiagnosticExample:
+                  summary: Created diagnostic
+                  value:
+                    id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api/diagnostics/applicationinsights
+                    name: applicationinsights
+                    type: Microsoft.ApiManagement/service/apis/diagnostics
+                    properties:
+                      loggerId: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/loggers/appinsights-logger
+                      alwaysLog: allErrors
+                      sampling:
+                        samplingType: fixed
+                        percentage: 100
+              x-microcks-default:
+                id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api/diagnostics/applicationinsights
+                name: applicationinsights
+      tags:
+      - ApiDiagnostic
+    patch:
+      summary: Microsoft Azure API Management ApiDiagnostic_Update
+      operationId: ApiDiagnostic_Update
+      description: Updates the details of the Diagnostic for an API specified by its identifier.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiDiagnostic
+    delete:
+      summary: Microsoft Azure API Management ApiDiagnostic_Delete
+      operationId: ApiDiagnostic_Delete
+      description: Deletes the specified Diagnostic from an API.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiDiagnostic
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/issues
+  : get:
+      summary: Microsoft Azure API Management ApiIssue_ListByService
+      operationId: ApiIssue_ListByService
+      description: Lists all issues associated with the specified API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiIssue
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/issues/{issueId}
+  : head:
+      summary: Microsoft Azure API Management ApiIssue_GetEntityTag
+      operationId: ApiIssue_GetEntityTag
+      description: Gets the entity state (Etag) version of the Issue for an API specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiIssue
+    get:
+      summary: Microsoft Azure API Management ApiIssue_Get
+      operationId: ApiIssue_Get
+      description: Gets the details of the Issue for an API specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiIssue
+    put:
+      summary: Microsoft Azure API Management ApiIssue_CreateOrUpdate
+      operationId: ApiIssue_CreateOrUpdate
+      description: Creates a new Issue for an API or updates an existing one.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiIssue
+    patch:
+      summary: Microsoft Azure API Management ApiIssue_Update
+      operationId: ApiIssue_Update
+      description: Updates an existing issue for an API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiIssue
+    delete:
+      summary: Microsoft Azure API Management ApiIssue_Delete
+      operationId: ApiIssue_Delete
+      description: Deletes the specified Issue from an API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiIssue
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/operations
+  : get:
+      summary: Microsoft Azure API Management ApiOperation_ListByApi
+      operationId: ApiOperation_ListByApi
+      description: Lists a collection of the operations for the specified API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiOperation
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/operations/{operationId}
+  : head:
+      summary: Microsoft Azure API Management ApiOperation_GetEntityTag
+      operationId: ApiOperation_GetEntityTag
+      description: Gets the entity state (Etag) version of the API operation specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiOperation
+    get:
+      summary: Microsoft Azure API Management ApiOperation_Get
+      operationId: ApiOperation_Get
+      description: Gets the details of the API Operation specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiOperation
+    put:
+      summary: Microsoft Azure API Management ApiOperation_CreateOrUpdate
+      operationId: ApiOperation_CreateOrUpdate
+      description: Creates a new operation in the API or updates an existing one.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiOperation
+    patch:
+      summary: Microsoft Azure API Management ApiOperation_Update
+      operationId: ApiOperation_Update
+      description: Updates the details of the operation in the API specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiOperation
+    delete:
+      summary: Microsoft Azure API Management ApiOperation_Delete
+      operationId: ApiOperation_Delete
+      description: Deletes the specified operation in the API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiOperation
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/operationsByTags
+  : get:
+      summary: Microsoft Azure API Management Operation_ListByTags
+      operationId: Operation_ListByTags
+      description: Lists a collection of operations associated with tags.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiOperationsByTag
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/policies
+  : get:
+      summary: Microsoft Azure API Management ApiPolicy_ListByApi
+      operationId: ApiPolicy_ListByApi
+      description: Get the policy configuration at the API level.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiPolicy
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/policies/{policyId}
+  : head:
+      summary: Microsoft Azure API Management ApiPolicy_GetEntityTag
+      operationId: ApiPolicy_GetEntityTag
+      description: Gets the entity state (Etag) version of the API policy specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiPolicy
+    get:
+      summary: Microsoft Azure API Management ApiPolicy_Get
+      operationId: ApiPolicy_Get
+      description: Get the policy configuration at the API level.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiPolicy
+    put:
+      summary: Microsoft Azure API Management ApiPolicy_CreateOrUpdate
+      operationId: ApiPolicy_CreateOrUpdate
+      description: Creates or updates policy configuration for the API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiPolicy
+    delete:
+      summary: Microsoft Azure API Management ApiPolicy_Delete
+      operationId: ApiPolicy_Delete
+      description: Deletes the policy configuration at the Api.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiPolicy
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/products
+  : get:
+      summary: Microsoft Azure API Management ApiProduct_ListByApis
+      operationId: ApiProduct_ListByApis
+      description: Lists all Products, which the API is part of.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiProduct
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/releases
+  : get:
+      summary: Microsoft Azure API Management ApiRelease_ListByService
+      operationId: ApiRelease_ListByService
+      description: Lists all releases of an API. An API release is created when making an API Revision current. Releases are
+        also used to rollback to previous revisions. Results will be paged and can be constrained by the $top and $skip parameters.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiRelease
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/releases/{releaseId}
+  : head:
+      summary: Microsoft Azure API Management ApiRelease_GetEntityTag
+      operationId: ApiRelease_GetEntityTag
+      description: Returns the etag of an API release.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiRelease
+    get:
+      summary: Microsoft Azure API Management ApiRelease_Get
+      operationId: ApiRelease_Get
+      description: Returns the details of an API release.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiRelease
+    put:
+      summary: Microsoft Azure API Management ApiRelease_CreateOrUpdate
+      operationId: ApiRelease_CreateOrUpdate
+      description: Creates a new Release for the API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiRelease
+    patch:
+      summary: Microsoft Azure API Management ApiRelease_Update
+      operationId: ApiRelease_Update
+      description: Updates the details of the release of the API specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiRelease
+    delete:
+      summary: Microsoft Azure API Management ApiRelease_Delete
+      operationId: ApiRelease_Delete
+      description: Deletes the specified release in the API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiRelease
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/resolvers
+  : get:
+      summary: Microsoft Azure API Management GraphQLApiResolver_ListByApi
+      operationId: GraphQLApiResolver_ListByApi
+      description: Lists a collection of the resolvers for the specified GraphQL API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GraphQLApiResolver
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/resolvers/{resolverId}
+  : head:
+      summary: Microsoft Azure API Management GraphQLApiResolver_GetEntityTag
+      operationId: GraphQLApiResolver_GetEntityTag
+      description: Gets the entity state (Etag) version of the GraphQL API resolver specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GraphQLApiResolver
+    get:
+      summary: Microsoft Azure API Management GraphQLApiResolver_Get
+      operationId: GraphQLApiResolver_Get
+      description: Gets the details of the GraphQL API Resolver specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GraphQLApiResolver
+    put:
+      summary: Microsoft Azure API Management GraphQLApiResolver_CreateOrUpdate
+      operationId: GraphQLApiResolver_CreateOrUpdate
+      description: Creates a new resolver in the GraphQL API or updates an existing one.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GraphQLApiResolver
+    patch:
+      summary: Microsoft Azure API Management GraphQLApiResolver_Update
+      operationId: GraphQLApiResolver_Update
+      description: Updates the details of the resolver in the GraphQL API specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GraphQLApiResolver
+    delete:
+      summary: Microsoft Azure API Management GraphQLApiResolver_Delete
+      operationId: GraphQLApiResolver_Delete
+      description: Deletes the specified resolver in the GraphQL API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GraphQLApiResolver
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/revisions
+  : get:
+      summary: Microsoft Azure API Management ApiRevision_ListByService
+      operationId: ApiRevision_ListByService
+      description: Lists all revisions of an API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiRevision
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/schemas
+  : get:
+      summary: Microsoft Azure API Management ApiSchema_ListByApi
+      operationId: ApiSchema_ListByApi
+      description: Get the schema configuration at the API level.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiSchema
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/schemas/{schemaId}
+  : head:
+      summary: Microsoft Azure API Management ApiSchema_GetEntityTag
+      operationId: ApiSchema_GetEntityTag
+      description: Gets the entity state (Etag) version of the schema specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiSchema
+    get:
+      summary: Microsoft Azure API Management ApiSchema_Get
+      operationId: ApiSchema_Get
+      description: Get the schema configuration at the API level.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiSchema
+    put:
+      summary: Microsoft Azure API Management ApiSchema_CreateOrUpdate
+      operationId: ApiSchema_CreateOrUpdate
+      description: Creates or updates schema configuration for the API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiSchema
+    delete:
+      summary: Microsoft Azure API Management ApiSchema_Delete
+      operationId: ApiSchema_Delete
+      description: Deletes the schema configuration at the Api.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiSchema
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/tagDescriptions
+  : get:
+      summary: Microsoft Azure API Management ApiTagDescription_ListByService
+      operationId: ApiTagDescription_ListByService
+      description: Lists all Tags descriptions in scope of API. Model similar to swagger - tagDescription is defined on API
+        level but tag may be assigned to the Operations
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiTagDescription
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/tagDescriptions/{tagDescriptionId}
+  : head:
+      summary: Microsoft Azure API Management ApiTagDescription_GetEntityTag
+      operationId: ApiTagDescription_GetEntityTag
+      description: Gets the entity state version of the tag specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiTagDescription
+    get:
+      summary: Microsoft Azure API Management ApiTagDescription_Get
+      operationId: ApiTagDescription_Get
+      description: Get Tag description in scope of API
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiTagDescription
+    put:
+      summary: Microsoft Azure API Management ApiTagDescription_CreateOrUpdate
+      operationId: ApiTagDescription_CreateOrUpdate
+      description: Create/Update tag description in scope of the Api.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiTagDescription
+    delete:
+      summary: Microsoft Azure API Management ApiTagDescription_Delete
+      operationId: ApiTagDescription_Delete
+      description: Delete tag description for the Api.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiTagDescription
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/tags
+  : get:
+      summary: Microsoft Azure API Management Tag_ListByApi
+      operationId: Tag_ListByApi
+      description: Lists all Tags associated with the API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiTag
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/tags/{tagId}
+  : head:
+      summary: Microsoft Azure API Management Tag_GetEntityStateByApi
+      operationId: Tag_GetEntityStateByApi
+      description: Gets the entity state version of the tag specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiTag
+    get:
+      summary: Microsoft Azure API Management Tag_GetByApi
+      operationId: Tag_GetByApi
+      description: Get tag associated with the API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiTag
+    put:
+      summary: Microsoft Azure API Management Tag_AssignToApi
+      operationId: Tag_AssignToApi
+      description: Assign tag to the Api.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiTag
+    delete:
+      summary: Microsoft Azure API Management Tag_DetachFromApi
+      operationId: Tag_DetachFromApi
+      description: Detach the tag from the Api.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiTag
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/wikis
+  : get:
+      summary: Microsoft Azure API Management ApiWikis_List
+      operationId: ApiWikis_List
+      description: Gets the wikis for an API specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiWiki
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/wikis/default
+  : head:
+      summary: Microsoft Azure API Management ApiWiki_GetEntityTag
+      operationId: ApiWiki_GetEntityTag
+      description: Gets the entity state (Etag) version of the Wiki for an API specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiWiki
+    get:
+      summary: Microsoft Azure API Management ApiWiki_Get
+      operationId: ApiWiki_Get
+      description: Gets the details of the Wiki for an API specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiWiki
+    put:
+      summary: Microsoft Azure API Management ApiWiki_CreateOrUpdate
+      operationId: ApiWiki_CreateOrUpdate
+      description: Creates a new Wiki for an API or updates an existing one.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiWiki
+    patch:
+      summary: Microsoft Azure API Management ApiWiki_Update
+      operationId: ApiWiki_Update
+      description: Updates the details of the Wiki for an API specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiWiki
+    delete:
+      summary: Microsoft Azure API Management ApiWiki_Delete
+      operationId: ApiWiki_Delete
+      description: Deletes the specified Wiki from an API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiWiki
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/applynetworkconfigurationupdates
+  : post:
+      summary: Microsoft Azure API Management ApiManagementService_ApplyNetworkConfigurationUpdates
+      operationId: ApiManagementService_ApplyNetworkConfigurationUpdates
+      description: Updates the Microsoft.ApiManagement resource running in the Virtual network to pick the updated DNS changes.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiManagementService
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backends
+  : get:
+      summary: Microsoft Azure API Management Backend_ListByService
+      operationId: Backend_ListByService
+      description: Lists a collection of backends in the specified service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Backend
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backends/{backendId}
+  : head:
+      summary: Microsoft Azure API Management Backend_GetEntityTag
+      operationId: Backend_GetEntityTag
+      description: Gets the entity state (Etag) version of the backend specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Backend
+    get:
+      summary: Microsoft Azure API Management Backend_Get
+      operationId: Backend_Get
+      description: Gets the details of the backend specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Backend
+    put:
+      summary: Microsoft Azure API Management Backend_CreateOrUpdate
+      operationId: Backend_CreateOrUpdate
+      description: Creates or Updates a backend.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Backend
+    patch:
+      summary: Microsoft Azure API Management Backend_Update
+      operationId: Backend_Update
+      description: Updates an existing backend.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Backend
+    delete:
+      summary: Microsoft Azure API Management Backend_Delete
+      operationId: Backend_Delete
+      description: Deletes the specified backend.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Backend
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backends/{backendId}/reconnect
+  : post:
+      summary: Microsoft Azure API Management Backend_Reconnect
+      operationId: Backend_Reconnect
+      description: Notifies the API Management gateway to create a new connection to the backend after the specified timeout.
+        If no timeout was specified, timeout of 2 minutes is used.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - BackendReconnect
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup
+  : post:
+      summary: Microsoft Azure API Management ApiManagementService_Backup
+      operationId: ApiManagementService_Backup
+      description: Creates a backup of the API Management service to the given Azure Storage Account. This is long running
+        operation and could take several minutes to complete.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiManagementService
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates
+  : get:
+      summary: Microsoft Azure API Management Certificate_ListByService
+      operationId: Certificate_ListByService
+      description: Lists a collection of all certificates in the specified service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Certificate
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates/{certificateId}
+  : head:
+      summary: Microsoft Azure API Management Certificate_GetEntityTag
+      operationId: Certificate_GetEntityTag
+      description: Gets the entity state (Etag) version of the certificate specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Certificate
+    get:
+      summary: Microsoft Azure API Management Certificate_Get
+      operationId: Certificate_Get
+      description: Gets the details of the certificate specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Certificate
+    put:
+      summary: Microsoft Azure API Management Certificate_CreateOrUpdate
+      operationId: Certificate_CreateOrUpdate
+      description: Creates or updates the certificate being used for authentication with the backend.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Certificate
+    delete:
+      summary: Microsoft Azure API Management Certificate_Delete
+      operationId: Certificate_Delete
+      description: Deletes specific certificate.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Certificate
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates/{certificateId}/refreshSecret
+  : post:
+      summary: Microsoft Azure API Management Certificate_RefreshSecret
+      operationId: Certificate_RefreshSecret
+      description: From KeyVault, Refresh the certificate being used for authentication with the backend.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Certificate
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/diagnostics
+  : get:
+      summary: Microsoft Azure API Management Diagnostic_ListByService
+      operationId: Diagnostic_ListByService
+      description: Lists all diagnostics of the API Management service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Diagnostic
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/diagnostics/{diagnosticId}
+  : head:
+      summary: Microsoft Azure API Management Diagnostic_GetEntityTag
+      operationId: Diagnostic_GetEntityTag
+      description: Gets the entity state (Etag) version of the Diagnostic specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Diagnostic
+    get:
+      summary: Microsoft Azure API Management Diagnostic_Get
+      operationId: Diagnostic_Get
+      description: Gets the details of the Diagnostic specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Diagnostic
+    put:
+      summary: Microsoft Azure API Management Diagnostic_CreateOrUpdate
+      operationId: Diagnostic_CreateOrUpdate
+      description: Creates a new Diagnostic or updates an existing one.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Diagnostic
+    patch:
+      summary: Microsoft Azure API Management Diagnostic_Update
+      operationId: Diagnostic_Update
+      description: Updates the details of the Diagnostic specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Diagnostic
+    delete:
+      summary: Microsoft Azure API Management Diagnostic_Delete
+      operationId: Diagnostic_Delete
+      description: Deletes the specified Diagnostic.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Diagnostic
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways
+  : get:
+      summary: Microsoft Azure API Management Gateway_ListByService
+      operationId: Gateway_ListByService
+      description: Lists a collection of gateways registered with service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Gateway
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}
+  : head:
+      summary: Microsoft Azure API Management Gateway_GetEntityTag
+      operationId: Gateway_GetEntityTag
+      description: Gets the entity state (Etag) version of the Gateway specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Gateway
+    get:
+      summary: Microsoft Azure API Management Gateway_Get
+      operationId: Gateway_Get
+      description: Gets the details of the Gateway specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Gateway
+    put:
+      summary: Microsoft Azure API Management Gateway_CreateOrUpdate
+      operationId: Gateway_CreateOrUpdate
+      description: Creates or updates a Gateway to be used in Api Management instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Gateway
+    patch:
+      summary: Microsoft Azure API Management Gateway_Update
+      operationId: Gateway_Update
+      description: Updates the details of the gateway specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Gateway
+    delete:
+      summary: Microsoft Azure API Management Gateway_Delete
+      operationId: Gateway_Delete
+      description: Deletes specific Gateway.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Gateway
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/apis
+  : get:
+      summary: Microsoft Azure API Management GatewayApi_ListByService
+      operationId: GatewayApi_ListByService
+      description: Lists a collection of the APIs associated with a gateway.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GatewayApi
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/apis/{apiId}
+  : head:
+      summary: Microsoft Azure API Management GatewayApi_GetEntityTag
+      operationId: GatewayApi_GetEntityTag
+      description: Checks that API entity specified by identifier is associated with the Gateway entity.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GatewayApi
+    put:
+      summary: Microsoft Azure API Management GatewayApi_CreateOrUpdate
+      operationId: GatewayApi_CreateOrUpdate
+      description: Adds an API to the specified Gateway.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GatewayApi
+    delete:
+      summary: Microsoft Azure API Management GatewayApi_Delete
+      operationId: GatewayApi_Delete
+      description: Deletes the specified API from the specified Gateway.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GatewayApi
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/certificateAuthorities
+  : get:
+      summary: Microsoft Azure API Management GatewayCertificateAuthority_ListByService
+      operationId: GatewayCertificateAuthority_ListByService
+      description: Lists the collection of Certificate Authorities for the specified Gateway entity.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GatewayCertificateAuthority
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/certificateAuthorities/{certificateId}
+  : head:
+      summary: Microsoft Azure API Management GatewayCertificateAuthority_GetEntityTag
+      operationId: GatewayCertificateAuthority_GetEntityTag
+      description: Checks if Certificate entity is assigned to Gateway entity as Certificate Authority.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GatewayCertificateAuthority
+    get:
+      summary: Microsoft Azure API Management GatewayCertificateAuthority_Get
+      operationId: GatewayCertificateAuthority_Get
+      description: Get assigned Gateway Certificate Authority details.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GatewayCertificateAuthority
+    put:
+      summary: Microsoft Azure API Management GatewayCertificateAuthority_CreateOrUpdate
+      operationId: GatewayCertificateAuthority_CreateOrUpdate
+      description: Assign Certificate entity to Gateway entity as Certificate Authority.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GatewayCertificateAuthority
+    delete:
+      summary: Microsoft Azure API Management GatewayCertificateAuthority_Delete
+      operationId: GatewayCertificateAuthority_Delete
+      description: Remove relationship between Certificate Authority and Gateway entity.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GatewayCertificateAuthority
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/generateToken
+  : post:
+      summary: Microsoft Azure API Management Gateway_GenerateToken
+      operationId: Gateway_GenerateToken
+      description: Gets the Shared Access Authorization Token for the gateway.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GatewayGenerateToken
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/hostnameConfigurations
+  : get:
+      summary: Microsoft Azure API Management GatewayHostnameConfiguration_ListByService
+      operationId: GatewayHostnameConfiguration_ListByService
+      description: Lists the collection of hostname configurations for the specified gateway.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GatewayHostnameConfiguration
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/hostnameConfigurations/{hcId}
+  : head:
+      summary: Microsoft Azure API Management GatewayHostnameConfiguration_GetEntityTag
+      operationId: GatewayHostnameConfiguration_GetEntityTag
+      description: Checks that hostname configuration entity specified by identifier exists for specified Gateway entity.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GatewayHostnameConfiguration
+    get:
+      summary: Microsoft Azure API Management GatewayHostnameConfiguration_Get
+      operationId: GatewayHostnameConfiguration_Get
+      description: Get details of a hostname configuration
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GatewayHostnameConfiguration
+    put:
+      summary: Microsoft Azure API Management GatewayHostnameConfiguration_CreateOrUpdate
+      operationId: GatewayHostnameConfiguration_CreateOrUpdate
+      description: Creates of updates hostname configuration for a Gateway.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GatewayHostnameConfiguration
+    delete:
+      summary: Microsoft Azure API Management GatewayHostnameConfiguration_Delete
+      operationId: GatewayHostnameConfiguration_Delete
+      description: Deletes the specified hostname configuration from the specified Gateway.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GatewayHostnameConfiguration
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/invalidateDebugCredentials
+  : post:
+      summary: Microsoft Azure API Management Gateway_InvalidateDebugCredentials
+      operationId: Gateway_InvalidateDebugCredentials
+      description: Action is invalidating all debug credentials issued for gateway.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GatewayInvalidateDebugCredentials
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/listDebugCredentials
+  : post:
+      summary: Microsoft Azure API Management Gateway_ListDebugCredentials
+      operationId: Gateway_ListDebugCredentials
+      description: Create new debug credentials for gateway.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GatewayListDebugCredentials
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/listKeys
+  : post:
+      summary: Microsoft Azure API Management Gateway_ListKeys
+      operationId: Gateway_ListKeys
+      description: Retrieves gateway keys.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GatewayListKeys
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/listTrace
+  : post:
+      summary: Microsoft Azure API Management Gateway_ListTrace
+      operationId: Gateway_ListTrace
+      description: Fetches trace collected by gateway.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GatewayListTrace
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/regenerateKey
+  : post:
+      summary: Microsoft Azure API Management Gateway_RegenerateKey
+      operationId: Gateway_RegenerateKey
+      description: Regenerates specified gateway key invalidating any tokens created with it.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GatewayRegenerateKey
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/getssotoken
+  : post:
+      summary: Microsoft Azure API Management ApiManagementService_GetSsoToken
+      operationId: ApiManagementService_GetSsoToken
+      description: Gets the Single-Sign-On token for the API Management Service which is valid for 5 Minutes.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiManagementService
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups
+  : get:
+      summary: Microsoft Azure API Management Group_ListByService
+      operationId: Group_ListByService
+      description: Lists a collection of groups defined within a service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Group
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups/{groupId}
+  : head:
+      summary: Microsoft Azure API Management Group_GetEntityTag
+      operationId: Group_GetEntityTag
+      description: Gets the entity state (Etag) version of the group specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Group
+    get:
+      summary: Microsoft Azure API Management Group_Get
+      operationId: Group_Get
+      description: Gets the details of the group specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Group
+    put:
+      summary: Microsoft Azure API Management Group_CreateOrUpdate
+      operationId: Group_CreateOrUpdate
+      description: Creates or Updates a group.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Group
+    patch:
+      summary: Microsoft Azure API Management Group_Update
+      operationId: Group_Update
+      description: Updates the details of the group specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Group
+    delete:
+      summary: Microsoft Azure API Management Group_Delete
+      operationId: Group_Delete
+      description: Deletes specific group of the API Management service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Group
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups/{groupId}/users
+  : get:
+      summary: Microsoft Azure API Management GroupUser_List
+      operationId: GroupUser_List
+      description: Lists a collection of user entities associated with the group.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GroupUser
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups/{groupId}/users/{userId}
+  : head:
+      summary: Microsoft Azure API Management GroupUser_CheckEntityExists
+      operationId: GroupUser_CheckEntityExists
+      description: Checks that user entity specified by identifier is associated with the group entity.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GroupUser
+    put:
+      summary: Microsoft Azure API Management GroupUser_Create
+      operationId: GroupUser_Create
+      description: Add existing user to existing group
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GroupUser
+    delete:
+      summary: Microsoft Azure API Management GroupUser_Delete
+      operationId: GroupUser_Delete
+      description: Remove existing user from existing group.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GroupUser
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/loggers
+  : get:
+      summary: Microsoft Azure API Management Logger_ListByService
+      operationId: Logger_ListByService
+      description: Lists a collection of loggers in the specified service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Logger
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/loggers/{loggerId}
+  : head:
+      summary: Microsoft Azure API Management Logger_GetEntityTag
+      operationId: Logger_GetEntityTag
+      description: Gets the entity state (Etag) version of the logger specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Logger
+    get:
+      summary: Microsoft Azure API Management Logger_Get
+      operationId: Logger_Get
+      description: Gets the details of the logger specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Logger
+    put:
+      summary: Microsoft Azure API Management Logger_CreateOrUpdate
+      operationId: Logger_CreateOrUpdate
+      description: Creates or Updates a logger.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Logger
+    patch:
+      summary: Microsoft Azure API Management Logger_Update
+      operationId: Logger_Update
+      description: Updates an existing logger.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Logger
+    delete:
+      summary: Microsoft Azure API Management Logger_Delete
+      operationId: Logger_Delete
+      description: Deletes the specified logger.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Logger
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/migrateToStv2
+  : post:
+      summary: Microsoft Azure API Management ApiManagementService_MigrateToStv2
+      operationId: ApiManagementService_MigrateToStv2
+      description: Upgrades an API Management service to the Stv2 platform. For details refer to https://aka.ms/apim-migrate-stv2.
+        This change is not reversible. This is long running operation and could take several minutes to complete.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiManagementService
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/policies
+  : get:
+      summary: Microsoft Azure API Management Policy_ListByService
+      operationId: Policy_ListByService
+      description: Lists all the Global Policy definitions of the Api Management service.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Policy
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/policies/{policyId}
+  : head:
+      summary: Microsoft Azure API Management Policy_GetEntityTag
+      operationId: Policy_GetEntityTag
+      description: Gets the entity state (Etag) version of the Global policy definition in the Api Management service.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Policy
+    get:
+      summary: Microsoft Azure API Management Policy_Get
+      operationId: Policy_Get
+      description: Get the Global policy definition of the Api Management service.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Policy
+    put:
+      summary: Microsoft Azure API Management Policy_CreateOrUpdate
+      operationId: Policy_CreateOrUpdate
+      description: Creates or updates the global policy configuration of the Api Management service.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Policy
+    delete:
+      summary: Microsoft Azure API Management Policy_Delete
+      operationId: Policy_Delete
+      description: Deletes the global policy configuration of the Api Management Service.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Policy
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products
+  : get:
+      summary: Microsoft Azure API Management Product_ListByService
+      operationId: Product_ListByService
+      description: Lists a collection of products in the specified service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Product
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}
+  : head:
+      summary: Microsoft Azure API Management Product_GetEntityTag
+      operationId: Product_GetEntityTag
+      description: Gets the entity state (Etag) version of the product specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Product
+    get:
+      summary: Microsoft Azure API Management Product_Get
+      operationId: Product_Get
+      description: Gets the details of the product specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Product
+    put:
+      summary: Microsoft Azure API Management Product_CreateOrUpdate
+      operationId: Product_CreateOrUpdate
+      description: Creates or Updates a product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Product
+    patch:
+      summary: Microsoft Azure API Management Product_Update
+      operationId: Product_Update
+      description: Update existing product details.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Product
+    delete:
+      summary: Microsoft Azure API Management Product_Delete
+      operationId: Product_Delete
+      description: Delete product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Product
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/apiLinks
+  : get:
+      summary: Microsoft Azure API Management ProductApiLink_ListByProduct
+      operationId: ProductApiLink_ListByProduct
+      description: Lists a collection of the API links associated with a product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductApiLink
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/apiLinks/{apiLinkId}
+  : get:
+      summary: Microsoft Azure API Management ProductApiLink_Get
+      operationId: ProductApiLink_Get
+      description: Gets the API link for the product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductApiLink
+    put:
+      summary: Microsoft Azure API Management ProductApiLink_CreateOrUpdate
+      operationId: ProductApiLink_CreateOrUpdate
+      description: Adds an API to the specified product via link.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductApiLink
+    delete:
+      summary: Microsoft Azure API Management ProductApiLink_Delete
+      operationId: ProductApiLink_Delete
+      description: Deletes the specified API from the specified product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductApiLink
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/apis
+  : get:
+      summary: Microsoft Azure API Management ProductApi_ListByProduct
+      operationId: ProductApi_ListByProduct
+      description: Lists a collection of the APIs associated with a product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductApi
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/apis/{apiId}
+  : head:
+      summary: Microsoft Azure API Management ProductApi_CheckEntityExists
+      operationId: ProductApi_CheckEntityExists
+      description: Checks that API entity specified by identifier is associated with the Product entity.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductApi
+    put:
+      summary: Microsoft Azure API Management ProductApi_CreateOrUpdate
+      operationId: ProductApi_CreateOrUpdate
+      description: Adds an API to the specified product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductApi
+    delete:
+      summary: Microsoft Azure API Management ProductApi_Delete
+      operationId: ProductApi_Delete
+      description: Deletes the specified API from the specified product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductApi
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/groupLinks
+  : get:
+      summary: Microsoft Azure API Management ProductGroupLink_ListByProduct
+      operationId: ProductGroupLink_ListByProduct
+      description: Lists a collection of the group links associated with a product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductGroupLink
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/groupLinks/{groupLinkId}
+  : get:
+      summary: Microsoft Azure API Management ProductGroupLink_Get
+      operationId: ProductGroupLink_Get
+      description: Gets the group link for the product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductGroupLink
+    put:
+      summary: Microsoft Azure API Management ProductGroupLink_CreateOrUpdate
+      operationId: ProductGroupLink_CreateOrUpdate
+      description: Adds a group to the specified product via link.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductGroupLink
+    delete:
+      summary: Microsoft Azure API Management ProductGroupLink_Delete
+      operationId: ProductGroupLink_Delete
+      description: Deletes the specified group from the specified product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductGroupLink
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/groups
+  : get:
+      summary: Microsoft Azure API Management ProductGroup_ListByProduct
+      operationId: ProductGroup_ListByProduct
+      description: Lists the collection of developer groups associated with the specified product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductGroup
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/groups/{groupId}
+  : head:
+      summary: Microsoft Azure API Management ProductGroup_CheckEntityExists
+      operationId: ProductGroup_CheckEntityExists
+      description: Checks that Group entity specified by identifier is associated with the Product entity.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductGroup
+    put:
+      summary: Microsoft Azure API Management ProductGroup_CreateOrUpdate
+      operationId: ProductGroup_CreateOrUpdate
+      description: Adds the association between the specified developer group with the specified product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductGroup
+    delete:
+      summary: Microsoft Azure API Management ProductGroup_Delete
+      operationId: ProductGroup_Delete
+      description: Deletes the association between the specified group and product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductGroup
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/policies
+  : get:
+      summary: Microsoft Azure API Management ProductPolicy_ListByProduct
+      operationId: ProductPolicy_ListByProduct
+      description: Get the policy configuration at the Product level.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductPolicy
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/policies/{policyId}
+  : head:
+      summary: Microsoft Azure API Management ProductPolicy_GetEntityTag
+      operationId: ProductPolicy_GetEntityTag
+      description: Get the ETag of the policy configuration at the Product level.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductPolicy
+    get:
+      summary: Microsoft Azure API Management ProductPolicy_Get
+      operationId: ProductPolicy_Get
+      description: Get the policy configuration at the Product level.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductPolicy
+    put:
+      summary: Microsoft Azure API Management ProductPolicy_CreateOrUpdate
+      operationId: ProductPolicy_CreateOrUpdate
+      description: Creates or updates policy configuration for the Product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductPolicy
+    delete:
+      summary: Microsoft Azure API Management ProductPolicy_Delete
+      operationId: ProductPolicy_Delete
+      description: Deletes the policy configuration at the Product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductPolicy
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/subscriptions
+  : get:
+      summary: Microsoft Azure API Management ProductSubscriptions_List
+      operationId: ProductSubscriptions_List
+      description: Lists the collection of subscriptions to the specified product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductSubscription
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/tags
+  : get:
+      summary: Microsoft Azure API Management Tag_ListByProduct
+      operationId: Tag_ListByProduct
+      description: Lists all Tags associated with the Product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductTag
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/tags/{tagId}
+  : head:
+      summary: Microsoft Azure API Management Tag_GetEntityStateByProduct
+      operationId: Tag_GetEntityStateByProduct
+      description: Gets the entity state version of the tag specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductTag
+    get:
+      summary: Microsoft Azure API Management Tag_GetByProduct
+      operationId: Tag_GetByProduct
+      description: Get tag associated with the Product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductTag
+    put:
+      summary: Microsoft Azure API Management Tag_AssignToProduct
+      operationId: Tag_AssignToProduct
+      description: Assign tag to the Product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductTag
+    delete:
+      summary: Microsoft Azure API Management Tag_DetachFromProduct
+      operationId: Tag_DetachFromProduct
+      description: Detach the tag from the Product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductTag
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/wikis
+  : get:
+      summary: Microsoft Azure API Management ProductWikis_list
+      operationId: ProductWikis_list
+      description: Gets the details of the Wiki for a Product specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductWiki
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/wikis/default
+  : head:
+      summary: Microsoft Azure API Management ProductWiki_GetEntityTag
+      operationId: ProductWiki_GetEntityTag
+      description: Gets the entity state (Etag) version of the Wiki for a Product specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductWiki
+    get:
+      summary: Microsoft Azure API Management ProductWiki_Get
+      operationId: ProductWiki_Get
+      description: Gets the details of the Wiki for a Product specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductWiki
+    put:
+      summary: Microsoft Azure API Management ProductWiki_CreateOrUpdate
+      operationId: ProductWiki_CreateOrUpdate
+      description: Creates a new Wiki for a Product or updates an existing one.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductWiki
+    patch:
+      summary: Microsoft Azure API Management ProductWiki_Update
+      operationId: ProductWiki_Update
+      description: Updates the details of the Wiki for a Product specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductWiki
+    delete:
+      summary: Microsoft Azure API Management ProductWiki_Delete
+      operationId: ProductWiki_Delete
+      description: Deletes the specified Wiki from a Product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductWiki
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore
+  : post:
+      summary: Microsoft Azure API Management ApiManagementService_Restore
+      operationId: ApiManagementService_Restore
+      description: Restores a backup of an API Management service created using the ApiManagementService_Backup operation
+        on the current service. This is a long running operation and could take several minutes to complete.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiManagementService
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/skus
+  : get:
+      summary: Microsoft Azure API Management Gets Available SKUs for API Management Service
+      operationId: ApiManagementServiceSkus_ListAvailableServiceSkus
+      description: Gets all available SKU for a given API Management service
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiManagementServiceSkus
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/subscriptions
+  : get:
+      summary: Microsoft Azure API Management Subscription_List
+      operationId: Subscription_List
+      description: Lists all subscriptions of the API Management service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Subscription
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/subscriptions/{sid}
+  : head:
+      summary: Microsoft Azure API Management Subscription_GetEntityTag
+      operationId: Subscription_GetEntityTag
+      description: Gets the entity state (Etag) version of the apimanagement subscription specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Subscription
+    get:
+      summary: Microsoft Azure API Management Subscription_Get
+      operationId: Subscription_Get
+      description: Gets the specified Subscription entity.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Subscription
+    put:
+      summary: Microsoft Azure API Management Subscription_CreateOrUpdate
+      operationId: Subscription_CreateOrUpdate
+      description: Creates or updates the subscription of specified user to the specified product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Subscription
+    patch:
+      summary: Microsoft Azure API Management Subscription_Update
+      operationId: Subscription_Update
+      description: Updates the details of a subscription specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Subscription
+    delete:
+      summary: Microsoft Azure API Management Subscription_Delete
+      operationId: Subscription_Delete
+      description: Deletes the specified subscription.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Subscription
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/subscriptions/{sid}/listSecrets
+  : post:
+      summary: Microsoft Azure API Management Subscription_ListSecrets
+      operationId: Subscription_ListSecrets
+      description: Gets the specified Subscription keys.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Subscription
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/subscriptions/{sid}/regeneratePrimaryKey
+  : post:
+      summary: Microsoft Azure API Management Subscription_RegeneratePrimaryKey
+      operationId: Subscription_RegeneratePrimaryKey
+      description: Regenerates primary key of existing subscription of the API Management service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Subscription
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/subscriptions/{sid}/regenerateSecondaryKey
+  : post:
+      summary: Microsoft Azure API Management Subscription_RegenerateSecondaryKey
+      operationId: Subscription_RegenerateSecondaryKey
+      description: Regenerates secondary key of existing subscription of the API Management service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Subscription
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags
+  : get:
+      summary: Microsoft Azure API Management Tag_ListByService
+      operationId: Tag_ListByService
+      description: Lists a collection of tags defined within a service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Tag
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}
+  : head:
+      summary: Microsoft Azure API Management Tag_GetEntityState
+      operationId: Tag_GetEntityState
+      description: Gets the entity state version of the tag specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Tag
+    get:
+      summary: Microsoft Azure API Management Tag_Get
+      operationId: Tag_Get
+      description: Gets the details of the tag specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Tag
+    put:
+      summary: Microsoft Azure API Management Tag_CreateOrUpdate
+      operationId: Tag_CreateOrUpdate
+      description: Creates a tag.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Tag
+    patch:
+      summary: Microsoft Azure API Management Tag_Update
+      operationId: Tag_Update
+      description: Updates the details of the tag specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Tag
+    delete:
+      summary: Microsoft Azure API Management Tag_Delete
+      operationId: Tag_Delete
+      description: Deletes specific tag of the API Management service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Tag
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/apiLinks
+  : get:
+      summary: Microsoft Azure API Management TagApiLink_ListByProduct
+      operationId: TagApiLink_ListByProduct
+      description: Lists a collection of the API links associated with a tag.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - TagApiLink
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/apiLinks/{apiLinkId}
+  : get:
+      summary: Microsoft Azure API Management TagApiLink_Get
+      operationId: TagApiLink_Get
+      description: Gets the API link for the tag.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - TagApiLink
+    put:
+      summary: Microsoft Azure API Management TagApiLink_CreateOrUpdate
+      operationId: TagApiLink_CreateOrUpdate
+      description: Adds an API to the specified tag via link.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - TagApiLink
+    delete:
+      summary: Microsoft Azure API Management TagApiLink_Delete
+      operationId: TagApiLink_Delete
+      description: Deletes the specified API from the specified tag.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - TagApiLink
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/operationLinks
+  : get:
+      summary: Microsoft Azure API Management TagOperationLink_ListByProduct
+      operationId: TagOperationLink_ListByProduct
+      description: Lists a collection of the operation links associated with a tag.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - TagOperationLink
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/operationLinks/{operationLinkId}
+  : get:
+      summary: Microsoft Azure API Management TagOperationLink_Get
+      operationId: TagOperationLink_Get
+      description: Gets the operation link for the tag.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - TagOperationLink
+    put:
+      summary: Microsoft Azure API Management TagOperationLink_CreateOrUpdate
+      operationId: TagOperationLink_CreateOrUpdate
+      description: Adds an operation to the specified tag via link.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - TagOperationLink
+    delete:
+      summary: Microsoft Azure API Management TagOperationLink_Delete
+      operationId: TagOperationLink_Delete
+      description: Deletes the specified operation from the specified tag.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - TagOperationLink
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/productLinks
+  : get:
+      summary: Microsoft Azure API Management TagProductLink_ListByProduct
+      operationId: TagProductLink_ListByProduct
+      description: Lists a collection of the product links associated with a tag.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - TagProductLink
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/productLinks/{productLinkId}
+  : get:
+      summary: Microsoft Azure API Management TagProductLink_Get
+      operationId: TagProductLink_Get
+      description: Gets the product link for the tag.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - TagProductLink
+    put:
+      summary: Microsoft Azure API Management TagProductLink_CreateOrUpdate
+      operationId: TagProductLink_CreateOrUpdate
+      description: Adds a product to the specified tag via link.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - TagProductLink
+    delete:
+      summary: Microsoft Azure API Management TagProductLink_Delete
+      operationId: TagProductLink_Delete
+      description: Deletes the specified product from the specified tag.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - TagProductLink
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users
+  : get:
+      summary: Microsoft Azure API Management User_ListByService
+      operationId: User_ListByService
+      description: Lists a collection of registered users in the specified service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - User
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}
+  : head:
+      summary: Microsoft Azure API Management User_GetEntityTag
+      operationId: User_GetEntityTag
+      description: Gets the entity state (Etag) version of the user specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - User
+    get:
+      summary: Microsoft Azure API Management User_Get
+      operationId: User_Get
+      description: Gets the details of the user specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - User
+    put:
+      summary: Microsoft Azure API Management User_CreateOrUpdate
+      operationId: User_CreateOrUpdate
+      description: Creates or Updates a user.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - User
+    patch:
+      summary: Microsoft Azure API Management User_Update
+      operationId: User_Update
+      description: Updates the details of the user specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - User
+    delete:
+      summary: Microsoft Azure API Management User_Delete
+      operationId: User_Delete
+      description: Deletes specific user.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - User
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}/generateSsoUrl
+  : post:
+      summary: Microsoft Azure API Management User_GenerateSsoUrl
+      operationId: User_GenerateSsoUrl
+      description: Retrieves a redirection URL containing an authentication token for signing a given user into the developer
+        portal.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Users
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}/groups
+  : get:
+      summary: Microsoft Azure API Management UserGroup_List
+      operationId: UserGroup_List
+      description: Lists all user groups.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - UserGroup
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}/identities
+  : get:
+      summary: Microsoft Azure API Management UserIdentities_List
+      operationId: UserIdentities_List
+      description: List of all user identities.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - UserIdentity
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}/subscriptions
+  : get:
+      summary: Microsoft Azure API Management UserSubscription_List
+      operationId: UserSubscription_List
+      description: Lists the collection of subscriptions of the specified user.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - UserSubscription
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}/subscriptions/{sid}
+  : get:
+      summary: Microsoft Azure API Management UserSubscription_Get
+      operationId: UserSubscription_Get
+      description: Gets the specified Subscription entity associated with a particular user.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Subscription
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}/token
+  : post:
+      summary: Microsoft Azure API Management User_GetSharedAccessToken
+      operationId: User_GetSharedAccessToken
+      description: Gets the Shared Access Authorization Token for the User.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - UserToken
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces
+  : get:
+      summary: Microsoft Azure API Management Workspace_ListByService
+      operationId: Workspace_ListByService
+      description: Lists all workspaces of the API Management service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Workspace
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}
+  : head:
+      summary: Microsoft Azure API Management Workspace_GetEntityTag
+      operationId: Workspace_GetEntityTag
+      description: Gets the entity state (Etag) version of the workspace specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Workspace
+    get:
+      summary: Microsoft Azure API Management Workspace_Get
+      operationId: Workspace_Get
+      description: Gets the details of the workspace specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Workspace
+    put:
+      summary: Microsoft Azure API Management Workspace_CreateOrUpdate
+      operationId: Workspace_CreateOrUpdate
+      description: Creates a new workspace or updates an existing one.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Workspace
+    patch:
+      summary: Microsoft Azure API Management Workspace_Update
+      operationId: Workspace_Update
+      description: Updates the details of the workspace specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Workspace
+    delete:
+      summary: Microsoft Azure API Management Workspace_Delete
+      operationId: Workspace_Delete
+      description: Deletes the specified workspace.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Workspace
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apiVersionSets
+  : get:
+      summary: Microsoft Azure API Management WorkspaceApiVersionSet_ListByService
+      operationId: WorkspaceApiVersionSet_ListByService
+      description: Lists a collection of API Version Sets in the specified workspace with a service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiVersionSet
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apiVersionSets/{versionSetId}
+  : head:
+      summary: Microsoft Azure API Management WorkspaceApiVersionSet_GetEntityTag
+      operationId: WorkspaceApiVersionSet_GetEntityTag
+      description: Gets the entity state (Etag) version of the Api Version Set specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiVersionSet
+    get:
+      summary: Microsoft Azure API Management WorkspaceApiVersionSet_Get
+      operationId: WorkspaceApiVersionSet_Get
+      description: Gets the details of the Api Version Set specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiVersionSet
+    put:
+      summary: Microsoft Azure API Management WorkspaceApiVersionSet_CreateOrUpdate
+      operationId: WorkspaceApiVersionSet_CreateOrUpdate
+      description: Creates or Updates a Api Version Set.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiVersionSet
+    patch:
+      summary: Microsoft Azure API Management WorkspaceApiVersionSet_Update
+      operationId: WorkspaceApiVersionSet_Update
+      description: Updates the details of the Api VersionSet specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiVersionSet
+    delete:
+      summary: Microsoft Azure API Management WorkspaceApiVersionSet_Delete
+      operationId: WorkspaceApiVersionSet_Delete
+      description: Deletes specific Api Version Set.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiVersionSets
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis
+  : get:
+      summary: Microsoft Azure API Management WorkspaceApi_ListByService
+      operationId: WorkspaceApi_ListByService
+      description: Lists all APIs of the workspace in an API Management service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Api
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis/{apiId}
+  : head:
+      summary: Microsoft Azure API Management WorkspaceApi_GetEntityTag
+      operationId: WorkspaceApi_GetEntityTag
+      description: Gets the entity state (Etag) version of the API specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Api
+    get:
+      summary: Microsoft Azure API Management WorkspaceApi_Get
+      operationId: WorkspaceApi_Get
+      description: Gets the details of the API specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Api
+    put:
+      summary: Microsoft Azure API Management WorkspaceApi_CreateOrUpdate
+      operationId: WorkspaceApi_CreateOrUpdate
+      description: Creates new or updates existing specified API of the workspace in an API Management service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Api
+    patch:
+      summary: Microsoft Azure API Management WorkspaceApi_Update
+      operationId: WorkspaceApi_Update
+      description: Updates the specified API of the workspace in an API Management service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Api
+    delete:
+      summary: Microsoft Azure API Management WorkspaceApi_Delete
+      operationId: WorkspaceApi_Delete
+      description: Deletes the specified API of the workspace in an API Management service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Api
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/groups
+  : get:
+      summary: Microsoft Azure API Management WorkspaceGroup_ListByService
+      operationId: WorkspaceGroup_ListByService
+      description: Lists a collection of groups defined within a workspace in a service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Group
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/groups/{groupId}
+  : head:
+      summary: Microsoft Azure API Management WorkspaceGroup_GetEntityTag
+      operationId: WorkspaceGroup_GetEntityTag
+      description: Gets the entity state (Etag) version of the group specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Group
+    get:
+      summary: Microsoft Azure API Management WorkspaceGroup_Get
+      operationId: WorkspaceGroup_Get
+      description: Gets the details of the group specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Group
+    put:
+      summary: Microsoft Azure API Management WorkspaceGroup_CreateOrUpdate
+      operationId: WorkspaceGroup_CreateOrUpdate
+      description: Creates or Updates a group.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Group
+    patch:
+      summary: Microsoft Azure API Management WorkspaceGroup_Update
+      operationId: WorkspaceGroup_Update
+      description: Updates the details of the group specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Group
+    delete:
+      summary: Microsoft Azure API Management WorkspaceGroup_Delete
+      operationId: WorkspaceGroup_Delete
+      description: Deletes specific group of the workspace in an API Management service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Group
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/namedValues
+  : get:
+      summary: Microsoft Azure API Management WorkspaceNamedValue_ListByService
+      operationId: WorkspaceNamedValue_ListByService
+      description: Lists a collection of named values defined within a workspace in a service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - NamedValue
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/namedValues/{namedValueId}
+  : head:
+      summary: Microsoft Azure API Management WorkspaceNamedValue_GetEntityTag
+      operationId: WorkspaceNamedValue_GetEntityTag
+      description: Gets the entity state (Etag) version of the named value specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - NamedValue
+    get:
+      summary: Microsoft Azure API Management WorkspaceNamedValue_Get
+      operationId: WorkspaceNamedValue_Get
+      description: Gets the details of the named value specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - NamedValue
+    put:
+      summary: Microsoft Azure API Management WorkspaceNamedValue_CreateOrUpdate
+      operationId: WorkspaceNamedValue_CreateOrUpdate
+      description: Creates or updates named value.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - NamedValue
+    patch:
+      summary: Microsoft Azure API Management WorkspaceNamedValue_Update
+      operationId: WorkspaceNamedValue_Update
+      description: Updates the specific named value.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - NamedValue
+    delete:
+      summary: Microsoft Azure API Management WorkspaceNamedValue_Delete
+      operationId: WorkspaceNamedValue_Delete
+      description: Deletes specific named value from the workspace in an API Management service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - NamedValue
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/notifications
+  : get:
+      summary: Microsoft Azure API Management WorkspaceNotification_ListByService
+      operationId: WorkspaceNotification_ListByService
+      description: Lists a collection of properties defined within a service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Notification
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/notifications/{notificationName}
+  : get:
+      summary: Microsoft Azure API Management WorkspaceNotification_Get
+      operationId: WorkspaceNotification_Get
+      description: Gets the details of the Notification specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Notification
+    put:
+      summary: Microsoft Azure API Management WorkspaceNotification_CreateOrUpdate
+      operationId: WorkspaceNotification_CreateOrUpdate
+      description: Create or Update API Management publisher notification for the workspace.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Notification
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/policies
+  : get:
+      summary: Microsoft Azure API Management WorkspacePolicy_ListByApi
+      operationId: WorkspacePolicy_ListByApi
+      description: Get the policy configuration at the workspace level.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - WorkspacePolicy
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/policies/{policyId}
+  : head:
+      summary: Microsoft Azure API Management WorkspacePolicy_GetEntityTag
+      operationId: WorkspacePolicy_GetEntityTag
+      description: Gets the entity state (Etag) version of the workspace policy specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - WorkspacePolicy
+    get:
+      summary: Microsoft Azure API Management WorkspacePolicy_Get
+      operationId: WorkspacePolicy_Get
+      description: Get the policy configuration at the API level.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - WorkspacePolicy
+    put:
+      summary: Microsoft Azure API Management WorkspacePolicy_CreateOrUpdate
+      operationId: WorkspacePolicy_CreateOrUpdate
+      description: Creates or updates policy configuration for the workspace.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - WorkspacePolicy
+    delete:
+      summary: Microsoft Azure API Management WorkspacePolicy_Delete
+      operationId: WorkspacePolicy_Delete
+      description: Deletes the policy configuration at the workspace.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - WorkspacePolicy
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/policyFragments
+  : get:
+      summary: Microsoft Azure API Management WorkspacePolicyFragment_ListByService
+      operationId: WorkspacePolicyFragment_ListByService
+      description: Gets all policy fragments defined within a workspace.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - PolicyFragment
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/policyFragments/{id}
+  : head:
+      summary: Microsoft Azure API Management WorkspacePolicyFragment_GetEntityTag
+      operationId: WorkspacePolicyFragment_GetEntityTag
+      description: Gets the entity state (Etag) version of a policy fragment.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - PolicyFragment
+    get:
+      summary: Microsoft Azure API Management WorkspacePolicyFragment_Get
+      operationId: WorkspacePolicyFragment_Get
+      description: Gets a policy fragment.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - PolicyFragment
+    put:
+      summary: Microsoft Azure API Management WorkspacePolicyFragment_CreateOrUpdate
+      operationId: WorkspacePolicyFragment_CreateOrUpdate
+      description: Creates or updates a policy fragment.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - PolicyFragment
+    delete:
+      summary: Microsoft Azure API Management WorkspacePolicyFragment_Delete
+      operationId: WorkspacePolicyFragment_Delete
+      description: Deletes a policy fragment.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - PolicyFragment
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/products
+  : get:
+      summary: Microsoft Azure API Management WorkspaceProduct_ListByService
+      operationId: WorkspaceProduct_ListByService
+      description: Lists a collection of products in the specified workspace in a service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Product
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/products/{productId}
+  : head:
+      summary: Microsoft Azure API Management WorkspaceProduct_GetEntityTag
+      operationId: WorkspaceProduct_GetEntityTag
+      description: Gets the entity state (Etag) version of the product specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Product
+    get:
+      summary: Microsoft Azure API Management WorkspaceProduct_Get
+      operationId: WorkspaceProduct_Get
+      description: Gets the details of the product specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Product
+    put:
+      summary: Microsoft Azure API Management WorkspaceProduct_CreateOrUpdate
+      operationId: WorkspaceProduct_CreateOrUpdate
+      description: Creates or Updates a product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Product
+    patch:
+      summary: Microsoft Azure API Management WorkspaceProduct_Update
+      operationId: WorkspaceProduct_Update
+      description: Update existing product details.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Product
+    delete:
+      summary: Microsoft Azure API Management WorkspaceProduct_Delete
+      operationId: WorkspaceProduct_Delete
+      description: Delete product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Product
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/schemas
+  : get:
+      summary: Microsoft Azure API Management WorkspaceGlobalSchema_ListByService
+      operationId: WorkspaceGlobalSchema_ListByService
+      description: Lists a collection of schemas registered with workspace in a service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Schema
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/schemas/{schemaId}
+  : head:
+      summary: Microsoft Azure API Management WorkspaceGlobalSchema_GetEntityTag
+      operationId: WorkspaceGlobalSchema_GetEntityTag
+      description: Gets the entity state (Etag) version of the Schema specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Schema
+    get:
+      summary: Microsoft Azure API Management WorkspaceGlobalSchema_Get
+      operationId: WorkspaceGlobalSchema_Get
+      description: Gets the details of the Schema specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Schema
+    put:
+      summary: Microsoft Azure API Management WorkspaceGlobalSchema_CreateOrUpdate
+      operationId: WorkspaceGlobalSchema_CreateOrUpdate
+      description: Creates new or updates existing specified Schema of the workspace in an API Management service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Schema
+    delete:
+      summary: Microsoft Azure API Management WorkspaceGlobalSchema_Delete
+      operationId: WorkspaceGlobalSchema_Delete
+      description: Deletes specific Schema.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Schema
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/subscriptions
+  : get:
+      summary: Microsoft Azure API Management WorkspaceSubscription_List
+      operationId: WorkspaceSubscription_List
+      description: Lists all subscriptions of the workspace in an API Management service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Subscription
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/subscriptions/{sid}
+  : head:
+      summary: Microsoft Azure API Management WorkspaceSubscription_GetEntityTag
+      operationId: WorkspaceSubscription_GetEntityTag
+      description: Gets the entity state (Etag) version of the apimanagement subscription specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Subscription
+    get:
+      summary: Microsoft Azure API Management WorkspaceSubscription_Get
+      operationId: WorkspaceSubscription_Get
+      description: Gets the specified Subscription entity.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Subscription
+    put:
+      summary: Microsoft Azure API Management WorkspaceSubscription_CreateOrUpdate
+      operationId: WorkspaceSubscription_CreateOrUpdate
+      description: Creates or updates the subscription of specified user to the specified product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Subscription
+    patch:
+      summary: Microsoft Azure API Management WorkspaceSubscription_Update
+      operationId: WorkspaceSubscription_Update
+      description: Updates the details of a subscription specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Subscription
+    delete:
+      summary: Microsoft Azure API Management WorkspaceSubscription_Delete
+      operationId: WorkspaceSubscription_Delete
+      description: Deletes the specified subscription.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Subscription
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/tags
+  : get:
+      summary: Microsoft Azure API Management WorkspaceTag_ListByService
+      operationId: WorkspaceTag_ListByService
+      description: Lists a collection of tags defined within a workspace in a service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Tag
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/tags/{tagId}
+  : head:
+      summary: Microsoft Azure API Management WorkspaceTag_GetEntityState
+      operationId: WorkspaceTag_GetEntityState
+      description: Gets the entity state version of the tag specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Tag
+    get:
+      summary: Microsoft Azure API Management WorkspaceTag_Get
+      operationId: WorkspaceTag_Get
+      description: Gets the details of the tag specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Tag
+    put:
+      summary: Microsoft Azure API Management WorkspaceTag_CreateOrUpdate
+      operationId: WorkspaceTag_CreateOrUpdate
+      description: Creates a tag.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Tag
+    patch:
+      summary: Microsoft Azure API Management WorkspaceTag_Update
+      operationId: WorkspaceTag_Update
+      description: Updates the details of the tag specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Tag
+    delete:
+      summary: Microsoft Azure API Management WorkspaceTag_Delete
+      operationId: WorkspaceTag_Delete
+      description: Deletes specific tag of the workspace in an API Management service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Tag
+components:
+  securitySchemes:
+    azure_auth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+          scopes:
+            user_impersonation: impersonate your user account
+  schemas:
+    OperationListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                example: Microsoft.ApiManagement/service/read
+              display:
+                type: object
+                properties:
+                  provider:
+                    type: string
+                    example: Microsoft API Management
+                  resource:
+                    type: string
+                    example: Service
+                  operation:
+                    type: string
+                    example: Read API Management Service
+        nextLink:
+          type: string
+          example: ''
+    ServiceNameAvailabilityResult:
+      type: object
+      properties:
+        nameAvailable:
+          type: boolean
+          example: true
+        message:
+          type: string
+          example: ''
+        reason:
+          type: string
+          example: ''
+    DomainOwnershipIdentifierResult:
+      type: object
+      properties:
+        domainOwnershipIdentifier:
+          type: string
+          example: abc123def456ghi789
+    ApiManagementServiceListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiManagementServiceResource'
+        count:
+          type: integer
+          example: 1
+        nextLink:
+          type: string
+          example: ''
+    ApiManagementServiceResource:
+      type: object
+      properties:
+        id:
+          type: string
+          example: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim
+        name:
+          type: string
+          example: contoso-apim
+        type:
+          type: string
+          example: Microsoft.ApiManagement/service
+        location:
+          type: string
+          example: West US 2
+        sku:
+          type: object
+          properties:
+            name:
+              type: string
+              example: Developer
+            capacity:
+              type: integer
+              example: 1
+        properties:
+          type: object
+          properties:
+            publisherEmail:
+              type: string
+              example: admin@contoso.com
+            publisherName:
+              type: string
+              example: Contoso
+            provisioningState:
+              type: string
+              example: Succeeded
+            gatewayUrl:
+              type: string
+              example: https://contoso-apim.azure-api.net
+            portalUrl:
+              type: string
+              example: https://contoso-apim.developer.azure-api.net
+            managementApiUrl:
+              type: string
+              example: https://contoso-apim.management.azure-api.net
+            createdAtUtc:
+              type: string
+              format: date-time
+              example: '2024-01-10T08:00:00Z'
+    ApiCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiContract'
+        count:
+          type: integer
+          example: 2
+        nextLink:
+          type: string
+          example: ''
+    ApiContract:
+      type: object
+      properties:
+        id:
+          type: string
+          example: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api
+        name:
+          type: string
+          example: petstore-api
+        type:
+          type: string
+          example: Microsoft.ApiManagement/service/apis
+        properties:
+          type: object
+          properties:
+            displayName:
+              type: string
+              example: Petstore API
+            description:
+              type: string
+              example: A sample API for managing pets.
+            serviceUrl:
+              type: string
+              example: https://petstore.example.com/v1
+            path:
+              type: string
+              example: petstore
+            protocols:
+              type: array
+              items:
+                type: string
+              example:
+              - https
+            subscriptionRequired:
+              type: boolean
+              example: true
+            apiRevision:
+              type: string
+              example: '1'
+    ApiCreateOrUpdateParameter:
+      type: object
+      properties:
+        properties:
+          type: object
+          properties:
+            displayName:
+              type: string
+              example: Petstore API
+            description:
+              type: string
+              example: A sample API for managing pets.
+            serviceUrl:
+              type: string
+              example: https://petstore.example.com/v1
+            path:
+              type: string
+              example: petstore
+            protocols:
+              type: array
+              items:
+                type: string
+              example:
+              - https
+    DiagnosticCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/DiagnosticContract'
+        count:
+          type: integer
+          example: 1
+        nextLink:
+          type: string
+          example: ''
+    DiagnosticContract:
+      type: object
+      properties:
+        id:
+          type: string
+          example: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api/diagnostics/applicationinsights
+        name:
+          type: string
+          example: applicationinsights
+        type:
+          type: string
+          example: Microsoft.ApiManagement/service/apis/diagnostics
+        properties:
+          type: object
+          properties:
+            loggerId:
+              type: string
+              example: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/loggers/appinsights-logger
+            alwaysLog:
+              type: string
+              example: allErrors
+            sampling:
+              type: object
+              properties:
+                samplingType:
+                  type: string
+                  example: fixed
+                percentage:
+                  type: number
+                  example: 100
+tags:
+- name: Api
+- name: ApiDiagnostic
+- name: ApiIssue
+- name: ApiManagementOperations
+- name: ApiManagementService
+- name: ApiManagementServiceSkus
+- name: ApiOperation
+- name: ApiOperationsByTag
+- name: ApiPolicy
+- name: ApiProduct
+- name: ApiRelease
+- name: ApiRevision
+- name: ApiSchema
+- name: ApiTag
+- name: ApiTagDescription
+- name: ApiVersionSet
+- name: ApiVersionSets
+- name: ApiWiki
+- name: Backend
+- name: BackendReconnect
+- name: Certificate
+- name: Diagnostic
+- name: Gateway
+- name: GatewayApi
+- name: GatewayCertificateAuthority
+- name: GatewayGenerateToken
+- name: GatewayHostnameConfiguration
+- name: GatewayInvalidateDebugCredentials
+- name: GatewayListDebugCredentials
+- name: GatewayListKeys
+- name: GatewayListTrace
+- name: GatewayRegenerateKey
+- name: GraphQLApiResolver
+- name: Group
+- name: GroupUser
+- name: Logger
+- name: NamedValue
+- name: Notification
+- name: Policy
+- name: PolicyFragment
+- name: Product
+- name: ProductApi
+- name: ProductApiLink
+- name: ProductGroup
+- name: ProductGroupLink
+- name: ProductPolicy
+- name: ProductSubscription
+- name: ProductTag
+- name: ProductWiki
+- name: Schema
+- name: Subscription
+- name: Tag
+- name: TagApiLink
+- name: TagOperationLink
+- name: TagProductLink
+- name: User
+- name: UserGroup
+- name: UserIdentity
+- name: UserSubscription
+- name: UserToken
+- name: Users
+- name: Workspace
+- name: WorkspacePolicy

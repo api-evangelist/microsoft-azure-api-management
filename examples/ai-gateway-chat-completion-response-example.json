@@ -1,0 +1,21 @@
+{
+  "id": "chatcmpl-9R4kT2v8mXbLwEfGhN1pQ7",
+  "object": "chat.completion",
+  "created": 1714003200,
+  "model": "gpt-4o",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "To configure rate limiting on your Azure API Management instance for a GPT-4o backend, navigate to your API policy editor and add a `rate-limit-by-key` policy in the inbound section. You can set the calls attribute to the number of requests allowed and the renewal-period to the time window in seconds. For token-based rate limiting specific to AI workloads, use the `azure-openai-token-limit` policy to control tokens per minute."
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 38,
+    "completion_tokens": 87,
+    "total_tokens": 125
+  }
+}

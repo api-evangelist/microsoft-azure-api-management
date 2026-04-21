@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CompletionResponse",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "cmpl-xyz789"
+    },
+    "object": {
+      "type": "string",
+      "example": "text_completion"
+    },
+    "created": {
+      "type": "integer",
+      "example": 1714000000
+    },
+    "model": {
+      "type": "string",
+      "example": "gpt-4o"
+    },
+    "choices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer",
+            "example": 0
+          },
+          "text": {
+            "type": "string",
+            "example": "enterprise environments includes centralized governance and security."
+          },
+          "finish_reason": {
+            "type": "string",
+            "example": "stop"
+          }
+        }
+      }
+    },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "prompt_tokens": {
+          "type": "integer",
+          "example": 10
+        },
+        "completion_tokens": {
+          "type": "integer",
+          "example": 15
+        },
+        "total_tokens": {
+          "type": "integer",
+          "example": 25
+        }
+      }
+    }
+  }
+}

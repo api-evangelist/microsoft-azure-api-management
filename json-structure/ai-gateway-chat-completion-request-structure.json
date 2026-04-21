@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "ChatCompletionRequest",
+  "type": "object",
+  "properties": {
+    "messages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "type": "string",
+            "example": "user"
+          },
+          "content": {
+            "type": "string",
+            "example": "What is Azure API Management?"
+          }
+        }
+      }
+    },
+    "max_tokens": {
+      "type": "int32",
+      "example": 256
+    },
+    "temperature": {
+      "type": "float",
+      "example": 0.7
+    }
+  }
+}

@@ -1,0 +1,54 @@
+naftiko: "1.0.0-alpha1"
+info:
+  label: Azure API Management AI Gateway
+  description: >-
+    AI gateway capabilities in Azure API Management for managing, securing, and
+    observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs,
+    MCP servers, and A2A agent APIs. Includes token rate limiting, semantic
+    caching, load balancing, and content safety enforcement.
+  tags:
+    - AI Gateway
+    - Azure
+    - LLM
+    - OpenAI
+    - Machine Learning
+  created: "2026-04-21"
+  modified: "2026-04-21"
+capability:
+  consumes:
+    - type: http
+      namespace: azure-apim-ai-gateway
+      baseUri: https://{service-name}.azure-api.net
+      auth:
+        type: apiKey
+        in: header
+        name: api-key
+      resources:
+        - name: chat-completions
+          label: Chat Completions
+          path: /deployments/{deployment-id}/chat/completions
+          operations:
+            - name: AIGateway_ChatCompletions
+              label: Chat Completions Via AI Gateway
+              method: POST
+        - name: completions
+          label: Completions
+          path: /deployments/{deployment-id}/completions
+          operations:
+            - name: AIGateway_Completions
+              label: Completions Via AI Gateway
+              method: POST
+        - name: embeddings
+          label: Embeddings
+          path: /deployments/{deployment-id}/embeddings
+          operations:
+            - name: AIGateway_Embeddings
+              label: Embeddings Via AI Gateway
+              method: POST
+        - name: mcp
+          label: MCP Server
+          path: /mcp
+          operations:
+            - name: AIGateway_MCP
+              label: MCP Server Request Via AI Gateway
+              method: POST

@@ -1,0 +1,61 @@
+naftiko: "1.0.0-alpha1"
+info:
+  label: Azure API Management Developer Portal
+  description: >-
+    The developer portal is a customizable website for API consumers to discover
+    APIs, read documentation, test APIs via an interactive console, create
+    accounts, subscribe to products, and manage API keys.
+  tags:
+    - Developer Portal
+    - Azure
+    - API Discovery
+    - Self Service
+  created: "2026-04-21"
+  modified: "2026-04-21"
+capability:
+  consumes:
+    - type: http
+      namespace: azure-apim-dev-portal
+      baseUri: https://{service-name}.developer.azure-api.net
+      resources:
+        - name: portal
+          label: Portal Home
+          path: /
+          operations:
+            - name: DevPortal_Home
+              label: Developer Portal Home Page
+              method: GET
+        - name: apis
+          label: API Catalog
+          path: /apis/{api-id}
+          operations:
+            - name: DevPortal_ListApis
+              label: List Available APIs
+              method: GET
+            - name: DevPortal_GetApi
+              label: Get API Details
+              method: GET
+        - name: products
+          label: Products
+          path: /products
+          operations:
+            - name: DevPortal_ListProducts
+              label: List Available Products
+              method: GET
+        - name: authentication
+          label: Authentication
+          path: /signin
+          operations:
+            - name: DevPortal_SignIn
+              label: Sign In
+              method: GET
+            - name: DevPortal_SignUp
+              label: Sign Up
+              method: GET
+        - name: profile
+          label: User Profile
+          path: /profile
+          operations:
+            - name: DevPortal_Profile
+              label: User Profile And Subscriptions
+              method: GET

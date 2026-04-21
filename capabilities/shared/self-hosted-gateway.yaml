@@ -1,0 +1,49 @@
+naftiko: "1.0.0-alpha1"
+info:
+  label: Azure API Management Self-Hosted Gateway
+  description: >-
+    A containerized version of the Azure API Management gateway that can be
+    deployed on-premises, in other clouds, or on Kubernetes. It connects to a
+    cloud-based API Management instance for configuration and reports telemetry.
+  tags:
+    - Self-Hosted Gateway
+    - Azure
+    - Kubernetes
+    - Hybrid Cloud
+    - Containers
+  created: "2026-04-21"
+  modified: "2026-04-21"
+capability:
+  consumes:
+    - type: http
+      namespace: azure-apim-self-hosted-gw
+      baseUri: https://{gateway-hostname}
+      auth:
+        type: apiKey
+        in: header
+        name: Ocp-Apim-Subscription-Key
+      resources:
+        - name: proxy
+          label: API Proxy
+          path: /{api-path}
+          operations:
+            - name: SelfHostedGateway_ProxyGet
+              label: Proxy GET Request
+              method: GET
+            - name: SelfHostedGateway_ProxyPost
+              label: Proxy POST Request
+              method: POST
+        - name: health
+          label: Health Check
+          path: /status-0123456789abcdef
+          operations:
+            - name: SelfHostedGateway_HealthCheck
+              label: Health Check
+              method: GET
+        - name: internal-status
+          label: Internal Status
+          path: /internal/status
+          operations:
+            - name: SelfHostedGateway_InternalStatus
+              label: Internal Status
+              method: GET

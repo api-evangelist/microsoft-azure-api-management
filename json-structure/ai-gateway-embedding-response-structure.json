@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "EmbeddingResponse",
+  "type": "object",
+  "properties": {
+    "object": {
+      "type": "string",
+      "example": "list"
+    },
+    "data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "object": {
+            "type": "string",
+            "example": "embedding"
+          },
+          "index": {
+            "type": "int32",
+            "example": 0
+          },
+          "embedding": {
+            "type": "array",
+            "items": {
+              "type": "float"
+            }
+          }
+        }
+      }
+    },
+    "model": {
+      "type": "string",
+      "example": "text-embedding-ada-002"
+    },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "prompt_tokens": {
+          "type": "int32",
+          "example": 12
+        },
+        "total_tokens": {
+          "type": "int32",
+          "example": 12
+        }
+      }
+    }
+  }
+}

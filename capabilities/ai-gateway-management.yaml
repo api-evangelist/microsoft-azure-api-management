@@ -1,0 +1,172 @@
+naftiko: "1.0.0-alpha1"
+info:
+  label: AI Gateway Management
+  description: >-
+    Workflow capability for AI Engineers to manage AI backends and LLM deployments
+    through Azure API Management. Covers proxying chat completions, completions,
+    and embeddings to Azure OpenAI and compatible backends with token rate
+    limiting, semantic caching, load balancing, and MCP server integration.
+  tags:
+    - AI Gateway
+    - LLM Operations
+    - Azure OpenAI
+    - Machine Learning
+    - Token Management
+    - MCP
+  created: "2026-04-21"
+  modified: "2026-04-21"
+capability:
+  consumes:
+    - type: http
+      namespace: azure-apim-ai-gateway
+      baseUri: https://{service-name}.azure-api.net
+      auth:
+        type: apiKey
+        in: header
+        name: api-key
+      resources:
+        - name: chat-completions
+          label: Chat Completions
+          path: /deployments/{deployment-id}/chat/completions
+          operations:
+            - name: AIGateway_ChatCompletions
+              label: Chat Completions Via AI Gateway
+              method: POST
+        - name: completions
+          label: Completions
+          path: /deployments/{deployment-id}/completions
+          operations:
+            - name: AIGateway_Completions
+              label: Completions Via AI Gateway
+              method: POST
+        - name: embeddings
+          label: Embeddings
+          path: /deployments/{deployment-id}/embeddings
+          operations:
+            - name: AIGateway_Embeddings
+              label: Embeddings Via AI Gateway
+              method: POST
+        - name: mcp
+          label: MCP Server
+          path: /mcp
+          operations:
+            - name: AIGateway_MCP
+              label: MCP Server Request Via AI Gateway
+              method: POST
+    - type: http
+      namespace: azure-apim-rest
+      baseUri: https://management.azure.com
+      auth:
+        type: oauth2
+        scopes:
+          - user_impersonation
+      resources:
+        - name: backend
+          label: AI Backends
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backends/{backendId}
+          operations:
+            - name: Backend_ListByService
+              label: List Backends
+              method: GET
+            - name: Backend_Get
+              label: Get Backend
+              method: GET
+            - name: Backend_CreateOrUpdate
+              label: Create Or Update Backend
+              method: PUT
+            - name: Backend_Update
+              label: Update Backend
+              method: PATCH
+            - name: Backend_Delete
+              label: Delete Backend
+              method: DELETE
+            - name: Backend_Reconnect
+              label: Reconnect Backend
+              method: POST
+        - name: api
+          label: AI APIs
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}
+          operations:
+            - name: Api_ListByService
+              label: List APIs
+              method: GET
+            - name: Api_Get
+              label: Get API
+              method: GET
+            - name: Api_CreateOrUpdate
+              label: Create Or Update API
+              method: PUT
+            - name: Api_Delete
+              label: Delete API
+              method: DELETE
+        - name: api-policy
+          label: AI API Policies
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/policies/{policyId}
+          operations:
+            - name: ApiPolicy_ListByApi
+              label: List API Policies
+              method: GET
+            - name: ApiPolicy_Get
+              label: Get API Policy
+              method: GET
+            - name: ApiPolicy_CreateOrUpdate
+              label: Create Or Update API Policy
+              method: PUT
+            - name: ApiPolicy_Delete
+              label: Delete API Policy
+              method: DELETE
+        - name: api-diagnostic
+          label: AI API Diagnostics
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/diagnostics/{diagnosticId}
+          operations:
+            - name: ApiDiagnostic_ListByService
+              label: List API Diagnostics
+              method: GET
+            - name: ApiDiagnostic_Get
+              label: Get API Diagnostic
+              method: GET
+            - name: ApiDiagnostic_CreateOrUpdate
+              label: Create Or Update API Diagnostic
+              method: PUT
+            - name: ApiDiagnostic_Delete
+              label: Delete API Diagnostic
+              method: DELETE
+        - name: logger
+          label: AI Logging
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/loggers/{loggerId}
+          operations:
+            - name: Logger_ListByService
+              label: List Loggers
+              method: GET
+            - name: Logger_Get
+              label: Get Logger
+              method: GET
+            - name: Logger_CreateOrUpdate
+              label: Create Or Update Logger
+              method: PUT
+            - name: Logger_Delete
+              label: Delete Logger
+              method: DELETE
+        - name: product
+          label: AI Products
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}
+          operations:
+            - name: Product_ListByService
+              label: List Products
+              method: GET
+            - name: Product_CreateOrUpdate
+              label: Create Or Update Product
+              method: PUT
+        - name: subscription
+          label: AI Subscriptions
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/subscriptions/{sid}
+          operations:
+            - name: Subscription_List
+              label: List Subscriptions
+              method: GET
+            - name: Subscription_CreateOrUpdate
+              label: Create Or Update Subscription
+              method: PUT
+            - name: Subscription_ListSecrets
+              label: List Subscription Secrets
+              method: POST

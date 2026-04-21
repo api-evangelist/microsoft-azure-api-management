@@ -1,0 +1,14 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an Azure API Management assistant that helps developers configure API policies and manage their API gateway."
+    },
+    {
+      "role": "user",
+      "content": "How do I configure rate limiting on my Azure API Management instance for a GPT-4o backend?"
+    }
+  ],
+  "max_tokens": 256,
+  "temperature": 0.7
+}

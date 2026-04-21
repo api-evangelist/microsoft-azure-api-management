@@ -1,0 +1,609 @@
+naftiko: "1.0.0-alpha1"
+info:
+  label: Azure API Management REST API
+  description: >-
+    REST APIs for managing Azure API Management service instances and their
+    entities including APIs, products, subscriptions, users, groups, policies,
+    gateways, backends, certificates, and workspaces via Azure Resource Manager.
+  tags:
+    - API Management
+    - Azure
+    - Resource Manager
+    - Platform Administration
+  created: "2026-04-21"
+  modified: "2026-04-21"
+capability:
+  consumes:
+    - type: http
+      namespace: azure-apim-rest
+      baseUri: https://management.azure.com
+      auth:
+        type: oauth2
+        scopes:
+          - user_impersonation
+      resources:
+        - name: service
+          label: API Management Service
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}
+          operations:
+            - name: ApiManagementService_List
+              label: List Services
+              method: GET
+            - name: ApiManagementService_ListByResourceGroup
+              label: List Services By Resource Group
+              method: GET
+            - name: ApiManagementService_Get
+              label: Get Service
+              method: GET
+            - name: ApiManagementService_CreateOrUpdate
+              label: Create Or Update Service
+              method: PUT
+            - name: ApiManagementService_Update
+              label: Update Service
+              method: PATCH
+            - name: ApiManagementService_Delete
+              label: Delete Service
+              method: DELETE
+            - name: ApiManagementService_Backup
+              label: Backup Service
+              method: POST
+            - name: ApiManagementService_Restore
+              label: Restore Service
+              method: POST
+            - name: ApiManagementService_CheckNameAvailability
+              label: Check Name Availability
+              method: POST
+            - name: ApiManagementService_GetSsoToken
+              label: Get SSO Token
+              method: POST
+            - name: ApiManagementService_MigrateToStv2
+              label: Migrate To STv2
+              method: POST
+            - name: ApiManagementService_ApplyNetworkConfigurationUpdates
+              label: Apply Network Configuration Updates
+              method: POST
+        - name: api
+          label: APIs
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}
+          operations:
+            - name: Api_ListByService
+              label: List APIs
+              method: GET
+            - name: Api_Get
+              label: Get API
+              method: GET
+            - name: Api_CreateOrUpdate
+              label: Create Or Update API
+              method: PUT
+            - name: Api_Update
+              label: Update API
+              method: PATCH
+            - name: Api_Delete
+              label: Delete API
+              method: DELETE
+        - name: api-operation
+          label: API Operations
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/operations/{operationId}
+          operations:
+            - name: ApiOperation_ListByApi
+              label: List API Operations
+              method: GET
+            - name: ApiOperation_Get
+              label: Get API Operation
+              method: GET
+            - name: ApiOperation_CreateOrUpdate
+              label: Create Or Update API Operation
+              method: PUT
+            - name: ApiOperation_Update
+              label: Update API Operation
+              method: PATCH
+            - name: ApiOperation_Delete
+              label: Delete API Operation
+              method: DELETE
+        - name: api-policy
+          label: API Policies
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/policies/{policyId}
+          operations:
+            - name: ApiPolicy_ListByApi
+              label: List API Policies
+              method: GET
+            - name: ApiPolicy_Get
+              label: Get API Policy
+              method: GET
+            - name: ApiPolicy_CreateOrUpdate
+              label: Create Or Update API Policy
+              method: PUT
+            - name: ApiPolicy_Delete
+              label: Delete API Policy
+              method: DELETE
+        - name: api-schema
+          label: API Schemas
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/schemas/{schemaId}
+          operations:
+            - name: ApiSchema_ListByApi
+              label: List API Schemas
+              method: GET
+            - name: ApiSchema_Get
+              label: Get API Schema
+              method: GET
+            - name: ApiSchema_CreateOrUpdate
+              label: Create Or Update API Schema
+              method: PUT
+            - name: ApiSchema_Delete
+              label: Delete API Schema
+              method: DELETE
+        - name: api-release
+          label: API Releases
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/releases/{releaseId}
+          operations:
+            - name: ApiRelease_ListByService
+              label: List API Releases
+              method: GET
+            - name: ApiRelease_Get
+              label: Get API Release
+              method: GET
+            - name: ApiRelease_CreateOrUpdate
+              label: Create Or Update API Release
+              method: PUT
+            - name: ApiRelease_Update
+              label: Update API Release
+              method: PATCH
+            - name: ApiRelease_Delete
+              label: Delete API Release
+              method: DELETE
+        - name: api-revision
+          label: API Revisions
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/revisions
+          operations:
+            - name: ApiRevision_ListByService
+              label: List API Revisions
+              method: GET
+        - name: api-version-set
+          label: API Version Sets
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apiVersionSets/{versionSetId}
+          operations:
+            - name: ApiVersionSet_ListByService
+              label: List API Version Sets
+              method: GET
+            - name: ApiVersionSet_Get
+              label: Get API Version Set
+              method: GET
+            - name: ApiVersionSet_CreateOrUpdate
+              label: Create Or Update API Version Set
+              method: PUT
+            - name: ApiVersionSet_Update
+              label: Update API Version Set
+              method: PATCH
+            - name: ApiVersionSet_Delete
+              label: Delete API Version Set
+              method: DELETE
+        - name: api-diagnostic
+          label: API Diagnostics
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/diagnostics/{diagnosticId}
+          operations:
+            - name: ApiDiagnostic_ListByService
+              label: List API Diagnostics
+              method: GET
+            - name: ApiDiagnostic_Get
+              label: Get API Diagnostic
+              method: GET
+            - name: ApiDiagnostic_CreateOrUpdate
+              label: Create Or Update API Diagnostic
+              method: PUT
+            - name: ApiDiagnostic_Update
+              label: Update API Diagnostic
+              method: PATCH
+            - name: ApiDiagnostic_Delete
+              label: Delete API Diagnostic
+              method: DELETE
+        - name: product
+          label: Products
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}
+          operations:
+            - name: Product_ListByService
+              label: List Products
+              method: GET
+            - name: Product_Get
+              label: Get Product
+              method: GET
+            - name: Product_CreateOrUpdate
+              label: Create Or Update Product
+              method: PUT
+            - name: Product_Update
+              label: Update Product
+              method: PATCH
+            - name: Product_Delete
+              label: Delete Product
+              method: DELETE
+        - name: product-api
+          label: Product APIs
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/apis/{apiId}
+          operations:
+            - name: ProductApi_ListByProduct
+              label: List Product APIs
+              method: GET
+            - name: ProductApi_CreateOrUpdate
+              label: Add API To Product
+              method: PUT
+            - name: ProductApi_Delete
+              label: Remove API From Product
+              method: DELETE
+        - name: product-policy
+          label: Product Policies
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/policies/{policyId}
+          operations:
+            - name: ProductPolicy_ListByProduct
+              label: List Product Policies
+              method: GET
+            - name: ProductPolicy_Get
+              label: Get Product Policy
+              method: GET
+            - name: ProductPolicy_CreateOrUpdate
+              label: Create Or Update Product Policy
+              method: PUT
+            - name: ProductPolicy_Delete
+              label: Delete Product Policy
+              method: DELETE
+        - name: product-group
+          label: Product Groups
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/groups/{groupId}
+          operations:
+            - name: ProductGroup_ListByProduct
+              label: List Product Groups
+              method: GET
+            - name: ProductGroup_CreateOrUpdate
+              label: Add Group To Product
+              method: PUT
+            - name: ProductGroup_Delete
+              label: Remove Group From Product
+              method: DELETE
+        - name: subscription
+          label: Subscriptions
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/subscriptions/{sid}
+          operations:
+            - name: Subscription_List
+              label: List Subscriptions
+              method: GET
+            - name: Subscription_Get
+              label: Get Subscription
+              method: GET
+            - name: Subscription_CreateOrUpdate
+              label: Create Or Update Subscription
+              method: PUT
+            - name: Subscription_Update
+              label: Update Subscription
+              method: PATCH
+            - name: Subscription_Delete
+              label: Delete Subscription
+              method: DELETE
+            - name: Subscription_ListSecrets
+              label: List Subscription Secrets
+              method: POST
+            - name: Subscription_RegeneratePrimaryKey
+              label: Regenerate Primary Key
+              method: POST
+            - name: Subscription_RegenerateSecondaryKey
+              label: Regenerate Secondary Key
+              method: POST
+        - name: user
+          label: Users
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}
+          operations:
+            - name: User_ListByService
+              label: List Users
+              method: GET
+            - name: User_Get
+              label: Get User
+              method: GET
+            - name: User_CreateOrUpdate
+              label: Create Or Update User
+              method: PUT
+            - name: User_Update
+              label: Update User
+              method: PATCH
+            - name: User_Delete
+              label: Delete User
+              method: DELETE
+            - name: User_GenerateSsoUrl
+              label: Generate SSO URL
+              method: POST
+            - name: User_GetSharedAccessToken
+              label: Get Shared Access Token
+              method: POST
+        - name: group
+          label: Groups
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups/{groupId}
+          operations:
+            - name: Group_ListByService
+              label: List Groups
+              method: GET
+            - name: Group_Get
+              label: Get Group
+              method: GET
+            - name: Group_CreateOrUpdate
+              label: Create Or Update Group
+              method: PUT
+            - name: Group_Update
+              label: Update Group
+              method: PATCH
+            - name: Group_Delete
+              label: Delete Group
+              method: DELETE
+        - name: group-user
+          label: Group Users
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups/{groupId}/users/{userId}
+          operations:
+            - name: GroupUser_List
+              label: List Group Users
+              method: GET
+            - name: GroupUser_Create
+              label: Add User To Group
+              method: PUT
+            - name: GroupUser_Delete
+              label: Remove User From Group
+              method: DELETE
+        - name: gateway
+          label: Gateways
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}
+          operations:
+            - name: Gateway_ListByService
+              label: List Gateways
+              method: GET
+            - name: Gateway_Get
+              label: Get Gateway
+              method: GET
+            - name: Gateway_CreateOrUpdate
+              label: Create Or Update Gateway
+              method: PUT
+            - name: Gateway_Update
+              label: Update Gateway
+              method: PATCH
+            - name: Gateway_Delete
+              label: Delete Gateway
+              method: DELETE
+            - name: Gateway_GenerateToken
+              label: Generate Gateway Token
+              method: POST
+            - name: Gateway_ListKeys
+              label: List Gateway Keys
+              method: POST
+            - name: Gateway_RegenerateKey
+              label: Regenerate Gateway Key
+              method: POST
+            - name: Gateway_InvalidateDebugCredentials
+              label: Invalidate Debug Credentials
+              method: POST
+            - name: Gateway_ListDebugCredentials
+              label: List Debug Credentials
+              method: POST
+            - name: Gateway_ListTrace
+              label: List Gateway Trace
+              method: POST
+        - name: gateway-api
+          label: Gateway APIs
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/apis/{apiId}
+          operations:
+            - name: GatewayApi_ListByService
+              label: List Gateway APIs
+              method: GET
+            - name: GatewayApi_CreateOrUpdate
+              label: Add API To Gateway
+              method: PUT
+            - name: GatewayApi_Delete
+              label: Remove API From Gateway
+              method: DELETE
+        - name: gateway-certificate-authority
+          label: Gateway Certificate Authorities
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/certificateAuthorities/{certificateId}
+          operations:
+            - name: GatewayCertificateAuthority_ListByService
+              label: List Gateway Certificate Authorities
+              method: GET
+            - name: GatewayCertificateAuthority_Get
+              label: Get Gateway Certificate Authority
+              method: GET
+            - name: GatewayCertificateAuthority_CreateOrUpdate
+              label: Create Or Update Gateway Certificate Authority
+              method: PUT
+            - name: GatewayCertificateAuthority_Delete
+              label: Delete Gateway Certificate Authority
+              method: DELETE
+        - name: gateway-hostname-configuration
+          label: Gateway Hostname Configurations
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/hostnameConfigurations/{hcId}
+          operations:
+            - name: GatewayHostnameConfiguration_ListByService
+              label: List Gateway Hostname Configurations
+              method: GET
+            - name: GatewayHostnameConfiguration_Get
+              label: Get Gateway Hostname Configuration
+              method: GET
+            - name: GatewayHostnameConfiguration_CreateOrUpdate
+              label: Create Or Update Gateway Hostname Configuration
+              method: PUT
+            - name: GatewayHostnameConfiguration_Delete
+              label: Delete Gateway Hostname Configuration
+              method: DELETE
+        - name: backend
+          label: Backends
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backends/{backendId}
+          operations:
+            - name: Backend_ListByService
+              label: List Backends
+              method: GET
+            - name: Backend_Get
+              label: Get Backend
+              method: GET
+            - name: Backend_CreateOrUpdate
+              label: Create Or Update Backend
+              method: PUT
+            - name: Backend_Update
+              label: Update Backend
+              method: PATCH
+            - name: Backend_Delete
+              label: Delete Backend
+              method: DELETE
+            - name: Backend_Reconnect
+              label: Reconnect Backend
+              method: POST
+        - name: certificate
+          label: Certificates
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates/{certificateId}
+          operations:
+            - name: Certificate_ListByService
+              label: List Certificates
+              method: GET
+            - name: Certificate_Get
+              label: Get Certificate
+              method: GET
+            - name: Certificate_CreateOrUpdate
+              label: Create Or Update Certificate
+              method: PUT
+            - name: Certificate_Delete
+              label: Delete Certificate
+              method: DELETE
+            - name: Certificate_RefreshSecret
+              label: Refresh Certificate Secret
+              method: POST
+        - name: policy
+          label: Policies
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/policies/{policyId}
+          operations:
+            - name: Policy_ListByService
+              label: List Policies
+              method: GET
+            - name: Policy_Get
+              label: Get Policy
+              method: GET
+            - name: Policy_CreateOrUpdate
+              label: Create Or Update Policy
+              method: PUT
+            - name: Policy_Delete
+              label: Delete Policy
+              method: DELETE
+        - name: diagnostic
+          label: Diagnostics
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/diagnostics/{diagnosticId}
+          operations:
+            - name: Diagnostic_ListByService
+              label: List Diagnostics
+              method: GET
+            - name: Diagnostic_Get
+              label: Get Diagnostic
+              method: GET
+            - name: Diagnostic_CreateOrUpdate
+              label: Create Or Update Diagnostic
+              method: PUT
+            - name: Diagnostic_Update
+              label: Update Diagnostic
+              method: PATCH
+            - name: Diagnostic_Delete
+              label: Delete Diagnostic
+              method: DELETE
+        - name: logger
+          label: Loggers
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/loggers/{loggerId}
+          operations:
+            - name: Logger_ListByService
+              label: List Loggers
+              method: GET
+            - name: Logger_Get
+              label: Get Logger
+              method: GET
+            - name: Logger_CreateOrUpdate
+              label: Create Or Update Logger
+              method: PUT
+            - name: Logger_Update
+              label: Update Logger
+              method: PATCH
+            - name: Logger_Delete
+              label: Delete Logger
+              method: DELETE
+        - name: named-value
+          label: Named Values
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/namedValues/{namedValueId}
+          operations:
+            - name: NamedValue_ListByService
+              label: List Named Values
+              method: GET
+            - name: NamedValue_Get
+              label: Get Named Value
+              method: GET
+            - name: NamedValue_CreateOrUpdate
+              label: Create Or Update Named Value
+              method: PUT
+            - name: NamedValue_Update
+              label: Update Named Value
+              method: PATCH
+            - name: NamedValue_Delete
+              label: Delete Named Value
+              method: DELETE
+        - name: tag
+          label: Tags
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}
+          operations:
+            - name: Tag_ListByService
+              label: List Tags
+              method: GET
+            - name: Tag_Get
+              label: Get Tag
+              method: GET
+            - name: Tag_CreateOrUpdate
+              label: Create Or Update Tag
+              method: PUT
+            - name: Tag_Update
+              label: Update Tag
+              method: PATCH
+            - name: Tag_Delete
+              label: Delete Tag
+              method: DELETE
+            - name: Tag_AssignToApi
+              label: Assign Tag To API
+              method: PUT
+            - name: Tag_DetachFromApi
+              label: Detach Tag From API
+              method: DELETE
+            - name: Tag_AssignToProduct
+              label: Assign Tag To Product
+              method: PUT
+            - name: Tag_DetachFromProduct
+              label: Detach Tag From Product
+              method: DELETE
+        - name: workspace
+          label: Workspaces
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}
+          operations:
+            - name: Workspace_ListByService
+              label: List Workspaces
+              method: GET
+            - name: Workspace_Get
+              label: Get Workspace
+              method: GET
+            - name: Workspace_CreateOrUpdate
+              label: Create Or Update Workspace
+              method: PUT
+            - name: Workspace_Update
+              label: Update Workspace
+              method: PATCH
+            - name: Workspace_Delete
+              label: Delete Workspace
+              method: DELETE
+        - name: graphql-api-resolver
+          label: GraphQL API Resolvers
+          path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/resolvers/{resolverId}
+          operations:
+            - name: GraphQLApiResolver_ListByApi
+              label: List GraphQL Resolvers
+              method: GET
+            - name: GraphQLApiResolver_Get
+              label: Get GraphQL Resolver
+              method: GET
+            - name: GraphQLApiResolver_CreateOrUpdate
+              label: Create Or Update GraphQL Resolver
+              method: PUT
+            - name: GraphQLApiResolver_Update
+              label: Update GraphQL Resolver
+              method: PATCH
+            - name: GraphQLApiResolver_Delete
+              label: Delete GraphQL Resolver
+              method: DELETE

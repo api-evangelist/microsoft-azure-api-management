@@ -1,0 +1,450 @@
+openapi: 3.0.3
+x-generated-from: documentation
+info:
+  title: Azure API Management AI Gateway
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and
+    observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token
+    rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+paths:
+  /deployments/{deployment-id}/chat/completions:
+    post:
+      summary: Microsoft Azure API Management Chat Completions Via AI Gateway
+      operationId: AIGateway_ChatCompletions
+      tags:
+      - AI
+      description: Proxies chat completion requests to Azure OpenAI or compatible backends with token rate limiting, semantic
+        caching, and load balancing.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: deployment-id
+        in: path
+        required: true
+        schema:
+          type: string
+        example: gpt-4o-deployment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatCompletionRequest'
+            examples:
+              ChatCompletionExample:
+                summary: Basic chat completion request
+                value:
+                  messages:
+                  - role: system
+                    content: You are a helpful assistant.
+                  - role: user
+                    content: What is Azure API Management?
+                  max_tokens: 256
+                  temperature: 0.7
+      responses:
+        '200':
+          description: Chat completion response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatCompletionResponse'
+              examples:
+                ChatCompletionExample:
+                  summary: Successful chat completion
+                  value:
+                    id: chatcmpl-abc123def456
+                    object: chat.completion
+                    created: 1714000000
+                    model: gpt-4o
+                    choices:
+                    - index: 0
+                      message:
+                        role: assistant
+                        content: Azure API Management is a hybrid, multicloud management platform for APIs across all environments.
+                      finish_reason: stop
+                    usage:
+                      prompt_tokens: 24
+                      completion_tokens: 18
+                      total_tokens: 42
+              x-microcks-default:
+                id: chatcmpl-abc123def456
+                object: chat.completion
+                created: 1714000000
+                model: gpt-4o
+  /deployments/{deployment-id}/completions:
+    post:
+      summary: Microsoft Azure API Management Completions Via AI Gateway
+      operationId: AIGateway_Completions
+      tags:
+      - AI
+      description: Proxies completion requests to AI backends.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: deployment-id
+        in: path
+        required: true
+        schema:
+          type: string
+        example: gpt-4o-deployment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompletionRequest'
+            examples:
+              CompletionExample:
+                summary: Basic completion request
+                value:
+                  prompt: Explain the benefits of API management in
+                  max_tokens: 128
+                  temperature: 0.7
+      responses:
+        '200':
+          description: Completion response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompletionResponse'
+              examples:
+                CompletionExample:
+                  summary: Successful completion
+                  value:
+                    id: cmpl-xyz789
+                    object: text_completion
+                    created: 1714000000
+                    model: gpt-4o
+                    choices:
+                    - index: 0
+                      text: enterprise environments includes centralized governance, security enforcement, and developer experience improvements.
+                      finish_reason: stop
+                    usage:
+                      prompt_tokens: 10
+                      completion_tokens: 15
+                      total_tokens: 25
+              x-microcks-default:
+                id: cmpl-xyz789
+                object: text_completion
+  /deployments/{deployment-id}/embeddings:
+    post:
+      summary: Microsoft Azure API Management Embeddings Via AI Gateway
+      operationId: AIGateway_Embeddings
+      tags:
+      - AI
+      description: Proxies embedding requests to AI backends.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: deployment-id
+        in: path
+        required: true
+        schema:
+          type: string
+        example: text-embedding-ada-002-deployment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmbeddingRequest'
+            examples:
+              EmbeddingExample:
+                summary: Basic embedding request
+                value:
+                  input: Azure API Management provides a unified gateway for APIs.
+                  model: text-embedding-ada-002
+      responses:
+        '200':
+          description: Embedding response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmbeddingResponse'
+              examples:
+                EmbeddingExample:
+                  summary: Successful embedding
+                  value:
+                    object: list
+                    data:
+                    - object: embedding
+                      index: 0
+                      embedding:
+                      - 0.0023
+                      - -0.0091
+                      - 0.0152
+                    model: text-embedding-ada-002
+                    usage:
+                      prompt_tokens: 12
+                      total_tokens: 12
+              x-microcks-default:
+                object: list
+                model: text-embedding-ada-002
+  /mcp:
+    post:
+      summary: Microsoft Azure API Management MCP Server Request Via AI Gateway
+      operationId: AIGateway_MCP
+      tags:
+      - MCP
+      description: Routes requests to MCP (Model Context Protocol) servers configured as AI backends.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MCPRequest'
+            examples:
+              MCPToolCallExample:
+                summary: MCP tool invocation
+                value:
+                  jsonrpc: '2.0'
+                  method: tools/call
+                  id: 1
+                  params:
+                    name: get_weather
+                    arguments:
+                      location: Seattle
+      responses:
+        '200':
+          description: MCP response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MCPResponse'
+              examples:
+                MCPToolCallExample:
+                  summary: MCP tool result
+                  value:
+                    jsonrpc: '2.0'
+                    id: 1
+                    result:
+                      content:
+                      - type: text
+                        text: The weather in Seattle is 62F and partly cloudy.
+              x-microcks-default:
+                jsonrpc: '2.0'
+                id: 1
+tags:
+- name: AI
+- name: MCP
+components:
+  schemas:
+    ChatCompletionRequest:
+      type: object
+      properties:
+        messages:
+          type: array
+          items:
+            type: object
+            properties:
+              role:
+                type: string
+                example: user
+              content:
+                type: string
+                example: What is Azure API Management?
+        max_tokens:
+          type: integer
+          example: 256
+        temperature:
+          type: number
+          example: 0.7
+    ChatCompletionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: chatcmpl-abc123def456
+        object:
+          type: string
+          example: chat.completion
+        created:
+          type: integer
+          example: 1714000000
+        model:
+          type: string
+          example: gpt-4o
+        choices:
+          type: array
+          items:
+            type: object
+            properties:
+              index:
+                type: integer
+                example: 0
+              message:
+                type: object
+                properties:
+                  role:
+                    type: string
+                    example: assistant
+                  content:
+                    type: string
+                    example: Azure API Management is a hybrid, multicloud management platform for APIs across all environments.
+              finish_reason:
+                type: string
+                example: stop
+        usage:
+          type: object
+          properties:
+            prompt_tokens:
+              type: integer
+              example: 24
+            completion_tokens:
+              type: integer
+              example: 18
+            total_tokens:
+              type: integer
+              example: 42
+    CompletionRequest:
+      type: object
+      properties:
+        prompt:
+          type: string
+          example: Explain the benefits of API management in
+        max_tokens:
+          type: integer
+          example: 128
+        temperature:
+          type: number
+          example: 0.7
+    CompletionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: cmpl-xyz789
+        object:
+          type: string
+          example: text_completion
+        created:
+          type: integer
+          example: 1714000000
+        model:
+          type: string
+          example: gpt-4o
+        choices:
+          type: array
+          items:
+            type: object
+            properties:
+              index:
+                type: integer
+                example: 0
+              text:
+                type: string
+                example: enterprise environments includes centralized governance and security.
+              finish_reason:
+                type: string
+                example: stop
+        usage:
+          type: object
+          properties:
+            prompt_tokens:
+              type: integer
+              example: 10
+            completion_tokens:
+              type: integer
+              example: 15
+            total_tokens:
+              type: integer
+              example: 25
+    EmbeddingRequest:
+      type: object
+      properties:
+        input:
+          type: string
+          example: Azure API Management provides a unified gateway for APIs.
+        model:
+          type: string
+          example: text-embedding-ada-002
+    EmbeddingResponse:
+      type: object
+      properties:
+        object:
+          type: string
+          example: list
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              object:
+                type: string
+                example: embedding
+              index:
+                type: integer
+                example: 0
+              embedding:
+                type: array
+                items:
+                  type: number
+        model:
+          type: string
+          example: text-embedding-ada-002
+        usage:
+          type: object
+          properties:
+            prompt_tokens:
+              type: integer
+              example: 12
+            total_tokens:
+              type: integer
+              example: 12
+    MCPRequest:
+      type: object
+      properties:
+        jsonrpc:
+          type: string
+          example: '2.0'
+        method:
+          type: string
+          example: tools/call
+        id:
+          type: integer
+          example: 1
+        params:
+          type: object
+          properties:
+            name:
+              type: string
+              example: get_weather
+            arguments:
+              type: object
+    MCPResponse:
+      type: object
+      properties:
+        jsonrpc:
+          type: string
+          example: '2.0'
+        id:
+          type: integer
+          example: 1
+        result:
+          type: object
+          properties:
+            content:
+              type: array
+              items:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    example: text
+                  text:
+                    type: string
+                    example: The weather in Seattle is 62F and partly cloudy.

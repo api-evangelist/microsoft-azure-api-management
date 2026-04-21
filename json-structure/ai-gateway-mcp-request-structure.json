@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "name": "MCPRequest",
+  "type": "object",
+  "properties": {
+    "jsonrpc": {
+      "type": "string",
+      "example": "2.0"
+    },
+    "method": {
+      "type": "string",
+      "example": "tools/call"
+    },
+    "id": {
+      "type": "int32",
+      "example": 1
+    },
+    "params": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "get_weather"
+        },
+        "arguments": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}
