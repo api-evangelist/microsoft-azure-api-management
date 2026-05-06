@@ -4,106 +4,59 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Microsoft Azure API Management
 providerId: microsoft-azure-api-management
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
-  - AI Gateway
+  - Rate Limiting
   - API Gateway
   - API Management
-  - Enterprise
   - Microsoft Azure
-  - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Microsoft Azure API Management API surface.
-  Captures per-tier quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold
-  values to be replaced with published provider limits.
+description: Azure API Management is itself a rate-limit/quota engine for downstream APIs. Built-in
+  policies (rate-limit, rate-limit-by-key, quota, quota-by-key) let operators throttle by subscription
+  key, IP, or arbitrary expression. Service-level capacity caps depend on the tier (scale units).
+sources:
+  - https://learn.microsoft.com/en-us/azure/api-management/api-management-sample-flexible-throttling
+  - https://learn.microsoft.com/en-us/azure/api-management/rate-limit-policy
+  - https://learn.microsoft.com/en-us/azure/api-management/api-management-features
 headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
   retryAfter: Retry-After
-  policy: RateLimit-Policy
 responseCodes:
   throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
+  - name: Consumption tier per-subscription
+    scope: subscription
     metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Azure API Management REST API
-      - Azure API Management Gateway
-      - Azure API Management Self-Hosted Gateway
-      - Azure API Management AI Gateway
-      - Azure API Management Developer Portal
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Azure API Management REST API
-      - Azure API Management Gateway
-      - Azure API Management Self-Hosted Gateway
-      - Azure API Management AI Gateway
-      - Azure API Management Developer Portal
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
+    limit: 'see policy definition; default no service-level cap'
+    notes: Operators define limits via rate-limit / quota policies; consumption tier is metered per
+      call rather than capped at the service level.
+  - name: Tier scale units
+    scope: service
+    metric: varies
+    limit: 'Developer 1, Basic 2, Basic v2 10, Standard 4, Standard v2 10, Premium 12 per region,
+      Premium v2 30'
+    notes: Each scale unit yields documented gateway throughput; configure rate-limit policies on
+      top.
+  - name: Rate-limit policy (per minute)
+    scope: subscription/key/expression
     metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Azure API Management REST API
-      - Azure API Management Gateway
-      - Azure API Management Self-Hosted Gateway
-      - Azure API Management AI Gateway
-      - Azure API Management Developer Portal
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Azure API Management REST API
-      - Azure API Management Gateway
-      - Azure API Management Self-Hosted Gateway
-      - Azure API Management AI Gateway
-      - Azure API Management Developer Portal
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Azure API Management REST API
-      - Azure API Management Gateway
-      - Azure API Management Self-Hosted Gateway
-      - Azure API Management AI Gateway
-      - Azure API Management Developer Portal
+    limit: 'configurable per policy'
+  - name: Quota policy (per period)
+    scope: subscription/key/expression
+    metric: requests_per_period
+    limit: 'configurable per policy'
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+  - name: rate-limit and rate-limit-by-key
+    description: Apply per-minute (or sub-minute via fixed-period) limits per subscription, key, or
+      arbitrary key expression. Returns 429 with Retry-After when exceeded.
+  - name: quota and quota-by-key
+    description: Apply longer-window (renewable per hour, day, week, month) call or bandwidth quotas
+      per subscription/key.
+  - name: Capacity vs throttling
+    description: Tier scale units define peak capacity; operators must size scale units to match
+      configured policy ceilings.
+  - name: Honor Retry-After
+    description: Clients should honor the Retry-After header returned with 429 responses when the
+      gateway throttles a request.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
