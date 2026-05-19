@@ -1,0 +1,108 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure API Management Developer Portal — APIs
+  description: 'Azure API Management Developer Portal — APIs. 2 operations. Lead operation: List available APIs. Self-contained
+    Naftiko capability covering one Microsoft Azure Api Management business surface.'
+  tags:
+  - Microsoft Azure Api Management
+  - APIs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_AZURE_API_MANAGEMENT_API_KEY: MICROSOFT_AZURE_API_MANAGEMENT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: developer-portal-apis
+    baseUri: https://{service-name}.developer.azure-api.net
+    description: Azure API Management Developer Portal — APIs business capability. Self-contained, no shared references.
+    resources:
+    - name: apis
+      path: /apis
+      operations:
+      - name: devportallistapis
+        method: GET
+        description: List available APIs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: apis-api-id
+      path: /apis/{api-id}
+      operations:
+      - name: devportalgetapi
+        method: GET
+        description: Get API details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: api-id
+          in: path
+          type: string
+          required: true
+  exposes:
+  - type: rest
+    namespace: developer-portal-apis-rest
+    port: 8080
+    description: REST adapter for Azure API Management Developer Portal — APIs. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/apis
+      name: apis
+      description: REST surface for apis.
+      operations:
+      - method: GET
+        name: devportallistapis
+        description: List available APIs
+        call: developer-portal-apis.devportallistapis
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/apis/{api-id}
+      name: apis-api-id
+      description: REST surface for apis-api-id.
+      operations:
+      - method: GET
+        name: devportalgetapi
+        description: Get API details
+        call: developer-portal-apis.devportalgetapi
+        with:
+          api-id: rest.api-id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: developer-portal-apis-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure API Management Developer Portal — APIs. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: list-available-apis
+      description: List available APIs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: developer-portal-apis.devportallistapis
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-api-details
+      description: Get API details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: developer-portal-apis.devportalgetapi
+      with:
+        api-id: tools.api-id
+      outputParameters:
+      - type: object
+        mapping: $.

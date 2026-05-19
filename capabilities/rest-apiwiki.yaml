@@ -1,0 +1,202 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure API Management REST API — ApiWiki
+  description: 'Azure API Management REST API — ApiWiki. 6 operations. Lead operation: Microsoft Azure API Management ApiWikis_List.
+    Self-contained Naftiko capability covering one Microsoft Azure Api Management business surface.'
+  tags:
+  - Microsoft Azure Api Management
+  - ApiWiki
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_AZURE_API_MANAGEMENT_API_KEY: MICROSOFT_AZURE_API_MANAGEMENT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-apiwiki
+    baseUri: https://management.azure.com
+    description: Azure API Management REST API — ApiWiki business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/wikis
+      operations:
+      - name: apiwikislist
+        method: GET
+        description: Microsoft Azure API Management ApiWikis_List
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/wikis/default
+      operations:
+      - name: apiwikigetentitytag
+        method: HEAD
+        description: Microsoft Azure API Management ApiWiki_GetEntityTag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: apiwikiget
+        method: GET
+        description: Microsoft Azure API Management ApiWiki_Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: apiwikicreateorupdate
+        method: PUT
+        description: Microsoft Azure API Management ApiWiki_CreateOrUpdate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: apiwikiupdate
+        method: PATCH
+        description: Microsoft Azure API Management ApiWiki_Update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: apiwikidelete
+        method: DELETE
+        description: Microsoft Azure API Management ApiWiki_Delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_AZURE_API_MANAGEMENT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-apiwiki-rest
+    port: 8080
+    description: REST adapter for Azure API Management REST API — ApiWiki. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/apis/{apiid}/wikis
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: apiwikislist
+        description: Microsoft Azure API Management ApiWikis_List
+        call: rest-apiwiki.apiwikislist
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/apis/{apiid}/wikis/default
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: HEAD
+        name: apiwikigetentitytag
+        description: Microsoft Azure API Management ApiWiki_GetEntityTag
+        call: rest-apiwiki.apiwikigetentitytag
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: apiwikiget
+        description: Microsoft Azure API Management ApiWiki_Get
+        call: rest-apiwiki.apiwikiget
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: apiwikicreateorupdate
+        description: Microsoft Azure API Management ApiWiki_CreateOrUpdate
+        call: rest-apiwiki.apiwikicreateorupdate
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: apiwikiupdate
+        description: Microsoft Azure API Management ApiWiki_Update
+        call: rest-apiwiki.apiwikiupdate
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: apiwikidelete
+        description: Microsoft Azure API Management ApiWiki_Delete
+        call: rest-apiwiki.apiwikidelete
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-apiwiki-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure API Management REST API — ApiWiki. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: microsoft-azure-api-management-apiwikis
+      description: Microsoft Azure API Management ApiWikis_List
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-apiwiki.apiwikislist
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-apiwiki
+      description: Microsoft Azure API Management ApiWiki_GetEntityTag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-apiwiki.apiwikigetentitytag
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-apiwiki-2
+      description: Microsoft Azure API Management ApiWiki_Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-apiwiki.apiwikiget
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-apiwiki-3
+      description: Microsoft Azure API Management ApiWiki_CreateOrUpdate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rest-apiwiki.apiwikicreateorupdate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-apiwiki-4
+      description: Microsoft Azure API Management ApiWiki_Update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rest-apiwiki.apiwikiupdate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-apiwiki-5
+      description: Microsoft Azure API Management ApiWiki_Delete
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: rest-apiwiki.apiwikidelete
+      outputParameters:
+      - type: object
+        mapping: $.

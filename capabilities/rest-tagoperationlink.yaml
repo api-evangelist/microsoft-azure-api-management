@@ -1,0 +1,153 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure API Management REST API — TagOperationLink
+  description: 'Azure API Management REST API — TagOperationLink. 4 operations. Lead operation: Microsoft Azure API Management
+    TagOperationLink_ListByProduct. Self-contained Naftiko capability covering one Microsoft Azure Api Management business
+    surface.'
+  tags:
+  - Microsoft Azure Api Management
+  - TagOperationLink
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_AZURE_API_MANAGEMENT_API_KEY: MICROSOFT_AZURE_API_MANAGEMENT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-tagoperationlink
+    baseUri: https://management.azure.com
+    description: Azure API Management REST API — TagOperationLink business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/operationLinks
+      operations:
+      - name: tagoperationlinklistbyproduct
+        method: GET
+        description: Microsoft Azure API Management TagOperationLink_ListByProduct
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/operationLinks/{operationLinkId}
+      operations:
+      - name: tagoperationlinkget
+        method: GET
+        description: Microsoft Azure API Management TagOperationLink_Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: tagoperationlinkcreateorupdate
+        method: PUT
+        description: Microsoft Azure API Management TagOperationLink_CreateOrUpdate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: tagoperationlinkdelete
+        method: DELETE
+        description: Microsoft Azure API Management TagOperationLink_Delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_AZURE_API_MANAGEMENT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-tagoperationlink-rest
+    port: 8080
+    description: REST adapter for Azure API Management REST API — TagOperationLink. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/tags/{tagid}/operationlinks
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: tagoperationlinklistbyproduct
+        description: Microsoft Azure API Management TagOperationLink_ListByProduct
+        call: rest-tagoperationlink.tagoperationlinklistbyproduct
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/tags/{tagid}/operationlinks/{operationlinkid}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: tagoperationlinkget
+        description: Microsoft Azure API Management TagOperationLink_Get
+        call: rest-tagoperationlink.tagoperationlinkget
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: tagoperationlinkcreateorupdate
+        description: Microsoft Azure API Management TagOperationLink_CreateOrUpdate
+        call: rest-tagoperationlink.tagoperationlinkcreateorupdate
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: tagoperationlinkdelete
+        description: Microsoft Azure API Management TagOperationLink_Delete
+        call: rest-tagoperationlink.tagoperationlinkdelete
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-tagoperationlink-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure API Management REST API — TagOperationLink. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: microsoft-azure-api-management-tagoperationlink
+      description: Microsoft Azure API Management TagOperationLink_ListByProduct
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-tagoperationlink.tagoperationlinklistbyproduct
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-tagoperationlink-2
+      description: Microsoft Azure API Management TagOperationLink_Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-tagoperationlink.tagoperationlinkget
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-tagoperationlink-3
+      description: Microsoft Azure API Management TagOperationLink_CreateOrUpdate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rest-tagoperationlink.tagoperationlinkcreateorupdate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-tagoperationlink-4
+      description: Microsoft Azure API Management TagOperationLink_Delete
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: rest-tagoperationlink.tagoperationlinkdelete
+      outputParameters:
+      - type: object
+        mapping: $.

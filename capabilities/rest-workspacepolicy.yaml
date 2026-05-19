@@ -1,0 +1,177 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure API Management REST API — WorkspacePolicy
+  description: 'Azure API Management REST API — WorkspacePolicy. 5 operations. Lead operation: Microsoft Azure API Management
+    WorkspacePolicy_ListByApi. Self-contained Naftiko capability covering one Microsoft Azure Api Management business surface.'
+  tags:
+  - Microsoft Azure Api Management
+  - WorkspacePolicy
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_AZURE_API_MANAGEMENT_API_KEY: MICROSOFT_AZURE_API_MANAGEMENT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-workspacepolicy
+    baseUri: https://management.azure.com
+    description: Azure API Management REST API — WorkspacePolicy business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/policies
+      operations:
+      - name: workspacepolicylistbyapi
+        method: GET
+        description: Microsoft Azure API Management WorkspacePolicy_ListByApi
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/policies/{policyId}
+      operations:
+      - name: workspacepolicygetentitytag
+        method: HEAD
+        description: Microsoft Azure API Management WorkspacePolicy_GetEntityTag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: workspacepolicyget
+        method: GET
+        description: Microsoft Azure API Management WorkspacePolicy_Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: workspacepolicycreateorupdate
+        method: PUT
+        description: Microsoft Azure API Management WorkspacePolicy_CreateOrUpdate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: workspacepolicydelete
+        method: DELETE
+        description: Microsoft Azure API Management WorkspacePolicy_Delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_AZURE_API_MANAGEMENT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-workspacepolicy-rest
+    port: 8080
+    description: REST adapter for Azure API Management REST API — WorkspacePolicy. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/workspaces/{workspaceid}/policies
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: workspacepolicylistbyapi
+        description: Microsoft Azure API Management WorkspacePolicy_ListByApi
+        call: rest-workspacepolicy.workspacepolicylistbyapi
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/workspaces/{workspaceid}/policies/{policyid}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: HEAD
+        name: workspacepolicygetentitytag
+        description: Microsoft Azure API Management WorkspacePolicy_GetEntityTag
+        call: rest-workspacepolicy.workspacepolicygetentitytag
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: workspacepolicyget
+        description: Microsoft Azure API Management WorkspacePolicy_Get
+        call: rest-workspacepolicy.workspacepolicyget
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: workspacepolicycreateorupdate
+        description: Microsoft Azure API Management WorkspacePolicy_CreateOrUpdate
+        call: rest-workspacepolicy.workspacepolicycreateorupdate
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: workspacepolicydelete
+        description: Microsoft Azure API Management WorkspacePolicy_Delete
+        call: rest-workspacepolicy.workspacepolicydelete
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-workspacepolicy-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure API Management REST API — WorkspacePolicy. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: microsoft-azure-api-management-workspacepolicy
+      description: Microsoft Azure API Management WorkspacePolicy_ListByApi
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-workspacepolicy.workspacepolicylistbyapi
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-workspacepolicy-2
+      description: Microsoft Azure API Management WorkspacePolicy_GetEntityTag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-workspacepolicy.workspacepolicygetentitytag
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-workspacepolicy-3
+      description: Microsoft Azure API Management WorkspacePolicy_Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-workspacepolicy.workspacepolicyget
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-workspacepolicy-4
+      description: Microsoft Azure API Management WorkspacePolicy_CreateOrUpdate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rest-workspacepolicy.workspacepolicycreateorupdate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-workspacepolicy-5
+      description: Microsoft Azure API Management WorkspacePolicy_Delete
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: rest-workspacepolicy.workspacepolicydelete
+      outputParameters:
+      - type: object
+        mapping: $.

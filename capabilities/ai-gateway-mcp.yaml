@@ -1,0 +1,77 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure API Management AI Gateway — MCP
+  description: 'Azure API Management AI Gateway — MCP. 1 operations. Lead operation: Microsoft Azure API Management MCP Server
+    Request Via AI Gateway. Self-contained Naftiko capability covering one Microsoft Azure Api Management business surface.'
+  tags:
+  - Microsoft Azure Api Management
+  - MCP
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_AZURE_API_MANAGEMENT_API_KEY: MICROSOFT_AZURE_API_MANAGEMENT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ai-gateway-mcp
+    baseUri: https://{service-name}.azure-api.net
+    description: Azure API Management AI Gateway — MCP business capability. Self-contained, no shared references.
+    resources:
+    - name: mcp
+      path: /mcp
+      operations:
+      - name: aigatewaymcp
+        method: POST
+        description: Microsoft Azure API Management MCP Server Request Via AI Gateway
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: ai-gateway-mcp-rest
+    port: 8080
+    description: REST adapter for Azure API Management AI Gateway — MCP. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/mcp
+      name: mcp
+      description: REST surface for mcp.
+      operations:
+      - method: POST
+        name: aigatewaymcp
+        description: Microsoft Azure API Management MCP Server Request Via AI Gateway
+        call: ai-gateway-mcp.aigatewaymcp
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ai-gateway-mcp-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure API Management AI Gateway — MCP. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: microsoft-azure-api-management-mcp
+      description: Microsoft Azure API Management MCP Server Request Via AI Gateway
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ai-gateway-mcp.aigatewaymcp
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

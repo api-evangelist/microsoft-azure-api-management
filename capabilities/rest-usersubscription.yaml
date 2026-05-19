@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure API Management REST API — UserSubscription
+  description: 'Azure API Management REST API — UserSubscription. 1 operations. Lead operation: Microsoft Azure API Management
+    UserSubscription_List. Self-contained Naftiko capability covering one Microsoft Azure Api Management business surface.'
+  tags:
+  - Microsoft Azure Api Management
+  - UserSubscription
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_AZURE_API_MANAGEMENT_API_KEY: MICROSOFT_AZURE_API_MANAGEMENT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-usersubscription
+    baseUri: https://management.azure.com
+    description: Azure API Management REST API — UserSubscription business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}/subscriptions
+      operations:
+      - name: usersubscriptionlist
+        method: GET
+        description: Microsoft Azure API Management UserSubscription_List
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_AZURE_API_MANAGEMENT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-usersubscription-rest
+    port: 8080
+    description: REST adapter for Azure API Management REST API — UserSubscription. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/users/{userid}/subscriptions
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: usersubscriptionlist
+        description: Microsoft Azure API Management UserSubscription_List
+        call: rest-usersubscription.usersubscriptionlist
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-usersubscription-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure API Management REST API — UserSubscription. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: microsoft-azure-api-management-usersubscription
+      description: Microsoft Azure API Management UserSubscription_List
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-usersubscription.usersubscriptionlist
+      outputParameters:
+      - type: object
+        mapping: $.

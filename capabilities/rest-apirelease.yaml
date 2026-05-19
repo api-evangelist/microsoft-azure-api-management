@@ -1,0 +1,202 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure API Management REST API — ApiRelease
+  description: 'Azure API Management REST API — ApiRelease. 6 operations. Lead operation: Microsoft Azure API Management ApiRelease_ListByService.
+    Self-contained Naftiko capability covering one Microsoft Azure Api Management business surface.'
+  tags:
+  - Microsoft Azure Api Management
+  - ApiRelease
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_AZURE_API_MANAGEMENT_API_KEY: MICROSOFT_AZURE_API_MANAGEMENT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-apirelease
+    baseUri: https://management.azure.com
+    description: Azure API Management REST API — ApiRelease business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/releases
+      operations:
+      - name: apireleaselistbyservice
+        method: GET
+        description: Microsoft Azure API Management ApiRelease_ListByService
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/releases/{releaseId}
+      operations:
+      - name: apireleasegetentitytag
+        method: HEAD
+        description: Microsoft Azure API Management ApiRelease_GetEntityTag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: apireleaseget
+        method: GET
+        description: Microsoft Azure API Management ApiRelease_Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: apireleasecreateorupdate
+        method: PUT
+        description: Microsoft Azure API Management ApiRelease_CreateOrUpdate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: apireleaseupdate
+        method: PATCH
+        description: Microsoft Azure API Management ApiRelease_Update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: apireleasedelete
+        method: DELETE
+        description: Microsoft Azure API Management ApiRelease_Delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_AZURE_API_MANAGEMENT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-apirelease-rest
+    port: 8080
+    description: REST adapter for Azure API Management REST API — ApiRelease. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/apis/{apiid}/releases
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: apireleaselistbyservice
+        description: Microsoft Azure API Management ApiRelease_ListByService
+        call: rest-apirelease.apireleaselistbyservice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/apis/{apiid}/releases/{releaseid}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: HEAD
+        name: apireleasegetentitytag
+        description: Microsoft Azure API Management ApiRelease_GetEntityTag
+        call: rest-apirelease.apireleasegetentitytag
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: apireleaseget
+        description: Microsoft Azure API Management ApiRelease_Get
+        call: rest-apirelease.apireleaseget
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: apireleasecreateorupdate
+        description: Microsoft Azure API Management ApiRelease_CreateOrUpdate
+        call: rest-apirelease.apireleasecreateorupdate
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: apireleaseupdate
+        description: Microsoft Azure API Management ApiRelease_Update
+        call: rest-apirelease.apireleaseupdate
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: apireleasedelete
+        description: Microsoft Azure API Management ApiRelease_Delete
+        call: rest-apirelease.apireleasedelete
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-apirelease-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure API Management REST API — ApiRelease. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: microsoft-azure-api-management-apirelease
+      description: Microsoft Azure API Management ApiRelease_ListByService
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-apirelease.apireleaselistbyservice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-apirelease-2
+      description: Microsoft Azure API Management ApiRelease_GetEntityTag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-apirelease.apireleasegetentitytag
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-apirelease-3
+      description: Microsoft Azure API Management ApiRelease_Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-apirelease.apireleaseget
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-apirelease-4
+      description: Microsoft Azure API Management ApiRelease_CreateOrUpdate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rest-apirelease.apireleasecreateorupdate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-apirelease-5
+      description: Microsoft Azure API Management ApiRelease_Update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rest-apirelease.apireleaseupdate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-apirelease-6
+      description: Microsoft Azure API Management ApiRelease_Delete
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: rest-apirelease.apireleasedelete
+      outputParameters:
+      - type: object
+        mapping: $.

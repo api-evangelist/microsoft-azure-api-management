@@ -1,0 +1,192 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure API Management Gateway — Gateway
+  description: 'Azure API Management Gateway — Gateway. 4 operations. Lead operation: Proxy GET request to backend API. Self-contained
+    Naftiko capability covering one Microsoft Azure Api Management business surface.'
+  tags:
+  - Microsoft Azure Api Management
+  - Gateway
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_AZURE_API_MANAGEMENT_API_KEY: MICROSOFT_AZURE_API_MANAGEMENT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: gateway-gateway
+    baseUri: https://{service-name}.azure-api.net
+    description: Azure API Management Gateway — Gateway business capability. Self-contained, no shared references.
+    resources:
+    - name: api-path
+      path: /{api-path}
+      operations:
+      - name: gatewayproxyget
+        method: GET
+        description: Proxy GET request to backend API
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: api-path
+          in: path
+          type: string
+          required: true
+      - name: gatewayproxypost
+        method: POST
+        description: Proxy POST request to backend API
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: api-path
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: gatewayproxyput
+        method: PUT
+        description: Proxy PUT request to backend API
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: api-path
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: gatewayproxydelete
+        method: DELETE
+        description: Proxy DELETE request to backend API
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: api-path
+          in: path
+          type: string
+          required: true
+  exposes:
+  - type: rest
+    namespace: gateway-gateway-rest
+    port: 8080
+    description: REST adapter for Azure API Management Gateway — Gateway. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/{api-path}
+      name: api-path
+      description: REST surface for api-path.
+      operations:
+      - method: GET
+        name: gatewayproxyget
+        description: Proxy GET request to backend API
+        call: gateway-gateway.gatewayproxyget
+        with:
+          api-path: rest.api-path
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: gatewayproxypost
+        description: Proxy POST request to backend API
+        call: gateway-gateway.gatewayproxypost
+        with:
+          api-path: rest.api-path
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: gatewayproxyput
+        description: Proxy PUT request to backend API
+        call: gateway-gateway.gatewayproxyput
+        with:
+          api-path: rest.api-path
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: gatewayproxydelete
+        description: Proxy DELETE request to backend API
+        call: gateway-gateway.gatewayproxydelete
+        with:
+          api-path: rest.api-path
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: gateway-gateway-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure API Management Gateway — Gateway. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: proxy-get-request-backend-api
+      description: Proxy GET request to backend API
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gateway-gateway.gatewayproxyget
+      with:
+        api-path: tools.api-path
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: proxy-post-request-backend-api
+      description: Proxy POST request to backend API
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: gateway-gateway.gatewayproxypost
+      with:
+        api-path: tools.api-path
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: proxy-put-request-backend-api
+      description: Proxy PUT request to backend API
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: gateway-gateway.gatewayproxyput
+      with:
+        api-path: tools.api-path
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: proxy-delete-request-backend-api
+      description: Proxy DELETE request to backend API
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: gateway-gateway.gatewayproxydelete
+      with:
+        api-path: tools.api-path
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure API Management Gateway — Health
+  description: 'Azure API Management Gateway — Health. 1 operations. Lead operation: Gateway health check. Self-contained
+    Naftiko capability covering one Microsoft Azure Api Management business surface.'
+  tags:
+  - Microsoft Azure Api Management
+  - Health
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_AZURE_API_MANAGEMENT_API_KEY: MICROSOFT_AZURE_API_MANAGEMENT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: gateway-health
+    baseUri: https://{service-name}.azure-api.net
+    description: Azure API Management Gateway — Health business capability. Self-contained, no shared references.
+    resources:
+    - name: status-0123456789abcdef
+      path: /status-0123456789abcdef
+      operations:
+      - name: gatewayhealthcheck
+        method: GET
+        description: Gateway health check
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: gateway-health-rest
+    port: 8080
+    description: REST adapter for Azure API Management Gateway — Health. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/status-0123456789abcdef
+      name: status-0123456789abcdef
+      description: REST surface for status-0123456789abcdef.
+      operations:
+      - method: GET
+        name: gatewayhealthcheck
+        description: Gateway health check
+        call: gateway-health.gatewayhealthcheck
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: gateway-health-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure API Management Gateway — Health. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: gateway-health-check
+      description: Gateway health check
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gateway-health.gatewayhealthcheck
+      outputParameters:
+      - type: object
+        mapping: $.

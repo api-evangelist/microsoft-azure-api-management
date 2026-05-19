@@ -1,0 +1,202 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure API Management REST API — Backend
+  description: 'Azure API Management REST API — Backend. 6 operations. Lead operation: Microsoft Azure API Management Backend_ListByService.
+    Self-contained Naftiko capability covering one Microsoft Azure Api Management business surface.'
+  tags:
+  - Microsoft Azure Api Management
+  - Backend
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_AZURE_API_MANAGEMENT_API_KEY: MICROSOFT_AZURE_API_MANAGEMENT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-backend
+    baseUri: https://management.azure.com
+    description: Azure API Management REST API — Backend business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backends
+      operations:
+      - name: backendlistbyservice
+        method: GET
+        description: Microsoft Azure API Management Backend_ListByService
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backends/{backendId}
+      operations:
+      - name: backendgetentitytag
+        method: HEAD
+        description: Microsoft Azure API Management Backend_GetEntityTag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: backendget
+        method: GET
+        description: Microsoft Azure API Management Backend_Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: backendcreateorupdate
+        method: PUT
+        description: Microsoft Azure API Management Backend_CreateOrUpdate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: backendupdate
+        method: PATCH
+        description: Microsoft Azure API Management Backend_Update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: backenddelete
+        method: DELETE
+        description: Microsoft Azure API Management Backend_Delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_AZURE_API_MANAGEMENT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-backend-rest
+    port: 8080
+    description: REST adapter for Azure API Management REST API — Backend. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/backends
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: backendlistbyservice
+        description: Microsoft Azure API Management Backend_ListByService
+        call: rest-backend.backendlistbyservice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/backends/{backendid}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: HEAD
+        name: backendgetentitytag
+        description: Microsoft Azure API Management Backend_GetEntityTag
+        call: rest-backend.backendgetentitytag
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: backendget
+        description: Microsoft Azure API Management Backend_Get
+        call: rest-backend.backendget
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: backendcreateorupdate
+        description: Microsoft Azure API Management Backend_CreateOrUpdate
+        call: rest-backend.backendcreateorupdate
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: backendupdate
+        description: Microsoft Azure API Management Backend_Update
+        call: rest-backend.backendupdate
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: backenddelete
+        description: Microsoft Azure API Management Backend_Delete
+        call: rest-backend.backenddelete
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-backend-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure API Management REST API — Backend. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: microsoft-azure-api-management-backend
+      description: Microsoft Azure API Management Backend_ListByService
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-backend.backendlistbyservice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-backend-2
+      description: Microsoft Azure API Management Backend_GetEntityTag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-backend.backendgetentitytag
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-backend-3
+      description: Microsoft Azure API Management Backend_Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-backend.backendget
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-backend-4
+      description: Microsoft Azure API Management Backend_CreateOrUpdate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rest-backend.backendcreateorupdate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-backend-5
+      description: Microsoft Azure API Management Backend_Update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rest-backend.backendupdate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-backend-6
+      description: Microsoft Azure API Management Backend_Delete
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: rest-backend.backenddelete
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,179 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure API Management REST API — GatewayHostnameConfiguration
+  description: 'Azure API Management REST API — GatewayHostnameConfiguration. 5 operations. Lead operation: Microsoft Azure
+    API Management GatewayHostnameConfiguration_ListByService. Self-contained Naftiko capability covering one Microsoft Azure
+    Api Management business surface.'
+  tags:
+  - Microsoft Azure Api Management
+  - GatewayHostnameConfiguration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_AZURE_API_MANAGEMENT_API_KEY: MICROSOFT_AZURE_API_MANAGEMENT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-gatewayhostnameconfiguration
+    baseUri: https://management.azure.com
+    description: Azure API Management REST API — GatewayHostnameConfiguration business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/hostnameConfigurations
+      operations:
+      - name: gatewayhostnameconfigurationlistbyservice
+        method: GET
+        description: Microsoft Azure API Management GatewayHostnameConfiguration_ListByService
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/hostnameConfigurations/{hcId}
+      operations:
+      - name: gatewayhostnameconfigurationgetentitytag
+        method: HEAD
+        description: Microsoft Azure API Management GatewayHostnameConfiguration_GetEntityTag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: gatewayhostnameconfigurationget
+        method: GET
+        description: Microsoft Azure API Management GatewayHostnameConfiguration_Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: gatewayhostnameconfigurationcreateorupdate
+        method: PUT
+        description: Microsoft Azure API Management GatewayHostnameConfiguration_CreateOrUpdate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: gatewayhostnameconfigurationdelete
+        method: DELETE
+        description: Microsoft Azure API Management GatewayHostnameConfiguration_Delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_AZURE_API_MANAGEMENT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-gatewayhostnameconfiguration-rest
+    port: 8080
+    description: REST adapter for Azure API Management REST API — GatewayHostnameConfiguration. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/gateways/{gatewayid}/hostnameconfigurations
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: gatewayhostnameconfigurationlistbyservice
+        description: Microsoft Azure API Management GatewayHostnameConfiguration_ListByService
+        call: rest-gatewayhostnameconfiguration.gatewayhostnameconfigurationlistbyservice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/gateways/{gatewayid}/hostnameconfigurations/{hcid}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: HEAD
+        name: gatewayhostnameconfigurationgetentitytag
+        description: Microsoft Azure API Management GatewayHostnameConfiguration_GetEntityTag
+        call: rest-gatewayhostnameconfiguration.gatewayhostnameconfigurationgetentitytag
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: gatewayhostnameconfigurationget
+        description: Microsoft Azure API Management GatewayHostnameConfiguration_Get
+        call: rest-gatewayhostnameconfiguration.gatewayhostnameconfigurationget
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: gatewayhostnameconfigurationcreateorupdate
+        description: Microsoft Azure API Management GatewayHostnameConfiguration_CreateOrUpdate
+        call: rest-gatewayhostnameconfiguration.gatewayhostnameconfigurationcreateorupdate
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: gatewayhostnameconfigurationdelete
+        description: Microsoft Azure API Management GatewayHostnameConfiguration_Delete
+        call: rest-gatewayhostnameconfiguration.gatewayhostnameconfigurationdelete
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-gatewayhostnameconfiguration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure API Management REST API — GatewayHostnameConfiguration. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: microsoft-azure-api-management-gatewayhostnameconfiguration
+      description: Microsoft Azure API Management GatewayHostnameConfiguration_ListByService
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-gatewayhostnameconfiguration.gatewayhostnameconfigurationlistbyservice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-gatewayhostnameconfiguration-2
+      description: Microsoft Azure API Management GatewayHostnameConfiguration_GetEntityTag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-gatewayhostnameconfiguration.gatewayhostnameconfigurationgetentitytag
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-gatewayhostnameconfiguration-3
+      description: Microsoft Azure API Management GatewayHostnameConfiguration_Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-gatewayhostnameconfiguration.gatewayhostnameconfigurationget
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-gatewayhostnameconfiguration-4
+      description: Microsoft Azure API Management GatewayHostnameConfiguration_CreateOrUpdate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rest-gatewayhostnameconfiguration.gatewayhostnameconfigurationcreateorupdate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-gatewayhostnameconfiguration-5
+      description: Microsoft Azure API Management GatewayHostnameConfiguration_Delete
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: rest-gatewayhostnameconfiguration.gatewayhostnameconfigurationdelete
+      outputParameters:
+      - type: object
+        mapping: $.

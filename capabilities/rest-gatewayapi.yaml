@@ -1,0 +1,152 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure API Management REST API — GatewayApi
+  description: 'Azure API Management REST API — GatewayApi. 4 operations. Lead operation: Microsoft Azure API Management GatewayApi_ListByService.
+    Self-contained Naftiko capability covering one Microsoft Azure Api Management business surface.'
+  tags:
+  - Microsoft Azure Api Management
+  - GatewayApi
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_AZURE_API_MANAGEMENT_API_KEY: MICROSOFT_AZURE_API_MANAGEMENT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-gatewayapi
+    baseUri: https://management.azure.com
+    description: Azure API Management REST API — GatewayApi business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/apis
+      operations:
+      - name: gatewayapilistbyservice
+        method: GET
+        description: Microsoft Azure API Management GatewayApi_ListByService
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/apis/{apiId}
+      operations:
+      - name: gatewayapigetentitytag
+        method: HEAD
+        description: Microsoft Azure API Management GatewayApi_GetEntityTag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: gatewayapicreateorupdate
+        method: PUT
+        description: Microsoft Azure API Management GatewayApi_CreateOrUpdate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: gatewayapidelete
+        method: DELETE
+        description: Microsoft Azure API Management GatewayApi_Delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_AZURE_API_MANAGEMENT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-gatewayapi-rest
+    port: 8080
+    description: REST adapter for Azure API Management REST API — GatewayApi. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/gateways/{gatewayid}/apis
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: gatewayapilistbyservice
+        description: Microsoft Azure API Management GatewayApi_ListByService
+        call: rest-gatewayapi.gatewayapilistbyservice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/gateways/{gatewayid}/apis/{apiid}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: HEAD
+        name: gatewayapigetentitytag
+        description: Microsoft Azure API Management GatewayApi_GetEntityTag
+        call: rest-gatewayapi.gatewayapigetentitytag
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: gatewayapicreateorupdate
+        description: Microsoft Azure API Management GatewayApi_CreateOrUpdate
+        call: rest-gatewayapi.gatewayapicreateorupdate
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: gatewayapidelete
+        description: Microsoft Azure API Management GatewayApi_Delete
+        call: rest-gatewayapi.gatewayapidelete
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-gatewayapi-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure API Management REST API — GatewayApi. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: microsoft-azure-api-management-gatewayapi
+      description: Microsoft Azure API Management GatewayApi_ListByService
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-gatewayapi.gatewayapilistbyservice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-gatewayapi-2
+      description: Microsoft Azure API Management GatewayApi_GetEntityTag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-gatewayapi.gatewayapigetentitytag
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-gatewayapi-3
+      description: Microsoft Azure API Management GatewayApi_CreateOrUpdate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rest-gatewayapi.gatewayapicreateorupdate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-gatewayapi-4
+      description: Microsoft Azure API Management GatewayApi_Delete
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: rest-gatewayapi.gatewayapidelete
+      outputParameters:
+      - type: object
+        mapping: $.

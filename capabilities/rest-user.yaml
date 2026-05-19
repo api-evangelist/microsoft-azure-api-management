@@ -1,0 +1,202 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure API Management REST API — User
+  description: 'Azure API Management REST API — User. 6 operations. Lead operation: Microsoft Azure API Management User_ListByService.
+    Self-contained Naftiko capability covering one Microsoft Azure Api Management business surface.'
+  tags:
+  - Microsoft Azure Api Management
+  - User
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_AZURE_API_MANAGEMENT_API_KEY: MICROSOFT_AZURE_API_MANAGEMENT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-user
+    baseUri: https://management.azure.com
+    description: Azure API Management REST API — User business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users
+      operations:
+      - name: userlistbyservice
+        method: GET
+        description: Microsoft Azure API Management User_ListByService
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}
+      operations:
+      - name: usergetentitytag
+        method: HEAD
+        description: Microsoft Azure API Management User_GetEntityTag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: userget
+        method: GET
+        description: Microsoft Azure API Management User_Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: usercreateorupdate
+        method: PUT
+        description: Microsoft Azure API Management User_CreateOrUpdate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: userupdate
+        method: PATCH
+        description: Microsoft Azure API Management User_Update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: userdelete
+        method: DELETE
+        description: Microsoft Azure API Management User_Delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_AZURE_API_MANAGEMENT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-user-rest
+    port: 8080
+    description: REST adapter for Azure API Management REST API — User. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/users
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: userlistbyservice
+        description: Microsoft Azure API Management User_ListByService
+        call: rest-user.userlistbyservice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/users/{userid}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: HEAD
+        name: usergetentitytag
+        description: Microsoft Azure API Management User_GetEntityTag
+        call: rest-user.usergetentitytag
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: userget
+        description: Microsoft Azure API Management User_Get
+        call: rest-user.userget
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: usercreateorupdate
+        description: Microsoft Azure API Management User_CreateOrUpdate
+        call: rest-user.usercreateorupdate
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: userupdate
+        description: Microsoft Azure API Management User_Update
+        call: rest-user.userupdate
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: userdelete
+        description: Microsoft Azure API Management User_Delete
+        call: rest-user.userdelete
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-user-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure API Management REST API — User. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: microsoft-azure-api-management-user
+      description: Microsoft Azure API Management User_ListByService
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-user.userlistbyservice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-user-2
+      description: Microsoft Azure API Management User_GetEntityTag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-user.usergetentitytag
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-user-3
+      description: Microsoft Azure API Management User_Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-user.userget
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-user-4
+      description: Microsoft Azure API Management User_CreateOrUpdate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rest-user.usercreateorupdate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-user-5
+      description: Microsoft Azure API Management User_Update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rest-user.userupdate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-user-6
+      description: Microsoft Azure API Management User_Delete
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: rest-user.userdelete
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure API Management REST API — ApiRevision
+  description: 'Azure API Management REST API — ApiRevision. 1 operations. Lead operation: Microsoft Azure API Management
+    ApiRevision_ListByService. Self-contained Naftiko capability covering one Microsoft Azure Api Management business surface.'
+  tags:
+  - Microsoft Azure Api Management
+  - ApiRevision
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_AZURE_API_MANAGEMENT_API_KEY: MICROSOFT_AZURE_API_MANAGEMENT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-apirevision
+    baseUri: https://management.azure.com
+    description: Azure API Management REST API — ApiRevision business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/revisions
+      operations:
+      - name: apirevisionlistbyservice
+        method: GET
+        description: Microsoft Azure API Management ApiRevision_ListByService
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_AZURE_API_MANAGEMENT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-apirevision-rest
+    port: 8080
+    description: REST adapter for Azure API Management REST API — ApiRevision. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/apis/{apiid}/revisions
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: apirevisionlistbyservice
+        description: Microsoft Azure API Management ApiRevision_ListByService
+        call: rest-apirevision.apirevisionlistbyservice
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-apirevision-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure API Management REST API — ApiRevision. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: microsoft-azure-api-management-apirevision
+      description: Microsoft Azure API Management ApiRevision_ListByService
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-apirevision.apirevisionlistbyservice
+      outputParameters:
+      - type: object
+        mapping: $.

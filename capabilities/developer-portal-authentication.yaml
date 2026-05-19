@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure API Management Developer Portal — Authentication
+  description: 'Azure API Management Developer Portal — Authentication. 2 operations. Lead operation: Sign in page. Self-contained
+    Naftiko capability covering one Microsoft Azure Api Management business surface.'
+  tags:
+  - Microsoft Azure Api Management
+  - Authentication
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_AZURE_API_MANAGEMENT_API_KEY: MICROSOFT_AZURE_API_MANAGEMENT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: developer-portal-authentication
+    baseUri: https://{service-name}.developer.azure-api.net
+    description: Azure API Management Developer Portal — Authentication business capability. Self-contained, no shared references.
+    resources:
+    - name: signin
+      path: /signin
+      operations:
+      - name: devportalsignin
+        method: GET
+        description: Sign in page
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: signup
+      path: /signup
+      operations:
+      - name: devportalsignup
+        method: GET
+        description: Sign up page
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: developer-portal-authentication-rest
+    port: 8080
+    description: REST adapter for Azure API Management Developer Portal — Authentication. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/signin
+      name: signin
+      description: REST surface for signin.
+      operations:
+      - method: GET
+        name: devportalsignin
+        description: Sign in page
+        call: developer-portal-authentication.devportalsignin
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/signup
+      name: signup
+      description: REST surface for signup.
+      operations:
+      - method: GET
+        name: devportalsignup
+        description: Sign up page
+        call: developer-portal-authentication.devportalsignup
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: developer-portal-authentication-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure API Management Developer Portal — Authentication. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: sign-page
+      description: Sign in page
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: developer-portal-authentication.devportalsignin
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sign-up-page
+      description: Sign up page
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: developer-portal-authentication.devportalsignup
+      outputParameters:
+      - type: object
+        mapping: $.

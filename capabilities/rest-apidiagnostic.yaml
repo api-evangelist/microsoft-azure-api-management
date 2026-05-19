@@ -1,0 +1,212 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure API Management REST API — ApiDiagnostic
+  description: 'Azure API Management REST API — ApiDiagnostic. 6 operations. Lead operation: Microsoft Azure API Management
+    ApiDiagnostic_ListByService. Self-contained Naftiko capability covering one Microsoft Azure Api Management business surface.'
+  tags:
+  - Microsoft Azure Api Management
+  - ApiDiagnostic
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_AZURE_API_MANAGEMENT_API_KEY: MICROSOFT_AZURE_API_MANAGEMENT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-apidiagnostic
+    baseUri: https://management.azure.com
+    description: Azure API Management REST API — ApiDiagnostic business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/diagnostics
+      operations:
+      - name: apidiagnosticlistbyservice
+        method: GET
+        description: Microsoft Azure API Management ApiDiagnostic_ListByService
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/diagnostics/{diagnosticId}
+      operations:
+      - name: apidiagnosticgetentitytag
+        method: HEAD
+        description: Microsoft Azure API Management ApiDiagnostic_GetEntityTag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: apidiagnosticget
+        method: GET
+        description: Microsoft Azure API Management ApiDiagnostic_Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: apidiagnosticcreateorupdate
+        method: PUT
+        description: Microsoft Azure API Management ApiDiagnostic_CreateOrUpdate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: apidiagnosticupdate
+        method: PATCH
+        description: Microsoft Azure API Management ApiDiagnostic_Update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: apidiagnosticdelete
+        method: DELETE
+        description: Microsoft Azure API Management ApiDiagnostic_Delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_AZURE_API_MANAGEMENT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-apidiagnostic-rest
+    port: 8080
+    description: REST adapter for Azure API Management REST API — ApiDiagnostic. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/apis/{apiid}/diagnostics
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: apidiagnosticlistbyservice
+        description: Microsoft Azure API Management ApiDiagnostic_ListByService
+        call: rest-apidiagnostic.apidiagnosticlistbyservice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/apis/{apiid}/diagnostics/{diagnosticid}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: HEAD
+        name: apidiagnosticgetentitytag
+        description: Microsoft Azure API Management ApiDiagnostic_GetEntityTag
+        call: rest-apidiagnostic.apidiagnosticgetentitytag
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: apidiagnosticget
+        description: Microsoft Azure API Management ApiDiagnostic_Get
+        call: rest-apidiagnostic.apidiagnosticget
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: apidiagnosticcreateorupdate
+        description: Microsoft Azure API Management ApiDiagnostic_CreateOrUpdate
+        call: rest-apidiagnostic.apidiagnosticcreateorupdate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: apidiagnosticupdate
+        description: Microsoft Azure API Management ApiDiagnostic_Update
+        call: rest-apidiagnostic.apidiagnosticupdate
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: apidiagnosticdelete
+        description: Microsoft Azure API Management ApiDiagnostic_Delete
+        call: rest-apidiagnostic.apidiagnosticdelete
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-apidiagnostic-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure API Management REST API — ApiDiagnostic. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: microsoft-azure-api-management-apidiagnostic
+      description: Microsoft Azure API Management ApiDiagnostic_ListByService
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-apidiagnostic.apidiagnosticlistbyservice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-apidiagnostic-2
+      description: Microsoft Azure API Management ApiDiagnostic_GetEntityTag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-apidiagnostic.apidiagnosticgetentitytag
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-apidiagnostic-3
+      description: Microsoft Azure API Management ApiDiagnostic_Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-apidiagnostic.apidiagnosticget
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-apidiagnostic-4
+      description: Microsoft Azure API Management ApiDiagnostic_CreateOrUpdate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rest-apidiagnostic.apidiagnosticcreateorupdate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-apidiagnostic-5
+      description: Microsoft Azure API Management ApiDiagnostic_Update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rest-apidiagnostic.apidiagnosticupdate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-apidiagnostic-6
+      description: Microsoft Azure API Management ApiDiagnostic_Delete
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: rest-apidiagnostic.apidiagnosticdelete
+      outputParameters:
+      - type: object
+        mapping: $.

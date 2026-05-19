@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure API Management REST API — GatewayListKeys
+  description: 'Azure API Management REST API — GatewayListKeys. 1 operations. Lead operation: Microsoft Azure API Management
+    Gateway_ListKeys. Self-contained Naftiko capability covering one Microsoft Azure Api Management business surface.'
+  tags:
+  - Microsoft Azure Api Management
+  - GatewayListKeys
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_AZURE_API_MANAGEMENT_API_KEY: MICROSOFT_AZURE_API_MANAGEMENT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-gatewaylistkeys
+    baseUri: https://management.azure.com
+    description: Azure API Management REST API — GatewayListKeys business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/listKeys
+      operations:
+      - name: gatewaylistkeys
+        method: POST
+        description: Microsoft Azure API Management Gateway_ListKeys
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_AZURE_API_MANAGEMENT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-gatewaylistkeys-rest
+    port: 8080
+    description: REST adapter for Azure API Management REST API — GatewayListKeys. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/gateways/{gatewayid}/listkeys
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: POST
+        name: gatewaylistkeys
+        description: Microsoft Azure API Management Gateway_ListKeys
+        call: rest-gatewaylistkeys.gatewaylistkeys
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-gatewaylistkeys-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure API Management REST API — GatewayListKeys. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: microsoft-azure-api-management-gateway
+      description: Microsoft Azure API Management Gateway_ListKeys
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-gatewaylistkeys.gatewaylistkeys
+      outputParameters:
+      - type: object
+        mapping: $.

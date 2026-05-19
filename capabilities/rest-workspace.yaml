@@ -1,0 +1,202 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure API Management REST API — Workspace
+  description: 'Azure API Management REST API — Workspace. 6 operations. Lead operation: Microsoft Azure API Management Workspace_ListByService.
+    Self-contained Naftiko capability covering one Microsoft Azure Api Management business surface.'
+  tags:
+  - Microsoft Azure Api Management
+  - Workspace
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_AZURE_API_MANAGEMENT_API_KEY: MICROSOFT_AZURE_API_MANAGEMENT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-workspace
+    baseUri: https://management.azure.com
+    description: Azure API Management REST API — Workspace business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces
+      operations:
+      - name: workspacelistbyservice
+        method: GET
+        description: Microsoft Azure API Management Workspace_ListByService
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}
+      operations:
+      - name: workspacegetentitytag
+        method: HEAD
+        description: Microsoft Azure API Management Workspace_GetEntityTag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: workspaceget
+        method: GET
+        description: Microsoft Azure API Management Workspace_Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: workspacecreateorupdate
+        method: PUT
+        description: Microsoft Azure API Management Workspace_CreateOrUpdate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: workspaceupdate
+        method: PATCH
+        description: Microsoft Azure API Management Workspace_Update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: workspacedelete
+        method: DELETE
+        description: Microsoft Azure API Management Workspace_Delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_AZURE_API_MANAGEMENT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-workspace-rest
+    port: 8080
+    description: REST adapter for Azure API Management REST API — Workspace. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/workspaces
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: workspacelistbyservice
+        description: Microsoft Azure API Management Workspace_ListByService
+        call: rest-workspace.workspacelistbyservice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/workspaces/{workspaceid}
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: HEAD
+        name: workspacegetentitytag
+        description: Microsoft Azure API Management Workspace_GetEntityTag
+        call: rest-workspace.workspacegetentitytag
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: workspaceget
+        description: Microsoft Azure API Management Workspace_Get
+        call: rest-workspace.workspaceget
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: workspacecreateorupdate
+        description: Microsoft Azure API Management Workspace_CreateOrUpdate
+        call: rest-workspace.workspacecreateorupdate
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: workspaceupdate
+        description: Microsoft Azure API Management Workspace_Update
+        call: rest-workspace.workspaceupdate
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: workspacedelete
+        description: Microsoft Azure API Management Workspace_Delete
+        call: rest-workspace.workspacedelete
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-workspace-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure API Management REST API — Workspace. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: microsoft-azure-api-management-workspace
+      description: Microsoft Azure API Management Workspace_ListByService
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-workspace.workspacelistbyservice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-workspace-2
+      description: Microsoft Azure API Management Workspace_GetEntityTag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-workspace.workspacegetentitytag
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-workspace-3
+      description: Microsoft Azure API Management Workspace_Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-workspace.workspaceget
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-workspace-4
+      description: Microsoft Azure API Management Workspace_CreateOrUpdate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rest-workspace.workspacecreateorupdate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-workspace-5
+      description: Microsoft Azure API Management Workspace_Update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rest-workspace.workspaceupdate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-workspace-6
+      description: Microsoft Azure API Management Workspace_Delete
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: rest-workspace.workspacedelete
+      outputParameters:
+      - type: object
+        mapping: $.

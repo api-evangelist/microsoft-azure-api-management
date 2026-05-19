@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure API Management Self-Hosted Gateway — Health
+  description: 'Azure API Management Self-Hosted Gateway — Health. 2 operations. Lead operation: Internal status endpoint.
+    Self-contained Naftiko capability covering one Microsoft Azure Api Management business surface.'
+  tags:
+  - Microsoft Azure Api Management
+  - Health
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_AZURE_API_MANAGEMENT_API_KEY: MICROSOFT_AZURE_API_MANAGEMENT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: self-hosted-gateway-health
+    baseUri: https://{gateway-hostname}
+    description: Azure API Management Self-Hosted Gateway — Health business capability. Self-contained, no shared references.
+    resources:
+    - name: internal-status
+      path: /internal/status
+      operations:
+      - name: selfhostedgatewayinternalstatus
+        method: GET
+        description: Internal status endpoint
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: status-0123456789abcdef
+      path: /status-0123456789abcdef
+      operations:
+      - name: selfhostedgatewayhealthcheck
+        method: GET
+        description: Self-hosted gateway health check
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: self-hosted-gateway-health-rest
+    port: 8080
+    description: REST adapter for Azure API Management Self-Hosted Gateway — Health. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/internal/status
+      name: internal-status
+      description: REST surface for internal-status.
+      operations:
+      - method: GET
+        name: selfhostedgatewayinternalstatus
+        description: Internal status endpoint
+        call: self-hosted-gateway-health.selfhostedgatewayinternalstatus
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/status-0123456789abcdef
+      name: status-0123456789abcdef
+      description: REST surface for status-0123456789abcdef.
+      operations:
+      - method: GET
+        name: selfhostedgatewayhealthcheck
+        description: Self-hosted gateway health check
+        call: self-hosted-gateway-health.selfhostedgatewayhealthcheck
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: self-hosted-gateway-health-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure API Management Self-Hosted Gateway — Health. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: internal-status-endpoint
+      description: Internal status endpoint
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: self-hosted-gateway-health.selfhostedgatewayinternalstatus
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: self-hosted-gateway-health-check
+      description: Self-hosted gateway health check
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: self-hosted-gateway-health.selfhostedgatewayhealthcheck
+      outputParameters:
+      - type: object
+        mapping: $.

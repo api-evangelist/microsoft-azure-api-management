@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure API Management Developer Portal — Products
+  description: 'Azure API Management Developer Portal — Products. 1 operations. Lead operation: List available products. Self-contained
+    Naftiko capability covering one Microsoft Azure Api Management business surface.'
+  tags:
+  - Microsoft Azure Api Management
+  - Products
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_AZURE_API_MANAGEMENT_API_KEY: MICROSOFT_AZURE_API_MANAGEMENT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: developer-portal-products
+    baseUri: https://{service-name}.developer.azure-api.net
+    description: Azure API Management Developer Portal — Products business capability. Self-contained, no shared references.
+    resources:
+    - name: products
+      path: /products
+      operations:
+      - name: devportallistproducts
+        method: GET
+        description: List available products
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: developer-portal-products-rest
+    port: 8080
+    description: REST adapter for Azure API Management Developer Portal — Products. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/products
+      name: products
+      description: REST surface for products.
+      operations:
+      - method: GET
+        name: devportallistproducts
+        description: List available products
+        call: developer-portal-products.devportallistproducts
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: developer-portal-products-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure API Management Developer Portal — Products. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: list-available-products
+      description: List available products
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: developer-portal-products.devportallistproducts
+      outputParameters:
+      - type: object
+        mapping: $.

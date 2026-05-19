@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure API Management REST API — GatewayListTrace
+  description: 'Azure API Management REST API — GatewayListTrace. 1 operations. Lead operation: Microsoft Azure API Management
+    Gateway_ListTrace. Self-contained Naftiko capability covering one Microsoft Azure Api Management business surface.'
+  tags:
+  - Microsoft Azure Api Management
+  - GatewayListTrace
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_AZURE_API_MANAGEMENT_API_KEY: MICROSOFT_AZURE_API_MANAGEMENT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-gatewaylisttrace
+    baseUri: https://management.azure.com
+    description: Azure API Management REST API — GatewayListTrace business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/listTrace
+      operations:
+      - name: gatewaylisttrace
+        method: POST
+        description: Microsoft Azure API Management Gateway_ListTrace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_AZURE_API_MANAGEMENT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-gatewaylisttrace-rest
+    port: 8080
+    description: REST adapter for Azure API Management REST API — GatewayListTrace. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/gateways/{gatewayid}/listtrace
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: POST
+        name: gatewaylisttrace
+        description: Microsoft Azure API Management Gateway_ListTrace
+        call: rest-gatewaylisttrace.gatewaylisttrace
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-gatewaylisttrace-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure API Management REST API — GatewayListTrace. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: microsoft-azure-api-management-gateway
+      description: Microsoft Azure API Management Gateway_ListTrace
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-gatewaylisttrace.gatewaylisttrace
+      outputParameters:
+      - type: object
+        mapping: $.

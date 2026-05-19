@@ -1,0 +1,202 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Azure API Management REST API — ProductWiki
+  description: 'Azure API Management REST API — ProductWiki. 6 operations. Lead operation: Microsoft Azure API Management
+    ProductWikis_list. Self-contained Naftiko capability covering one Microsoft Azure Api Management business surface.'
+  tags:
+  - Microsoft Azure Api Management
+  - ProductWiki
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_AZURE_API_MANAGEMENT_API_KEY: MICROSOFT_AZURE_API_MANAGEMENT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-productwiki
+    baseUri: https://management.azure.com
+    description: Azure API Management REST API — ProductWiki business capability. Self-contained, no shared references.
+    resources:
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/wikis
+      operations:
+      - name: productwikislist
+        method: GET
+        description: Microsoft Azure API Management ProductWikis_list
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof
+      path: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/wikis/default
+      operations:
+      - name: productwikigetentitytag
+        method: HEAD
+        description: Microsoft Azure API Management ProductWiki_GetEntityTag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: productwikiget
+        method: GET
+        description: Microsoft Azure API Management ProductWiki_Get
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: productwikicreateorupdate
+        method: PUT
+        description: Microsoft Azure API Management ProductWiki_CreateOrUpdate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: productwikiupdate
+        method: PATCH
+        description: Microsoft Azure API Management ProductWiki_Update
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: productwikidelete
+        method: DELETE
+        description: Microsoft Azure API Management ProductWiki_Delete
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_AZURE_API_MANAGEMENT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-productwiki-rest
+    port: 8080
+    description: REST adapter for Azure API Management REST API — ProductWiki. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/products/{productid}/wikis
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: GET
+        name: productwikislist
+        description: Microsoft Azure API Management ProductWikis_list
+        call: rest-productwiki.productwikislist
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft-apimanagement/service/{servicename}/products/{productid}/wikis/default
+      name: subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsof
+      description: REST surface for subscriptions-subscriptionId-resourceGroups-resourceGroupName-providers-Microsof.
+      operations:
+      - method: HEAD
+        name: productwikigetentitytag
+        description: Microsoft Azure API Management ProductWiki_GetEntityTag
+        call: rest-productwiki.productwikigetentitytag
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: productwikiget
+        description: Microsoft Azure API Management ProductWiki_Get
+        call: rest-productwiki.productwikiget
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: productwikicreateorupdate
+        description: Microsoft Azure API Management ProductWiki_CreateOrUpdate
+        call: rest-productwiki.productwikicreateorupdate
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: productwikiupdate
+        description: Microsoft Azure API Management ProductWiki_Update
+        call: rest-productwiki.productwikiupdate
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: productwikidelete
+        description: Microsoft Azure API Management ProductWiki_Delete
+        call: rest-productwiki.productwikidelete
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-productwiki-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Azure API Management REST API — ProductWiki. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: microsoft-azure-api-management-productwikis
+      description: Microsoft Azure API Management ProductWikis_list
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-productwiki.productwikislist
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-productwiki
+      description: Microsoft Azure API Management ProductWiki_GetEntityTag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-productwiki.productwikigetentitytag
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-productwiki-2
+      description: Microsoft Azure API Management ProductWiki_Get
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-productwiki.productwikiget
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-productwiki-3
+      description: Microsoft Azure API Management ProductWiki_CreateOrUpdate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rest-productwiki.productwikicreateorupdate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-productwiki-4
+      description: Microsoft Azure API Management ProductWiki_Update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: rest-productwiki.productwikiupdate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-azure-api-management-productwiki-5
+      description: Microsoft Azure API Management ProductWiki_Delete
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: rest-productwiki.productwikidelete
+      outputParameters:
+      - type: object
+        mapping: $.
