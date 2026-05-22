@@ -4,7 +4,7 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Microsoft Azure API Management
 providerId: microsoft-azure-api-management
 created: '2026-05-04'
-modified: '2026-05-05'
+modified: '2026-05-22'
 reconciled: true
 tags:
   - API Gateway
@@ -92,18 +92,18 @@ plans:
   - id: microsoft-azure-api-management-basic-v2
     name: Basic v2
     type: subscription
-    description: Modernized v2 entry tier with autoscaling and faster provisioning. Up to 10 scale
-      units.
+    description: Modernized v2 entry tier with autoscaling and faster provisioning. Includes 10M API
+      requests/month; additional usage billed per 1M requests. Up to 10 scale units.
     entries:
-      - label: Per unit / hour
+      - label: Per unit / month (includes 10M requests)
         name: basic_v2_unit
         type: subscription
-        metric: hour
+        metric: month
         limit: 10
-        timeFrame: hour
+        timeFrame: month
         geo: global
         unit: 1
-        price: 'see Azure pricing page (v2 tiers)'
+        price: '~$150 per unit/month list; ~$3 per additional 1M requests'
         userMultiplied: false
     elements:
       - name: Autoscaling
@@ -132,22 +132,24 @@ plans:
   - id: microsoft-azure-api-management-standard-v2
     name: Standard v2
     type: subscription
-    description: Modernized v2 standard tier with autoscaling and outbound VNet integration.
+    description: Modernized v2 standard tier with autoscaling and outbound VNet integration. Includes
+      50M API requests/month; additional usage billed per 1M requests.
     entries:
-      - label: Per unit / hour
+      - label: Per unit / month (includes 50M requests)
         name: standard_v2_unit
         type: subscription
-        metric: hour
+        metric: month
         limit: 10
-        timeFrame: hour
+        timeFrame: month
         geo: global
         unit: 1
-        price: 'see Azure pricing page (v2 tiers)'
+        price: '~$700 per unit/month list; ~$2.50 per additional 1M requests'
         userMultiplied: false
     elements:
       - name: Outbound VNet integration
       - name: Up to 10 scale units
       - name: Autoscaling
+      - name: Linked API Center Standard plan at no extra cost
   - id: microsoft-azure-api-management-premium
     name: Premium
     type: subscription
@@ -174,24 +176,26 @@ plans:
   - id: microsoft-azure-api-management-premium-v2
     name: Premium v2
     type: subscription
-    description: v2 premium with availability zones and outbound VNet integration. Up to 30 scale
-      units.
+    description: v2 premium with availability zones, outbound VNet integration, and workspaces. Up to
+      30 scale units; unlimited included requests; 99.99% SLA.
     entries:
-      - label: Per unit / hour
+      - label: Per unit / month
         name: premium_v2_unit
         type: subscription
-        metric: hour
+        metric: month
         limit: 30
-        timeFrame: hour
+        timeFrame: month
         geo: global
         unit: 1
-        price: 'see Azure pricing page (v2 tiers)'
+        price: 'starts ~$2,801 per unit/month list; unlimited included requests'
         userMultiplied: false
     elements:
       - name: Availability zones
       - name: Outbound VNet integration
       - name: Up to 30 scale units
       - name: Workspaces
+      - name: 99.99% SLA
+      - name: Linked API Center Standard plan at no extra cost
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

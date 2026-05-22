@@ -4,7 +4,7 @@ schema: https://www.finops.org/framework/
 provider: Microsoft Azure API Management
 providerId: microsoft-azure-api-management
 created: '2026-05-04'
-modified: '2026-05-05'
+modified: '2026-05-22'
 reconciled: true
 tags:
   - FinOps
@@ -56,6 +56,14 @@ meters:
     dimensions:
       - region
       - api
+  - name: v2_included_requests
+    unit: million-requests
+    aggregation: sum
+    dimensions:
+      - tier
+      - region
+    notes: Basic v2 includes 10M requests/unit/month and Standard v2 includes 50M; overage is metered
+      per 1M.
   - name: cache_storage
     unit: GB
     aggregation: max
@@ -67,6 +75,15 @@ meters:
     dimensions:
       - region
       - direction
+  - name: ai_token_usage
+    unit: token
+    aggregation: sum
+    dimensions:
+      - api
+      - deployment
+      - subscription
+    notes: Surfaced via llm-emit-token-metric policy into Application Insights; not a direct API
+      Management charge but drives Azure OpenAI/Foundry/Bedrock backend cost.
 principles:
   - name: Visibility
     description: Use Azure Cost Management cost analysis filtered on resource type 'Microsoft.ApiManagement/service'

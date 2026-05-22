@@ -1,158 +1,68 @@
 # Microsoft Azure API Management (microsoft-azure-api-management)
-Microsoft Azure API Management is a hybrid, multicloud management platform for APIs across all environments. It provides an API gateway, management plane, and developer portal supporting the complete API lifecycle including publishing, securing, monitoring, and transforming APIs for external, partner, and internal developers. It includes an AI gateway for governing LLM deployments, MCP servers, and agentic AI workloads.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/microsoft-azure-api-management/refs/heads/main/apis.yml)
+Microsoft Azure API Management is a hybrid, multicloud management platform for APIs across all environments. It is composed of an API gateway (data plane), a management plane, and a developer portal, and supports the complete API lifecycle for publishing, securing, monitoring, and transforming APIs for external, partner, and internal developers. It now includes an AI gateway for governing OpenAI Chat Completions, OpenAI Responses, Anthropic Messages, Microsoft Foundry models, Amazon Bedrock, MCP servers exposed from REST APIs or proxied from external MCP backends, and A2A agent APIs - with token rate limiting, semantic caching, content safety, backend load balancing, circuit breakers, and token emission to Application Insights. It pairs with Azure API Center for design-time inventory, governance, and discovery.
+
+**URL:** [apis.yml](https://raw.githubusercontent.com/api-evangelist/microsoft-azure-api-management/refs/heads/main/apis.yml)
 
 **Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
 
-## Tags:
+## Tags
+- A2A
 - AI Gateway
+- API Center
 - API Gateway
 - API Management
 - Enterprise
+- MCP
 - Microsoft Azure
 
-## Timestamps:
+## Timestamps
 - **Created:** 2026-03-16
-- **Modified:** 2026-04-28
+- **Modified:** 2026-05-22
 
 ## APIs
 
 ### Azure API Management REST API
-The Azure API Management REST API provides programmatic access to manage API Management service instances and their entities, including APIs, products, subscriptions, users, groups, policies, gateways, backends, certificates, and workspaces. It uses Azure Resource Manager conventions and supports API versions up to 2024-05-01 with over 100 operation groups covering the full management plane.
-- **humanURL:** https://learn.microsoft.com/en-us/rest/api/apimanagement/
-- **baseURL:** https://management.azure.com/
-
-#### Properties:
-| Type | URL |
-|---|---|
-| Documentation | https://learn.microsoft.com/en-us/rest/api/apimanagement/ |
-| APIReference | https://learn.microsoft.com/en-us/rest/api/apimanagement/operation-groups |
-| Authentication | https://learn.microsoft.com/en-us/azure/api-management/authentication-authorization-overview |
-| SDK | https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/apimanagement |
-| SDK | https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/apimanagement |
-| SDK | https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/apimanagement |
-| SDK | https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement |
-| SDK | https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/apimanagement |
-| OpenAPI | openapi/microsoft-azure-api-management-rest-api-openapi.yaml |
-| NaftikoCapability | capabilities/shared/rest-api.yaml |
-
-#### Tags:
-- Azure Resource Manager
-- Configuration
-- Management Plane
-- REST
+Programmatic management plane for API Management instances and their child entities (APIs, products, subscriptions, users, groups, policies, gateways, backends, certificates, workspaces). Uses Azure Resource Manager conventions; API versions through 2024-05-01. Over 100 operation groups.
+- humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
+- baseURL: https://management.azure.com/
+- OpenAPI: `openapi/microsoft-azure-api-management-rest-api-openapi.yaml`
+- Capabilities: 60+ entity-level capability YAMLs under `capabilities/rest-*.yaml`
 
 ### Azure API Management Gateway
-The Azure API Management gateway (data plane) acts as a facade to backend services, routing API requests, enforcing policies, verifying credentials, applying rate limits and quotas, caching responses, and emitting telemetry. It supports managed cloud-hosted and self-hosted containerized deployments for hybrid and multicloud environments.
-- **humanURL:** https://learn.microsoft.com/en-us/azure/api-management/api-management-key-concepts
-- **baseURL:** https://azure-api.net
-
-#### Properties:
-| Type | URL |
-|---|---|
-| Documentation | https://learn.microsoft.com/en-us/azure/api-management/api-management-key-concepts |
-| APIReference | https://learn.microsoft.com/en-us/azure/api-management/api-management-policies |
-| Authentication | https://learn.microsoft.com/en-us/azure/api-management/authentication-authorization-overview |
-| GettingStarted | https://learn.microsoft.com/en-us/azure/api-management/import-and-publish |
-| Tutorials | https://learn.microsoft.com/en-us/azure/api-management/transform-api |
-| PolicySnippets | https://github.com/Azure/api-management-policy-snippets |
-| Tools | https://github.com/Azure/azure-api-management-policy-toolkit |
-| OpenAPI | openapi/microsoft-azure-api-management-gateway-openapi.yaml |
-| NaftikoCapability | capabilities/shared/gateway.yaml |
-
-#### Tags:
-- API Gateway
-- Policies
-- Proxy
-- Traffic Management
+Cloud-hosted data plane that accepts API calls, verifies credentials, applies policies (rate limits, quotas, transformations, caching, content safety), and emits telemetry.
+- humanURL: https://learn.microsoft.com/en-us/azure/api-management/api-management-key-concepts
+- baseURL: https://{instance}.azure-api.net
+- OpenAPI: `openapi/microsoft-azure-api-management-gateway-openapi.yaml`
+- Capabilities: `capabilities/gateway-gateway.yaml`, `capabilities/gateway-health.yaml`
 
 ### Azure API Management Self-Hosted Gateway
-The Azure API Management self-hosted gateway is a containerized, Linux-based Docker image that can be deployed to Kubernetes, Docker, or any container orchestration platform in on-premises or other cloud environments. It federates with a cloud-based API Management instance for centralized configuration and management while routing API traffic locally to reduce latency and address compliance requirements.
-- **humanURL:** https://learn.microsoft.com/en-us/azure/api-management/self-hosted-gateway-overview
-- **baseURL:** https://mcr.microsoft.com/product/azure-api-management/gateway
-
-#### Properties:
-| Type | URL |
-|---|---|
-| Documentation | https://learn.microsoft.com/en-us/azure/api-management/self-hosted-gateway-overview |
-| GettingStarted | https://learn.microsoft.com/en-us/azure/api-management/how-to-deploy-self-hosted-gateway-azure-kubernetes-service |
-| GitHubRepository | https://github.com/Azure/api-management-self-hosted-gateway |
-| HelmChart | https://github.com/Azure/api-management-self-hosted-gateway/tree/main/helm-charts/azure-api-management-gateway |
-| CodeExamples | https://github.com/Azure/api-management-self-hosted-gateway-ingress |
-| OpenAPI | openapi/microsoft-azure-api-management-self-hosted-gateway-openapi.yaml |
-| NaftikoCapability | capabilities/shared/self-hosted-gateway.yaml |
-
-#### Tags:
-- Hybrid
-- Kubernetes
-- On-Premises
-- Self-Hosted
+Linux-based container image of the gateway runtime, deployable to Kubernetes (AKS, Arc-enabled Kubernetes), Docker, or any orchestration platform, federated with a cloud-based API Management instance.
+- humanURL: https://learn.microsoft.com/en-us/azure/api-management/self-hosted-gateway-overview
+- baseURL: https://mcr.microsoft.com/product/azure-api-management/gateway
+- OpenAPI: `openapi/microsoft-azure-api-management-self-hosted-gateway-openapi.yaml`
+- Capabilities: `capabilities/self-hosted-gateway-gateway.yaml`, `capabilities/self-hosted-gateway-health.yaml`
 
 ### Azure API Management AI Gateway
-The Azure API Management AI gateway is a set of capabilities for managing, securing, scaling, and observing AI backends including Microsoft Foundry and Azure OpenAI deployments, OpenAI-compatible LLM endpoints, MCP servers, and A2A agent APIs. It provides token rate limiting and quotas, semantic caching, load balancing across AI backends, content safety enforcement, and token usage observability through Application Insights.
-- **humanURL:** https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
-- **baseURL:** https://management.azure.com/
+AI gateway capabilities layered on the API Management gateway: TPM/token quota policies, semantic caching with Azure Managed Redis, backend load balancing (round-robin / weighted / priority / session-aware) with dynamic circuit breakers, Azure AI Content Safety policy, and `llm-emit-token-metric` for Application Insights. Supports OpenAI Chat Completions, OpenAI Responses, Anthropic Messages (v2 tiers), Microsoft Foundry models, Amazon Bedrock, self-hosted models, MCP servers, and A2A agent APIs. Available across Developer, Basic, Basic v2, Standard, Standard v2, Premium, and Premium v2 tiers.
+- humanURL: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+- OpenAPI: `openapi/microsoft-azure-api-management-ai-gateway-openapi.yaml`
+- MCP server overview: https://learn.microsoft.com/en-us/azure/api-management/mcp-server-overview
+- Capabilities: `capabilities/ai-gateway-ai.yaml`, `capabilities/ai-gateway-mcp.yaml`
 
-#### Properties:
-| Type | URL |
-|---|---|
-| Documentation | https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities |
-| GettingStarted | https://learn.microsoft.com/en-us/azure/api-management/azure-openai-api-from-specification |
-| Quickstart | https://learn.microsoft.com/en-us/azure/api-management/azure-ai-foundry-api |
-| OpenAPI | openapi/microsoft-azure-api-management-ai-gateway-openapi.yaml |
-| JSONSchema | json-schema/ai-gateway-chat-completion-request-schema.json |
-| JSONSchema | json-schema/ai-gateway-chat-completion-response-schema.json |
-| JSONSchema | json-schema/ai-gateway-completion-request-schema.json |
-| JSONSchema | json-schema/ai-gateway-completion-response-schema.json |
-| JSONSchema | json-schema/ai-gateway-embedding-request-schema.json |
-| JSONSchema | json-schema/ai-gateway-embedding-response-schema.json |
-| JSONSchema | json-schema/ai-gateway-mcp-request-schema.json |
-| JSONSchema | json-schema/ai-gateway-mcp-response-schema.json |
-| JSONStructure | json-structure/ai-gateway-chat-completion-request-structure.json |
-| JSONStructure | json-structure/ai-gateway-chat-completion-response-structure.json |
-| JSONStructure | json-structure/ai-gateway-completion-request-structure.json |
-| JSONStructure | json-structure/ai-gateway-completion-response-structure.json |
-| JSONStructure | json-structure/ai-gateway-embedding-request-structure.json |
-| JSONStructure | json-structure/ai-gateway-embedding-response-structure.json |
-| JSONStructure | json-structure/ai-gateway-mcp-request-structure.json |
-| JSONStructure | json-structure/ai-gateway-mcp-response-structure.json |
-| JSONLD | json-ld/microsoft-azure-api-management-ai-gateway-context.jsonld |
-| Example | examples/ai-gateway-chat-completion-request-example.json |
-| Example | examples/ai-gateway-chat-completion-response-example.json |
-| Example | examples/ai-gateway-completion-request-example.json |
-| Example | examples/ai-gateway-completion-response-example.json |
-| Example | examples/ai-gateway-embedding-request-example.json |
-| Example | examples/ai-gateway-embedding-response-example.json |
-| Example | examples/ai-gateway-mcp-request-example.json |
-| Example | examples/ai-gateway-mcp-response-example.json |
-| NaftikoCapability | capabilities/shared/ai-gateway.yaml |
-
-#### Tags:
-- AI Gateway
-- Azure OpenAI
-- LLM
-- MCP
+### Azure API Center
+Design-time API inventory, governance, and discovery service that complements API Management's runtime governance. Includes a VS Code extension with linting and breaking-change detection, an enterprise API Center portal, MCP server registry, and Copilot Studio connector. Standard plan included at no extra cost when linked to API Management Standard, Standard v2, Premium, or Premium v2.
+- humanURL: https://learn.microsoft.com/en-us/azure/api-center/overview
+- baseURL: https://management.azure.com/
+- MCP registry: https://learn.microsoft.com/en-us/azure/api-center/register-discover-mcp-server
 
 ### Azure API Management Developer Portal
-The Azure API Management developer portal is an automatically generated, fully customizable website that allows API consumers to discover APIs, read documentation, test APIs through an interactive console, create accounts, subscribe to API products, and manage API keys. It can be self-hosted and extended with custom content and branding.
-- **humanURL:** https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize
-- **baseURL:** https://developer.azure-api.net
-
-#### Properties:
-| Type | URL |
-|---|---|
-| Documentation | https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize |
-| Tutorials | https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize |
-| GitHubRepository | https://github.com/Azure/api-management-developer-portal |
-| OpenAPI | openapi/microsoft-azure-api-management-developer-portal-openapi.yaml |
-| NaftikoCapability | capabilities/shared/developer-portal.yaml |
-
-#### Tags:
-- API Discovery
-- Developer Portal
-- Documentation
-- Self-Service
+Auto-generated, fully customizable developer portal. Open-source TypeScript codebase (latest 2.34.0, October 2025) that can be self-hosted and extended with custom branding.
+- humanURL: https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize
+- baseURL: https://{instance}.developer.azure-api.net
+- OpenAPI: `openapi/microsoft-azure-api-management-developer-portal-openapi.yaml`
+- Source: https://github.com/Azure/api-management-developer-portal
+- Capabilities: `capabilities/developer-portal-apis.yaml`, `capabilities/developer-portal-authentication.yaml`, `capabilities/developer-portal-portal.yaml`, `capabilities/developer-portal-products.yaml`, `capabilities/developer-portal-user.yaml`
 
 ## Common Properties
 | Type | URL |
@@ -169,8 +79,12 @@ The Azure API Management developer portal is an automatically generated, fully c
 | Support | https://learn.microsoft.com/answers/tags/29/azure-api-management/ |
 | Console | https://portal.azure.com/ |
 | CLI | https://learn.microsoft.com/en-us/cli/azure/apim |
-| SDK | https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/apimanagement |
-| Tutorials | https://learn.microsoft.com/en-us/azure/api-management/import-and-publish |
+| SDK (.NET) | https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/apimanagement |
+| SDK (Java) | https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/apimanagement |
+| SDK (JavaScript) | https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement |
+| SDK (Python) | https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/apimanagement |
+| SDK (Go) | https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/apimanagement |
+| VSCodeExtension | https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement |
 | Training | https://learn.microsoft.com/en-us/training/modules/explore-api-management/ |
 | Security | https://learn.microsoft.com/en-us/azure/api-management/authentication-authorization-overview |
 | BestPractices | https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-policies |
@@ -185,20 +99,38 @@ The Azure API Management developer portal is an automatically generated, fully c
 | SignUp | https://azure.microsoft.com/free/ |
 | StatusPage | https://status.azure.com/ |
 | DeveloperPortal | https://learn.microsoft.com/en-us/azure/api-management/developer-portal-overview |
-| SDK | https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/apimanagement |
-| SDK | https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/apimanagement |
-| SDK | https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement |
-| SDK | https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/apimanagement |
-| CodeExamples | https://github.com/Azure/api-management-samples |
 | PolicySnippets | https://github.com/Azure/api-management-policy-snippets |
-| Tools | https://github.com/Azure/azure-api-management-policy-toolkit |
-| ChangeLog | https://github.com/Azure/API-Management/blob/master/changelogs/api-management-service.md |
-| SpectralRules | rules/microsoft-azure-api-management-rules.yaml |
-| Vocabulary | vocabulary/microsoft-azure-api-management-vocabulary.yaml |
-| NaftikoCapability | capabilities/ai-gateway-management.yaml |
-| NaftikoCapability | capabilities/api-lifecycle-management.yaml |
-| NaftikoCapability | capabilities/developer-onboarding.yaml |
-| NaftikoCapability | capabilities/gateway-operations.yaml |
+| PolicyToolkit | https://github.com/Azure/azure-api-management-policy-toolkit |
+| AIGatewaySamples | https://github.com/Azure-Samples/ai-gateway |
+| AIGatewayWorkshop | https://aka.ms/ai-gateway/workshop |
+| AIHubReferenceArchitecture | https://github.com/Azure-Samples/ai-hub-gateway-solution-accelerator |
+| APICenter | https://learn.microsoft.com/en-us/azure/api-center/overview |
+| FoundryIntegration | https://learn.microsoft.com/en-us/azure/ai-foundry/configuration/enable-ai-api-management-gateway-portal |
+| MCPServer | https://github.com/Azure/azure-api-mcp |
+
+## Pricing Tiers (May 2026)
+
+| Tier | Capacity | Notable Features | List Price |
+|---|---|---|---|
+| Consumption | Auto-scaled, per-call | Serverless, no dedicated capacity | First 1M calls/month free; ~$3.50 per additional 1M |
+| Developer | 1 scale unit | Non-production, all features, no SLA | Hourly per unit |
+| Basic | Up to 2 units | 50 MB cache, production SLA | ~$0.21/hour (~$150/unit/month) |
+| Basic v2 | Up to 10 units | Autoscaling, 250 MB cache, includes 10M req/month | ~$150/unit/month + ~$3 per additional 1M |
+| Standard | Up to 4 units | 1 GB cache, backup/restore | ~$0.96/hour (~$700/unit/month) |
+| Standard v2 | Up to 10 units | Outbound VNet integration, autoscaling, includes 50M req/month, free linked API Center Standard | ~$700/unit/month + ~$2.50 per additional 1M |
+| Premium | Up to 12 units per region | Multi-region, VNet injection, self-hosted gateway, workspaces, 5 GB cache | ~$3.83/hour (~$2,795/unit/month) |
+| Premium v2 | Up to 30 units | Availability zones, outbound VNet integration, workspaces, unlimited requests, 99.99% SLA, free linked API Center Standard | starts ~$2,801/unit/month |
+
+See `plans/microsoft-azure-api-management-plans-pricing.yml`, `rate-limits/microsoft-azure-api-management-rate-limits.yml`, and `finops/microsoft-azure-api-management-finops.yml` for machine-readable detail.
+
+## Notable Breaking Changes and Retirements
+Source: https://learn.microsoft.com/en-us/azure/api-management/breaking-changes/overview
+- **stv1 platform retirement** — Global Azure (Aug 31, 2024); sovereign clouds (Feb 24, 2025).
+- **Git repository retirement** and **Direct management API retirement** — March 15, 2025.
+- **Managed certificates suspension** — Aug 15, 2025 through March 15, 2026.
+- **ADAL-based Microsoft Entra ID identity provider retirement** — Sep 30, 2025.
+- **Trusted service connectivity retirement** — March 15, 2026.
+- **Built-in analytics dashboard retirement** — March 15, 2027.
 
 ## Artifacts
 
@@ -208,6 +140,14 @@ The Azure API Management developer portal is an automatically generated, fully c
 - microsoft-azure-api-management-gateway-openapi.yaml
 - microsoft-azure-api-management-rest-api-openapi.yaml
 - microsoft-azure-api-management-self-hosted-gateway-openapi.yaml
+
+### capabilities/
+72 capability YAMLs covering:
+- AI gateway: `ai-gateway-ai.yaml`, `ai-gateway-mcp.yaml`
+- Cloud gateway: `gateway-gateway.yaml`, `gateway-health.yaml`
+- Self-hosted gateway: `self-hosted-gateway-gateway.yaml`, `self-hosted-gateway-health.yaml`
+- Developer portal: `developer-portal-apis.yaml`, `developer-portal-authentication.yaml`, `developer-portal-portal.yaml`, `developer-portal-products.yaml`, `developer-portal-user.yaml`
+- REST API management plane: 60+ `rest-*.yaml` capabilities (apis, products, subscriptions, gateways, backends, certificates, named values, policies, workspaces, tags, users, groups, etc.)
 
 ### json-schema/
 - ai-gateway-chat-completion-request-schema.json
@@ -242,25 +182,16 @@ The Azure API Management developer portal is an automatically generated, fully c
 - ai-gateway-mcp-request-example.json
 - ai-gateway-mcp-response-example.json
 
-### capabilities/shared/
-- ai-gateway.yaml
-- developer-portal.yaml
-- gateway.yaml
-- rest-api.yaml
-- self-hosted-gateway.yaml
-
-### capabilities/
-- ai-gateway-management.yaml
-- api-lifecycle-management.yaml
-- developer-onboarding.yaml
-- gateway-operations.yaml
+### rules/
+- microsoft-azure-api-management-rules.yaml
 
 ### vocabulary/
 - microsoft-azure-api-management-vocabulary.yaml
 
-### rules/
-- microsoft-azure-api-management-rules.yaml
+### plans/, rate-limits/, finops/
+- plans/microsoft-azure-api-management-plans-pricing.yml
+- rate-limits/microsoft-azure-api-management-rate-limits.yml
+- finops/microsoft-azure-api-management-finops.yml
 
 ## Maintainers
-- FN: Kin Lane
-  email: kin@apievangelist.com
+- Kin Lane — kin@apievangelist.com
