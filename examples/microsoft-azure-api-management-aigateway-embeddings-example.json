@@ -1,0 +1,42 @@
+{
+  "operationId": "AIGateway_Embeddings",
+  "method": "POST",
+  "path": "/deployments/{deployment-id}/embeddings",
+  "summary": "Microsoft Azure API Management Embeddings Via AI Gateway",
+  "requestExamples": [
+    {
+      "contentType": "application/json",
+      "name": "EmbeddingExample",
+      "example": {
+        "input": "Azure API Management provides a unified gateway for APIs.",
+        "model": "text-embedding-ada-002"
+      }
+    }
+  ],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "EmbeddingExample",
+      "example": {
+        "object": "list",
+        "data": [
+          {
+            "object": "embedding",
+            "index": 0,
+            "embedding": [
+              0.0023,
+              -0.0091,
+              0.0152
+            ]
+          }
+        ],
+        "model": "text-embedding-ada-002",
+        "usage": {
+          "prompt_tokens": 12,
+          "total_tokens": 12
+        }
+      }
+    }
+  ]
+}

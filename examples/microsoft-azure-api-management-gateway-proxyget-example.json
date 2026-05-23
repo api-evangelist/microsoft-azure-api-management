@@ -1,0 +1,24 @@
+{
+  "operationId": "Gateway_ProxyGet",
+  "method": "GET",
+  "path": "/{api-path}",
+  "summary": "Proxy GET request to backend API",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "ProxyGetExample",
+      "example": {
+        "statusCode": 200,
+        "headers": {
+          "x-apim-request-id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+          "x-ms-request-id": "req-001"
+        },
+        "body": {
+          "message": "Response from backend service"
+        }
+      }
+    }
+  ]
+}

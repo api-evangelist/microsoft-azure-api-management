@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ApiList",
+  "title": "ApiList",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer",
+      "example": 2
+    },
+    "value": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ApiSummary"
+      }
+    }
+  }
+}

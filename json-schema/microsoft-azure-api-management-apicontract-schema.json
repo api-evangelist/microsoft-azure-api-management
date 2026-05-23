@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ApiContract",
+  "title": "ApiContract",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "/subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api"
+    },
+    "name": {
+      "type": "string",
+      "example": "petstore-api"
+    },
+    "type": {
+      "type": "string",
+      "example": "Microsoft.ApiManagement/service/apis"
+    },
+    "properties": {
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "example": "Petstore API"
+        },
+        "description": {
+          "type": "string",
+          "example": "A sample API for managing pets."
+        },
+        "serviceUrl": {
+          "type": "string",
+          "example": "https://petstore.example.com/v1"
+        },
+        "path": {
+          "type": "string",
+          "example": "petstore"
+        },
+        "protocols": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "example": [
+            "https"
+          ]
+        },
+        "subscriptionRequired": {
+          "type": "boolean",
+          "example": true
+        },
+        "apiRevision": {
+          "type": "string",
+          "example": "1"
+        }
+      }
+    }
+  }
+}

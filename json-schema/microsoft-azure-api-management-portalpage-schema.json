@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PortalPage",
+  "title": "PortalPage",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "example": "Contoso API Developer Portal"
+    },
+    "description": {
+      "type": "string",
+      "example": "Welcome to the developer portal."
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "rel": {
+            "type": "string",
+            "example": "apis"
+          },
+          "href": {
+            "type": "string",
+            "example": "/apis"
+          }
+        }
+      }
+    }
+  }
+}

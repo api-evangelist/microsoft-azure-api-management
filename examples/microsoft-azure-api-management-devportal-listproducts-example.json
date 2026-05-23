@@ -1,0 +1,26 @@
+{
+  "operationId": "DevPortal_ListProducts",
+  "method": "GET",
+  "path": "/products",
+  "summary": "List available products",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "ProductListExample",
+      "example": {
+        "count": 1,
+        "value": [
+          {
+            "id": "starter-product",
+            "name": "Starter",
+            "description": "Free tier with rate-limited access to all APIs.",
+            "subscriptionRequired": true,
+            "approvalRequired": false
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "operationId": "Gateway_ProxyDelete",
+  "method": "DELETE",
+  "path": "/{api-path}",
+  "summary": "Proxy DELETE request to backend API",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "ProxyDeleteExample",
+      "example": {
+        "statusCode": 204,
+        "headers": {
+          "x-apim-request-id": "d4e5f6a7-b8c9-0123-defa-234567890123"
+        },
+        "body": {}
+      }
+    }
+  ]
+}

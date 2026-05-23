@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProductSummary",
+  "title": "ProductSummary",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "starter-product"
+    },
+    "name": {
+      "type": "string",
+      "example": "Starter"
+    },
+    "description": {
+      "type": "string",
+      "example": "Free tier with rate-limited access to all APIs."
+    },
+    "subscriptionRequired": {
+      "type": "boolean",
+      "example": true
+    },
+    "approvalRequired": {
+      "type": "boolean",
+      "example": false
+    }
+  }
+}

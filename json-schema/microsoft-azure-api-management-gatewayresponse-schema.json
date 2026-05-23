@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GatewayResponse",
+  "title": "GatewayResponse",
+  "type": "object",
+  "properties": {
+    "statusCode": {
+      "type": "integer",
+      "example": 200
+    },
+    "headers": {
+      "type": "object",
+      "properties": {
+        "x-apim-request-id": {
+          "type": "string",
+          "example": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+        },
+        "x-ms-request-id": {
+          "type": "string",
+          "example": "req-001"
+        }
+      }
+    },
+    "body": {
+      "type": "object"
+    }
+  }
+}

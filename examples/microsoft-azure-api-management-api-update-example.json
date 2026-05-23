@@ -1,0 +1,40 @@
+{
+  "operationId": "Api_Update",
+  "method": "PATCH",
+  "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}",
+  "summary": "Microsoft Azure API Management Api_Update",
+  "requestExamples": [
+    {
+      "contentType": "application/json",
+      "name": "UpdateApiExample",
+      "example": {
+        "properties": {
+          "description": "Updated API description for managing pets and inventory."
+        }
+      }
+    }
+  ],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "UpdateApiExample",
+      "example": {
+        "id": "/subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api",
+        "name": "petstore-api",
+        "type": "Microsoft.ApiManagement/service/apis",
+        "properties": {
+          "displayName": "Petstore API",
+          "description": "Updated API description for managing pets and inventory.",
+          "serviceUrl": "https://petstore.example.com/v1",
+          "path": "petstore",
+          "protocols": [
+            "https"
+          ],
+          "subscriptionRequired": true,
+          "apiRevision": "1"
+        }
+      }
+    }
+  ]
+}

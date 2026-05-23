@@ -1,0 +1,2304 @@
+{
+  "provider": "Microsoft Azure API Management",
+  "providerId": "microsoft-azure-api-management",
+  "kind": "json-structure",
+  "description": "Structural overview of the Microsoft Azure API Management API surface; extracted from openapi/.",
+  "schemaCount": 10,
+  "operationCount": 248,
+  "schemas": [
+    {
+      "name": "OperationListResult",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ServiceNameAvailabilityResult",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "DomainOwnershipIdentifierResult",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ApiManagementServiceListResult",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "ApiManagementServiceResource",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "ApiCollection",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "ApiContract",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "ApiCreateOrUpdateParameter",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "DiagnosticCollection",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "DiagnosticContract",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/providers/Microsoft.ApiManagement/operations",
+      "operationId": "ApiManagementOperations_List",
+      "summary": "Microsoft Azure API Management ApiManagementOperations_List",
+      "tags": [
+        "ApiManagementOperations"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/checkNameAvailability",
+      "operationId": "ApiManagementService_CheckNameAvailability",
+      "summary": "Microsoft Azure API Management ApiManagementService_CheckNameAvailability",
+      "tags": [
+        "ApiManagementService"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/getDomainOwnershipIdentifier",
+      "operationId": "ApiManagementService_GetDomainOwnershipIdentifier",
+      "summary": "Microsoft Azure API Management ApiManagementService_GetDomainOwnershipIdentifier",
+      "tags": [
+        "ApiManagementService"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/service",
+      "operationId": "ApiManagementService_List",
+      "summary": "Microsoft Azure API Management ApiManagementService_List",
+      "tags": [
+        "ApiManagementService"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service",
+      "operationId": "ApiManagementService_ListByResourceGroup",
+      "summary": "Microsoft Azure API Management ApiManagementService_ListByResourceGroup",
+      "tags": [
+        "ApiManagementService"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}",
+      "operationId": "ApiManagementService_Get",
+      "summary": "Microsoft Azure API Management ApiManagementService_Get",
+      "tags": [
+        "ApiManagementService"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}",
+      "operationId": "ApiManagementService_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management ApiManagementService_CreateOrUpdate",
+      "tags": [
+        "ApiManagementService"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}",
+      "operationId": "ApiManagementService_Delete",
+      "summary": "Microsoft Azure API Management ApiManagementService_Delete",
+      "tags": [
+        "ApiManagementService"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}",
+      "operationId": "ApiManagementService_Update",
+      "summary": "Microsoft Azure API Management ApiManagementService_Update",
+      "tags": [
+        "ApiManagementService"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis",
+      "operationId": "Api_ListByService",
+      "summary": "Microsoft Azure API Management Api_ListByService",
+      "tags": [
+        "Api"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}",
+      "operationId": "Api_Get",
+      "summary": "Microsoft Azure API Management Api_Get",
+      "tags": [
+        "Api"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}",
+      "operationId": "Api_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management Api_CreateOrUpdate",
+      "tags": [
+        "Api"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}",
+      "operationId": "Api_Delete",
+      "summary": "Microsoft Azure API Management Api_Delete",
+      "tags": [
+        "Api"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}",
+      "operationId": "Api_Update",
+      "summary": "Microsoft Azure API Management Api_Update",
+      "tags": [
+        "Api"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/diagnostics",
+      "operationId": "ApiDiagnostic_ListByService",
+      "summary": "Microsoft Azure API Management ApiDiagnostic_ListByService",
+      "tags": [
+        "ApiDiagnostic"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/diagnostics/{diagnosticId}",
+      "operationId": "ApiDiagnostic_Get",
+      "summary": "Microsoft Azure API Management ApiDiagnostic_Get",
+      "tags": [
+        "ApiDiagnostic"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/diagnostics/{diagnosticId}",
+      "operationId": "ApiDiagnostic_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management ApiDiagnostic_CreateOrUpdate",
+      "tags": [
+        "ApiDiagnostic"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/diagnostics/{diagnosticId}",
+      "operationId": "ApiDiagnostic_Delete",
+      "summary": "Microsoft Azure API Management ApiDiagnostic_Delete",
+      "tags": [
+        "ApiDiagnostic"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/diagnostics/{diagnosticId}",
+      "operationId": "ApiDiagnostic_Update",
+      "summary": "Microsoft Azure API Management ApiDiagnostic_Update",
+      "tags": [
+        "ApiDiagnostic"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/issues",
+      "operationId": "ApiIssue_ListByService",
+      "summary": "Microsoft Azure API Management ApiIssue_ListByService",
+      "tags": [
+        "ApiIssue"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/issues/{issueId}",
+      "operationId": "ApiIssue_Get",
+      "summary": "Microsoft Azure API Management ApiIssue_Get",
+      "tags": [
+        "ApiIssue"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/issues/{issueId}",
+      "operationId": "ApiIssue_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management ApiIssue_CreateOrUpdate",
+      "tags": [
+        "ApiIssue"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/issues/{issueId}",
+      "operationId": "ApiIssue_Delete",
+      "summary": "Microsoft Azure API Management ApiIssue_Delete",
+      "tags": [
+        "ApiIssue"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/issues/{issueId}",
+      "operationId": "ApiIssue_Update",
+      "summary": "Microsoft Azure API Management ApiIssue_Update",
+      "tags": [
+        "ApiIssue"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/operations",
+      "operationId": "ApiOperation_ListByApi",
+      "summary": "Microsoft Azure API Management ApiOperation_ListByApi",
+      "tags": [
+        "ApiOperation"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/operations/{operationId}",
+      "operationId": "ApiOperation_Get",
+      "summary": "Microsoft Azure API Management ApiOperation_Get",
+      "tags": [
+        "ApiOperation"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/operations/{operationId}",
+      "operationId": "ApiOperation_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management ApiOperation_CreateOrUpdate",
+      "tags": [
+        "ApiOperation"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/operations/{operationId}",
+      "operationId": "ApiOperation_Delete",
+      "summary": "Microsoft Azure API Management ApiOperation_Delete",
+      "tags": [
+        "ApiOperation"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/operations/{operationId}",
+      "operationId": "ApiOperation_Update",
+      "summary": "Microsoft Azure API Management ApiOperation_Update",
+      "tags": [
+        "ApiOperation"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/operationsByTags",
+      "operationId": "Operation_ListByTags",
+      "summary": "Microsoft Azure API Management Operation_ListByTags",
+      "tags": [
+        "ApiOperationsByTag"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/policies",
+      "operationId": "ApiPolicy_ListByApi",
+      "summary": "Microsoft Azure API Management ApiPolicy_ListByApi",
+      "tags": [
+        "ApiPolicy"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/policies/{policyId}",
+      "operationId": "ApiPolicy_Get",
+      "summary": "Microsoft Azure API Management ApiPolicy_Get",
+      "tags": [
+        "ApiPolicy"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/policies/{policyId}",
+      "operationId": "ApiPolicy_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management ApiPolicy_CreateOrUpdate",
+      "tags": [
+        "ApiPolicy"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/policies/{policyId}",
+      "operationId": "ApiPolicy_Delete",
+      "summary": "Microsoft Azure API Management ApiPolicy_Delete",
+      "tags": [
+        "ApiPolicy"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/products",
+      "operationId": "ApiProduct_ListByApis",
+      "summary": "Microsoft Azure API Management ApiProduct_ListByApis",
+      "tags": [
+        "ApiProduct"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/releases",
+      "operationId": "ApiRelease_ListByService",
+      "summary": "Microsoft Azure API Management ApiRelease_ListByService",
+      "tags": [
+        "ApiRelease"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/releases/{releaseId}",
+      "operationId": "ApiRelease_Get",
+      "summary": "Microsoft Azure API Management ApiRelease_Get",
+      "tags": [
+        "ApiRelease"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/releases/{releaseId}",
+      "operationId": "ApiRelease_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management ApiRelease_CreateOrUpdate",
+      "tags": [
+        "ApiRelease"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/releases/{releaseId}",
+      "operationId": "ApiRelease_Delete",
+      "summary": "Microsoft Azure API Management ApiRelease_Delete",
+      "tags": [
+        "ApiRelease"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/releases/{releaseId}",
+      "operationId": "ApiRelease_Update",
+      "summary": "Microsoft Azure API Management ApiRelease_Update",
+      "tags": [
+        "ApiRelease"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/resolvers",
+      "operationId": "GraphQLApiResolver_ListByApi",
+      "summary": "Microsoft Azure API Management GraphQLApiResolver_ListByApi",
+      "tags": [
+        "GraphQLApiResolver"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/resolvers/{resolverId}",
+      "operationId": "GraphQLApiResolver_Get",
+      "summary": "Microsoft Azure API Management GraphQLApiResolver_Get",
+      "tags": [
+        "GraphQLApiResolver"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/resolvers/{resolverId}",
+      "operationId": "GraphQLApiResolver_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management GraphQLApiResolver_CreateOrUpdate",
+      "tags": [
+        "GraphQLApiResolver"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/resolvers/{resolverId}",
+      "operationId": "GraphQLApiResolver_Delete",
+      "summary": "Microsoft Azure API Management GraphQLApiResolver_Delete",
+      "tags": [
+        "GraphQLApiResolver"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/resolvers/{resolverId}",
+      "operationId": "GraphQLApiResolver_Update",
+      "summary": "Microsoft Azure API Management GraphQLApiResolver_Update",
+      "tags": [
+        "GraphQLApiResolver"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/revisions",
+      "operationId": "ApiRevision_ListByService",
+      "summary": "Microsoft Azure API Management ApiRevision_ListByService",
+      "tags": [
+        "ApiRevision"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/schemas",
+      "operationId": "ApiSchema_ListByApi",
+      "summary": "Microsoft Azure API Management ApiSchema_ListByApi",
+      "tags": [
+        "ApiSchema"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/schemas/{schemaId}",
+      "operationId": "ApiSchema_Get",
+      "summary": "Microsoft Azure API Management ApiSchema_Get",
+      "tags": [
+        "ApiSchema"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/schemas/{schemaId}",
+      "operationId": "ApiSchema_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management ApiSchema_CreateOrUpdate",
+      "tags": [
+        "ApiSchema"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/schemas/{schemaId}",
+      "operationId": "ApiSchema_Delete",
+      "summary": "Microsoft Azure API Management ApiSchema_Delete",
+      "tags": [
+        "ApiSchema"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/tagDescriptions",
+      "operationId": "ApiTagDescription_ListByService",
+      "summary": "Microsoft Azure API Management ApiTagDescription_ListByService",
+      "tags": [
+        "ApiTagDescription"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/tagDescriptions/{tagDescriptionId}",
+      "operationId": "ApiTagDescription_Get",
+      "summary": "Microsoft Azure API Management ApiTagDescription_Get",
+      "tags": [
+        "ApiTagDescription"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/tagDescriptions/{tagDescriptionId}",
+      "operationId": "ApiTagDescription_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management ApiTagDescription_CreateOrUpdate",
+      "tags": [
+        "ApiTagDescription"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/tagDescriptions/{tagDescriptionId}",
+      "operationId": "ApiTagDescription_Delete",
+      "summary": "Microsoft Azure API Management ApiTagDescription_Delete",
+      "tags": [
+        "ApiTagDescription"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/tags",
+      "operationId": "Tag_ListByApi",
+      "summary": "Microsoft Azure API Management Tag_ListByApi",
+      "tags": [
+        "ApiTag"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/tags/{tagId}",
+      "operationId": "Tag_GetByApi",
+      "summary": "Microsoft Azure API Management Tag_GetByApi",
+      "tags": [
+        "ApiTag"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/tags/{tagId}",
+      "operationId": "Tag_AssignToApi",
+      "summary": "Microsoft Azure API Management Tag_AssignToApi",
+      "tags": [
+        "ApiTag"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/tags/{tagId}",
+      "operationId": "Tag_DetachFromApi",
+      "summary": "Microsoft Azure API Management Tag_DetachFromApi",
+      "tags": [
+        "ApiTag"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/wikis",
+      "operationId": "ApiWikis_List",
+      "summary": "Microsoft Azure API Management ApiWikis_List",
+      "tags": [
+        "ApiWiki"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/wikis/default",
+      "operationId": "ApiWiki_Get",
+      "summary": "Microsoft Azure API Management ApiWiki_Get",
+      "tags": [
+        "ApiWiki"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/wikis/default",
+      "operationId": "ApiWiki_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management ApiWiki_CreateOrUpdate",
+      "tags": [
+        "ApiWiki"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/wikis/default",
+      "operationId": "ApiWiki_Delete",
+      "summary": "Microsoft Azure API Management ApiWiki_Delete",
+      "tags": [
+        "ApiWiki"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/wikis/default",
+      "operationId": "ApiWiki_Update",
+      "summary": "Microsoft Azure API Management ApiWiki_Update",
+      "tags": [
+        "ApiWiki"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/applynetworkconfigurationupdates",
+      "operationId": "ApiManagementService_ApplyNetworkConfigurationUpdates",
+      "summary": "Microsoft Azure API Management ApiManagementService_ApplyNetworkConfigurationUpdates",
+      "tags": [
+        "ApiManagementService"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backends",
+      "operationId": "Backend_ListByService",
+      "summary": "Microsoft Azure API Management Backend_ListByService",
+      "tags": [
+        "Backend"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backends/{backendId}",
+      "operationId": "Backend_Get",
+      "summary": "Microsoft Azure API Management Backend_Get",
+      "tags": [
+        "Backend"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backends/{backendId}",
+      "operationId": "Backend_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management Backend_CreateOrUpdate",
+      "tags": [
+        "Backend"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backends/{backendId}",
+      "operationId": "Backend_Delete",
+      "summary": "Microsoft Azure API Management Backend_Delete",
+      "tags": [
+        "Backend"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backends/{backendId}",
+      "operationId": "Backend_Update",
+      "summary": "Microsoft Azure API Management Backend_Update",
+      "tags": [
+        "Backend"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backends/{backendId}/reconnect",
+      "operationId": "Backend_Reconnect",
+      "summary": "Microsoft Azure API Management Backend_Reconnect",
+      "tags": [
+        "BackendReconnect"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup",
+      "operationId": "ApiManagementService_Backup",
+      "summary": "Microsoft Azure API Management ApiManagementService_Backup",
+      "tags": [
+        "ApiManagementService"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates",
+      "operationId": "Certificate_ListByService",
+      "summary": "Microsoft Azure API Management Certificate_ListByService",
+      "tags": [
+        "Certificate"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates/{certificateId}",
+      "operationId": "Certificate_Get",
+      "summary": "Microsoft Azure API Management Certificate_Get",
+      "tags": [
+        "Certificate"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates/{certificateId}",
+      "operationId": "Certificate_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management Certificate_CreateOrUpdate",
+      "tags": [
+        "Certificate"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates/{certificateId}",
+      "operationId": "Certificate_Delete",
+      "summary": "Microsoft Azure API Management Certificate_Delete",
+      "tags": [
+        "Certificate"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates/{certificateId}/refreshSecret",
+      "operationId": "Certificate_RefreshSecret",
+      "summary": "Microsoft Azure API Management Certificate_RefreshSecret",
+      "tags": [
+        "Certificate"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/diagnostics",
+      "operationId": "Diagnostic_ListByService",
+      "summary": "Microsoft Azure API Management Diagnostic_ListByService",
+      "tags": [
+        "Diagnostic"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/diagnostics/{diagnosticId}",
+      "operationId": "Diagnostic_Get",
+      "summary": "Microsoft Azure API Management Diagnostic_Get",
+      "tags": [
+        "Diagnostic"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/diagnostics/{diagnosticId}",
+      "operationId": "Diagnostic_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management Diagnostic_CreateOrUpdate",
+      "tags": [
+        "Diagnostic"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/diagnostics/{diagnosticId}",
+      "operationId": "Diagnostic_Delete",
+      "summary": "Microsoft Azure API Management Diagnostic_Delete",
+      "tags": [
+        "Diagnostic"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/diagnostics/{diagnosticId}",
+      "operationId": "Diagnostic_Update",
+      "summary": "Microsoft Azure API Management Diagnostic_Update",
+      "tags": [
+        "Diagnostic"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways",
+      "operationId": "Gateway_ListByService",
+      "summary": "Microsoft Azure API Management Gateway_ListByService",
+      "tags": [
+        "Gateway"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}",
+      "operationId": "Gateway_Get",
+      "summary": "Microsoft Azure API Management Gateway_Get",
+      "tags": [
+        "Gateway"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}",
+      "operationId": "Gateway_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management Gateway_CreateOrUpdate",
+      "tags": [
+        "Gateway"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}",
+      "operationId": "Gateway_Delete",
+      "summary": "Microsoft Azure API Management Gateway_Delete",
+      "tags": [
+        "Gateway"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}",
+      "operationId": "Gateway_Update",
+      "summary": "Microsoft Azure API Management Gateway_Update",
+      "tags": [
+        "Gateway"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/apis",
+      "operationId": "GatewayApi_ListByService",
+      "summary": "Microsoft Azure API Management GatewayApi_ListByService",
+      "tags": [
+        "GatewayApi"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/apis/{apiId}",
+      "operationId": "GatewayApi_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management GatewayApi_CreateOrUpdate",
+      "tags": [
+        "GatewayApi"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/apis/{apiId}",
+      "operationId": "GatewayApi_Delete",
+      "summary": "Microsoft Azure API Management GatewayApi_Delete",
+      "tags": [
+        "GatewayApi"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/certificateAuthorities",
+      "operationId": "GatewayCertificateAuthority_ListByService",
+      "summary": "Microsoft Azure API Management GatewayCertificateAuthority_ListByService",
+      "tags": [
+        "GatewayCertificateAuthority"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/certificateAuthorities/{certificateId}",
+      "operationId": "GatewayCertificateAuthority_Get",
+      "summary": "Microsoft Azure API Management GatewayCertificateAuthority_Get",
+      "tags": [
+        "GatewayCertificateAuthority"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/certificateAuthorities/{certificateId}",
+      "operationId": "GatewayCertificateAuthority_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management GatewayCertificateAuthority_CreateOrUpdate",
+      "tags": [
+        "GatewayCertificateAuthority"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/certificateAuthorities/{certificateId}",
+      "operationId": "GatewayCertificateAuthority_Delete",
+      "summary": "Microsoft Azure API Management GatewayCertificateAuthority_Delete",
+      "tags": [
+        "GatewayCertificateAuthority"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/generateToken",
+      "operationId": "Gateway_GenerateToken",
+      "summary": "Microsoft Azure API Management Gateway_GenerateToken",
+      "tags": [
+        "GatewayGenerateToken"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/hostnameConfigurations",
+      "operationId": "GatewayHostnameConfiguration_ListByService",
+      "summary": "Microsoft Azure API Management GatewayHostnameConfiguration_ListByService",
+      "tags": [
+        "GatewayHostnameConfiguration"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/hostnameConfigurations/{hcId}",
+      "operationId": "GatewayHostnameConfiguration_Get",
+      "summary": "Microsoft Azure API Management GatewayHostnameConfiguration_Get",
+      "tags": [
+        "GatewayHostnameConfiguration"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/hostnameConfigurations/{hcId}",
+      "operationId": "GatewayHostnameConfiguration_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management GatewayHostnameConfiguration_CreateOrUpdate",
+      "tags": [
+        "GatewayHostnameConfiguration"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/hostnameConfigurations/{hcId}",
+      "operationId": "GatewayHostnameConfiguration_Delete",
+      "summary": "Microsoft Azure API Management GatewayHostnameConfiguration_Delete",
+      "tags": [
+        "GatewayHostnameConfiguration"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/invalidateDebugCredentials",
+      "operationId": "Gateway_InvalidateDebugCredentials",
+      "summary": "Microsoft Azure API Management Gateway_InvalidateDebugCredentials",
+      "tags": [
+        "GatewayInvalidateDebugCredentials"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/listDebugCredentials",
+      "operationId": "Gateway_ListDebugCredentials",
+      "summary": "Microsoft Azure API Management Gateway_ListDebugCredentials",
+      "tags": [
+        "GatewayListDebugCredentials"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/listKeys",
+      "operationId": "Gateway_ListKeys",
+      "summary": "Microsoft Azure API Management Gateway_ListKeys",
+      "tags": [
+        "GatewayListKeys"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/listTrace",
+      "operationId": "Gateway_ListTrace",
+      "summary": "Microsoft Azure API Management Gateway_ListTrace",
+      "tags": [
+        "GatewayListTrace"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/regenerateKey",
+      "operationId": "Gateway_RegenerateKey",
+      "summary": "Microsoft Azure API Management Gateway_RegenerateKey",
+      "tags": [
+        "GatewayRegenerateKey"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/getssotoken",
+      "operationId": "ApiManagementService_GetSsoToken",
+      "summary": "Microsoft Azure API Management ApiManagementService_GetSsoToken",
+      "tags": [
+        "ApiManagementService"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups",
+      "operationId": "Group_ListByService",
+      "summary": "Microsoft Azure API Management Group_ListByService",
+      "tags": [
+        "Group"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups/{groupId}",
+      "operationId": "Group_Get",
+      "summary": "Microsoft Azure API Management Group_Get",
+      "tags": [
+        "Group"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups/{groupId}",
+      "operationId": "Group_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management Group_CreateOrUpdate",
+      "tags": [
+        "Group"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups/{groupId}",
+      "operationId": "Group_Delete",
+      "summary": "Microsoft Azure API Management Group_Delete",
+      "tags": [
+        "Group"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups/{groupId}",
+      "operationId": "Group_Update",
+      "summary": "Microsoft Azure API Management Group_Update",
+      "tags": [
+        "Group"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups/{groupId}/users",
+      "operationId": "GroupUser_List",
+      "summary": "Microsoft Azure API Management GroupUser_List",
+      "tags": [
+        "GroupUser"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups/{groupId}/users/{userId}",
+      "operationId": "GroupUser_Create",
+      "summary": "Microsoft Azure API Management GroupUser_Create",
+      "tags": [
+        "GroupUser"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups/{groupId}/users/{userId}",
+      "operationId": "GroupUser_Delete",
+      "summary": "Microsoft Azure API Management GroupUser_Delete",
+      "tags": [
+        "GroupUser"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/loggers",
+      "operationId": "Logger_ListByService",
+      "summary": "Microsoft Azure API Management Logger_ListByService",
+      "tags": [
+        "Logger"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/loggers/{loggerId}",
+      "operationId": "Logger_Get",
+      "summary": "Microsoft Azure API Management Logger_Get",
+      "tags": [
+        "Logger"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/loggers/{loggerId}",
+      "operationId": "Logger_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management Logger_CreateOrUpdate",
+      "tags": [
+        "Logger"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/loggers/{loggerId}",
+      "operationId": "Logger_Delete",
+      "summary": "Microsoft Azure API Management Logger_Delete",
+      "tags": [
+        "Logger"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/loggers/{loggerId}",
+      "operationId": "Logger_Update",
+      "summary": "Microsoft Azure API Management Logger_Update",
+      "tags": [
+        "Logger"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/migrateToStv2",
+      "operationId": "ApiManagementService_MigrateToStv2",
+      "summary": "Microsoft Azure API Management ApiManagementService_MigrateToStv2",
+      "tags": [
+        "ApiManagementService"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/policies",
+      "operationId": "Policy_ListByService",
+      "summary": "Microsoft Azure API Management Policy_ListByService",
+      "tags": [
+        "Policy"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/policies/{policyId}",
+      "operationId": "Policy_Get",
+      "summary": "Microsoft Azure API Management Policy_Get",
+      "tags": [
+        "Policy"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/policies/{policyId}",
+      "operationId": "Policy_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management Policy_CreateOrUpdate",
+      "tags": [
+        "Policy"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/policies/{policyId}",
+      "operationId": "Policy_Delete",
+      "summary": "Microsoft Azure API Management Policy_Delete",
+      "tags": [
+        "Policy"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products",
+      "operationId": "Product_ListByService",
+      "summary": "Microsoft Azure API Management Product_ListByService",
+      "tags": [
+        "Product"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}",
+      "operationId": "Product_Get",
+      "summary": "Microsoft Azure API Management Product_Get",
+      "tags": [
+        "Product"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}",
+      "operationId": "Product_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management Product_CreateOrUpdate",
+      "tags": [
+        "Product"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}",
+      "operationId": "Product_Delete",
+      "summary": "Microsoft Azure API Management Product_Delete",
+      "tags": [
+        "Product"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}",
+      "operationId": "Product_Update",
+      "summary": "Microsoft Azure API Management Product_Update",
+      "tags": [
+        "Product"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/apiLinks",
+      "operationId": "ProductApiLink_ListByProduct",
+      "summary": "Microsoft Azure API Management ProductApiLink_ListByProduct",
+      "tags": [
+        "ProductApiLink"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/apiLinks/{apiLinkId}",
+      "operationId": "ProductApiLink_Get",
+      "summary": "Microsoft Azure API Management ProductApiLink_Get",
+      "tags": [
+        "ProductApiLink"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/apiLinks/{apiLinkId}",
+      "operationId": "ProductApiLink_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management ProductApiLink_CreateOrUpdate",
+      "tags": [
+        "ProductApiLink"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/apiLinks/{apiLinkId}",
+      "operationId": "ProductApiLink_Delete",
+      "summary": "Microsoft Azure API Management ProductApiLink_Delete",
+      "tags": [
+        "ProductApiLink"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/apis",
+      "operationId": "ProductApi_ListByProduct",
+      "summary": "Microsoft Azure API Management ProductApi_ListByProduct",
+      "tags": [
+        "ProductApi"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/apis/{apiId}",
+      "operationId": "ProductApi_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management ProductApi_CreateOrUpdate",
+      "tags": [
+        "ProductApi"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/apis/{apiId}",
+      "operationId": "ProductApi_Delete",
+      "summary": "Microsoft Azure API Management ProductApi_Delete",
+      "tags": [
+        "ProductApi"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/groupLinks",
+      "operationId": "ProductGroupLink_ListByProduct",
+      "summary": "Microsoft Azure API Management ProductGroupLink_ListByProduct",
+      "tags": [
+        "ProductGroupLink"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/groupLinks/{groupLinkId}",
+      "operationId": "ProductGroupLink_Get",
+      "summary": "Microsoft Azure API Management ProductGroupLink_Get",
+      "tags": [
+        "ProductGroupLink"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/groupLinks/{groupLinkId}",
+      "operationId": "ProductGroupLink_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management ProductGroupLink_CreateOrUpdate",
+      "tags": [
+        "ProductGroupLink"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/groupLinks/{groupLinkId}",
+      "operationId": "ProductGroupLink_Delete",
+      "summary": "Microsoft Azure API Management ProductGroupLink_Delete",
+      "tags": [
+        "ProductGroupLink"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/groups",
+      "operationId": "ProductGroup_ListByProduct",
+      "summary": "Microsoft Azure API Management ProductGroup_ListByProduct",
+      "tags": [
+        "ProductGroup"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/groups/{groupId}",
+      "operationId": "ProductGroup_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management ProductGroup_CreateOrUpdate",
+      "tags": [
+        "ProductGroup"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/groups/{groupId}",
+      "operationId": "ProductGroup_Delete",
+      "summary": "Microsoft Azure API Management ProductGroup_Delete",
+      "tags": [
+        "ProductGroup"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/policies",
+      "operationId": "ProductPolicy_ListByProduct",
+      "summary": "Microsoft Azure API Management ProductPolicy_ListByProduct",
+      "tags": [
+        "ProductPolicy"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/policies/{policyId}",
+      "operationId": "ProductPolicy_Get",
+      "summary": "Microsoft Azure API Management ProductPolicy_Get",
+      "tags": [
+        "ProductPolicy"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/policies/{policyId}",
+      "operationId": "ProductPolicy_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management ProductPolicy_CreateOrUpdate",
+      "tags": [
+        "ProductPolicy"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/policies/{policyId}",
+      "operationId": "ProductPolicy_Delete",
+      "summary": "Microsoft Azure API Management ProductPolicy_Delete",
+      "tags": [
+        "ProductPolicy"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/subscriptions",
+      "operationId": "ProductSubscriptions_List",
+      "summary": "Microsoft Azure API Management ProductSubscriptions_List",
+      "tags": [
+        "ProductSubscription"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/tags",
+      "operationId": "Tag_ListByProduct",
+      "summary": "Microsoft Azure API Management Tag_ListByProduct",
+      "tags": [
+        "ProductTag"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/tags/{tagId}",
+      "operationId": "Tag_GetByProduct",
+      "summary": "Microsoft Azure API Management Tag_GetByProduct",
+      "tags": [
+        "ProductTag"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/tags/{tagId}",
+      "operationId": "Tag_AssignToProduct",
+      "summary": "Microsoft Azure API Management Tag_AssignToProduct",
+      "tags": [
+        "ProductTag"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/tags/{tagId}",
+      "operationId": "Tag_DetachFromProduct",
+      "summary": "Microsoft Azure API Management Tag_DetachFromProduct",
+      "tags": [
+        "ProductTag"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/wikis",
+      "operationId": "ProductWikis_list",
+      "summary": "Microsoft Azure API Management ProductWikis_list",
+      "tags": [
+        "ProductWiki"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/wikis/default",
+      "operationId": "ProductWiki_Get",
+      "summary": "Microsoft Azure API Management ProductWiki_Get",
+      "tags": [
+        "ProductWiki"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/wikis/default",
+      "operationId": "ProductWiki_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management ProductWiki_CreateOrUpdate",
+      "tags": [
+        "ProductWiki"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/wikis/default",
+      "operationId": "ProductWiki_Delete",
+      "summary": "Microsoft Azure API Management ProductWiki_Delete",
+      "tags": [
+        "ProductWiki"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/wikis/default",
+      "operationId": "ProductWiki_Update",
+      "summary": "Microsoft Azure API Management ProductWiki_Update",
+      "tags": [
+        "ProductWiki"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore",
+      "operationId": "ApiManagementService_Restore",
+      "summary": "Microsoft Azure API Management ApiManagementService_Restore",
+      "tags": [
+        "ApiManagementService"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/skus",
+      "operationId": "ApiManagementServiceSkus_ListAvailableServiceSkus",
+      "summary": "Microsoft Azure API Management Gets Available SKUs for API Management Service",
+      "tags": [
+        "ApiManagementServiceSkus"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/subscriptions",
+      "operationId": "Subscription_List",
+      "summary": "Microsoft Azure API Management Subscription_List",
+      "tags": [
+        "Subscription"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/subscriptions/{sid}",
+      "operationId": "Subscription_Get",
+      "summary": "Microsoft Azure API Management Subscription_Get",
+      "tags": [
+        "Subscription"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/subscriptions/{sid}",
+      "operationId": "Subscription_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management Subscription_CreateOrUpdate",
+      "tags": [
+        "Subscription"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/subscriptions/{sid}",
+      "operationId": "Subscription_Delete",
+      "summary": "Microsoft Azure API Management Subscription_Delete",
+      "tags": [
+        "Subscription"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/subscriptions/{sid}",
+      "operationId": "Subscription_Update",
+      "summary": "Microsoft Azure API Management Subscription_Update",
+      "tags": [
+        "Subscription"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/subscriptions/{sid}/listSecrets",
+      "operationId": "Subscription_ListSecrets",
+      "summary": "Microsoft Azure API Management Subscription_ListSecrets",
+      "tags": [
+        "Subscription"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/subscriptions/{sid}/regeneratePrimaryKey",
+      "operationId": "Subscription_RegeneratePrimaryKey",
+      "summary": "Microsoft Azure API Management Subscription_RegeneratePrimaryKey",
+      "tags": [
+        "Subscription"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/subscriptions/{sid}/regenerateSecondaryKey",
+      "operationId": "Subscription_RegenerateSecondaryKey",
+      "summary": "Microsoft Azure API Management Subscription_RegenerateSecondaryKey",
+      "tags": [
+        "Subscription"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags",
+      "operationId": "Tag_ListByService",
+      "summary": "Microsoft Azure API Management Tag_ListByService",
+      "tags": [
+        "Tag"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}",
+      "operationId": "Tag_Get",
+      "summary": "Microsoft Azure API Management Tag_Get",
+      "tags": [
+        "Tag"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}",
+      "operationId": "Tag_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management Tag_CreateOrUpdate",
+      "tags": [
+        "Tag"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}",
+      "operationId": "Tag_Delete",
+      "summary": "Microsoft Azure API Management Tag_Delete",
+      "tags": [
+        "Tag"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}",
+      "operationId": "Tag_Update",
+      "summary": "Microsoft Azure API Management Tag_Update",
+      "tags": [
+        "Tag"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/apiLinks",
+      "operationId": "TagApiLink_ListByProduct",
+      "summary": "Microsoft Azure API Management TagApiLink_ListByProduct",
+      "tags": [
+        "TagApiLink"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/apiLinks/{apiLinkId}",
+      "operationId": "TagApiLink_Get",
+      "summary": "Microsoft Azure API Management TagApiLink_Get",
+      "tags": [
+        "TagApiLink"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/apiLinks/{apiLinkId}",
+      "operationId": "TagApiLink_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management TagApiLink_CreateOrUpdate",
+      "tags": [
+        "TagApiLink"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/apiLinks/{apiLinkId}",
+      "operationId": "TagApiLink_Delete",
+      "summary": "Microsoft Azure API Management TagApiLink_Delete",
+      "tags": [
+        "TagApiLink"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/operationLinks",
+      "operationId": "TagOperationLink_ListByProduct",
+      "summary": "Microsoft Azure API Management TagOperationLink_ListByProduct",
+      "tags": [
+        "TagOperationLink"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/operationLinks/{operationLinkId}",
+      "operationId": "TagOperationLink_Get",
+      "summary": "Microsoft Azure API Management TagOperationLink_Get",
+      "tags": [
+        "TagOperationLink"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/operationLinks/{operationLinkId}",
+      "operationId": "TagOperationLink_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management TagOperationLink_CreateOrUpdate",
+      "tags": [
+        "TagOperationLink"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/operationLinks/{operationLinkId}",
+      "operationId": "TagOperationLink_Delete",
+      "summary": "Microsoft Azure API Management TagOperationLink_Delete",
+      "tags": [
+        "TagOperationLink"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/productLinks",
+      "operationId": "TagProductLink_ListByProduct",
+      "summary": "Microsoft Azure API Management TagProductLink_ListByProduct",
+      "tags": [
+        "TagProductLink"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/productLinks/{productLinkId}",
+      "operationId": "TagProductLink_Get",
+      "summary": "Microsoft Azure API Management TagProductLink_Get",
+      "tags": [
+        "TagProductLink"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/productLinks/{productLinkId}",
+      "operationId": "TagProductLink_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management TagProductLink_CreateOrUpdate",
+      "tags": [
+        "TagProductLink"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/productLinks/{productLinkId}",
+      "operationId": "TagProductLink_Delete",
+      "summary": "Microsoft Azure API Management TagProductLink_Delete",
+      "tags": [
+        "TagProductLink"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users",
+      "operationId": "User_ListByService",
+      "summary": "Microsoft Azure API Management User_ListByService",
+      "tags": [
+        "User"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}",
+      "operationId": "User_Get",
+      "summary": "Microsoft Azure API Management User_Get",
+      "tags": [
+        "User"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}",
+      "operationId": "User_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management User_CreateOrUpdate",
+      "tags": [
+        "User"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}",
+      "operationId": "User_Delete",
+      "summary": "Microsoft Azure API Management User_Delete",
+      "tags": [
+        "User"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}",
+      "operationId": "User_Update",
+      "summary": "Microsoft Azure API Management User_Update",
+      "tags": [
+        "User"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}/generateSsoUrl",
+      "operationId": "User_GenerateSsoUrl",
+      "summary": "Microsoft Azure API Management User_GenerateSsoUrl",
+      "tags": [
+        "Users"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}/groups",
+      "operationId": "UserGroup_List",
+      "summary": "Microsoft Azure API Management UserGroup_List",
+      "tags": [
+        "UserGroup"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}/identities",
+      "operationId": "UserIdentities_List",
+      "summary": "Microsoft Azure API Management UserIdentities_List",
+      "tags": [
+        "UserIdentity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}/subscriptions",
+      "operationId": "UserSubscription_List",
+      "summary": "Microsoft Azure API Management UserSubscription_List",
+      "tags": [
+        "UserSubscription"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}/subscriptions/{sid}",
+      "operationId": "UserSubscription_Get",
+      "summary": "Microsoft Azure API Management UserSubscription_Get",
+      "tags": [
+        "Subscription"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}/token",
+      "operationId": "User_GetSharedAccessToken",
+      "summary": "Microsoft Azure API Management User_GetSharedAccessToken",
+      "tags": [
+        "UserToken"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces",
+      "operationId": "Workspace_ListByService",
+      "summary": "Microsoft Azure API Management Workspace_ListByService",
+      "tags": [
+        "Workspace"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}",
+      "operationId": "Workspace_Get",
+      "summary": "Microsoft Azure API Management Workspace_Get",
+      "tags": [
+        "Workspace"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}",
+      "operationId": "Workspace_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management Workspace_CreateOrUpdate",
+      "tags": [
+        "Workspace"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}",
+      "operationId": "Workspace_Delete",
+      "summary": "Microsoft Azure API Management Workspace_Delete",
+      "tags": [
+        "Workspace"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}",
+      "operationId": "Workspace_Update",
+      "summary": "Microsoft Azure API Management Workspace_Update",
+      "tags": [
+        "Workspace"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apiVersionSets",
+      "operationId": "WorkspaceApiVersionSet_ListByService",
+      "summary": "Microsoft Azure API Management WorkspaceApiVersionSet_ListByService",
+      "tags": [
+        "ApiVersionSet"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apiVersionSets/{versionSetId}",
+      "operationId": "WorkspaceApiVersionSet_Get",
+      "summary": "Microsoft Azure API Management WorkspaceApiVersionSet_Get",
+      "tags": [
+        "ApiVersionSet"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apiVersionSets/{versionSetId}",
+      "operationId": "WorkspaceApiVersionSet_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management WorkspaceApiVersionSet_CreateOrUpdate",
+      "tags": [
+        "ApiVersionSet"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apiVersionSets/{versionSetId}",
+      "operationId": "WorkspaceApiVersionSet_Delete",
+      "summary": "Microsoft Azure API Management WorkspaceApiVersionSet_Delete",
+      "tags": [
+        "ApiVersionSets"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apiVersionSets/{versionSetId}",
+      "operationId": "WorkspaceApiVersionSet_Update",
+      "summary": "Microsoft Azure API Management WorkspaceApiVersionSet_Update",
+      "tags": [
+        "ApiVersionSet"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis",
+      "operationId": "WorkspaceApi_ListByService",
+      "summary": "Microsoft Azure API Management WorkspaceApi_ListByService",
+      "tags": [
+        "Api"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis/{apiId}",
+      "operationId": "WorkspaceApi_Get",
+      "summary": "Microsoft Azure API Management WorkspaceApi_Get",
+      "tags": [
+        "Api"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis/{apiId}",
+      "operationId": "WorkspaceApi_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management WorkspaceApi_CreateOrUpdate",
+      "tags": [
+        "Api"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis/{apiId}",
+      "operationId": "WorkspaceApi_Delete",
+      "summary": "Microsoft Azure API Management WorkspaceApi_Delete",
+      "tags": [
+        "Api"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis/{apiId}",
+      "operationId": "WorkspaceApi_Update",
+      "summary": "Microsoft Azure API Management WorkspaceApi_Update",
+      "tags": [
+        "Api"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/groups",
+      "operationId": "WorkspaceGroup_ListByService",
+      "summary": "Microsoft Azure API Management WorkspaceGroup_ListByService",
+      "tags": [
+        "Group"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/groups/{groupId}",
+      "operationId": "WorkspaceGroup_Get",
+      "summary": "Microsoft Azure API Management WorkspaceGroup_Get",
+      "tags": [
+        "Group"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/groups/{groupId}",
+      "operationId": "WorkspaceGroup_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management WorkspaceGroup_CreateOrUpdate",
+      "tags": [
+        "Group"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/groups/{groupId}",
+      "operationId": "WorkspaceGroup_Delete",
+      "summary": "Microsoft Azure API Management WorkspaceGroup_Delete",
+      "tags": [
+        "Group"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/groups/{groupId}",
+      "operationId": "WorkspaceGroup_Update",
+      "summary": "Microsoft Azure API Management WorkspaceGroup_Update",
+      "tags": [
+        "Group"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/namedValues",
+      "operationId": "WorkspaceNamedValue_ListByService",
+      "summary": "Microsoft Azure API Management WorkspaceNamedValue_ListByService",
+      "tags": [
+        "NamedValue"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/namedValues/{namedValueId}",
+      "operationId": "WorkspaceNamedValue_Get",
+      "summary": "Microsoft Azure API Management WorkspaceNamedValue_Get",
+      "tags": [
+        "NamedValue"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/namedValues/{namedValueId}",
+      "operationId": "WorkspaceNamedValue_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management WorkspaceNamedValue_CreateOrUpdate",
+      "tags": [
+        "NamedValue"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/namedValues/{namedValueId}",
+      "operationId": "WorkspaceNamedValue_Delete",
+      "summary": "Microsoft Azure API Management WorkspaceNamedValue_Delete",
+      "tags": [
+        "NamedValue"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/namedValues/{namedValueId}",
+      "operationId": "WorkspaceNamedValue_Update",
+      "summary": "Microsoft Azure API Management WorkspaceNamedValue_Update",
+      "tags": [
+        "NamedValue"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/notifications",
+      "operationId": "WorkspaceNotification_ListByService",
+      "summary": "Microsoft Azure API Management WorkspaceNotification_ListByService",
+      "tags": [
+        "Notification"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/notifications/{notificationName}",
+      "operationId": "WorkspaceNotification_Get",
+      "summary": "Microsoft Azure API Management WorkspaceNotification_Get",
+      "tags": [
+        "Notification"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/notifications/{notificationName}",
+      "operationId": "WorkspaceNotification_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management WorkspaceNotification_CreateOrUpdate",
+      "tags": [
+        "Notification"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/policies",
+      "operationId": "WorkspacePolicy_ListByApi",
+      "summary": "Microsoft Azure API Management WorkspacePolicy_ListByApi",
+      "tags": [
+        "WorkspacePolicy"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/policies/{policyId}",
+      "operationId": "WorkspacePolicy_Get",
+      "summary": "Microsoft Azure API Management WorkspacePolicy_Get",
+      "tags": [
+        "WorkspacePolicy"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/policies/{policyId}",
+      "operationId": "WorkspacePolicy_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management WorkspacePolicy_CreateOrUpdate",
+      "tags": [
+        "WorkspacePolicy"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/policies/{policyId}",
+      "operationId": "WorkspacePolicy_Delete",
+      "summary": "Microsoft Azure API Management WorkspacePolicy_Delete",
+      "tags": [
+        "WorkspacePolicy"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/policyFragments",
+      "operationId": "WorkspacePolicyFragment_ListByService",
+      "summary": "Microsoft Azure API Management WorkspacePolicyFragment_ListByService",
+      "tags": [
+        "PolicyFragment"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/policyFragments/{id}",
+      "operationId": "WorkspacePolicyFragment_Get",
+      "summary": "Microsoft Azure API Management WorkspacePolicyFragment_Get",
+      "tags": [
+        "PolicyFragment"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/policyFragments/{id}",
+      "operationId": "WorkspacePolicyFragment_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management WorkspacePolicyFragment_CreateOrUpdate",
+      "tags": [
+        "PolicyFragment"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/policyFragments/{id}",
+      "operationId": "WorkspacePolicyFragment_Delete",
+      "summary": "Microsoft Azure API Management WorkspacePolicyFragment_Delete",
+      "tags": [
+        "PolicyFragment"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/products",
+      "operationId": "WorkspaceProduct_ListByService",
+      "summary": "Microsoft Azure API Management WorkspaceProduct_ListByService",
+      "tags": [
+        "Product"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/products/{productId}",
+      "operationId": "WorkspaceProduct_Get",
+      "summary": "Microsoft Azure API Management WorkspaceProduct_Get",
+      "tags": [
+        "Product"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/products/{productId}",
+      "operationId": "WorkspaceProduct_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management WorkspaceProduct_CreateOrUpdate",
+      "tags": [
+        "Product"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/products/{productId}",
+      "operationId": "WorkspaceProduct_Delete",
+      "summary": "Microsoft Azure API Management WorkspaceProduct_Delete",
+      "tags": [
+        "Product"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/products/{productId}",
+      "operationId": "WorkspaceProduct_Update",
+      "summary": "Microsoft Azure API Management WorkspaceProduct_Update",
+      "tags": [
+        "Product"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/schemas",
+      "operationId": "WorkspaceGlobalSchema_ListByService",
+      "summary": "Microsoft Azure API Management WorkspaceGlobalSchema_ListByService",
+      "tags": [
+        "Schema"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/schemas/{schemaId}",
+      "operationId": "WorkspaceGlobalSchema_Get",
+      "summary": "Microsoft Azure API Management WorkspaceGlobalSchema_Get",
+      "tags": [
+        "Schema"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/schemas/{schemaId}",
+      "operationId": "WorkspaceGlobalSchema_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management WorkspaceGlobalSchema_CreateOrUpdate",
+      "tags": [
+        "Schema"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/schemas/{schemaId}",
+      "operationId": "WorkspaceGlobalSchema_Delete",
+      "summary": "Microsoft Azure API Management WorkspaceGlobalSchema_Delete",
+      "tags": [
+        "Schema"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/subscriptions",
+      "operationId": "WorkspaceSubscription_List",
+      "summary": "Microsoft Azure API Management WorkspaceSubscription_List",
+      "tags": [
+        "Subscription"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/subscriptions/{sid}",
+      "operationId": "WorkspaceSubscription_Get",
+      "summary": "Microsoft Azure API Management WorkspaceSubscription_Get",
+      "tags": [
+        "Subscription"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/subscriptions/{sid}",
+      "operationId": "WorkspaceSubscription_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management WorkspaceSubscription_CreateOrUpdate",
+      "tags": [
+        "Subscription"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/subscriptions/{sid}",
+      "operationId": "WorkspaceSubscription_Delete",
+      "summary": "Microsoft Azure API Management WorkspaceSubscription_Delete",
+      "tags": [
+        "Subscription"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/subscriptions/{sid}",
+      "operationId": "WorkspaceSubscription_Update",
+      "summary": "Microsoft Azure API Management WorkspaceSubscription_Update",
+      "tags": [
+        "Subscription"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/tags",
+      "operationId": "WorkspaceTag_ListByService",
+      "summary": "Microsoft Azure API Management WorkspaceTag_ListByService",
+      "tags": [
+        "Tag"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/tags/{tagId}",
+      "operationId": "WorkspaceTag_Get",
+      "summary": "Microsoft Azure API Management WorkspaceTag_Get",
+      "tags": [
+        "Tag"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/tags/{tagId}",
+      "operationId": "WorkspaceTag_CreateOrUpdate",
+      "summary": "Microsoft Azure API Management WorkspaceTag_CreateOrUpdate",
+      "tags": [
+        "Tag"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/tags/{tagId}",
+      "operationId": "WorkspaceTag_Delete",
+      "summary": "Microsoft Azure API Management WorkspaceTag_Delete",
+      "tags": [
+        "Tag"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/tags/{tagId}",
+      "operationId": "WorkspaceTag_Update",
+      "summary": "Microsoft Azure API Management WorkspaceTag_Update",
+      "tags": [
+        "Tag"
+      ]
+    }
+  ]
+}

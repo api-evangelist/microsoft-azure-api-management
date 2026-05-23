@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ApiCollection",
+  "title": "ApiCollection",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ApiContract"
+      }
+    },
+    "count": {
+      "type": "integer",
+      "example": 2
+    },
+    "nextLink": {
+      "type": "string",
+      "example": ""
+    }
+  }
+}

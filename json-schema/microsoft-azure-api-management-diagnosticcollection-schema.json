@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DiagnosticCollection",
+  "title": "DiagnosticCollection",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/DiagnosticContract"
+      }
+    },
+    "count": {
+      "type": "integer",
+      "example": 1
+    },
+    "nextLink": {
+      "type": "string",
+      "example": ""
+    }
+  }
+}

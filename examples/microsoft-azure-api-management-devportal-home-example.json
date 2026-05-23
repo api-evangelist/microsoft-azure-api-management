@@ -1,0 +1,28 @@
+{
+  "operationId": "DevPortal_Home",
+  "method": "GET",
+  "path": "/",
+  "summary": "Developer portal home page",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "HomePage",
+      "example": {
+        "title": "Contoso API Developer Portal",
+        "description": "Welcome to the Contoso API Developer Portal. Browse our APIs and get started.",
+        "links": [
+          {
+            "rel": "apis",
+            "href": "/apis"
+          },
+          {
+            "rel": "products",
+            "href": "/products"
+          }
+        ]
+      }
+    }
+  ]
+}

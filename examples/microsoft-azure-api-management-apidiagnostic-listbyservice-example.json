@@ -1,0 +1,33 @@
+{
+  "operationId": "ApiDiagnostic_ListByService",
+  "method": "GET",
+  "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/diagnostics",
+  "summary": "Microsoft Azure API Management ApiDiagnostic_ListByService",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "DiagnosticListExample",
+      "example": {
+        "value": [
+          {
+            "id": "/subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api/diagnostics/applicationinsights",
+            "name": "applicationinsights",
+            "type": "Microsoft.ApiManagement/service/apis/diagnostics",
+            "properties": {
+              "loggerId": "/subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/loggers/appinsights-logger",
+              "alwaysLog": "allErrors",
+              "sampling": {
+                "samplingType": "fixed",
+                "percentage": 100
+              }
+            }
+          }
+        ],
+        "count": 1,
+        "nextLink": ""
+      }
+    }
+  ]
+}

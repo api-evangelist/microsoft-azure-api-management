@@ -1,0 +1,43 @@
+{
+  "operationId": "ApiManagementService_Update",
+  "method": "PATCH",
+  "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}",
+  "summary": "Microsoft Azure API Management ApiManagementService_Update",
+  "requestExamples": [
+    {
+      "contentType": "application/json",
+      "name": "UpdateServiceExample",
+      "example": {
+        "properties": {
+          "publisherName": "Contoso Ltd"
+        }
+      }
+    }
+  ],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "UpdateServiceExample",
+      "example": {
+        "id": "/subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim",
+        "name": "contoso-apim",
+        "type": "Microsoft.ApiManagement/service",
+        "location": "West US 2",
+        "sku": {
+          "name": "Developer",
+          "capacity": 1
+        },
+        "properties": {
+          "publisherEmail": "admin@contoso.com",
+          "publisherName": "Contoso Ltd",
+          "provisioningState": "Succeeded",
+          "gatewayUrl": "https://contoso-apim.azure-api.net",
+          "portalUrl": "https://contoso-apim.developer.azure-api.net",
+          "managementApiUrl": "https://contoso-apim.management.azure-api.net",
+          "createdAtUtc": "2024-01-10T08:00:00Z"
+        }
+      }
+    }
+  ]
+}

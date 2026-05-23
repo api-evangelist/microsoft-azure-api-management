@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DiagnosticContract",
+  "title": "DiagnosticContract",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "/subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api/diagnostics/applicationinsights"
+    },
+    "name": {
+      "type": "string",
+      "example": "applicationinsights"
+    },
+    "type": {
+      "type": "string",
+      "example": "Microsoft.ApiManagement/service/apis/diagnostics"
+    },
+    "properties": {
+      "type": "object",
+      "properties": {
+        "loggerId": {
+          "type": "string",
+          "example": "/subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/loggers/appinsights-logger"
+        },
+        "alwaysLog": {
+          "type": "string",
+          "example": "allErrors"
+        },
+        "sampling": {
+          "type": "object",
+          "properties": {
+            "samplingType": {
+              "type": "string",
+              "example": "fixed"
+            },
+            "percentage": {
+              "type": "number",
+              "example": 100
+            }
+          }
+        }
+      }
+    }
+  }
+}

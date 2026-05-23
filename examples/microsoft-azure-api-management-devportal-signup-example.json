@@ -1,0 +1,18 @@
+{
+  "operationId": "DevPortal_SignUp",
+  "method": "GET",
+  "path": "/signup",
+  "summary": "Sign up page",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "SignUpPage",
+      "example": {
+        "title": "Sign Up",
+        "description": "Create a new developer account."
+      }
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/OperationListResult",
+  "title": "OperationListResult",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Microsoft.ApiManagement/service/read"
+          },
+          "display": {
+            "type": "object",
+            "properties": {
+              "provider": {
+                "type": "string",
+                "example": "Microsoft API Management"
+              },
+              "resource": {
+                "type": "string",
+                "example": "Service"
+              },
+              "operation": {
+                "type": "string",
+                "example": "Read API Management Service"
+              }
+            }
+          }
+        }
+      }
+    },
+    "nextLink": {
+      "type": "string",
+      "example": ""
+    }
+  }
+}

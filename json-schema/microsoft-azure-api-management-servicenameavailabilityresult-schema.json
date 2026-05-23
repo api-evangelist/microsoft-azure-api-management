@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ServiceNameAvailabilityResult",
+  "title": "ServiceNameAvailabilityResult",
+  "type": "object",
+  "properties": {
+    "nameAvailable": {
+      "type": "boolean",
+      "example": true
+    },
+    "message": {
+      "type": "string",
+      "example": ""
+    },
+    "reason": {
+      "type": "string",
+      "example": ""
+    }
+  }
+}

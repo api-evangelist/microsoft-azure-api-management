@@ -1,0 +1,42 @@
+{
+  "operationId": "AIGateway_Completions",
+  "method": "POST",
+  "path": "/deployments/{deployment-id}/completions",
+  "summary": "Microsoft Azure API Management Completions Via AI Gateway",
+  "requestExamples": [
+    {
+      "contentType": "application/json",
+      "name": "CompletionExample",
+      "example": {
+        "prompt": "Explain the benefits of API management in",
+        "max_tokens": 128,
+        "temperature": 0.7
+      }
+    }
+  ],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "CompletionExample",
+      "example": {
+        "id": "cmpl-xyz789",
+        "object": "text_completion",
+        "created": 1714000000,
+        "model": "gpt-4o",
+        "choices": [
+          {
+            "index": 0,
+            "text": "enterprise environments includes centralized governance, security enforcement, and developer experience improvements.",
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 10,
+          "completion_tokens": 15,
+          "total_tokens": 25
+        }
+      }
+    }
+  ]
+}

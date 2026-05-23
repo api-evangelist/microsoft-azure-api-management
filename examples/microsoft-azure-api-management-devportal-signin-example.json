@@ -1,0 +1,18 @@
+{
+  "operationId": "DevPortal_SignIn",
+  "method": "GET",
+  "path": "/signin",
+  "summary": "Sign in page",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "SignInPage",
+      "example": {
+        "title": "Sign In",
+        "description": "Sign in with your developer account."
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ApiSummary",
+  "title": "ApiSummary",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "petstore-api"
+    },
+    "name": {
+      "type": "string",
+      "example": "Petstore API"
+    },
+    "description": {
+      "type": "string",
+      "example": "Manage pet inventory and orders."
+    },
+    "serviceUrl": {
+      "type": "string",
+      "example": "https://petstore.example.com"
+    }
+  }
+}

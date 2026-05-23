@@ -1,0 +1,31 @@
+{
+  "operationId": "DevPortal_ListApis",
+  "method": "GET",
+  "path": "/apis",
+  "summary": "List available APIs",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "ApiListExample",
+      "example": {
+        "count": 2,
+        "value": [
+          {
+            "id": "petstore-api",
+            "name": "Petstore API",
+            "description": "Manage pet inventory and orders.",
+            "serviceUrl": "https://petstore.example.com"
+          },
+          {
+            "id": "weather-api",
+            "name": "Weather API",
+            "description": "Retrieve weather forecasts and current conditions.",
+            "serviceUrl": "https://weather.example.com"
+          }
+        ]
+      }
+    }
+  ]
+}

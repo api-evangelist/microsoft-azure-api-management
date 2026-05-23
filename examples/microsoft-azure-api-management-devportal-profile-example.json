@@ -1,0 +1,29 @@
+{
+  "operationId": "DevPortal_Profile",
+  "method": "GET",
+  "path": "/profile",
+  "summary": "User profile and subscriptions",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "UserProfileExample",
+      "example": {
+        "id": "user-001",
+        "firstName": "Jane",
+        "lastName": "Developer",
+        "email": "jane.developer@contoso.com",
+        "registrationDate": "2024-01-15T10:30:00Z",
+        "subscriptions": [
+          {
+            "id": "sub-abc123",
+            "productName": "Starter",
+            "state": "active",
+            "primaryKey": "********************************"
+          }
+        ]
+      }
+    }
+  ]
+}

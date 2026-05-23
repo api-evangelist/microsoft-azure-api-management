@@ -1,0 +1,35 @@
+{
+  "operationId": "ApiManagementOperations_List",
+  "method": "GET",
+  "path": "/providers/Microsoft.ApiManagement/operations",
+  "summary": "Microsoft Azure API Management ApiManagementOperations_List",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "OperationListExample",
+      "example": {
+        "value": [
+          {
+            "name": "Microsoft.ApiManagement/service/read",
+            "display": {
+              "provider": "Microsoft API Management",
+              "resource": "Service",
+              "operation": "Read API Management Service"
+            }
+          },
+          {
+            "name": "Microsoft.ApiManagement/service/write",
+            "display": {
+              "provider": "Microsoft API Management",
+              "resource": "Service",
+              "operation": "Create or Update API Management Service"
+            }
+          }
+        ],
+        "nextLink": ""
+      }
+    }
+  ]
+}

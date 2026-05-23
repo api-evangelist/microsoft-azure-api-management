@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ApiManagementServiceListResult",
+  "title": "ApiManagementServiceListResult",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ApiManagementServiceResource"
+      }
+    },
+    "count": {
+      "type": "integer",
+      "example": 1
+    },
+    "nextLink": {
+      "type": "string",
+      "example": ""
+    }
+  }
+}

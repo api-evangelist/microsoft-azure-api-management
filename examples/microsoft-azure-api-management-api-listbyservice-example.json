@@ -1,0 +1,36 @@
+{
+  "operationId": "Api_ListByService",
+  "method": "GET",
+  "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis",
+  "summary": "Microsoft Azure API Management Api_ListByService",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "ApiListExample",
+      "example": {
+        "value": [
+          {
+            "id": "/subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api",
+            "name": "petstore-api",
+            "type": "Microsoft.ApiManagement/service/apis",
+            "properties": {
+              "displayName": "Petstore API",
+              "description": "A sample API for managing pets.",
+              "serviceUrl": "https://petstore.example.com/v1",
+              "path": "petstore",
+              "protocols": [
+                "https"
+              ],
+              "subscriptionRequired": true,
+              "apiRevision": "1"
+            }
+          }
+        ],
+        "count": 1,
+        "nextLink": ""
+      }
+    }
+  ]
+}

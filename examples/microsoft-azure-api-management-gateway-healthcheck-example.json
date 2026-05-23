@@ -1,0 +1,18 @@
+{
+  "operationId": "Gateway_HealthCheck",
+  "method": "GET",
+  "path": "/status-0123456789abcdef",
+  "summary": "Gateway health check",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "HealthyExample",
+      "example": {
+        "status": "Healthy",
+        "timestamp": "2024-06-15T12:00:00Z"
+      }
+    }
+  ]
+}

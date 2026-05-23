@@ -1,0 +1,35 @@
+{
+  "operationId": "SelfHostedGateway_ProxyPost",
+  "method": "POST",
+  "path": "/{api-path}",
+  "summary": "Proxy POST request through self-hosted gateway",
+  "requestExamples": [
+    {
+      "contentType": "application/json",
+      "name": "ProxyPostExample",
+      "example": {
+        "sku": "ITEM-456",
+        "name": "Widget Pro",
+        "quantity": 100
+      }
+    }
+  ],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "ProxyPostExample",
+      "example": {
+        "statusCode": 201,
+        "headers": {
+          "x-apim-request-id": "a9b8c7d6-e5f4-3210-abcd-ef9876543210"
+        },
+        "body": {
+          "id": "item-789",
+          "sku": "ITEM-456",
+          "name": "Widget Pro"
+        }
+      }
+    }
+  ]
+}

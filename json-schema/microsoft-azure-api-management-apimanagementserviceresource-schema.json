@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ApiManagementServiceResource",
+  "title": "ApiManagementServiceResource",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "/subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim"
+    },
+    "name": {
+      "type": "string",
+      "example": "contoso-apim"
+    },
+    "type": {
+      "type": "string",
+      "example": "Microsoft.ApiManagement/service"
+    },
+    "location": {
+      "type": "string",
+      "example": "West US 2"
+    },
+    "sku": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Developer"
+        },
+        "capacity": {
+          "type": "integer",
+          "example": 1
+        }
+      }
+    },
+    "properties": {
+      "type": "object",
+      "properties": {
+        "publisherEmail": {
+          "type": "string",
+          "example": "admin@contoso.com"
+        },
+        "publisherName": {
+          "type": "string",
+          "example": "Contoso"
+        },
+        "provisioningState": {
+          "type": "string",
+          "example": "Succeeded"
+        },
+        "gatewayUrl": {
+          "type": "string",
+          "example": "https://contoso-apim.azure-api.net"
+        },
+        "portalUrl": {
+          "type": "string",
+          "example": "https://contoso-apim.developer.azure-api.net"
+        },
+        "managementApiUrl": {
+          "type": "string",
+          "example": "https://contoso-apim.management.azure-api.net"
+        },
+        "createdAtUtc": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2024-01-10T08:00:00Z"
+        }
+      }
+    }
+  }
+}

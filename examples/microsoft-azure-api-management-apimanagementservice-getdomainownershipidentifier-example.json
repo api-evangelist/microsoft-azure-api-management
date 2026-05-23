@@ -1,0 +1,17 @@
+{
+  "operationId": "ApiManagementService_GetDomainOwnershipIdentifier",
+  "method": "POST",
+  "path": "/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/getDomainOwnershipIdentifier",
+  "summary": "Microsoft Azure API Management ApiManagementService_GetDomainOwnershipIdentifier",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "DomainOwnershipExample",
+      "example": {
+        "domainOwnershipIdentifier": "abc123def456ghi789"
+      }
+    }
+  ]
+}

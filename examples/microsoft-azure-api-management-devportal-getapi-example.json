@@ -1,0 +1,24 @@
+{
+  "operationId": "DevPortal_GetApi",
+  "method": "GET",
+  "path": "/apis/{api-id}",
+  "summary": "Get API details",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "ApiDetailExample",
+      "example": {
+        "id": "petstore-api",
+        "name": "Petstore API",
+        "description": "Manage pet inventory and orders.",
+        "serviceUrl": "https://petstore.example.com",
+        "protocols": [
+          "https"
+        ],
+        "subscriptionRequired": true
+      }
+    }
+  ]
+}

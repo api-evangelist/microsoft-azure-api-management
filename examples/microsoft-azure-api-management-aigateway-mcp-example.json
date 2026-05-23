@@ -1,0 +1,42 @@
+{
+  "operationId": "AIGateway_MCP",
+  "method": "POST",
+  "path": "/mcp",
+  "summary": "Microsoft Azure API Management MCP Server Request Via AI Gateway",
+  "requestExamples": [
+    {
+      "contentType": "application/json",
+      "name": "MCPToolCallExample",
+      "example": {
+        "jsonrpc": "2.0",
+        "method": "tools/call",
+        "id": 1,
+        "params": {
+          "name": "get_weather",
+          "arguments": {
+            "location": "Seattle"
+          }
+        }
+      }
+    }
+  ],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "MCPToolCallExample",
+      "example": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "The weather in Seattle is 62F and partly cloudy."
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

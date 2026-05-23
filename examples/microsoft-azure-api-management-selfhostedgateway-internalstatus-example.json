@@ -1,0 +1,22 @@
+{
+  "operationId": "SelfHostedGateway_InternalStatus",
+  "method": "GET",
+  "path": "/internal/status",
+  "summary": "Internal status endpoint",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "InternalStatusExample",
+      "example": {
+        "status": "Running",
+        "version": "2.6.0",
+        "configurationStatus": "Synced",
+        "lastConfigurationUpdate": "2024-06-15T11:55:00Z",
+        "connectedToManagementPlane": true,
+        "uptimeSeconds": 86400
+      }
+    }
+  ]
+}

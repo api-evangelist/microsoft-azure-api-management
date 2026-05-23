@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UserProfile",
+  "title": "UserProfile",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "user-001"
+    },
+    "firstName": {
+      "type": "string",
+      "example": "Jane"
+    },
+    "lastName": {
+      "type": "string",
+      "example": "Developer"
+    },
+    "email": {
+      "type": "string",
+      "example": "jane.developer@contoso.com"
+    },
+    "registrationDate": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2024-01-15T10:30:00Z"
+    },
+    "subscriptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "sub-abc123"
+          },
+          "productName": {
+            "type": "string",
+            "example": "Starter"
+          },
+          "state": {
+            "type": "string",
+            "example": "active"
+          },
+          "primaryKey": {
+            "type": "string",
+            "example": "********************************"
+          }
+        }
+      }
+    }
+  }
+}

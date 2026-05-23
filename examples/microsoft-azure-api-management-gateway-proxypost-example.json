@@ -1,0 +1,34 @@
+{
+  "operationId": "Gateway_ProxyPost",
+  "method": "POST",
+  "path": "/{api-path}",
+  "summary": "Proxy POST request to backend API",
+  "requestExamples": [
+    {
+      "contentType": "application/json",
+      "name": "ProxyPostExample",
+      "example": {
+        "name": "Fluffy",
+        "species": "cat"
+      }
+    }
+  ],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "ProxyPostExample",
+      "example": {
+        "statusCode": 201,
+        "headers": {
+          "x-apim-request-id": "b2c3d4e5-f6a7-8901-bcde-f12345678901"
+        },
+        "body": {
+          "id": "pet-123",
+          "name": "Fluffy",
+          "species": "cat"
+        }
+      }
+    }
+  ]
+}

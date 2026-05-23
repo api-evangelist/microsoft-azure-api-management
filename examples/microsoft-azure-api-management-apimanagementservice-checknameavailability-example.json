@@ -1,0 +1,27 @@
+{
+  "operationId": "ApiManagementService_CheckNameAvailability",
+  "method": "POST",
+  "path": "/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/checkNameAvailability",
+  "summary": "Microsoft Azure API Management ApiManagementService_CheckNameAvailability",
+  "requestExamples": [
+    {
+      "contentType": "application/json",
+      "name": "CheckNameExample",
+      "example": {
+        "name": "contoso-apim"
+      }
+    }
+  ],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "NameAvailableExample",
+      "example": {
+        "nameAvailable": true,
+        "message": "",
+        "reason": ""
+      }
+    }
+  ]
+}

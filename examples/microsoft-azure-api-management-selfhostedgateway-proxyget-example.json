@@ -1,0 +1,23 @@
+{
+  "operationId": "SelfHostedGateway_ProxyGet",
+  "method": "GET",
+  "path": "/{api-path}",
+  "summary": "Proxy GET request through self-hosted gateway",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "ProxyGetExample",
+      "example": {
+        "statusCode": 200,
+        "headers": {
+          "x-apim-request-id": "f1e2d3c4-b5a6-7890-fedc-ba0987654321"
+        },
+        "body": {
+          "message": "Response from on-premises backend"
+        }
+      }
+    }
+  ]
+}

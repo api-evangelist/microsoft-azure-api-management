@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/InternalStatus",
+  "title": "InternalStatus",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "example": "Running"
+    },
+    "version": {
+      "type": "string",
+      "example": "2.6.0"
+    },
+    "configurationStatus": {
+      "type": "string",
+      "example": "Synced"
+    },
+    "lastConfigurationUpdate": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2024-06-15T11:55:00Z"
+    },
+    "connectedToManagementPlane": {
+      "type": "boolean",
+      "example": true
+    },
+    "uptimeSeconds": {
+      "type": "integer",
+      "example": 86400
+    }
+  }
+}
