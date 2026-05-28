@@ -5,7 +5,7 @@ info:
     on Microsoft Azure APIM. Uses the Product → Subscription → User nested scope model
     (the cleanest gateway-native scope abstraction in the field), Microsoft Entra service
     principal short-circuit for first-party agents, Azure Monitor for audit (Tier 2
-    side-channel — Application Insights custom dimensions carry the Web Bot Auth signature).'
+    side-channel — Application Insights custom dimensions carry the Web Bot Auth signature). Runtime policy enforcement (signature verify, consent check, scope classify, audit emit) lives in the orchestration.steps below — each step that gates issuance carries on_failure: deny. Lint-time validation of this capability shape lives in the companion Polychro ruleset at https://github.com/api-evangelist/posts/blob/main/polychro/agent-onboarding-rules.yaml — Polychro is Naftiko''s governance layer, separate from the capability spec, and is the correct home for cross-object consistency rules that apply across every agent-onboarding capability.'
   tags:
   - Microsoft Azure
   - Azure APIM
@@ -264,9 +264,3 @@ capability:
     skill:
       name: onboard-agent
       file: skills/onboard-agent.md
-  governance:
-  - { id: require-verified-identity, severity: blocking, description: 'Onboard calls must carry a valid Web Bot Auth signature OR a trusted Entra principal token.', enforce_at: [runtime] }
-  - { id: require-consent-hash-match, severity: blocking, description: 'Submitted consent_hash must match AGENT_CONSENT_HASH.', enforce_at: [runtime] }
-  - { id: forbidden-scopes-deny, severity: blocking, description: 'Forbidden scopes return 403.', enforce_at: [runtime] }
-  - { id: approval-required-defer, severity: advisory, description: 'Approval-required scopes return 202 + status URL.', enforce_at: [runtime] }
-  - { id: listsecrets-only-once, severity: advisory, description: 'The credential captured from listSecrets is returned to the agent exactly once. Subsequent retrievals require regeneratePrimaryKey, which invalidates any agent currently using it.', enforce_at: [runtime] }
