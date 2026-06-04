@@ -1,0 +1,87 @@
+arazzo: 1.0.1
+info:
+  title: Azure API Management AI Gateway Chat and Embed
+  summary: Send a chat completion through the AI gateway, then embed the same prompt for retrieval.
+  description: >-
+    A retrieval-augmented pattern routed entirely through the API Management AI
+    gateway. The workflow sends a chat completion request to a deployment to get
+    an assistant answer, then sends the original user prompt to an embeddings
+    deployment so it can be stored in a vector index for later semantic search.
+    Every step spells out its request inline so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: aiGatewayApi
+  url: ../openapi/microsoft-azure-api-management-ai-gateway-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: ai-gateway-chat-and-embed
+  summary: Get a chat completion and an embedding through the AI gateway.
+  description: >-
+    Sends a chat completion request to a chat deployment, then sends the prompt
+    to an embeddings deployment to produce a vector.
+  inputs:
+    type: object
+    required:
+    - chatDeploymentId
+    - embeddingDeploymentId
+    - prompt
+    properties:
+      chatDeploymentId:
+        type: string
+        description: The chat deployment identifier (e.g. gpt-4o-deployment).
+      embeddingDeploymentId:
+        type: string
+        description: The embeddings deployment identifier.
+      prompt:
+        type: string
+        description: The user prompt to answer and embed.
+      maxTokens:
+        type: integer
+        description: The maximum number of completion tokens.
+  steps:
+  - stepId: chatCompletion
+    description: >-
+      Send the prompt as a chat completion request to the chat deployment and
+      capture the assistant answer.
+    operationId: AIGateway_ChatCompletions
+    parameters:
+    - name: deployment-id
+      in: path
+      value: $inputs.chatDeploymentId
+    requestBody:
+      contentType: application/json
+      payload:
+        messages:
+        - role: system
+          content: You are a helpful assistant.
+        - role: user
+          content: $inputs.prompt
+        max_tokens: $inputs.maxTokens
+        temperature: 0.7
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      answer: $response.body#/choices/0/message/content
+      totalTokens: $response.body#/usage/total_tokens
+  - stepId: embedPrompt
+    description: >-
+      Send the original prompt to the embeddings deployment to produce a vector
+      for indexing and semantic search.
+    operationId: AIGateway_Embeddings
+    parameters:
+    - name: deployment-id
+      in: path
+      value: $inputs.embeddingDeploymentId
+    requestBody:
+      contentType: application/json
+      payload:
+        input: $inputs.prompt
+        model: text-embedding-ada-002
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      embedding: $response.body#/data/0/embedding
+  outputs:
+    answer: $steps.chatCompletion.outputs.answer
+    embedding: $steps.embedPrompt.outputs.embedding

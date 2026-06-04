@@ -1,0 +1,133 @@
+arazzo: 1.0.1
+info:
+  title: Azure API Management Manage Workspace Named Value
+  summary: Create a workspace named value, read it back, then list the workspace named values.
+  description: >-
+    Manages a reusable named value (secret or constant) inside a workspace that
+    policies reference. The workflow creates or updates the named value with a
+    display name and value, reads it back to confirm, then lists the workspace's
+    named values. Every step spells out its request inline so the flow can be
+    read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: azureApiManagementApi
+  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: manage-workspace-named-value
+  summary: Upsert a workspace named value and list the workspace named values.
+  description: >-
+    Creates or updates a named value in a workspace, reads it back, then lists
+    the workspace's named values.
+  inputs:
+    type: object
+    required:
+    - subscriptionId
+    - resourceGroupName
+    - serviceName
+    - workspaceId
+    - namedValueId
+    - displayName
+    - value
+    properties:
+      subscriptionId:
+        type: string
+        description: The Azure subscription identifier.
+      resourceGroupName:
+        type: string
+        description: The resource group containing the service.
+      serviceName:
+        type: string
+        description: The API Management service name.
+      workspaceId:
+        type: string
+        description: The workspace identifier.
+      namedValueId:
+        type: string
+        description: The named value identifier to upsert.
+      displayName:
+        type: string
+        description: The named value display name (used in policy references).
+      value:
+        type: string
+        description: The named value content.
+  steps:
+  - stepId: upsertNamedValue
+    description: >-
+      Create or update the named value with a display name and value.
+    operationId: WorkspaceNamedValue_CreateOrUpdate
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: workspaceId
+      in: path
+      value: $inputs.workspaceId
+    - name: namedValueId
+      in: path
+      value: $inputs.namedValueId
+    requestBody:
+      contentType: application/json
+      payload:
+        properties:
+          displayName: $inputs.displayName
+          value: $inputs.value
+          secret: false
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      namedValueResourceId: $response.body#/id
+  - stepId: getNamedValue
+    description: >-
+      Read the named value back to confirm it was stored.
+    operationId: WorkspaceNamedValue_Get
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: workspaceId
+      in: path
+      value: $inputs.workspaceId
+    - name: namedValueId
+      in: path
+      value: $inputs.namedValueId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      namedValueResourceId: $response.body#/id
+  - stepId: listNamedValues
+    description: >-
+      List the workspace's named values to confirm the new entry is present.
+    operationId: WorkspaceNamedValue_ListByService
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: workspaceId
+      in: path
+      value: $inputs.workspaceId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      namedValueCount: $response.body#/count
+  outputs:
+    namedValueResourceId: $steps.upsertNamedValue.outputs.namedValueResourceId
+    namedValueCount: $steps.listNamedValues.outputs.namedValueCount

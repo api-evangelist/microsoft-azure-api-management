@@ -1,0 +1,131 @@
+arazzo: 1.0.1
+info:
+  title: Azure API Management Provision Service
+  summary: Check a service name, create the API Management service, then poll until provisioning succeeds.
+  description: >-
+    The foundational provisioning flow for Azure API Management. The workflow
+    first confirms the desired service name is available, then creates (or
+    updates) the API Management service in the target resource group, and
+    finally re-reads the service so the caller can confirm the provisioning
+    state has reached a terminal value. Every step spells out its request
+    inline so the flow can be read and executed without opening the underlying
+    OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: azureApiManagementApi
+  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: provision-apim-service
+  summary: Provision a new Azure API Management service after verifying the name.
+  description: >-
+    Verifies the service name is available, creates or updates the service with
+    the supplied SKU and publisher details, then reads the service back to
+    surface the provisioning state and gateway URL.
+  inputs:
+    type: object
+    required:
+    - subscriptionId
+    - resourceGroupName
+    - serviceName
+    - location
+    - publisherEmail
+    - publisherName
+    properties:
+      subscriptionId:
+        type: string
+        description: The Azure subscription identifier.
+      resourceGroupName:
+        type: string
+        description: The resource group that will contain the service.
+      serviceName:
+        type: string
+        description: The desired API Management service name.
+      location:
+        type: string
+        description: The Azure region for the service (e.g. West US 2).
+      publisherEmail:
+        type: string
+        description: The publisher email shown in the developer portal.
+      publisherName:
+        type: string
+        description: The publisher/organization name.
+      skuName:
+        type: string
+        description: The SKU tier (e.g. Developer, Basic, Standard, Premium).
+      skuCapacity:
+        type: integer
+        description: The number of deployed units for the SKU.
+  steps:
+  - stepId: checkName
+    description: >-
+      Confirm the desired service name is available before attempting to create
+      the service.
+    operationId: ApiManagementService_CheckNameAvailability
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.serviceName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      nameAvailable: $response.body#/nameAvailable
+  - stepId: createService
+    description: >-
+      Create or update the API Management service with the requested SKU and
+      publisher identity.
+    operationId: ApiManagementService_CreateOrUpdate
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    requestBody:
+      contentType: application/json
+      payload:
+        location: $inputs.location
+        sku:
+          name: $inputs.skuName
+          capacity: $inputs.skuCapacity
+        properties:
+          publisherEmail: $inputs.publisherEmail
+          publisherName: $inputs.publisherName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      serviceId: $response.body#/id
+      provisioningState: $response.body#/properties/provisioningState
+  - stepId: confirmService
+    description: >-
+      Read the service back to confirm the provisioning state and capture the
+      public gateway URL.
+    operationId: ApiManagementService_Get
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      provisioningState: $response.body#/properties/provisioningState
+      gatewayUrl: $response.body#/properties/gatewayUrl
+      portalUrl: $response.body#/properties/portalUrl
+  outputs:
+    serviceId: $steps.createService.outputs.serviceId
+    provisioningState: $steps.confirmService.outputs.provisioningState
+    gatewayUrl: $steps.confirmService.outputs.gatewayUrl

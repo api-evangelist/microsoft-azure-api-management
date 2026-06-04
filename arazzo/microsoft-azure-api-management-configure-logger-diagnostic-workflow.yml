@@ -1,0 +1,135 @@
+arazzo: 1.0.1
+info:
+  title: Azure API Management Configure Logger and Service Diagnostic
+  summary: Create a logger, attach a service-wide diagnostic to it, then read the diagnostic back.
+  description: >-
+    Sets up service-wide observability. The workflow creates or updates a logger
+    (such as Application Insights or Event Hub), creates or updates a
+    service-level diagnostic that points at that logger with a sampling
+    configuration, then reads the diagnostic back to confirm the wiring. Every
+    step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: azureApiManagementApi
+  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: configure-logger-diagnostic
+  summary: Create a logger and wire a service diagnostic to it.
+  description: >-
+    Creates a logger, creates a service-level diagnostic pointing at it, then
+    reads the diagnostic to confirm.
+  inputs:
+    type: object
+    required:
+    - subscriptionId
+    - resourceGroupName
+    - serviceName
+    - loggerId
+    - diagnosticId
+    - loggerType
+    properties:
+      subscriptionId:
+        type: string
+        description: The Azure subscription identifier.
+      resourceGroupName:
+        type: string
+        description: The resource group containing the service.
+      serviceName:
+        type: string
+        description: The API Management service name.
+      loggerId:
+        type: string
+        description: The logger identifier to create.
+      diagnosticId:
+        type: string
+        description: The service diagnostic identifier to create.
+      loggerType:
+        type: string
+        description: The logger type (e.g. applicationInsights or azureEventHub).
+      samplingPercentage:
+        type: number
+        description: The fixed sampling percentage (0-100).
+  steps:
+  - stepId: createLogger
+    description: >-
+      Create or update the logger that diagnostics will write to.
+    operationId: Logger_CreateOrUpdate
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: loggerId
+      in: path
+      value: $inputs.loggerId
+    requestBody:
+      contentType: application/json
+      payload:
+        properties:
+          loggerType: $inputs.loggerType
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      loggerResourceId: $response.body#/id
+  - stepId: createDiagnostic
+    description: >-
+      Create or update the service-level diagnostic that points at the new
+      logger with a fixed sampling configuration.
+    operationId: Diagnostic_CreateOrUpdate
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: diagnosticId
+      in: path
+      value: $inputs.diagnosticId
+    requestBody:
+      contentType: application/json
+      payload:
+        properties:
+          loggerId: $steps.createLogger.outputs.loggerResourceId
+          alwaysLog: allErrors
+          sampling:
+            samplingType: fixed
+            percentage: $inputs.samplingPercentage
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      diagnosticResourceId: $response.body#/id
+  - stepId: confirmDiagnostic
+    description: >-
+      Read the diagnostic back to confirm it points at the new logger.
+    operationId: Diagnostic_Get
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: diagnosticId
+      in: path
+      value: $inputs.diagnosticId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      diagnosticResourceId: $response.body#/id
+  outputs:
+    loggerResourceId: $steps.createLogger.outputs.loggerResourceId
+    diagnosticResourceId: $steps.createDiagnostic.outputs.diagnosticResourceId

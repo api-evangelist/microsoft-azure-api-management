@@ -1,0 +1,145 @@
+arazzo: 1.0.1
+info:
+  title: Azure API Management Provision Workspace Product and Subscription
+  summary: Create a workspace product, create a subscription scoped to it, then read the subscription.
+  description: >-
+    Packages and grants access within an isolated workspace. The workflow
+    creates or updates a workspace-scoped product, creates a subscription scoped
+    to that product, then reads the subscription back to confirm it was issued.
+    Every step spells out its request inline so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: azureApiManagementApi
+  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: provision-workspace-product-subscription
+  summary: Create a workspace product and a subscription to it.
+  description: >-
+    Creates or updates a workspace product, creates a subscription scoped to it,
+    then reads the subscription to confirm.
+  inputs:
+    type: object
+    required:
+    - subscriptionId
+    - resourceGroupName
+    - serviceName
+    - workspaceId
+    - productId
+    - sid
+    - displayName
+    properties:
+      subscriptionId:
+        type: string
+        description: The Azure subscription identifier.
+      resourceGroupName:
+        type: string
+        description: The resource group containing the service.
+      serviceName:
+        type: string
+        description: The API Management service name.
+      workspaceId:
+        type: string
+        description: The workspace identifier.
+      productId:
+        type: string
+        description: The workspace product identifier to create.
+      productName:
+        type: string
+        description: The product display name.
+      sid:
+        type: string
+        description: The subscription identifier to create.
+      displayName:
+        type: string
+        description: The subscription display name.
+  steps:
+  - stepId: createWorkspaceProduct
+    description: >-
+      Create or update the workspace-scoped product.
+    operationId: WorkspaceProduct_CreateOrUpdate
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: workspaceId
+      in: path
+      value: $inputs.workspaceId
+    - name: productId
+      in: path
+      value: $inputs.productId
+    requestBody:
+      contentType: application/json
+      payload:
+        properties:
+          displayName: $inputs.productName
+          subscriptionRequired: true
+          state: published
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      productResourceId: $response.body#/id
+  - stepId: createWorkspaceSubscription
+    description: >-
+      Create the subscription scoped to the workspace product.
+    operationId: WorkspaceSubscription_CreateOrUpdate
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: workspaceId
+      in: path
+      value: $inputs.workspaceId
+    - name: sid
+      in: path
+      value: $inputs.sid
+    requestBody:
+      contentType: application/json
+      payload:
+        properties:
+          scope: $steps.createWorkspaceProduct.outputs.productResourceId
+          displayName: $inputs.displayName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      subscriptionResourceId: $response.body#/id
+  - stepId: getWorkspaceSubscription
+    description: >-
+      Read the subscription back to confirm it was issued.
+    operationId: WorkspaceSubscription_Get
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: workspaceId
+      in: path
+      value: $inputs.workspaceId
+    - name: sid
+      in: path
+      value: $inputs.sid
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      subscriptionResourceId: $response.body#/id
+  outputs:
+    productResourceId: $steps.createWorkspaceProduct.outputs.productResourceId
+    subscriptionResourceId: $steps.createWorkspaceSubscription.outputs.subscriptionResourceId

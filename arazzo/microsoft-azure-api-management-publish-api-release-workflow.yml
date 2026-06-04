@@ -1,0 +1,128 @@
+arazzo: 1.0.1
+info:
+  title: Azure API Management Publish API Release
+  summary: Confirm an API exists, create a release for it, then list its releases.
+  description: >-
+    Promotes a specific API revision to a named release. The workflow first
+    reads the API to confirm it exists and capture its resource id, creates (or
+    updates) a release tying the current revision to a release identifier with
+    release notes, then lists releases so the caller can confirm the new
+    release is recorded. Every step spells out its request inline so the flow
+    can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: azureApiManagementApi
+  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: publish-api-release
+  summary: Create a named release for an API and confirm it was recorded.
+  description: >-
+    Reads the API, creates a release record with notes, then lists the API's
+    releases to verify the new release exists.
+  inputs:
+    type: object
+    required:
+    - subscriptionId
+    - resourceGroupName
+    - serviceName
+    - apiId
+    - releaseId
+    properties:
+      subscriptionId:
+        type: string
+        description: The Azure subscription identifier.
+      resourceGroupName:
+        type: string
+        description: The resource group containing the service.
+      serviceName:
+        type: string
+        description: The API Management service name.
+      apiId:
+        type: string
+        description: The API identifier to release.
+      releaseId:
+        type: string
+        description: The identifier for the new release.
+      notes:
+        type: string
+        description: Release notes describing the change.
+  steps:
+  - stepId: getApi
+    description: >-
+      Read the API to confirm it exists and capture its full resource id for
+      the release record.
+    operationId: Api_Get
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: apiId
+      in: path
+      value: $inputs.apiId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      apiResourceId: $response.body#/id
+  - stepId: createRelease
+    description: >-
+      Create or update the release record that promotes the current API
+      revision under the supplied release identifier.
+    operationId: ApiRelease_CreateOrUpdate
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: apiId
+      in: path
+      value: $inputs.apiId
+    - name: releaseId
+      in: path
+      value: $inputs.releaseId
+    requestBody:
+      contentType: application/json
+      payload:
+        properties:
+          apiId: $steps.getApi.outputs.apiResourceId
+          notes: $inputs.notes
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      releaseResourceId: $response.body#/id
+  - stepId: listReleases
+    description: >-
+      List the releases for the API to confirm the new release was recorded.
+    operationId: ApiRelease_ListByService
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: apiId
+      in: path
+      value: $inputs.apiId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      releaseCount: $response.body#/count
+  outputs:
+    releaseResourceId: $steps.createRelease.outputs.releaseResourceId
+    releaseCount: $steps.listReleases.outputs.releaseCount

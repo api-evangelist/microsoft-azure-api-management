@@ -1,0 +1,136 @@
+arazzo: 1.0.1
+info:
+  title: Azure API Management Define API Operation
+  summary: Confirm an API exists, add an operation to it, then list the API's operations.
+  description: >-
+    Adds a single HTTP operation (method + URL template) to an existing API. The
+    workflow reads the API to confirm it exists, creates or updates the
+    operation with a display name, method, and URL template, then lists the
+    API's operations to confirm the new operation is present. Every step spells
+    out its request inline so the flow can be read and executed without opening
+    the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: azureApiManagementApi
+  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: define-api-operation
+  summary: Add an operation to an API and confirm it.
+  description: >-
+    Confirms the API exists, creates an operation with a method and URL
+    template, then lists the API's operations to verify.
+  inputs:
+    type: object
+    required:
+    - subscriptionId
+    - resourceGroupName
+    - serviceName
+    - apiId
+    - operationId
+    - displayName
+    - method
+    - urlTemplate
+    properties:
+      subscriptionId:
+        type: string
+        description: The Azure subscription identifier.
+      resourceGroupName:
+        type: string
+        description: The resource group containing the service.
+      serviceName:
+        type: string
+        description: The API Management service name.
+      apiId:
+        type: string
+        description: The API identifier to add the operation to.
+      operationId:
+        type: string
+        description: The operation identifier to create.
+      displayName:
+        type: string
+        description: The operation display name.
+      method:
+        type: string
+        description: The HTTP method (e.g. GET, POST).
+      urlTemplate:
+        type: string
+        description: The operation URL template (e.g. /pets/{petId}).
+  steps:
+  - stepId: getApi
+    description: >-
+      Read the API to confirm it exists before adding an operation.
+    operationId: Api_Get
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: apiId
+      in: path
+      value: $inputs.apiId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      apiResourceId: $response.body#/id
+  - stepId: createOperation
+    description: >-
+      Create or update the operation with a display name, HTTP method, and URL
+      template.
+    operationId: ApiOperation_CreateOrUpdate
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: apiId
+      in: path
+      value: $inputs.apiId
+    - name: operationId
+      in: path
+      value: $inputs.operationId
+    requestBody:
+      contentType: application/json
+      payload:
+        properties:
+          displayName: $inputs.displayName
+          method: $inputs.method
+          urlTemplate: $inputs.urlTemplate
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      operationResourceId: $response.body#/id
+  - stepId: listOperations
+    description: >-
+      List the API's operations to confirm the new operation is present.
+    operationId: ApiOperation_ListByApi
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: apiId
+      in: path
+      value: $inputs.apiId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      operationCount: $response.body#/count
+  outputs:
+    operationResourceId: $steps.createOperation.outputs.operationResourceId
+    operationCount: $steps.listOperations.outputs.operationCount

@@ -1,0 +1,119 @@
+arazzo: 1.0.1
+info:
+  title: Azure API Management Set Global Service Policy
+  summary: Confirm the service exists, set the global policy, then read the policy back.
+  description: >-
+    Applies a tenant-wide policy that runs for every API on the service. The
+    workflow reads the service to confirm it exists, creates or updates the
+    global policy with the supplied document, then reads the policy back to
+    confirm it was stored. Every step spells out its request inline so the flow
+    can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: azureApiManagementApi
+  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: set-service-policy
+  summary: Set the global service policy and confirm it.
+  description: >-
+    Confirms the service exists, writes the global policy document, then reads
+    it back to verify it was stored.
+  inputs:
+    type: object
+    required:
+    - subscriptionId
+    - resourceGroupName
+    - serviceName
+    - policyId
+    - policyContent
+    properties:
+      subscriptionId:
+        type: string
+        description: The Azure subscription identifier.
+      resourceGroupName:
+        type: string
+        description: The resource group containing the service.
+      serviceName:
+        type: string
+        description: The API Management service name.
+      policyId:
+        type: string
+        description: The policy identifier (typically "policy").
+      policyContent:
+        type: string
+        description: The global policy document content.
+      policyFormat:
+        type: string
+        description: The policy content format (e.g. xml or rawxml).
+  steps:
+  - stepId: getService
+    description: >-
+      Read the service to confirm it exists before applying a global policy.
+    operationId: ApiManagementService_Get
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      serviceResourceId: $response.body#/id
+  - stepId: setPolicy
+    description: >-
+      Create or update the global service policy with the supplied document.
+    operationId: Policy_CreateOrUpdate
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: policyId
+      in: path
+      value: $inputs.policyId
+    requestBody:
+      contentType: application/json
+      payload:
+        properties:
+          value: $inputs.policyContent
+          format: $inputs.policyFormat
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      policyResourceId: $response.body#/id
+  - stepId: confirmPolicy
+    description: >-
+      Read the policy back to confirm the document was stored at the service
+      level.
+    operationId: Policy_Get
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: policyId
+      in: path
+      value: $inputs.policyId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      policyResourceId: $response.body#/id
+  outputs:
+    policyResourceId: $steps.setPolicy.outputs.policyResourceId

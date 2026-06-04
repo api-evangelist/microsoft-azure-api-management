@@ -1,0 +1,149 @@
+arazzo: 1.0.1
+info:
+  title: Azure API Management Upsert User
+  summary: Find a user by identifier and update it if present, otherwise create it.
+  description: >-
+    Keeps a developer user record idempotent. The workflow lists the service's
+    users, branches on whether the target user identifier already exists, and
+    either patches the existing user or creates a new one with email and name.
+    Every step spells out its request inline so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: azureApiManagementApi
+  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: upsert-user
+  summary: Upsert a developer user into an API Management service.
+  description: >-
+    Lists users, checks for a matching identifier, and either updates the
+    matched user or creates a new user.
+  inputs:
+    type: object
+    required:
+    - subscriptionId
+    - resourceGroupName
+    - serviceName
+    - userId
+    - email
+    - firstName
+    - lastName
+    properties:
+      subscriptionId:
+        type: string
+        description: The Azure subscription identifier.
+      resourceGroupName:
+        type: string
+        description: The resource group containing the service.
+      serviceName:
+        type: string
+        description: The API Management service name.
+      userId:
+        type: string
+        description: The user identifier to upsert.
+      email:
+        type: string
+        description: The user's email address.
+      firstName:
+        type: string
+        description: The user's first name.
+      lastName:
+        type: string
+        description: The user's last name.
+  steps:
+  - stepId: listUsers
+    description: >-
+      List existing users so the flow can detect whether the target user
+      identifier already exists.
+    operationId: User_ListByService
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      userCount: $response.body#/count
+    onSuccess:
+    - name: userExists
+      type: goto
+      stepId: updateUser
+      criteria:
+      - context: $response.body
+        condition: $.value[?(@.name == '$inputs.userId')]
+        type: jsonpath
+    - name: userMissing
+      type: goto
+      stepId: createUser
+      criteria:
+      - context: $response.body
+        condition: $.count == 0
+        type: jsonpath
+  - stepId: updateUser
+    description: >-
+      Patch the existing user with updated name fields.
+    operationId: User_Update
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: userId
+      in: path
+      value: $inputs.userId
+    requestBody:
+      contentType: application/json
+      payload:
+        properties:
+          firstName: $inputs.firstName
+          lastName: $inputs.lastName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      userResourceId: $response.body#/id
+    onSuccess:
+    - name: done
+      type: end
+  - stepId: createUser
+    description: >-
+      Create a new user with email and name when no matching user was found.
+    operationId: User_CreateOrUpdate
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: userId
+      in: path
+      value: $inputs.userId
+    requestBody:
+      contentType: application/json
+      payload:
+        properties:
+          email: $inputs.email
+          firstName: $inputs.firstName
+          lastName: $inputs.lastName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      userResourceId: $response.body#/id
+  outputs:
+    userResourceId: $steps.createUser.outputs.userResourceId
+    updatedUserResourceId: $steps.updateUser.outputs.userResourceId

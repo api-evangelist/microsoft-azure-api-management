@@ -1,0 +1,124 @@
+arazzo: 1.0.1
+info:
+  title: Azure API Management Tag a Product
+  summary: Create a tag, assign it to a product, then list the product's tags.
+  description: >-
+    Organizes products with a shared tag for grouping in the developer portal.
+    The workflow creates or updates the tag at the service level, assigns it to
+    the target product, then lists the product's tags to confirm the
+    assignment. Every step spells out its request inline so the flow can be read
+    and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: azureApiManagementApi
+  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: tag-product
+  summary: Create a tag and assign it to a product.
+  description: >-
+    Creates or updates a service tag, assigns it to the product, then lists the
+    product's tags to confirm.
+  inputs:
+    type: object
+    required:
+    - subscriptionId
+    - resourceGroupName
+    - serviceName
+    - tagId
+    - displayName
+    - productId
+    properties:
+      subscriptionId:
+        type: string
+        description: The Azure subscription identifier.
+      resourceGroupName:
+        type: string
+        description: The resource group containing the service.
+      serviceName:
+        type: string
+        description: The API Management service name.
+      tagId:
+        type: string
+        description: The tag identifier to create.
+      displayName:
+        type: string
+        description: The tag display name.
+      productId:
+        type: string
+        description: The product identifier to assign the tag to.
+  steps:
+  - stepId: createTag
+    description: >-
+      Create or update the tag at the service level.
+    operationId: Tag_CreateOrUpdate
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: tagId
+      in: path
+      value: $inputs.tagId
+    requestBody:
+      contentType: application/json
+      payload:
+        properties:
+          displayName: $inputs.displayName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      tagResourceId: $response.body#/id
+  - stepId: assignTag
+    description: >-
+      Assign the tag to the target product.
+    operationId: Tag_AssignToProduct
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: productId
+      in: path
+      value: $inputs.productId
+    - name: tagId
+      in: path
+      value: $inputs.tagId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      assignmentResourceId: $response.body#/id
+  - stepId: listProductTags
+    description: >-
+      List the product's tags to confirm the assignment is present.
+    operationId: Tag_ListByProduct
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: productId
+      in: path
+      value: $inputs.productId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      tagCount: $response.body#/count
+  outputs:
+    tagResourceId: $steps.createTag.outputs.tagResourceId
+    tagCount: $steps.listProductTags.outputs.tagCount

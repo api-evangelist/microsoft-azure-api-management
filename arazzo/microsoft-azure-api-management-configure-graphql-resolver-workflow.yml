@@ -1,0 +1,130 @@
+arazzo: 1.0.1
+info:
+  title: Azure API Management Configure GraphQL Resolver
+  summary: Confirm a GraphQL API exists, attach a resolver, then list the API's resolvers.
+  description: >-
+    Wires a field resolver to a GraphQL API so a schema field is backed by a
+    data source. The workflow reads the API to confirm it exists, creates or
+    updates a resolver bound to a type and field with a resolver policy, then
+    lists the API's resolvers to confirm registration. Every step spells out its
+    request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: azureApiManagementApi
+  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: configure-graphql-resolver
+  summary: Attach a resolver to a GraphQL API and confirm it.
+  description: >-
+    Confirms the API exists, creates a resolver bound to a type and field, then
+    lists the API's resolvers to verify.
+  inputs:
+    type: object
+    required:
+    - subscriptionId
+    - resourceGroupName
+    - serviceName
+    - apiId
+    - resolverId
+    - displayName
+    - path
+    properties:
+      subscriptionId:
+        type: string
+        description: The Azure subscription identifier.
+      resourceGroupName:
+        type: string
+        description: The resource group containing the service.
+      serviceName:
+        type: string
+        description: The API Management service name.
+      apiId:
+        type: string
+        description: The GraphQL API identifier.
+      resolverId:
+        type: string
+        description: The resolver identifier to create.
+      displayName:
+        type: string
+        description: The resolver display name.
+      path:
+        type: string
+        description: The GraphQL type and field the resolver binds to (e.g. Query/users).
+  steps:
+  - stepId: getApi
+    description: >-
+      Read the GraphQL API to confirm it exists before attaching a resolver.
+    operationId: Api_Get
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: apiId
+      in: path
+      value: $inputs.apiId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      apiResourceId: $response.body#/id
+  - stepId: createResolver
+    description: >-
+      Create or update the resolver bound to the supplied type and field.
+    operationId: GraphQLApiResolver_CreateOrUpdate
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: apiId
+      in: path
+      value: $inputs.apiId
+    - name: resolverId
+      in: path
+      value: $inputs.resolverId
+    requestBody:
+      contentType: application/json
+      payload:
+        properties:
+          displayName: $inputs.displayName
+          path: $inputs.path
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      resolverResourceId: $response.body#/id
+  - stepId: listResolvers
+    description: >-
+      List the API's resolvers to confirm the new resolver is registered.
+    operationId: GraphQLApiResolver_ListByApi
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: apiId
+      in: path
+      value: $inputs.apiId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      resolverCount: $response.body#/count
+  outputs:
+    resolverResourceId: $steps.createResolver.outputs.resolverResourceId
+    resolverCount: $steps.listResolvers.outputs.resolverCount

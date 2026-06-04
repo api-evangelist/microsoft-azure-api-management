@@ -1,0 +1,149 @@
+arazzo: 1.0.1
+info:
+  title: Azure API Management Provision Workspace API
+  summary: Create a workspace, register an API inside it, then read the workspace API back.
+  description: >-
+    Carves out an isolated workspace for a team and publishes an API inside it.
+    The workflow creates or updates the workspace, creates an API scoped to that
+    workspace with a display name, path, and backend URL, then reads the
+    workspace API back to confirm it was registered. Every step spells out its
+    request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: azureApiManagementApi
+  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: provision-workspace-api
+  summary: Create a workspace and register an API inside it.
+  description: >-
+    Creates or updates a workspace, registers a workspace-scoped API, then reads
+    the API back to confirm.
+  inputs:
+    type: object
+    required:
+    - subscriptionId
+    - resourceGroupName
+    - serviceName
+    - workspaceId
+    - apiId
+    - displayName
+    - path
+    - serviceUrl
+    properties:
+      subscriptionId:
+        type: string
+        description: The Azure subscription identifier.
+      resourceGroupName:
+        type: string
+        description: The resource group containing the service.
+      serviceName:
+        type: string
+        description: The API Management service name.
+      workspaceId:
+        type: string
+        description: The workspace identifier to create.
+      workspaceName:
+        type: string
+        description: The workspace display name.
+      apiId:
+        type: string
+        description: The API identifier to register in the workspace.
+      displayName:
+        type: string
+        description: The API display name.
+      path:
+        type: string
+        description: The API URL suffix/path.
+      serviceUrl:
+        type: string
+        description: The backend service URL.
+  steps:
+  - stepId: createWorkspace
+    description: >-
+      Create or update the workspace that will contain the API.
+    operationId: Workspace_CreateOrUpdate
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: workspaceId
+      in: path
+      value: $inputs.workspaceId
+    requestBody:
+      contentType: application/json
+      payload:
+        properties:
+          displayName: $inputs.workspaceName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      workspaceResourceId: $response.body#/id
+  - stepId: createWorkspaceApi
+    description: >-
+      Create the API scoped to the workspace with a display name, path, and
+      backend URL.
+    operationId: WorkspaceApi_CreateOrUpdate
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: workspaceId
+      in: path
+      value: $inputs.workspaceId
+    - name: apiId
+      in: path
+      value: $inputs.apiId
+    requestBody:
+      contentType: application/json
+      payload:
+        properties:
+          displayName: $inputs.displayName
+          serviceUrl: $inputs.serviceUrl
+          path: $inputs.path
+          protocols:
+          - https
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      apiResourceId: $response.body#/id
+  - stepId: confirmWorkspaceApi
+    description: >-
+      Read the workspace API back to confirm it was registered.
+    operationId: WorkspaceApi_Get
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: workspaceId
+      in: path
+      value: $inputs.workspaceId
+    - name: apiId
+      in: path
+      value: $inputs.apiId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      apiResourceId: $response.body#/id
+  outputs:
+    workspaceResourceId: $steps.createWorkspace.outputs.workspaceResourceId
+    apiResourceId: $steps.createWorkspaceApi.outputs.apiResourceId

@@ -1,0 +1,156 @@
+arazzo: 1.0.1
+info:
+  title: Azure API Management Onboard User to Group
+  summary: Create a user, confirm a group exists, add the user to the group, then list members.
+  description: >-
+    Onboards a developer and places them into a group that governs product
+    access. The workflow creates or updates the user, reads the target group to
+    confirm it exists, adds the user to the group, and lists the group's users
+    to confirm membership. Every step spells out its request inline so the flow
+    can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: azureApiManagementApi
+  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: onboard-user-to-group
+  summary: Create a user and add them to a developer group.
+  description: >-
+    Creates or updates a user, confirms the group exists, adds the user to the
+    group, then lists the group members to confirm.
+  inputs:
+    type: object
+    required:
+    - subscriptionId
+    - resourceGroupName
+    - serviceName
+    - userId
+    - groupId
+    - email
+    - firstName
+    - lastName
+    properties:
+      subscriptionId:
+        type: string
+        description: The Azure subscription identifier.
+      resourceGroupName:
+        type: string
+        description: The resource group containing the service.
+      serviceName:
+        type: string
+        description: The API Management service name.
+      userId:
+        type: string
+        description: The user identifier to create.
+      groupId:
+        type: string
+        description: The group identifier to add the user to.
+      email:
+        type: string
+        description: The user's email address.
+      firstName:
+        type: string
+        description: The user's first name.
+      lastName:
+        type: string
+        description: The user's last name.
+  steps:
+  - stepId: createUser
+    description: >-
+      Create or update the developer user record.
+    operationId: User_CreateOrUpdate
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: userId
+      in: path
+      value: $inputs.userId
+    requestBody:
+      contentType: application/json
+      payload:
+        properties:
+          email: $inputs.email
+          firstName: $inputs.firstName
+          lastName: $inputs.lastName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      userResourceId: $response.body#/id
+  - stepId: getGroup
+    description: >-
+      Read the target group to confirm it exists before adding the user.
+    operationId: Group_Get
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: groupId
+      in: path
+      value: $inputs.groupId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      groupResourceId: $response.body#/id
+  - stepId: addUserToGroup
+    description: >-
+      Add the user to the group, granting them the group's product access.
+    operationId: GroupUser_Create
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: groupId
+      in: path
+      value: $inputs.groupId
+    - name: userId
+      in: path
+      value: $inputs.userId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      memberResourceId: $response.body#/id
+  - stepId: listGroupUsers
+    description: >-
+      List the group's users to confirm the new member is present.
+    operationId: GroupUser_List
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: groupId
+      in: path
+      value: $inputs.groupId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      memberCount: $response.body#/count
+  outputs:
+    userResourceId: $steps.createUser.outputs.userResourceId
+    memberCount: $steps.listGroupUsers.outputs.memberCount

@@ -1,0 +1,142 @@
+arazzo: 1.0.1
+info:
+  title: Azure API Management Link Product to Group
+  summary: Confirm a product and a group exist, then grant the group access to the product.
+  description: >-
+    Grants a developer group access to a product so its members can subscribe.
+    The workflow reads the product and the group to confirm both exist, creates
+    a product-group link, then lists the product's groups to confirm the grant.
+    Every step spells out its request inline so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: azureApiManagementApi
+  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: link-product-group
+  summary: Grant a developer group access to a product.
+  description: >-
+    Confirms the product and group exist, links the group to the product, then
+    lists the product's groups to confirm the grant.
+  inputs:
+    type: object
+    required:
+    - subscriptionId
+    - resourceGroupName
+    - serviceName
+    - productId
+    - groupId
+    properties:
+      subscriptionId:
+        type: string
+        description: The Azure subscription identifier.
+      resourceGroupName:
+        type: string
+        description: The resource group containing the service.
+      serviceName:
+        type: string
+        description: The API Management service name.
+      productId:
+        type: string
+        description: The product identifier to grant access to.
+      groupId:
+        type: string
+        description: The group identifier being granted access.
+  steps:
+  - stepId: getProduct
+    description: >-
+      Read the product to confirm it exists before granting group access.
+    operationId: Product_Get
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: productId
+      in: path
+      value: $inputs.productId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      productResourceId: $response.body#/id
+  - stepId: getGroup
+    description: >-
+      Read the group to confirm it exists before linking it to the product.
+    operationId: Group_Get
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: groupId
+      in: path
+      value: $inputs.groupId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      groupResourceId: $response.body#/id
+  - stepId: linkGroup
+    description: >-
+      Create the product-group link that grants the group access to the
+      product.
+    operationId: ProductGroupLink_CreateOrUpdate
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: productId
+      in: path
+      value: $inputs.productId
+    - name: groupLinkId
+      in: path
+      value: $inputs.groupId
+    requestBody:
+      contentType: application/json
+      payload:
+        properties:
+          groupId: $steps.getGroup.outputs.groupResourceId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      linkResourceId: $response.body#/id
+  - stepId: listProductGroups
+    description: >-
+      List the product's groups to confirm the new grant is present.
+    operationId: ProductGroup_ListByProduct
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: productId
+      in: path
+      value: $inputs.productId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      groupCount: $response.body#/count
+  outputs:
+    linkResourceId: $steps.linkGroup.outputs.linkResourceId
+    groupCount: $steps.listProductGroups.outputs.groupCount

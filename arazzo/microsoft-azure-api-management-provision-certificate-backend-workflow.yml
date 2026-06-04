@@ -1,0 +1,138 @@
+arazzo: 1.0.1
+info:
+  title: Azure API Management Provision Certificate for Backend
+  summary: Upload a certificate, create a backend that uses it for mutual TLS, then read the backend.
+  description: >-
+    Secures a backend connection with a client certificate. The workflow uploads
+    or updates a certificate, creates a backend that references the certificate
+    thumbprint for mutual TLS authentication, then reads the backend back to
+    confirm the wiring. Every step spells out its request inline so the flow can
+    be read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: azureApiManagementApi
+  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: provision-certificate-backend
+  summary: Upload a certificate and bind a backend to it.
+  description: >-
+    Uploads a certificate, creates a backend that references it, then reads the
+    backend to confirm.
+  inputs:
+    type: object
+    required:
+    - subscriptionId
+    - resourceGroupName
+    - serviceName
+    - certificateId
+    - backendId
+    - url
+    properties:
+      subscriptionId:
+        type: string
+        description: The Azure subscription identifier.
+      resourceGroupName:
+        type: string
+        description: The resource group containing the service.
+      serviceName:
+        type: string
+        description: The API Management service name.
+      certificateId:
+        type: string
+        description: The certificate identifier to create.
+      data:
+        type: string
+        description: The Base64-encoded certificate (PFX) data.
+      password:
+        type: string
+        description: The certificate password.
+      backendId:
+        type: string
+        description: The backend identifier to create.
+      url:
+        type: string
+        description: The backend service URL.
+  steps:
+  - stepId: uploadCertificate
+    description: >-
+      Upload or update the certificate used for backend authentication.
+    operationId: Certificate_CreateOrUpdate
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: certificateId
+      in: path
+      value: $inputs.certificateId
+    requestBody:
+      contentType: application/json
+      payload:
+        properties:
+          data: $inputs.data
+          password: $inputs.password
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      certificateResourceId: $response.body#/id
+  - stepId: createBackend
+    description: >-
+      Create the backend that references the certificate for mutual TLS
+      authentication.
+    operationId: Backend_CreateOrUpdate
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: backendId
+      in: path
+      value: $inputs.backendId
+    requestBody:
+      contentType: application/json
+      payload:
+        properties:
+          url: $inputs.url
+          protocol: http
+          credentials:
+            certificateIds:
+            - $steps.uploadCertificate.outputs.certificateResourceId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      backendResourceId: $response.body#/id
+  - stepId: getBackend
+    description: >-
+      Read the backend back to confirm the certificate binding.
+    operationId: Backend_Get
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: backendId
+      in: path
+      value: $inputs.backendId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      backendResourceId: $response.body#/id
+  outputs:
+    certificateResourceId: $steps.uploadCertificate.outputs.certificateResourceId
+    backendResourceId: $steps.createBackend.outputs.backendResourceId

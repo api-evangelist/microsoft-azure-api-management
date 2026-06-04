@@ -1,0 +1,128 @@
+arazzo: 1.0.1
+info:
+  title: Azure API Management Provision Subscription and Retrieve Keys
+  summary: Confirm a product, create a subscription against it, then retrieve the subscription keys.
+  description: >-
+    Issues API access to a consumer. The workflow reads the product to confirm
+    it exists, creates a subscription scoped to that product for a display name,
+    then retrieves the subscription's primary and secondary keys so they can be
+    handed to the consumer. Every step spells out its request inline so the flow
+    can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: azureApiManagementApi
+  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: provision-subscription-keys
+  summary: Create a product subscription and retrieve its keys.
+  description: >-
+    Confirms the product exists, creates a subscription scoped to it, then
+    lists the subscription secrets to surface the primary and secondary keys.
+  inputs:
+    type: object
+    required:
+    - subscriptionId
+    - resourceGroupName
+    - serviceName
+    - productId
+    - sid
+    - displayName
+    properties:
+      subscriptionId:
+        type: string
+        description: The Azure subscription identifier.
+      resourceGroupName:
+        type: string
+        description: The resource group containing the service.
+      serviceName:
+        type: string
+        description: The API Management service name.
+      productId:
+        type: string
+        description: The product identifier the subscription is scoped to.
+      sid:
+        type: string
+        description: The subscription identifier to create.
+      displayName:
+        type: string
+        description: The subscription display name.
+  steps:
+  - stepId: getProduct
+    description: >-
+      Read the product to confirm it exists and capture its resource id for the
+      subscription scope.
+    operationId: Product_Get
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: productId
+      in: path
+      value: $inputs.productId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      productResourceId: $response.body#/id
+  - stepId: createSubscription
+    description: >-
+      Create the subscription scoped to the product, with a display name for the
+      consumer.
+    operationId: Subscription_CreateOrUpdate
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: sid
+      in: path
+      value: $inputs.sid
+    requestBody:
+      contentType: application/json
+      payload:
+        properties:
+          scope: $steps.getProduct.outputs.productResourceId
+          displayName: $inputs.displayName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      subscriptionResourceId: $response.body#/id
+  - stepId: getSecrets
+    description: >-
+      Retrieve the subscription's primary and secondary keys for delivery to the
+      consumer.
+    operationId: Subscription_ListSecrets
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: sid
+      in: path
+      value: $inputs.sid
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      primaryKey: $response.body#/primaryKey
+      secondaryKey: $response.body#/secondaryKey
+  outputs:
+    subscriptionResourceId: $steps.createSubscription.outputs.subscriptionResourceId
+    primaryKey: $steps.getSecrets.outputs.primaryKey
+    secondaryKey: $steps.getSecrets.outputs.secondaryKey

@@ -1,0 +1,113 @@
+arazzo: 1.0.1
+info:
+  title: Azure API Management Backup Service
+  summary: Confirm the service exists, trigger a backup to storage, then re-read the service state.
+  description: >-
+    Captures a backup of the API Management service to an Azure Storage account.
+    The workflow reads the service to confirm it exists, triggers the backup to
+    the supplied storage container, then re-reads the service to surface its
+    provisioning state after the long-running operation begins. Every step
+    spells out its request inline so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: azureApiManagementApi
+  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: backup-service
+  summary: Trigger a backup of the API Management service and confirm state.
+  description: >-
+    Confirms the service exists, triggers a backup to the supplied storage
+    container, then re-reads the service provisioning state.
+  inputs:
+    type: object
+    required:
+    - subscriptionId
+    - resourceGroupName
+    - serviceName
+    - storageAccount
+    - containerName
+    - backupName
+    properties:
+      subscriptionId:
+        type: string
+        description: The Azure subscription identifier.
+      resourceGroupName:
+        type: string
+        description: The resource group containing the service.
+      serviceName:
+        type: string
+        description: The API Management service name.
+      storageAccount:
+        type: string
+        description: The target Azure Storage account name.
+      containerName:
+        type: string
+        description: The blob container that receives the backup.
+      backupName:
+        type: string
+        description: The name of the backup blob.
+  steps:
+  - stepId: getService
+    description: >-
+      Read the service to confirm it exists before triggering a backup.
+    operationId: ApiManagementService_Get
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      serviceResourceId: $response.body#/id
+  - stepId: triggerBackup
+    description: >-
+      Trigger the backup of the service to the supplied storage container.
+    operationId: ApiManagementService_Backup
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    requestBody:
+      contentType: application/json
+      payload:
+        storageAccount: $inputs.storageAccount
+        containerName: $inputs.containerName
+        backupName: $inputs.backupName
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: confirmState
+    description: >-
+      Re-read the service to surface its provisioning state after the backup
+      operation begins.
+    operationId: ApiManagementService_Get
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      provisioningState: $response.body#/properties/provisioningState
+  outputs:
+    serviceResourceId: $steps.getService.outputs.serviceResourceId
+    provisioningState: $steps.confirmState.outputs.provisioningState

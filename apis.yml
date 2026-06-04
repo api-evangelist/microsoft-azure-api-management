@@ -412,6 +412,96 @@ apis:
   - type: NaftikoCapability
     url: capabilities/developer-portal-user.yaml
 common:
+- type: ArazzoWorkflows
+  url: arazzo/
+  workflows:
+  - url: arazzo/microsoft-azure-api-management-ai-gateway-chat-and-embed-workflow.yml
+    name: Azure API Management AI Gateway Chat and Embed
+    summary: Send a chat completion through the AI gateway, then embed the same prompt for retrieval.
+  - url: arazzo/microsoft-azure-api-management-apply-api-policy-workflow.yml
+    name: Azure API Management Apply API Policy
+    summary: Confirm an API exists, set its policy document, then read the policy back.
+  - url: arazzo/microsoft-azure-api-management-backup-service-workflow.yml
+    name: Azure API Management Backup Service
+    summary: Confirm the service exists, trigger a backup to storage, then re-read the service state.
+  - url: arazzo/microsoft-azure-api-management-configure-api-diagnostic-workflow.yml
+    name: Azure API Management Configure API Diagnostic
+    summary: Confirm an API exists, attach an Application Insights diagnostic, then read it back.
+  - url: arazzo/microsoft-azure-api-management-configure-graphql-resolver-workflow.yml
+    name: Azure API Management Configure GraphQL Resolver
+    summary: Confirm a GraphQL API exists, attach a resolver, then list the API's resolvers.
+  - url: arazzo/microsoft-azure-api-management-configure-logger-diagnostic-workflow.yml
+    name: Azure API Management Configure Logger and Service Diagnostic
+    summary: Create a logger, attach a service-wide diagnostic to it, then read the diagnostic back.
+  - url: arazzo/microsoft-azure-api-management-configure-product-policy-workflow.yml
+    name: Azure API Management Configure Product Policy
+    summary: Confirm a product exists, set its policy document, then read the policy back.
+  - url: arazzo/microsoft-azure-api-management-define-api-operation-workflow.yml
+    name: Azure API Management Define API Operation
+    summary: Confirm an API exists, add an operation to it, then list the API's operations.
+  - url: arazzo/microsoft-azure-api-management-devportal-discover-and-invoke-workflow.yml
+    name: Azure API Management Developer Portal Discover and Invoke
+    summary: Browse the developer portal APIs, read one API's details, then call it through the gateway.
+  - url: arazzo/microsoft-azure-api-management-link-product-group-workflow.yml
+    name: Azure API Management Link Product to Group
+    summary: Confirm a product and a group exist, then grant the group access to the product.
+  - url: arazzo/microsoft-azure-api-management-manage-workspace-named-value-workflow.yml
+    name: Azure API Management Manage Workspace Named Value
+    summary: Create a workspace named value, read it back, then list the workspace named values.
+  - url: arazzo/microsoft-azure-api-management-onboard-user-to-group-workflow.yml
+    name: Azure API Management Onboard User to Group
+    summary: Create a user, confirm a group exists, add the user to the group, then list members.
+  - url: arazzo/microsoft-azure-api-management-provision-backend-workflow.yml
+    name: Azure API Management Provision Backend
+    summary: Register a backend, read it back, then trigger a reconnect.
+  - url: arazzo/microsoft-azure-api-management-provision-certificate-backend-workflow.yml
+    name: Azure API Management Provision Certificate for Backend
+    summary: Upload a certificate, create a backend that uses it for mutual TLS, then read the backend.
+  - url: arazzo/microsoft-azure-api-management-provision-product-link-api-workflow.yml
+    name: Azure API Management Provision Product and Link API
+    summary: Create a product, link an API to it, then list the product's APIs.
+  - url: arazzo/microsoft-azure-api-management-provision-service-workflow.yml
+    name: Azure API Management Provision Service
+    summary: Check a service name, create the API Management service, then poll until provisioning succeeds.
+  - url: arazzo/microsoft-azure-api-management-provision-subscription-keys-workflow.yml
+    name: Azure API Management Provision Subscription and Retrieve Keys
+    summary: Confirm a product, create a subscription against it, then retrieve the subscription keys.
+  - url: arazzo/microsoft-azure-api-management-provision-workspace-api-workflow.yml
+    name: Azure API Management Provision Workspace API
+    summary: Create a workspace, register an API inside it, then read the workspace API back.
+  - url: arazzo/microsoft-azure-api-management-provision-workspace-product-subscription-workflow.yml
+    name: Azure API Management Provision Workspace Product and Subscription
+    summary: Create a workspace product, create a subscription scoped to it, then read the subscription.
+  - url: arazzo/microsoft-azure-api-management-publish-api-release-workflow.yml
+    name: Azure API Management Publish API Release
+    summary: Confirm an API exists, create a release for it, then list its releases.
+  - url: arazzo/microsoft-azure-api-management-register-api-schema-workflow.yml
+    name: Azure API Management Register API Schema
+    summary: Confirm an API exists, register a schema for it, then list the API's schemas.
+  - url: arazzo/microsoft-azure-api-management-register-gateway-link-api-workflow.yml
+    name: Azure API Management Register Gateway and Link API
+    summary: Register a self-hosted gateway, link an API to it, then generate a gateway token.
+  - url: arazzo/microsoft-azure-api-management-rotate-subscription-keys-workflow.yml
+    name: Azure API Management Rotate Subscription Keys
+    summary: Confirm a subscription, regenerate both keys, then retrieve the new secrets.
+  - url: arazzo/microsoft-azure-api-management-set-service-policy-workflow.yml
+    name: Azure API Management Set Global Service Policy
+    summary: Confirm the service exists, set the global policy, then read the policy back.
+  - url: arazzo/microsoft-azure-api-management-tag-api-workflow.yml
+    name: Azure API Management Tag and Label an API
+    summary: Create a tag, assign it to an API, then list the API's tags.
+  - url: arazzo/microsoft-azure-api-management-tag-product-workflow.yml
+    name: Azure API Management Tag a Product
+    summary: Create a tag, assign it to a product, then list the product's tags.
+  - url: arazzo/microsoft-azure-api-management-upsert-api-workflow.yml
+    name: Azure API Management Upsert API
+    summary: Find an API by identifier and update it if present, otherwise create it.
+  - url: arazzo/microsoft-azure-api-management-upsert-product-workflow.yml
+    name: Azure API Management Upsert Product
+    summary: Find a product by identifier and update it if present, otherwise create it.
+  - url: arazzo/microsoft-azure-api-management-upsert-user-workflow.yml
+    name: Azure API Management Upsert User
+    summary: Find a user by identifier and update it if present, otherwise create it.
 - type: Website
   url: https://azure.microsoft.com/products/api-management/
 - type: Documentation

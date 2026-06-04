@@ -1,0 +1,76 @@
+arazzo: 1.0.1
+info:
+  title: Azure API Management Developer Portal Discover and Invoke
+  summary: Browse the developer portal APIs, read one API's details, then call it through the gateway.
+  description: >-
+    Models the consumer journey from discovery to first call. The workflow lists
+    the APIs published on the developer portal, reads the details of a chosen
+    API, then issues a proxied GET request through the gateway to invoke a path
+    on that API. It spans the developer portal and gateway descriptions. Every
+    step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: devPortalApi
+  url: ../openapi/microsoft-azure-api-management-developer-portal-openapi.yaml
+  type: openapi
+- name: gatewayApi
+  url: ../openapi/microsoft-azure-api-management-gateway-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: devportal-discover-and-invoke
+  summary: Discover an API on the portal and invoke it through the gateway.
+  description: >-
+    Lists portal APIs, reads one API's details, then makes a proxied GET call to
+    a path on that API through the gateway.
+  inputs:
+    type: object
+    required:
+    - apiId
+    - apiPath
+    properties:
+      apiId:
+        type: string
+        description: The developer portal API identifier to inspect.
+      apiPath:
+        type: string
+        description: The gateway path to invoke (e.g. petstore/v1/pets).
+  steps:
+  - stepId: listPortalApis
+    description: >-
+      List the APIs published on the developer portal to discover what is
+      available.
+    operationId: DevPortal_ListApis
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      apiCount: $response.body#/count
+  - stepId: getPortalApi
+    description: >-
+      Read the chosen API's details and documentation from the portal.
+    operationId: DevPortal_GetApi
+    parameters:
+    - name: api-id
+      in: path
+      value: $inputs.apiId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      apiName: $response.body#/name
+      serviceUrl: $response.body#/serviceUrl
+  - stepId: invokeThroughGateway
+    description: >-
+      Issue a proxied GET request through the gateway to invoke a path on the
+      discovered API.
+    operationId: Gateway_ProxyGet
+    parameters:
+    - name: api-path
+      in: path
+      value: $inputs.apiPath
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      backendStatusCode: $response.body#/statusCode
+  outputs:
+    apiName: $steps.getPortalApi.outputs.apiName
+    backendStatusCode: $steps.invokeThroughGateway.outputs.backendStatusCode

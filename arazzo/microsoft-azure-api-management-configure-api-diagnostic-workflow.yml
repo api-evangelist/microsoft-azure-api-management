@@ -1,0 +1,137 @@
+arazzo: 1.0.1
+info:
+  title: Azure API Management Configure API Diagnostic
+  summary: Confirm an API exists, attach an Application Insights diagnostic, then read it back.
+  description: >-
+    Wires API request logging to a logger such as Application Insights. The
+    workflow reads the API to confirm it exists, creates or updates a diagnostic
+    that points at the supplied logger id with a sampling configuration, then
+    reads the diagnostic back to confirm the settings were applied. Every step
+    spells out its request inline so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: azureApiManagementApi
+  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: configure-api-diagnostic
+  summary: Attach a logging diagnostic to an API and verify it.
+  description: >-
+    Confirms the API exists, creates an Application Insights diagnostic with a
+    sampling configuration, then reads the diagnostic to confirm settings.
+  inputs:
+    type: object
+    required:
+    - subscriptionId
+    - resourceGroupName
+    - serviceName
+    - apiId
+    - diagnosticId
+    - loggerId
+    properties:
+      subscriptionId:
+        type: string
+        description: The Azure subscription identifier.
+      resourceGroupName:
+        type: string
+        description: The resource group containing the service.
+      serviceName:
+        type: string
+        description: The API Management service name.
+      apiId:
+        type: string
+        description: The API identifier to attach the diagnostic to.
+      diagnosticId:
+        type: string
+        description: The diagnostic identifier (e.g. applicationinsights).
+      loggerId:
+        type: string
+        description: The full resource id of the target logger.
+      samplingPercentage:
+        type: number
+        description: The fixed sampling percentage (0-100).
+  steps:
+  - stepId: getApi
+    description: >-
+      Read the API to confirm it exists before attaching a diagnostic to it.
+    operationId: Api_Get
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: apiId
+      in: path
+      value: $inputs.apiId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      apiResourceId: $response.body#/id
+  - stepId: createDiagnostic
+    description: >-
+      Create or update the diagnostic that logs API traffic to the supplied
+      logger with a fixed sampling configuration.
+    operationId: ApiDiagnostic_CreateOrUpdate
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: apiId
+      in: path
+      value: $inputs.apiId
+    - name: diagnosticId
+      in: path
+      value: $inputs.diagnosticId
+    requestBody:
+      contentType: application/json
+      payload:
+        properties:
+          loggerId: $inputs.loggerId
+          alwaysLog: allErrors
+          sampling:
+            samplingType: fixed
+            percentage: $inputs.samplingPercentage
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      diagnosticResourceId: $response.body#/id
+  - stepId: confirmDiagnostic
+    description: >-
+      Read the diagnostic back to confirm the logger and sampling settings were
+      applied.
+    operationId: ApiDiagnostic_Get
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: apiId
+      in: path
+      value: $inputs.apiId
+    - name: diagnosticId
+      in: path
+      value: $inputs.diagnosticId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      loggerId: $response.body#/properties/loggerId
+  outputs:
+    diagnosticResourceId: $steps.createDiagnostic.outputs.diagnosticResourceId
+    loggerId: $steps.confirmDiagnostic.outputs.loggerId

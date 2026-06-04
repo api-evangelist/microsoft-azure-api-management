@@ -1,0 +1,136 @@
+arazzo: 1.0.1
+info:
+  title: Azure API Management Register Gateway and Link API
+  summary: Register a self-hosted gateway, link an API to it, then generate a gateway token.
+  description: >-
+    Stands up a self-hosted gateway and assigns an API to it. The workflow
+    creates or updates the gateway resource, links an existing API to the
+    gateway, then generates an authentication token the gateway runtime uses to
+    connect to the control plane. Every step spells out its request inline so
+    the flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: azureApiManagementApi
+  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: register-gateway-link-api
+  summary: Register a gateway, link an API, and generate a connection token.
+  description: >-
+    Creates or updates a gateway, links the supplied API to it, then generates a
+    gateway authentication token.
+  inputs:
+    type: object
+    required:
+    - subscriptionId
+    - resourceGroupName
+    - serviceName
+    - gatewayId
+    - apiId
+    properties:
+      subscriptionId:
+        type: string
+        description: The Azure subscription identifier.
+      resourceGroupName:
+        type: string
+        description: The resource group containing the service.
+      serviceName:
+        type: string
+        description: The API Management service name.
+      gatewayId:
+        type: string
+        description: The gateway identifier to register.
+      region:
+        type: string
+        description: The gateway location/region label.
+      apiId:
+        type: string
+        description: The API identifier to link to the gateway.
+  steps:
+  - stepId: createGateway
+    description: >-
+      Create or update the self-hosted gateway resource with a location label.
+    operationId: Gateway_CreateOrUpdate
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: gatewayId
+      in: path
+      value: $inputs.gatewayId
+    requestBody:
+      contentType: application/json
+      payload:
+        properties:
+          locationData:
+            name: $inputs.region
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      gatewayResourceId: $response.body#/id
+  - stepId: linkApi
+    description: >-
+      Link the supplied API to the gateway so the gateway serves it.
+    operationId: GatewayApi_CreateOrUpdate
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: gatewayId
+      in: path
+      value: $inputs.gatewayId
+    - name: apiId
+      in: path
+      value: $inputs.apiId
+    requestBody:
+      contentType: application/json
+      payload:
+        properties:
+          provisioningState: created
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      linkResourceId: $response.body#/id
+  - stepId: generateToken
+    description: >-
+      Generate the authentication token the gateway runtime uses to connect to
+      the control plane.
+    operationId: Gateway_GenerateToken
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: gatewayId
+      in: path
+      value: $inputs.gatewayId
+    requestBody:
+      contentType: application/json
+      payload:
+        keyType: primary
+        expiry: '2025-01-01T00:00:00Z'
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      token: $response.body#/value
+  outputs:
+    gatewayResourceId: $steps.createGateway.outputs.gatewayResourceId
+    token: $steps.generateToken.outputs.token

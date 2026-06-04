@@ -1,0 +1,130 @@
+arazzo: 1.0.1
+info:
+  title: Azure API Management Apply API Policy
+  summary: Confirm an API exists, set its policy document, then read the policy back.
+  description: >-
+    Applies an inbound/outbound policy to a specific API. The workflow reads the
+    API to confirm it exists, creates or updates the API-scoped policy with the
+    supplied XML policy document, then reads the policy back to confirm it was
+    stored. Every step spells out its request inline so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: azureApiManagementApi
+  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: apply-api-policy
+  summary: Set the policy document on an API and confirm it.
+  description: >-
+    Confirms the API exists, writes the API-scoped policy XML, then reads the
+    policy back to verify it was stored.
+  inputs:
+    type: object
+    required:
+    - subscriptionId
+    - resourceGroupName
+    - serviceName
+    - apiId
+    - policyId
+    - policyContent
+    properties:
+      subscriptionId:
+        type: string
+        description: The Azure subscription identifier.
+      resourceGroupName:
+        type: string
+        description: The resource group containing the service.
+      serviceName:
+        type: string
+        description: The API Management service name.
+      apiId:
+        type: string
+        description: The API identifier to apply the policy to.
+      policyId:
+        type: string
+        description: The policy identifier (typically "policy").
+      policyContent:
+        type: string
+        description: The policy document content (XML or Base64 depending on format).
+      policyFormat:
+        type: string
+        description: The policy content format (e.g. xml or rawxml).
+  steps:
+  - stepId: getApi
+    description: >-
+      Read the API to confirm it exists before applying a policy to it.
+    operationId: Api_Get
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: apiId
+      in: path
+      value: $inputs.apiId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      apiResourceId: $response.body#/id
+  - stepId: setPolicy
+    description: >-
+      Create or update the API-scoped policy with the supplied policy document.
+    operationId: ApiPolicy_CreateOrUpdate
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: apiId
+      in: path
+      value: $inputs.apiId
+    - name: policyId
+      in: path
+      value: $inputs.policyId
+    requestBody:
+      contentType: application/json
+      payload:
+        properties:
+          value: $inputs.policyContent
+          format: $inputs.policyFormat
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      policyResourceId: $response.body#/id
+  - stepId: confirmPolicy
+    description: >-
+      Read the policy back to confirm the document was stored on the API.
+    operationId: ApiPolicy_Get
+    parameters:
+    - name: subscriptionId
+      in: path
+      value: $inputs.subscriptionId
+    - name: resourceGroupName
+      in: path
+      value: $inputs.resourceGroupName
+    - name: serviceName
+      in: path
+      value: $inputs.serviceName
+    - name: apiId
+      in: path
+      value: $inputs.apiId
+    - name: policyId
+      in: path
+      value: $inputs.policyId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      policyResourceId: $response.body#/id
+  outputs:
+    policyResourceId: $steps.setPolicy.outputs.policyResourceId
