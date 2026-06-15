@@ -1,0 +1,490 @@
+{
+  "info": {
+    "_postman_id": "879f077e-b0df-4b4a-8fd1-6c0216355f75",
+    "name": "Azure API Management Gateway",
+    "description": "The Azure API Management gateway acts as a reverse proxy between API consumers and backend services. It routes requests, applies policies (authentication, rate limiting, caching, transformation), and emits telemetry. The gateway proxies calls to APIs configured in the management plane.\n\nContact Support:\n Name: Microsoft Azure",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:01:35.000Z",
+    "updatedAt": "2026-06-05T15:01:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-879f077e-b0df-4b4a-8fd1-6c0216355f75"
+  },
+  "item": [
+    {
+      "name": "{api-path}",
+      "item": [
+        {
+          "name": "Proxy GET request to backend API",
+          "id": "5cf0b1ab-af8c-42bb-a887-e72e9cecfa6d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/:api-path",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":api-path"
+              ],
+              "variable": [
+                {
+                  "id": "3ffb6901-286a-48bf-bcb2-9893c3923f07",
+                  "key": "api-path",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "description": "Routes GET request through the gateway, applying configured policies."
+          },
+          "response": [
+            {
+              "id": "782a5e5a-f39f-4238-925f-789f1ca77af2",
+              "name": "Response from backend API",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/:api-path",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":api-path"
+                  ],
+                  "variable": [
+                    {
+                      "key": "api-path"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"statusCode\": \"<integer>\",\n  \"headers\": {\n    \"x-apim-request-id\": \"<string>\",\n    \"x-ms-request-id\": \"<string>\"\n  },\n  \"body\": {}\n}",
+              "createdAt": "2026-06-05T15:01:36.000Z",
+              "updatedAt": "2026-06-05T15:01:36.000Z",
+              "uid": "35240-782a5e5a-f39f-4238-925f-789f1ca77af2"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:36.000Z",
+          "updatedAt": "2026-06-05T15:01:36.000Z",
+          "uid": "35240-5cf0b1ab-af8c-42bb-a887-e72e9cecfa6d"
+        },
+        {
+          "name": "Proxy POST request to backend API",
+          "id": "ec19d4b7-24d0-479f-a467-4dd80d227b48",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/:api-path",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":api-path"
+              ],
+              "variable": [
+                {
+                  "id": "1082f0cf-1e55-4a78-a096-e56716313163",
+                  "key": "api-path",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "description": "Routes POST request through the gateway, applying configured policies."
+          },
+          "response": [
+            {
+              "id": "f45f08e1-346e-45a9-b2f3-9f677d725ca5",
+              "name": "Response from backend API",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/:api-path",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":api-path"
+                  ],
+                  "variable": [
+                    {
+                      "key": "api-path"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"statusCode\": \"<integer>\",\n  \"headers\": {\n    \"x-apim-request-id\": \"<string>\",\n    \"x-ms-request-id\": \"<string>\"\n  },\n  \"body\": {}\n}",
+              "createdAt": "2026-06-05T15:01:36.000Z",
+              "updatedAt": "2026-06-05T15:01:36.000Z",
+              "uid": "35240-f45f08e1-346e-45a9-b2f3-9f677d725ca5"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:36.000Z",
+          "updatedAt": "2026-06-05T15:01:36.000Z",
+          "uid": "35240-ec19d4b7-24d0-479f-a467-4dd80d227b48"
+        },
+        {
+          "name": "Proxy PUT request to backend API",
+          "id": "04c6c98e-46d2-4e3b-aafa-7f51cb70a2e7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/:api-path",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":api-path"
+              ],
+              "variable": [
+                {
+                  "id": "49cd5690-b2d4-43bb-8700-1b367b1c63d7",
+                  "key": "api-path",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "description": "Routes PUT request through the gateway, applying configured policies."
+          },
+          "response": [
+            {
+              "id": "88bf56a5-ffaf-487d-b003-cdb52b95142b",
+              "name": "Response from backend API",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/:api-path",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":api-path"
+                  ],
+                  "variable": [
+                    {
+                      "key": "api-path"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"statusCode\": \"<integer>\",\n  \"headers\": {\n    \"x-apim-request-id\": \"<string>\",\n    \"x-ms-request-id\": \"<string>\"\n  },\n  \"body\": {}\n}",
+              "createdAt": "2026-06-05T15:01:36.000Z",
+              "updatedAt": "2026-06-05T15:01:36.000Z",
+              "uid": "35240-88bf56a5-ffaf-487d-b003-cdb52b95142b"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:36.000Z",
+          "updatedAt": "2026-06-05T15:01:36.000Z",
+          "uid": "35240-04c6c98e-46d2-4e3b-aafa-7f51cb70a2e7"
+        },
+        {
+          "name": "Proxy DELETE request to backend API",
+          "id": "7dabf27c-d7d8-4238-8235-23d2acb638bd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/:api-path",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":api-path"
+              ],
+              "variable": [
+                {
+                  "id": "ce50a3e8-5a9e-489d-b566-0234230e84e1",
+                  "key": "api-path",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "description": "Routes DELETE request through the gateway, applying configured policies."
+          },
+          "response": [
+            {
+              "id": "94cc0e15-2968-4c93-9596-5420548a6492",
+              "name": "Response from backend API",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/:api-path",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":api-path"
+                  ],
+                  "variable": [
+                    {
+                      "key": "api-path"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"statusCode\": \"<integer>\",\n  \"headers\": {\n    \"x-apim-request-id\": \"<string>\",\n    \"x-ms-request-id\": \"<string>\"\n  },\n  \"body\": {}\n}",
+              "createdAt": "2026-06-05T15:01:36.000Z",
+              "updatedAt": "2026-06-05T15:01:36.000Z",
+              "uid": "35240-94cc0e15-2968-4c93-9596-5420548a6492"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:36.000Z",
+          "updatedAt": "2026-06-05T15:01:36.000Z",
+          "uid": "35240-7dabf27c-d7d8-4238-8235-23d2acb638bd"
+        }
+      ],
+      "id": "0f26850d-f7bb-4c5a-9360-3a59aa0c0e26",
+      "createdAt": "2026-06-05T15:01:36.000Z",
+      "updatedAt": "2026-06-05T15:01:36.000Z",
+      "uid": "35240-0f26850d-f7bb-4c5a-9360-3a59aa0c0e26"
+    },
+    {
+      "name": "status-0123456789abcdef",
+      "item": [
+        {
+          "name": "Gateway health check",
+          "id": "977623af-3a42-4731-b42b-7e6f876f9c7d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/status-0123456789abcdef",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "status-0123456789abcdef"
+              ]
+            },
+            "description": "Returns gateway health status."
+          },
+          "response": [
+            {
+              "id": "af1b104d-1ecf-4819-9ee4-049a945b0693",
+              "name": "Gateway is healthy",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/status-0123456789abcdef",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "status-0123456789abcdef"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<string>\",\n  \"timestamp\": \"<dateTime>\"\n}",
+              "createdAt": "2026-06-05T15:01:36.000Z",
+              "updatedAt": "2026-06-05T15:01:36.000Z",
+              "uid": "35240-af1b104d-1ecf-4819-9ee4-049a945b0693"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:36.000Z",
+          "updatedAt": "2026-06-05T15:01:36.000Z",
+          "uid": "35240-977623af-3a42-4731-b42b-7e6f876f9c7d"
+        }
+      ],
+      "id": "d92f061d-2193-44ae-9ece-fcb3fd30ee7f",
+      "createdAt": "2026-06-05T15:01:36.000Z",
+      "updatedAt": "2026-06-05T15:01:36.000Z",
+      "uid": "35240-d92f061d-2193-44ae-9ece-fcb3fd30ee7f"
+    }
+  ],
+  "variable": [
+    {
+      "key": "service-name",
+      "value": "contoso-apim"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{service-name}}.azure-api.net"
+    }
+  ]
+}

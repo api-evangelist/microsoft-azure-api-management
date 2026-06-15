@@ -1,0 +1,520 @@
+{
+  "info": {
+    "_postman_id": "a1b06a45-3cc3-4e2c-b2e2-6e6d06a27063",
+    "name": "Azure API Management AI Gateway",
+    "description": "The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.\n\nContact Support:\n Name: Microsoft Azure",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:01:39.000Z",
+    "updatedAt": "2026-06-05T15:01:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a1b06a45-3cc3-4e2c-b2e2-6e6d06a27063"
+  },
+  "item": [
+    {
+      "name": "deployments",
+      "item": [
+        {
+          "name": "{deployment-id}",
+          "item": [
+            {
+              "name": "chat",
+              "item": [
+                {
+                  "name": "completions",
+                  "item": [
+                    {
+                      "name": "Microsoft Azure API Management Chat Completions Via AI Gateway",
+                      "id": "5f914fa4-022f-4c26-94ef-a35b37670e39",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"messages\": [\n    {\n      \"role\": \"<string>\",\n      \"content\": \"<string>\"\n    },\n    {\n      \"role\": \"<string>\",\n      \"content\": \"<string>\"\n    }\n  ],\n  \"max_tokens\": \"<integer>\",\n  \"temperature\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/deployments/:deployment-id/chat/completions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deployments",
+                            ":deployment-id",
+                            "chat",
+                            "completions"
+                          ],
+                          "variable": [
+                            {
+                              "id": "2822c7f9-2e33-4556-b3c0-174af7aec10c",
+                              "key": "deployment-id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Proxies chat completion requests to Azure OpenAI or compatible backends with token rate limiting, semantic caching, and load balancing."
+                      },
+                      "response": [
+                        {
+                          "id": "7a0d2e56-6a57-4da3-9508-573261d3fc71",
+                          "name": "Chat completion response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"messages\": [\n    {\n      \"role\": \"<string>\",\n      \"content\": \"<string>\"\n    },\n    {\n      \"role\": \"<string>\",\n      \"content\": \"<string>\"\n    }\n  ],\n  \"max_tokens\": \"<integer>\",\n  \"temperature\": \"<number>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/deployments/:deployment-id/chat/completions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "deployments",
+                                ":deployment-id",
+                                "chat",
+                                "completions"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "deployment-id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"object\": \"<string>\",\n  \"created\": \"<integer>\",\n  \"model\": \"<string>\",\n  \"choices\": [\n    {\n      \"index\": \"<integer>\",\n      \"message\": {\n        \"role\": \"<string>\",\n        \"content\": \"<string>\"\n      },\n      \"finish_reason\": \"<string>\"\n    },\n    {\n      \"index\": \"<integer>\",\n      \"message\": {\n        \"role\": \"<string>\",\n        \"content\": \"<string>\"\n      },\n      \"finish_reason\": \"<string>\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": \"<integer>\",\n    \"completion_tokens\": \"<integer>\",\n    \"total_tokens\": \"<integer>\"\n  }\n}",
+                          "createdAt": "2026-06-05T15:01:40.000Z",
+                          "updatedAt": "2026-06-05T15:01:40.000Z",
+                          "uid": "35240-7a0d2e56-6a57-4da3-9508-573261d3fc71"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:01:40.000Z",
+                      "updatedAt": "2026-06-05T15:01:40.000Z",
+                      "uid": "35240-5f914fa4-022f-4c26-94ef-a35b37670e39"
+                    }
+                  ],
+                  "id": "52f887a3-8095-4fd5-9e7f-058d628856dc",
+                  "createdAt": "2026-06-05T15:01:39.000Z",
+                  "updatedAt": "2026-06-05T15:01:39.000Z",
+                  "uid": "35240-52f887a3-8095-4fd5-9e7f-058d628856dc"
+                }
+              ],
+              "id": "1774fc81-2d84-477b-abe6-ced6430806e3",
+              "createdAt": "2026-06-05T15:01:39.000Z",
+              "updatedAt": "2026-06-05T15:01:39.000Z",
+              "uid": "35240-1774fc81-2d84-477b-abe6-ced6430806e3"
+            },
+            {
+              "name": "completions",
+              "item": [
+                {
+                  "name": "Microsoft Azure API Management Completions Via AI Gateway",
+                  "id": "12f3a376-a62a-439c-9c08-a51f9d5f69a7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"prompt\": \"<string>\",\n  \"max_tokens\": \"<integer>\",\n  \"temperature\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/deployments/:deployment-id/completions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deployments",
+                        ":deployment-id",
+                        "completions"
+                      ],
+                      "variable": [
+                        {
+                          "id": "93d160fc-c36e-4f69-b85f-cde27df55439",
+                          "key": "deployment-id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Proxies completion requests to AI backends."
+                  },
+                  "response": [
+                    {
+                      "id": "2611d901-aed0-40d1-8b69-c146ecbdf205",
+                      "name": "Completion response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"prompt\": \"<string>\",\n  \"max_tokens\": \"<integer>\",\n  \"temperature\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/deployments/:deployment-id/completions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deployments",
+                            ":deployment-id",
+                            "completions"
+                          ],
+                          "variable": [
+                            {
+                              "key": "deployment-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"object\": \"<string>\",\n  \"created\": \"<integer>\",\n  \"model\": \"<string>\",\n  \"choices\": [\n    {\n      \"index\": \"<integer>\",\n      \"text\": \"<string>\",\n      \"finish_reason\": \"<string>\"\n    },\n    {\n      \"index\": \"<integer>\",\n      \"text\": \"<string>\",\n      \"finish_reason\": \"<string>\"\n    }\n  ],\n  \"usage\": {\n    \"prompt_tokens\": \"<integer>\",\n    \"completion_tokens\": \"<integer>\",\n    \"total_tokens\": \"<integer>\"\n  }\n}",
+                      "createdAt": "2026-06-05T15:01:40.000Z",
+                      "updatedAt": "2026-06-05T15:01:40.000Z",
+                      "uid": "35240-2611d901-aed0-40d1-8b69-c146ecbdf205"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:01:40.000Z",
+                  "updatedAt": "2026-06-05T15:01:40.000Z",
+                  "uid": "35240-12f3a376-a62a-439c-9c08-a51f9d5f69a7"
+                }
+              ],
+              "id": "2faf7afd-f6d9-4ca4-96bb-cd47e9010935",
+              "createdAt": "2026-06-05T15:01:39.000Z",
+              "updatedAt": "2026-06-05T15:01:39.000Z",
+              "uid": "35240-2faf7afd-f6d9-4ca4-96bb-cd47e9010935"
+            },
+            {
+              "name": "embeddings",
+              "item": [
+                {
+                  "name": "Microsoft Azure API Management Embeddings Via AI Gateway",
+                  "id": "3e28b053-d157-4df2-b3bd-6cdd1235c535",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"input\": \"<string>\",\n  \"model\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/deployments/:deployment-id/embeddings",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "deployments",
+                        ":deployment-id",
+                        "embeddings"
+                      ],
+                      "variable": [
+                        {
+                          "id": "d903fb3d-369c-4896-8200-24061a5593fe",
+                          "key": "deployment-id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Proxies embedding requests to AI backends."
+                  },
+                  "response": [
+                    {
+                      "id": "960630b5-6ff6-44e8-a6f7-288017efab4e",
+                      "name": "Embedding response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"input\": \"<string>\",\n  \"model\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/deployments/:deployment-id/embeddings",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "deployments",
+                            ":deployment-id",
+                            "embeddings"
+                          ],
+                          "variable": [
+                            {
+                              "key": "deployment-id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"object\": \"<string>\",\n  \"data\": [\n    {\n      \"object\": \"<string>\",\n      \"index\": \"<integer>\",\n      \"embedding\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    },\n    {\n      \"object\": \"<string>\",\n      \"index\": \"<integer>\",\n      \"embedding\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    }\n  ],\n  \"model\": \"<string>\",\n  \"usage\": {\n    \"prompt_tokens\": \"<integer>\",\n    \"total_tokens\": \"<integer>\"\n  }\n}",
+                      "createdAt": "2026-06-05T15:01:40.000Z",
+                      "updatedAt": "2026-06-05T15:01:40.000Z",
+                      "uid": "35240-960630b5-6ff6-44e8-a6f7-288017efab4e"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:01:40.000Z",
+                  "updatedAt": "2026-06-05T15:01:40.000Z",
+                  "uid": "35240-3e28b053-d157-4df2-b3bd-6cdd1235c535"
+                }
+              ],
+              "id": "31d0b976-2a6c-4f7e-82ba-8320c67a9b8e",
+              "createdAt": "2026-06-05T15:01:39.000Z",
+              "updatedAt": "2026-06-05T15:01:39.000Z",
+              "uid": "35240-31d0b976-2a6c-4f7e-82ba-8320c67a9b8e"
+            }
+          ],
+          "id": "95bb82e4-3016-4a1a-a4f0-b0086e87fb8e",
+          "createdAt": "2026-06-05T15:01:39.000Z",
+          "updatedAt": "2026-06-05T15:01:39.000Z",
+          "uid": "35240-95bb82e4-3016-4a1a-a4f0-b0086e87fb8e"
+        }
+      ],
+      "id": "9961c085-15cc-436d-b8c9-fab1ca8932d4",
+      "createdAt": "2026-06-05T15:01:39.000Z",
+      "updatedAt": "2026-06-05T15:01:39.000Z",
+      "uid": "35240-9961c085-15cc-436d-b8c9-fab1ca8932d4"
+    },
+    {
+      "name": "mcp",
+      "item": [
+        {
+          "name": "Microsoft Azure API Management MCP Server Request Via AI Gateway",
+          "id": "0e31737a-0054-40e3-8575-b238d1627bb2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jsonrpc\": \"<string>\",\n  \"method\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"params\": {\n    \"name\": \"<string>\",\n    \"arguments\": {}\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/mcp",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "mcp"
+              ]
+            },
+            "description": "Routes requests to MCP (Model Context Protocol) servers configured as AI backends."
+          },
+          "response": [
+            {
+              "id": "1023bf2b-f805-4be3-aa37-d70d6b963615",
+              "name": "MCP response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"jsonrpc\": \"<string>\",\n  \"method\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"params\": {\n    \"name\": \"<string>\",\n    \"arguments\": {}\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/mcp",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "mcp"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"jsonrpc\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"result\": {\n    \"content\": [\n      {\n        \"type\": \"<string>\",\n        \"text\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"text\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-06-05T15:01:40.000Z",
+              "updatedAt": "2026-06-05T15:01:40.000Z",
+              "uid": "35240-1023bf2b-f805-4be3-aa37-d70d6b963615"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:40.000Z",
+          "updatedAt": "2026-06-05T15:01:40.000Z",
+          "uid": "35240-0e31737a-0054-40e3-8575-b238d1627bb2"
+        }
+      ],
+      "id": "325c6316-7d28-4e2f-95c6-023a1e678031",
+      "createdAt": "2026-06-05T15:01:39.000Z",
+      "updatedAt": "2026-06-05T15:01:39.000Z",
+      "uid": "35240-325c6316-7d28-4e2f-95c6-023a1e678031"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://{{service-name}}.azure-api.net"
+    }
+  ]
+}

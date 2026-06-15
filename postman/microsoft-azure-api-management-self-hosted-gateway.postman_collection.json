@@ -1,0 +1,388 @@
+{
+  "info": {
+    "_postman_id": "b9e3b9b3-911e-41ed-9dd0-4984f7848902",
+    "name": "Azure API Management Self-Hosted Gateway",
+    "description": "The self-hosted gateway is a containerized version of the Azure API Management gateway that can be deployed on-premises, in other clouds, or on Kubernetes. It connects to a cloud-based API Management instance for configuration and reports telemetry back.\n\nContact Support:\n Name: Microsoft Azure",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:01:36.000Z",
+    "updatedAt": "2026-06-05T15:01:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b9e3b9b3-911e-41ed-9dd0-4984f7848902"
+  },
+  "item": [
+    {
+      "name": "{api-path}",
+      "item": [
+        {
+          "name": "Proxy GET request through self-hosted gateway",
+          "id": "2eba8ca0-0020-4ad9-8cd5-33557f73edb6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/:api-path",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":api-path"
+              ],
+              "variable": [
+                {
+                  "id": "c519c3f3-845e-4155-96aa-94904969190a",
+                  "key": "api-path",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "description": "Routes GET request through the self-hosted gateway."
+          },
+          "response": [
+            {
+              "id": "89623972-fb41-4688-ab1f-27a5e506d7ed",
+              "name": "Response from backend API",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/:api-path",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":api-path"
+                  ],
+                  "variable": [
+                    {
+                      "key": "api-path"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"statusCode\": \"<integer>\",\n  \"headers\": {\n    \"x-apim-request-id\": \"<string>\"\n  },\n  \"body\": {}\n}",
+              "createdAt": "2026-06-05T15:01:37.000Z",
+              "updatedAt": "2026-06-05T15:01:37.000Z",
+              "uid": "35240-89623972-fb41-4688-ab1f-27a5e506d7ed"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:37.000Z",
+          "updatedAt": "2026-06-05T15:01:37.000Z",
+          "uid": "35240-2eba8ca0-0020-4ad9-8cd5-33557f73edb6"
+        },
+        {
+          "name": "Proxy POST request through self-hosted gateway",
+          "id": "981422c9-4b2b-4ea0-8caf-70458084a913",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/:api-path",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ":api-path"
+              ],
+              "variable": [
+                {
+                  "id": "d055fc75-23a1-40af-846a-463b86259e5b",
+                  "key": "api-path",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "description": "Routes POST request through the self-hosted gateway."
+          },
+          "response": [
+            {
+              "id": "21d3880c-21fb-41c0-bf76-ac4ff9aefd08",
+              "name": "Response from backend API",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/:api-path",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":api-path"
+                  ],
+                  "variable": [
+                    {
+                      "key": "api-path"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"statusCode\": \"<integer>\",\n  \"headers\": {\n    \"x-apim-request-id\": \"<string>\"\n  },\n  \"body\": {}\n}",
+              "createdAt": "2026-06-05T15:01:37.000Z",
+              "updatedAt": "2026-06-05T15:01:37.000Z",
+              "uid": "35240-21d3880c-21fb-41c0-bf76-ac4ff9aefd08"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:37.000Z",
+          "updatedAt": "2026-06-05T15:01:37.000Z",
+          "uid": "35240-981422c9-4b2b-4ea0-8caf-70458084a913"
+        }
+      ],
+      "id": "7f88a4a1-df30-43a7-86cc-805d4563fb28",
+      "createdAt": "2026-06-05T15:01:37.000Z",
+      "updatedAt": "2026-06-05T15:01:37.000Z",
+      "uid": "35240-7f88a4a1-df30-43a7-86cc-805d4563fb28"
+    },
+    {
+      "name": "status-0123456789abcdef",
+      "item": [
+        {
+          "name": "Self-hosted gateway health check",
+          "id": "16363981-4b35-48ca-a59c-6b17f83e1b59",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/status-0123456789abcdef",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "status-0123456789abcdef"
+              ]
+            },
+            "description": "Returns the health status of the self-hosted gateway container."
+          },
+          "response": [
+            {
+              "id": "55d50ac0-b193-4085-8723-de6e644a9d31",
+              "name": "Gateway is healthy",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/status-0123456789abcdef",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "status-0123456789abcdef"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<string>\",\n  \"timestamp\": \"<dateTime>\"\n}",
+              "createdAt": "2026-06-05T15:01:37.000Z",
+              "updatedAt": "2026-06-05T15:01:37.000Z",
+              "uid": "35240-55d50ac0-b193-4085-8723-de6e644a9d31"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:37.000Z",
+          "updatedAt": "2026-06-05T15:01:37.000Z",
+          "uid": "35240-16363981-4b35-48ca-a59c-6b17f83e1b59"
+        }
+      ],
+      "id": "d0051c0d-936f-45ed-ae88-e2f1d9a10dc1",
+      "createdAt": "2026-06-05T15:01:37.000Z",
+      "updatedAt": "2026-06-05T15:01:37.000Z",
+      "uid": "35240-d0051c0d-936f-45ed-ae88-e2f1d9a10dc1"
+    },
+    {
+      "name": "internal",
+      "item": [
+        {
+          "name": "status",
+          "item": [
+            {
+              "name": "Internal status endpoint",
+              "id": "b7464f42-b021-41a2-9f39-c0de80afd599",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/internal/status",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "internal",
+                    "status"
+                  ]
+                },
+                "description": "Returns detailed internal status of the self-hosted gateway container."
+              },
+              "response": [
+                {
+                  "id": "646fb591-40f6-445e-855f-cc741b8382d2",
+                  "name": "Internal status details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/internal/status",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "internal",
+                        "status"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<string>\",\n  \"version\": \"<string>\",\n  \"configurationStatus\": \"<string>\",\n  \"lastConfigurationUpdate\": \"<dateTime>\",\n  \"connectedToManagementPlane\": \"<boolean>\",\n  \"uptimeSeconds\": \"<integer>\"\n}",
+                  "createdAt": "2026-06-05T15:01:37.000Z",
+                  "updatedAt": "2026-06-05T15:01:37.000Z",
+                  "uid": "35240-646fb591-40f6-445e-855f-cc741b8382d2"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:37.000Z",
+              "updatedAt": "2026-06-05T15:01:37.000Z",
+              "uid": "35240-b7464f42-b021-41a2-9f39-c0de80afd599"
+            }
+          ],
+          "id": "691e272a-cfde-40e1-9b66-834667750dd0",
+          "createdAt": "2026-06-05T15:01:37.000Z",
+          "updatedAt": "2026-06-05T15:01:37.000Z",
+          "uid": "35240-691e272a-cfde-40e1-9b66-834667750dd0"
+        }
+      ],
+      "id": "38d875df-e602-40ce-b11b-9ab1fadb1f55",
+      "createdAt": "2026-06-05T15:01:37.000Z",
+      "updatedAt": "2026-06-05T15:01:37.000Z",
+      "uid": "35240-38d875df-e602-40ce-b11b-9ab1fadb1f55"
+    }
+  ],
+  "variable": [
+    {
+      "key": "gateway-hostname",
+      "value": "apim-gateway.contoso.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{gateway-hostname}}"
+    }
+  ]
+}

@@ -412,6 +412,8 @@ apis:
   - type: NaftikoCapability
     url: capabilities/developer-portal-user.yaml
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/microsoft-azure-api-management/overview
 - type: ArazzoWorkflows
   url: arazzo/
   workflows:

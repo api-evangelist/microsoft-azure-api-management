@@ -1,0 +1,574 @@
+{
+  "info": {
+    "_postman_id": "58d46500-b274-4263-81fa-636c7d66970e",
+    "name": "Azure API Management Developer Portal",
+    "description": "The developer portal is a customizable website for API consumers to discover APIs, read documentation, test APIs via an interactive console, create accounts, subscribe to products, and manage API keys.\n\nContact Support:\n Name: Microsoft Azure",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:01:41.000Z",
+    "updatedAt": "2026-06-05T15:01:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-58d46500-b274-4263-81fa-636c7d66970e"
+  },
+  "item": [
+    {
+      "name": "/",
+      "item": [
+        {
+          "name": "Developer portal home page",
+          "id": "c26fdb45-25d4-43e0-bc51-44eeaa7d6d30",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ]
+            },
+            "description": "Returns the developer portal home page."
+          },
+          "response": [
+            {
+              "id": "9e03767f-faa5-432e-9cdb-d724c33c5f50",
+              "name": "Portal HTML",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"links\": [\n    {\n      \"rel\": \"<string>\",\n      \"href\": \"<string>\"\n    },\n    {\n      \"rel\": \"<string>\",\n      \"href\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T15:01:42.000Z",
+              "updatedAt": "2026-06-05T15:01:42.000Z",
+              "uid": "35240-9e03767f-faa5-432e-9cdb-d724c33c5f50"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:42.000Z",
+          "updatedAt": "2026-06-05T15:01:42.000Z",
+          "uid": "35240-c26fdb45-25d4-43e0-bc51-44eeaa7d6d30"
+        }
+      ],
+      "id": "d4a39d51-e2be-4e47-b7ec-f29d179a85a0",
+      "createdAt": "2026-06-05T15:01:42.000Z",
+      "updatedAt": "2026-06-05T15:01:42.000Z",
+      "uid": "35240-d4a39d51-e2be-4e47-b7ec-f29d179a85a0"
+    },
+    {
+      "name": "apis",
+      "item": [
+        {
+          "name": "{api-id}",
+          "item": [
+            {
+              "name": "Get API details",
+              "id": "d35645d7-bf01-445e-98ca-b697c55887ac",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/apis/:api-id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "apis",
+                    ":api-id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "84f1bea6-cf60-4cc2-98d9-7acb3e185771",
+                      "key": "api-id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Returns details and documentation for a specific API."
+              },
+              "response": [
+                {
+                  "id": "a9305f9c-0638-4da8-8fa2-45fa065aa2fa",
+                  "name": "API details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/apis/:api-id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apis",
+                        ":api-id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "api-id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"serviceUrl\": \"<string>\",\n  \"protocols\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"subscriptionRequired\": \"<boolean>\"\n}",
+                  "createdAt": "2026-06-05T15:01:42.000Z",
+                  "updatedAt": "2026-06-05T15:01:42.000Z",
+                  "uid": "35240-a9305f9c-0638-4da8-8fa2-45fa065aa2fa"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:42.000Z",
+              "updatedAt": "2026-06-05T15:01:42.000Z",
+              "uid": "35240-d35645d7-bf01-445e-98ca-b697c55887ac"
+            }
+          ],
+          "id": "a3eba517-8758-4c90-8812-16e2c1b8faa5",
+          "createdAt": "2026-06-05T15:01:42.000Z",
+          "updatedAt": "2026-06-05T15:01:42.000Z",
+          "uid": "35240-a3eba517-8758-4c90-8812-16e2c1b8faa5"
+        },
+        {
+          "name": "List available APIs",
+          "id": "ca4299d8-2f1b-46a1-b3e7-435cbbc84ce9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/apis",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "apis"
+              ]
+            },
+            "description": "Returns the list of published APIs available on the developer portal."
+          },
+          "response": [
+            {
+              "id": "7584b860-a544-4195-9068-15000333471b",
+              "name": "List of APIs",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/apis",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "apis"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"count\": \"<integer>\",\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"serviceUrl\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"serviceUrl\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T15:01:42.000Z",
+              "updatedAt": "2026-06-05T15:01:42.000Z",
+              "uid": "35240-7584b860-a544-4195-9068-15000333471b"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:42.000Z",
+          "updatedAt": "2026-06-05T15:01:42.000Z",
+          "uid": "35240-ca4299d8-2f1b-46a1-b3e7-435cbbc84ce9"
+        }
+      ],
+      "id": "4497e713-7f59-458c-96c7-1ef089d6289c",
+      "createdAt": "2026-06-05T15:01:42.000Z",
+      "updatedAt": "2026-06-05T15:01:42.000Z",
+      "uid": "35240-4497e713-7f59-458c-96c7-1ef089d6289c"
+    },
+    {
+      "name": "products",
+      "item": [
+        {
+          "name": "List available products",
+          "id": "6d7311ad-dee1-4282-845f-1f0c8885ac0e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/products",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "products"
+              ]
+            },
+            "description": "Returns the list of API products available for subscription."
+          },
+          "response": [
+            {
+              "id": "c55b9823-6798-4757-b5d1-8d282d49210d",
+              "name": "List of products",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/products",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "products"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"count\": \"<integer>\",\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"subscriptionRequired\": \"<boolean>\",\n      \"approvalRequired\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"subscriptionRequired\": \"<boolean>\",\n      \"approvalRequired\": \"<boolean>\"\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T15:01:42.000Z",
+              "updatedAt": "2026-06-05T15:01:42.000Z",
+              "uid": "35240-c55b9823-6798-4757-b5d1-8d282d49210d"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:42.000Z",
+          "updatedAt": "2026-06-05T15:01:42.000Z",
+          "uid": "35240-6d7311ad-dee1-4282-845f-1f0c8885ac0e"
+        }
+      ],
+      "id": "a92b3aa6-a3eb-4765-be60-8a93fb0079ec",
+      "createdAt": "2026-06-05T15:01:42.000Z",
+      "updatedAt": "2026-06-05T15:01:42.000Z",
+      "uid": "35240-a92b3aa6-a3eb-4765-be60-8a93fb0079ec"
+    },
+    {
+      "name": "signin",
+      "item": [
+        {
+          "name": "Sign in page",
+          "id": "521fcffc-5314-41b5-96ff-946889326ea2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/signin",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "signin"
+              ]
+            },
+            "description": "Returns the sign in page for developer authentication."
+          },
+          "response": [
+            {
+              "id": "74057fcd-0354-4fe9-ac61-c6e24539e642",
+              "name": "Sign in page",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/signin",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "signin"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"links\": [\n    {\n      \"rel\": \"<string>\",\n      \"href\": \"<string>\"\n    },\n    {\n      \"rel\": \"<string>\",\n      \"href\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T15:01:42.000Z",
+              "updatedAt": "2026-06-05T15:01:42.000Z",
+              "uid": "35240-74057fcd-0354-4fe9-ac61-c6e24539e642"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:42.000Z",
+          "updatedAt": "2026-06-05T15:01:42.000Z",
+          "uid": "35240-521fcffc-5314-41b5-96ff-946889326ea2"
+        }
+      ],
+      "id": "86ac5ae7-9c61-4b8c-abce-2ec8d5dfcbf6",
+      "createdAt": "2026-06-05T15:01:42.000Z",
+      "updatedAt": "2026-06-05T15:01:42.000Z",
+      "uid": "35240-86ac5ae7-9c61-4b8c-abce-2ec8d5dfcbf6"
+    },
+    {
+      "name": "signup",
+      "item": [
+        {
+          "name": "Sign up page",
+          "id": "3b5a3ef5-5200-4483-a52b-bc4382172d19",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/signup",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "signup"
+              ]
+            },
+            "description": "Returns the sign up page for new developer account registration."
+          },
+          "response": [
+            {
+              "id": "3cda8952-c0fb-4d57-8aff-d758ea714e72",
+              "name": "Sign up page",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/signup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "signup"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"links\": [\n    {\n      \"rel\": \"<string>\",\n      \"href\": \"<string>\"\n    },\n    {\n      \"rel\": \"<string>\",\n      \"href\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T15:01:42.000Z",
+              "updatedAt": "2026-06-05T15:01:42.000Z",
+              "uid": "35240-3cda8952-c0fb-4d57-8aff-d758ea714e72"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:42.000Z",
+          "updatedAt": "2026-06-05T15:01:42.000Z",
+          "uid": "35240-3b5a3ef5-5200-4483-a52b-bc4382172d19"
+        }
+      ],
+      "id": "d72dc3db-bab0-4f08-bb8f-174ef6650b7a",
+      "createdAt": "2026-06-05T15:01:42.000Z",
+      "updatedAt": "2026-06-05T15:01:42.000Z",
+      "uid": "35240-d72dc3db-bab0-4f08-bb8f-174ef6650b7a"
+    },
+    {
+      "name": "profile",
+      "item": [
+        {
+          "name": "User profile and subscriptions",
+          "id": "a8bd8e2f-d3b4-4ce1-bf84-a5d266feb557",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "profile"
+              ]
+            },
+            "description": "Returns the user profile page with subscription and API key management."
+          },
+          "response": [
+            {
+              "id": "3243382b-800a-47f6-b144-22d5692ccce4",
+              "name": "User profile",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/profile",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "profile"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\",\n  \"registrationDate\": \"<dateTime>\",\n  \"subscriptions\": [\n    {\n      \"id\": \"<string>\",\n      \"productName\": \"<string>\",\n      \"state\": \"<string>\",\n      \"primaryKey\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"productName\": \"<string>\",\n      \"state\": \"<string>\",\n      \"primaryKey\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-06-05T15:01:42.000Z",
+              "updatedAt": "2026-06-05T15:01:42.000Z",
+              "uid": "35240-3243382b-800a-47f6-b144-22d5692ccce4"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:42.000Z",
+          "updatedAt": "2026-06-05T15:01:42.000Z",
+          "uid": "35240-a8bd8e2f-d3b4-4ce1-bf84-a5d266feb557"
+        }
+      ],
+      "id": "e3d4357c-a886-4e93-84d6-5f238b3ef6f3",
+      "createdAt": "2026-06-05T15:01:42.000Z",
+      "updatedAt": "2026-06-05T15:01:42.000Z",
+      "uid": "35240-e3d4357c-a886-4e93-84d6-5f238b3ef6f3"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://{{service-name}}.developer.azure-api.net"
+    }
+  ]
+}
