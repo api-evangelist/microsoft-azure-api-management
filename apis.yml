@@ -8,7 +8,7 @@ description: Microsoft Azure API Management is a hybrid, multicloud management p
   APIs - with token rate limiting, semantic caching, content safety, backend load balancing, circuit breakers, and token
   emission to Application Insights. It pairs with Azure API Center for design-time inventory, governance, and discovery.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - A2A
 - AI Gateway
