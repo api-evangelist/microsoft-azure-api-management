@@ -2,17 +2,13 @@
   "repo": "microsoft-azure-api-management",
   "feeds": [
     {
-      "source": "https://techcommunity.microsoft.com/t5/azure/ct-p/Azure/rss",
-      "error": "HTTPError"
-    },
-    {
-      "source": "https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-policies",
-      "feed_url": "https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-policies",
-      "title": "",
-      "saved": 0,
-      "method": "none"
+      "source": "https://techcommunity.microsoft.com/t5/azure/ct-p/Azure",
+      "feed_url": "",
+      "saved": 2,
+      "method": "agent-scrape"
     }
   ],
-  "fetched": "2026-06-14T20:42:17Z",
-  "post_count": 0
+  "fetched": "2026-06-27T12:54:04Z",
+  "post_count": 5,
+  "agent_pulled": "2026-06-27"
 }

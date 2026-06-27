@@ -43,143 +43,143 @@ apis:
     url: https://learn.microsoft.com/en-us/rest/api/apimanagement/operation-groups
   - type: Authentication
     url: https://learn.microsoft.com/en-us/azure/api-management/authentication-authorization-overview
-  - type: SDK
+  - type: SDKs
     url: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/apimanagement
-  - type: SDK
+  - type: SDKs
     url: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/apimanagement
-  - type: SDK
+  - type: SDKs
     url: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/apimanagement
-  - type: SDK
+  - type: SDKs
     url: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement
-  - type: SDK
+  - type: SDKs
     url: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/apimanagement
   - type: OpenAPI
     url: openapi/microsoft-azure-api-management-rest-api-openapi.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-api.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-apidiagnostic.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-apiissue.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-apimanagementoperations.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-apimanagementservice.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-apimanagementserviceskus.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-apioperation.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-apioperationsbytag.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-apipolicy.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-apiproduct.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-apirelease.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-apirevision.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-apischema.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-apitag.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-apitagdescription.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-apiversionset.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-apiversionsets.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-apiwiki.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-backend.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-backendreconnect.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-certificate.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-diagnostic.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-gateway.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-gatewayapi.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-gatewaycertificateauthority.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-gatewaygeneratetoken.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-gatewayhostnameconfiguration.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-gatewayinvalidatedebugcredentials.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-gatewaylistdebugcredentials.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-gatewaylistkeys.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-gatewaylisttrace.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-gatewayregeneratekey.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-graphqlapiresolver.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-group.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-groupuser.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-logger.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-namedvalue.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-notification.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-policy.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-policyfragment.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-product.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-productapi.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-productapilink.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-productgroup.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-productgrouplink.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-productpolicy.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-productsubscription.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-producttag.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-productwiki.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-schema.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-subscription.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-tag.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-tagapilink.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-tagoperationlink.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-tagproductlink.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-user.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-usergroup.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-useridentity.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-usersubscription.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-usertoken.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-users.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-workspace.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-workspacepolicy.yaml
 - aid: microsoft-azure-api-management:azure-api-management-gateway
   name: Azure API Management Gateway
@@ -210,9 +210,9 @@ apis:
     url: https://github.com/Azure/azure-api-management-policy-toolkit
   - type: OpenAPI
     url: openapi/microsoft-azure-api-management-gateway-openapi.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/gateway-gateway.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/gateway-health.yaml
 - aid: microsoft-azure-api-management:azure-api-management-self-hosted-gateway
   name: Azure API Management Self-Hosted Gateway
@@ -240,9 +240,9 @@ apis:
     url: https://github.com/Azure/api-management-self-hosted-gateway-ingress
   - type: OpenAPI
     url: openapi/microsoft-azure-api-management-self-hosted-gateway-openapi.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/self-hosted-gateway-gateway.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/self-hosted-gateway-health.yaml
 - aid: microsoft-azure-api-management:azure-api-management-ai-gateway
   name: Azure API Management AI Gateway
@@ -268,7 +268,7 @@ apis:
     url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
   - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/api-management/azure-openai-api-from-specification
-  - type: Quickstart
+  - type: GettingStarted
     url: https://learn.microsoft.com/en-us/azure/api-management/azure-ai-foundry-api
   - type: MCPServerOverview
     url: https://learn.microsoft.com/en-us/azure/api-management/mcp-server-overview
@@ -324,25 +324,25 @@ apis:
     url: json-structure/ai-gateway-mcp-response-structure.json
   - type: JSONLD
     url: json-ld/microsoft-azure-api-management-ai-gateway-context.jsonld
-  - type: Example
+  - type: Examples
     url: examples/ai-gateway-chat-completion-request-example.json
-  - type: Example
+  - type: Examples
     url: examples/ai-gateway-chat-completion-response-example.json
-  - type: Example
+  - type: Examples
     url: examples/ai-gateway-completion-request-example.json
-  - type: Example
+  - type: Examples
     url: examples/ai-gateway-completion-response-example.json
-  - type: Example
+  - type: Examples
     url: examples/ai-gateway-embedding-request-example.json
-  - type: Example
+  - type: Examples
     url: examples/ai-gateway-embedding-response-example.json
-  - type: Example
+  - type: Examples
     url: examples/ai-gateway-mcp-request-example.json
-  - type: Example
+  - type: Examples
     url: examples/ai-gateway-mcp-response-example.json
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/ai-gateway-ai.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/ai-gateway-mcp.yaml
 - aid: microsoft-azure-api-management:azure-api-center
   name: Azure API Center
@@ -401,206 +401,203 @@ apis:
     url: https://github.com/Azure/api-management-developer-portal
   - type: OpenAPI
     url: openapi/microsoft-azure-api-management-developer-portal-openapi.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/developer-portal-apis.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/developer-portal-authentication.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/developer-portal-portal.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/developer-portal-products.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/developer-portal-user.yaml
 common:
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/microsoft-azure-api-management/overview
-- type: ArazzoWorkflows
-  url: arazzo/
-  workflows:
-  - url: arazzo/microsoft-azure-api-management-ai-gateway-chat-and-embed-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-ai-gateway-chat-and-embed-workflow.yml
     name: Azure API Management AI Gateway Chat and Embed
-    summary: Send a chat completion through the AI gateway, then embed the same prompt for retrieval.
-  - url: arazzo/microsoft-azure-api-management-apply-api-policy-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-apply-api-policy-workflow.yml
     name: Azure API Management Apply API Policy
-    summary: Confirm an API exists, set its policy document, then read the policy back.
-  - url: arazzo/microsoft-azure-api-management-backup-service-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-backup-service-workflow.yml
     name: Azure API Management Backup Service
-    summary: Confirm the service exists, trigger a backup to storage, then re-read the service state.
-  - url: arazzo/microsoft-azure-api-management-configure-api-diagnostic-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-configure-api-diagnostic-workflow.yml
     name: Azure API Management Configure API Diagnostic
-    summary: Confirm an API exists, attach an Application Insights diagnostic, then read it back.
-  - url: arazzo/microsoft-azure-api-management-configure-graphql-resolver-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-configure-graphql-resolver-workflow.yml
     name: Azure API Management Configure GraphQL Resolver
-    summary: Confirm a GraphQL API exists, attach a resolver, then list the API's resolvers.
-  - url: arazzo/microsoft-azure-api-management-configure-logger-diagnostic-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-configure-logger-diagnostic-workflow.yml
     name: Azure API Management Configure Logger and Service Diagnostic
-    summary: Create a logger, attach a service-wide diagnostic to it, then read the diagnostic back.
-  - url: arazzo/microsoft-azure-api-management-configure-product-policy-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-configure-product-policy-workflow.yml
     name: Azure API Management Configure Product Policy
-    summary: Confirm a product exists, set its policy document, then read the policy back.
-  - url: arazzo/microsoft-azure-api-management-define-api-operation-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-define-api-operation-workflow.yml
     name: Azure API Management Define API Operation
-    summary: Confirm an API exists, add an operation to it, then list the API's operations.
-  - url: arazzo/microsoft-azure-api-management-devportal-discover-and-invoke-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-devportal-discover-and-invoke-workflow.yml
     name: Azure API Management Developer Portal Discover and Invoke
-    summary: Browse the developer portal APIs, read one API's details, then call it through the gateway.
-  - url: arazzo/microsoft-azure-api-management-link-product-group-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-link-product-group-workflow.yml
     name: Azure API Management Link Product to Group
-    summary: Confirm a product and a group exist, then grant the group access to the product.
-  - url: arazzo/microsoft-azure-api-management-manage-workspace-named-value-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-manage-workspace-named-value-workflow.yml
     name: Azure API Management Manage Workspace Named Value
-    summary: Create a workspace named value, read it back, then list the workspace named values.
-  - url: arazzo/microsoft-azure-api-management-onboard-user-to-group-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-onboard-user-to-group-workflow.yml
     name: Azure API Management Onboard User to Group
-    summary: Create a user, confirm a group exists, add the user to the group, then list members.
-  - url: arazzo/microsoft-azure-api-management-provision-backend-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-provision-backend-workflow.yml
     name: Azure API Management Provision Backend
-    summary: Register a backend, read it back, then trigger a reconnect.
-  - url: arazzo/microsoft-azure-api-management-provision-certificate-backend-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-provision-certificate-backend-workflow.yml
     name: Azure API Management Provision Certificate for Backend
-    summary: Upload a certificate, create a backend that uses it for mutual TLS, then read the backend.
-  - url: arazzo/microsoft-azure-api-management-provision-product-link-api-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-provision-product-link-api-workflow.yml
     name: Azure API Management Provision Product and Link API
-    summary: Create a product, link an API to it, then list the product's APIs.
-  - url: arazzo/microsoft-azure-api-management-provision-service-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-provision-service-workflow.yml
     name: Azure API Management Provision Service
-    summary: Check a service name, create the API Management service, then poll until provisioning succeeds.
-  - url: arazzo/microsoft-azure-api-management-provision-subscription-keys-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-provision-subscription-keys-workflow.yml
     name: Azure API Management Provision Subscription and Retrieve Keys
-    summary: Confirm a product, create a subscription against it, then retrieve the subscription keys.
-  - url: arazzo/microsoft-azure-api-management-provision-workspace-api-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-provision-workspace-api-workflow.yml
     name: Azure API Management Provision Workspace API
-    summary: Create a workspace, register an API inside it, then read the workspace API back.
-  - url: arazzo/microsoft-azure-api-management-provision-workspace-product-subscription-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-provision-workspace-product-subscription-workflow.yml
     name: Azure API Management Provision Workspace Product and Subscription
-    summary: Create a workspace product, create a subscription scoped to it, then read the subscription.
-  - url: arazzo/microsoft-azure-api-management-publish-api-release-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-publish-api-release-workflow.yml
     name: Azure API Management Publish API Release
-    summary: Confirm an API exists, create a release for it, then list its releases.
-  - url: arazzo/microsoft-azure-api-management-register-api-schema-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-register-api-schema-workflow.yml
     name: Azure API Management Register API Schema
-    summary: Confirm an API exists, register a schema for it, then list the API's schemas.
-  - url: arazzo/microsoft-azure-api-management-register-gateway-link-api-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-register-gateway-link-api-workflow.yml
     name: Azure API Management Register Gateway and Link API
-    summary: Register a self-hosted gateway, link an API to it, then generate a gateway token.
-  - url: arazzo/microsoft-azure-api-management-rotate-subscription-keys-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-rotate-subscription-keys-workflow.yml
     name: Azure API Management Rotate Subscription Keys
-    summary: Confirm a subscription, regenerate both keys, then retrieve the new secrets.
-  - url: arazzo/microsoft-azure-api-management-set-service-policy-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-set-service-policy-workflow.yml
     name: Azure API Management Set Global Service Policy
-    summary: Confirm the service exists, set the global policy, then read the policy back.
-  - url: arazzo/microsoft-azure-api-management-tag-api-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-tag-api-workflow.yml
     name: Azure API Management Tag and Label an API
-    summary: Create a tag, assign it to an API, then list the API's tags.
-  - url: arazzo/microsoft-azure-api-management-tag-product-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-tag-product-workflow.yml
     name: Azure API Management Tag a Product
-    summary: Create a tag, assign it to a product, then list the product's tags.
-  - url: arazzo/microsoft-azure-api-management-upsert-api-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-upsert-api-workflow.yml
     name: Azure API Management Upsert API
-    summary: Find an API by identifier and update it if present, otherwise create it.
-  - url: arazzo/microsoft-azure-api-management-upsert-product-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-upsert-product-workflow.yml
     name: Azure API Management Upsert Product
-    summary: Find a product by identifier and update it if present, otherwise create it.
-  - url: arazzo/microsoft-azure-api-management-upsert-user-workflow.yml
+  - type: Arazzo
+    url: arazzo/microsoft-azure-api-management-upsert-user-workflow.yml
     name: Azure API Management Upsert User
-    summary: Find a user by identifier and update it if present, otherwise create it.
-- type: Website
-  url: https://azure.microsoft.com/products/api-management/
-- type: Documentation
-  url: https://learn.microsoft.com/en-us/azure/api-management/
-- type: GettingStarted
-  url: https://learn.microsoft.com/en-us/azure/api-management/get-started-create-service-instance
-- type: Quickstart
-  url: https://learn.microsoft.com/en-us/azure/api-management/get-started-create-service-instance-cli
-- type: APIReference
-  url: https://learn.microsoft.com/en-us/rest/api/apimanagement/
-- type: Authentication
-  url: https://learn.microsoft.com/en-us/azure/api-management/authentication-authorization-overview
-- type: Pricing
-  url: https://azure.microsoft.com/pricing/details/api-management/
-- type: Tiers
-  url: https://learn.microsoft.com/en-us/azure/api-management/api-management-features
-- type: ChangeLog
-  url: https://learn.microsoft.com/en-us/azure/api-management/breaking-changes/overview
-- type: Support
-  url: https://learn.microsoft.com/answers/tags/29/azure-api-management/
-- type: Console
-  url: https://portal.azure.com/
-- type: CLI
-  url: https://learn.microsoft.com/en-us/cli/azure/apim
-- type: SDK
-  url: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/apimanagement
-- type: Tutorials
-  url: https://learn.microsoft.com/en-us/azure/api-management/import-and-publish
-- type: Training
-  url: https://learn.microsoft.com/en-us/training/modules/explore-api-management/
-- type: Security
-  url: https://learn.microsoft.com/en-us/azure/api-management/authentication-authorization-overview
-- type: BestPractices
-  url: https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-policies
-- type: Blog
-  url: https://techcommunity.microsoft.com/t5/azure/ct-p/Azure
-- type: GitHubRepository
-  url: https://github.com/Azure/api-management-samples
-- type: GitHubOrganization
-  url: https://github.com/Azure
-- type: TermsOfService
-  url: https://azure.microsoft.com/support/legal/
-- type: PrivacyPolicy
-  url: https://privacy.microsoft.com/privacystatement
-- type: Regions
-  url: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/
-- type: Compliance
-  url: https://learn.microsoft.com/en-us/azure/compliance/
-- type: TrustCenter
-  url: https://www.microsoft.com/trust-center
-- type: SignUp
-  url: https://azure.microsoft.com/free/
-- type: StatusPage
-  url: https://status.azure.com/
-- type: DeveloperPortal
-  url: https://learn.microsoft.com/en-us/azure/api-management/developer-portal-overview
-- type: SDK
-  url: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/apimanagement
-- type: SDK
-  url: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/apimanagement
-- type: SDK
-  url: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement
-- type: SDK
-  url: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/apimanagement
-- type: CodeExamples
-  url: https://github.com/Azure/api-management-samples
-- type: PolicySnippets
-  url: https://github.com/Azure/api-management-policy-snippets
-- type: Tools
-  url: https://github.com/Azure/azure-api-management-policy-toolkit
-- type: ChangeLog
-  url: https://github.com/Azure/API-Management/blob/master/changelogs/api-management-service.md
-- type: BreakingChanges
-  url: https://learn.microsoft.com/en-us/azure/api-management/breaking-changes/overview
-- type: APICenter
-  url: https://learn.microsoft.com/en-us/azure/api-center/overview
-- type: FoundryIntegration
-  url: https://learn.microsoft.com/en-us/azure/ai-foundry/configuration/enable-ai-api-management-gateway-portal
-- type: AIGatewaySamples
-  url: https://github.com/Azure-Samples/ai-gateway
-- type: AIGatewayWorkshop
-  url: https://aka.ms/ai-gateway/workshop
-- type: VSCodeExtension
-  url: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement
-- type: SpectralRules
-  url: rules/microsoft-azure-api-management-rules.yaml
-- type: Vocabulary
-  url: vocabulary/microsoft-azure-api-management-vocabulary.yaml
-- type: Plans
-  url: plans/microsoft-azure-api-management-plans-pricing.yml
-- type: RateLimits
-  url: rate-limits/microsoft-azure-api-management-rate-limits.yml
-- type: FinOps
-  url: finops/microsoft-azure-api-management-finops.yml
-- name: MCP Server
-  url: https://github.com/Azure/azure-api-mcp
-  type: MCPServer
+  - type: Website
+    url: https://azure.microsoft.com/products/api-management/
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/api-management/
+  - type: GettingStarted
+    url: https://learn.microsoft.com/en-us/azure/api-management/get-started-create-service-instance
+  - type: GettingStarted
+    url: https://learn.microsoft.com/en-us/azure/api-management/get-started-create-service-instance-cli
+  - type: APIReference
+    url: https://learn.microsoft.com/en-us/rest/api/apimanagement/
+  - type: Authentication
+    url: https://learn.microsoft.com/en-us/azure/api-management/authentication-authorization-overview
+  - type: Pricing
+    url: https://azure.microsoft.com/pricing/details/api-management/
+  - type: Tiers
+    url: https://learn.microsoft.com/en-us/azure/api-management/api-management-features
+  - type: ChangeLog
+    url: https://learn.microsoft.com/en-us/azure/api-management/breaking-changes/overview
+  - type: Support
+    url: https://learn.microsoft.com/answers/tags/29/azure-api-management/
+  - type: Console
+    url: https://portal.azure.com/
+  - type: CLI
+    url: https://learn.microsoft.com/en-us/cli/azure/apim
+  - type: SDKs
+    url: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/apimanagement
+  - type: Tutorials
+    url: https://learn.microsoft.com/en-us/azure/api-management/import-and-publish
+  - type: Training
+    url: https://learn.microsoft.com/en-us/training/modules/explore-api-management/
+  - type: Security
+    url: https://learn.microsoft.com/en-us/azure/api-management/authentication-authorization-overview
+  - type: BestPractices
+    url: https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-policies
+  - type: Blog
+    url: https://techcommunity.microsoft.com/t5/azure/ct-p/Azure
+  - type: GitHubRepository
+    url: https://github.com/Azure/api-management-samples
+  - type: GitHubOrganization
+    url: https://github.com/Azure
+  - type: TermsOfService
+    url: https://azure.microsoft.com/support/legal/
+  - type: PrivacyPolicy
+    url: https://privacy.microsoft.com/privacystatement
+  - type: Regions
+    url: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/
+  - type: Compliance
+    url: https://learn.microsoft.com/en-us/azure/compliance/
+  - type: TrustCenter
+    url: https://www.microsoft.com/trust-center
+  - type: Signup
+    url: https://azure.microsoft.com/free/
+  - type: StatusPage
+    url: https://status.azure.com/
+  - type: DeveloperPortal
+    url: https://learn.microsoft.com/en-us/azure/api-management/developer-portal-overview
+  - type: SDKs
+    url: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/apimanagement
+  - type: SDKs
+    url: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/apimanagement
+  - type: SDKs
+    url: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement
+  - type: SDKs
+    url: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/apimanagement
+  - type: CodeExamples
+    url: https://github.com/Azure/api-management-samples
+  - type: PolicySnippets
+    url: https://github.com/Azure/api-management-policy-snippets
+  - type: Tools
+    url: https://github.com/Azure/azure-api-management-policy-toolkit
+  - type: ChangeLog
+    url: https://github.com/Azure/API-Management/blob/master/changelogs/api-management-service.md
+  - type: BreakingChanges
+    url: https://learn.microsoft.com/en-us/azure/api-management/breaking-changes/overview
+  - type: APICenter
+    url: https://learn.microsoft.com/en-us/azure/api-center/overview
+  - type: FoundryIntegration
+    url: https://learn.microsoft.com/en-us/azure/ai-foundry/configuration/enable-ai-api-management-gateway-portal
+  - type: AIGatewaySamples
+    url: https://github.com/Azure-Samples/ai-gateway
+  - type: AIGatewayWorkshop
+    url: https://aka.ms/ai-gateway/workshop
+  - type: VSCodeExtension
+    url: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement
+  - type: SpectralRules
+    url: rules/microsoft-azure-api-management-rules.yaml
+  - type: Vocabulary
+    url: vocabulary/microsoft-azure-api-management-vocabulary.yaml
+  - type: Plans
+    url: plans/microsoft-azure-api-management-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/microsoft-azure-api-management-rate-limits.yml
+  - type: FinOps
+    url: finops/microsoft-azure-api-management-finops.yml
+  - name: MCP Server
+    url: https://github.com/Azure/azure-api-mcp
+    type: MCPServer
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
