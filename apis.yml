@@ -412,6 +412,12 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/developer-portal-user.yaml
 common:
+  - type: VulnerabilityDisclosure
+    url: security/microsoft-azure-api-management-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/microsoft-azure-api-management-domain-security.yml
+  - type: Authentication
+    url: authentication/microsoft-azure-api-management-authentication.yml
   - type: OAuthScopes
     url: scopes/microsoft-azure-api-management-scopes.yml
   - type: PostmanWorkspace
