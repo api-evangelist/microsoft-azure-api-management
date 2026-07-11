@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+schemes:
+- name: azure_auth
+  source: openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+  flows:
+  - flow: implicit
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+scopes:
+- scope: user_impersonation
+  description: impersonate your user account
+  flows:
+  - implicit
+  sources:
+  - openapi/microsoft-azure-api-management-rest-api-openapi.yaml

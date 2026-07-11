@@ -412,6 +412,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/developer-portal-user.yaml
 common:
+  - type: OAuthScopes
+    url: scopes/microsoft-azure-api-management-scopes.yml
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/microsoft-azure-api-management/overview
   - type: Arazzo
