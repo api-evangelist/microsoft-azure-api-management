@@ -1,0 +1,27 @@
+openapi: 3.0.3
+info:
+  title: Azure API Management Gateway AI BackendReconnect API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+tags:
+- name: BackendReconnect
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backends/{backendId}/reconnect
+  : post:
+      summary: Microsoft Azure API Management Backend_Reconnect
+      operationId: Backend_Reconnect
+      description: Notifies the API Management gateway to create a new connection to the backend after the specified timeout. If no timeout was specified, timeout of 2 minutes is used.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - BackendReconnect
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation

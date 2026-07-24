@@ -1,0 +1,73 @@
+openapi: 3.0.3
+info:
+  title: Azure API Management Gateway AI ApiIssue API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+tags:
+- name: ApiIssue
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/issues
+  : get:
+      summary: Microsoft Azure API Management ApiIssue_ListByService
+      operationId: ApiIssue_ListByService
+      description: Lists all issues associated with the specified API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiIssue
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/issues/{issueId}
+  : head:
+      summary: Microsoft Azure API Management ApiIssue_GetEntityTag
+      operationId: ApiIssue_GetEntityTag
+      description: Gets the entity state (Etag) version of the Issue for an API specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiIssue
+    get:
+      summary: Microsoft Azure API Management ApiIssue_Get
+      operationId: ApiIssue_Get
+      description: Gets the details of the Issue for an API specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiIssue
+    put:
+      summary: Microsoft Azure API Management ApiIssue_CreateOrUpdate
+      operationId: ApiIssue_CreateOrUpdate
+      description: Creates a new Issue for an API or updates an existing one.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiIssue
+    patch:
+      summary: Microsoft Azure API Management ApiIssue_Update
+      operationId: ApiIssue_Update
+      description: Updates an existing issue for an API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiIssue
+    delete:
+      summary: Microsoft Azure API Management ApiIssue_Delete
+      operationId: ApiIssue_Delete
+      description: Deletes the specified Issue from an API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiIssue
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation

@@ -1,0 +1,73 @@
+openapi: 3.0.3
+info:
+  title: Azure API Management Gateway AI ApiOperation API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+tags:
+- name: ApiOperation
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/operations
+  : get:
+      summary: Microsoft Azure API Management ApiOperation_ListByApi
+      operationId: ApiOperation_ListByApi
+      description: Lists a collection of the operations for the specified API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiOperation
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/operations/{operationId}
+  : head:
+      summary: Microsoft Azure API Management ApiOperation_GetEntityTag
+      operationId: ApiOperation_GetEntityTag
+      description: Gets the entity state (Etag) version of the API operation specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiOperation
+    get:
+      summary: Microsoft Azure API Management ApiOperation_Get
+      operationId: ApiOperation_Get
+      description: Gets the details of the API Operation specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiOperation
+    put:
+      summary: Microsoft Azure API Management ApiOperation_CreateOrUpdate
+      operationId: ApiOperation_CreateOrUpdate
+      description: Creates a new operation in the API or updates an existing one.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiOperation
+    patch:
+      summary: Microsoft Azure API Management ApiOperation_Update
+      operationId: ApiOperation_Update
+      description: Updates the details of the operation in the API specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiOperation
+    delete:
+      summary: Microsoft Azure API Management ApiOperation_Delete
+      operationId: ApiOperation_Delete
+      description: Deletes the specified operation in the API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiOperation
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation

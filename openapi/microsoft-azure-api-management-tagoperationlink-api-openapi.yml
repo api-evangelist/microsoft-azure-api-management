@@ -1,0 +1,55 @@
+openapi: 3.0.3
+info:
+  title: Azure API Management Gateway AI TagOperationLink API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+tags:
+- name: TagOperationLink
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/operationLinks
+  : get:
+      summary: Microsoft Azure API Management TagOperationLink_ListByProduct
+      operationId: TagOperationLink_ListByProduct
+      description: Lists a collection of the operation links associated with a tag.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - TagOperationLink
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/operationLinks/{operationLinkId}
+  : get:
+      summary: Microsoft Azure API Management TagOperationLink_Get
+      operationId: TagOperationLink_Get
+      description: Gets the operation link for the tag.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - TagOperationLink
+    put:
+      summary: Microsoft Azure API Management TagOperationLink_CreateOrUpdate
+      operationId: TagOperationLink_CreateOrUpdate
+      description: Adds an operation to the specified tag via link.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - TagOperationLink
+    delete:
+      summary: Microsoft Azure API Management TagOperationLink_Delete
+      operationId: TagOperationLink_Delete
+      description: Deletes the specified operation from the specified tag.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - TagOperationLink
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation

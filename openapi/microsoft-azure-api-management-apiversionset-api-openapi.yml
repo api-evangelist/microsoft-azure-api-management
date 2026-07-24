@@ -1,0 +1,64 @@
+openapi: 3.0.3
+info:
+  title: Azure API Management Gateway AI ApiVersionSet API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+tags:
+- name: ApiVersionSet
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apiVersionSets
+  : get:
+      summary: Microsoft Azure API Management WorkspaceApiVersionSet_ListByService
+      operationId: WorkspaceApiVersionSet_ListByService
+      description: Lists a collection of API Version Sets in the specified workspace with a service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiVersionSet
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apiVersionSets/{versionSetId}
+  : head:
+      summary: Microsoft Azure API Management WorkspaceApiVersionSet_GetEntityTag
+      operationId: WorkspaceApiVersionSet_GetEntityTag
+      description: Gets the entity state (Etag) version of the Api Version Set specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiVersionSet
+    get:
+      summary: Microsoft Azure API Management WorkspaceApiVersionSet_Get
+      operationId: WorkspaceApiVersionSet_Get
+      description: Gets the details of the Api Version Set specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiVersionSet
+    put:
+      summary: Microsoft Azure API Management WorkspaceApiVersionSet_CreateOrUpdate
+      operationId: WorkspaceApiVersionSet_CreateOrUpdate
+      description: Creates or Updates a Api Version Set.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiVersionSet
+    patch:
+      summary: Microsoft Azure API Management WorkspaceApiVersionSet_Update
+      operationId: WorkspaceApiVersionSet_Update
+      description: Updates the details of the Api VersionSet specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiVersionSet
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation

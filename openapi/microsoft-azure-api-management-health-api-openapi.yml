@@ -1,0 +1,107 @@
+openapi: 3.0.3
+info:
+  title: Azure API Management Gateway AI Health API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+tags:
+- name: Health
+paths:
+  /status-0123456789abcdef:
+    get:
+      summary: Gateway health check
+      operationId: Gateway_HealthCheck
+      tags:
+      - Health
+      description: Returns gateway health status.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Gateway is healthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthStatus'
+              examples:
+                HealthyExample:
+                  summary: Healthy gateway
+                  value:
+                    status: Healthy
+                    timestamp: '2024-06-15T12:00:00Z'
+              x-microcks-default:
+                status: Healthy
+  /internal/status:
+    get:
+      summary: Internal status endpoint
+      operationId: SelfHostedGateway_InternalStatus
+      tags:
+      - Health
+      description: Returns detailed internal status of the self-hosted gateway container.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Internal status details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalStatus'
+              examples:
+                InternalStatusExample:
+                  summary: Internal status details
+                  value:
+                    status: Running
+                    version: 2.6.0
+                    configurationStatus: Synced
+                    lastConfigurationUpdate: '2024-06-15T11:55:00Z'
+                    connectedToManagementPlane: true
+                    uptimeSeconds: 86400
+              x-microcks-default:
+                status: Running
+                version: 2.6.0
+                configurationStatus: Synced
+components:
+  schemas:
+    InternalStatus:
+      type: object
+      properties:
+        status:
+          type: string
+          example: Running
+        version:
+          type: string
+          example: 2.6.0
+        configurationStatus:
+          type: string
+          example: Synced
+        lastConfigurationUpdate:
+          type: string
+          format: date-time
+          example: '2024-06-15T11:55:00Z'
+        connectedToManagementPlane:
+          type: boolean
+          example: true
+        uptimeSeconds:
+          type: integer
+          example: 86400
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+          example: Healthy
+        timestamp:
+          type: string
+          format: date-time
+          example: '2024-06-15T12:00:00Z'
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation

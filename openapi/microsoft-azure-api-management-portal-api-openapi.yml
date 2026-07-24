@@ -1,0 +1,69 @@
+openapi: 3.0.3
+info:
+  title: Azure API Management Gateway AI Portal API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+tags:
+- name: Portal
+paths:
+  /:
+    get:
+      summary: Developer portal home page
+      operationId: DevPortal_Home
+      tags:
+      - Portal
+      description: Returns the developer portal home page.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Portal HTML
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PortalPage'
+              examples:
+                HomePage:
+                  summary: Developer portal home
+                  value:
+                    title: Contoso API Developer Portal
+                    description: Welcome to the Contoso API Developer Portal. Browse our APIs and get started.
+                    links:
+                    - rel: apis
+                      href: /apis
+                    - rel: products
+                      href: /products
+              x-microcks-default:
+                title: Contoso API Developer Portal
+components:
+  schemas:
+    PortalPage:
+      type: object
+      properties:
+        title:
+          type: string
+          example: Contoso API Developer Portal
+        description:
+          type: string
+          example: Welcome to the developer portal.
+        links:
+          type: array
+          items:
+            type: object
+            properties:
+              rel:
+                type: string
+                example: apis
+              href:
+                type: string
+                example: /apis
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation

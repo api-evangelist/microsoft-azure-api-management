@@ -1,0 +1,77 @@
+openapi: 3.0.3
+info:
+  title: Azure API Management Gateway AI Products API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+tags:
+- name: Products
+paths:
+  /products:
+    get:
+      summary: List available products
+      operationId: DevPortal_ListProducts
+      tags:
+      - Products
+      description: Returns the list of API products available for subscription.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: List of products
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductList'
+              examples:
+                ProductListExample:
+                  summary: List of products
+                  value:
+                    count: 1
+                    value:
+                    - id: starter-product
+                      name: Starter
+                      description: Free tier with rate-limited access to all APIs.
+                      subscriptionRequired: true
+                      approvalRequired: false
+              x-microcks-default:
+                count: 1
+components:
+  schemas:
+    ProductSummary:
+      type: object
+      properties:
+        id:
+          type: string
+          example: starter-product
+        name:
+          type: string
+          example: Starter
+        description:
+          type: string
+          example: Free tier with rate-limited access to all APIs.
+        subscriptionRequired:
+          type: boolean
+          example: true
+        approvalRequired:
+          type: boolean
+          example: false
+    ProductList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 1
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductSummary'
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation

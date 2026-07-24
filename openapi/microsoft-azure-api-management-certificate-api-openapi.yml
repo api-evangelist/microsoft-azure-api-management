@@ -1,0 +1,74 @@
+openapi: 3.0.3
+info:
+  title: Azure API Management Gateway AI Certificate API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+tags:
+- name: Certificate
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates
+  : get:
+      summary: Microsoft Azure API Management Certificate_ListByService
+      operationId: Certificate_ListByService
+      description: Lists a collection of all certificates in the specified service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Certificate
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates/{certificateId}
+  : head:
+      summary: Microsoft Azure API Management Certificate_GetEntityTag
+      operationId: Certificate_GetEntityTag
+      description: Gets the entity state (Etag) version of the certificate specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Certificate
+    get:
+      summary: Microsoft Azure API Management Certificate_Get
+      operationId: Certificate_Get
+      description: Gets the details of the certificate specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Certificate
+    put:
+      summary: Microsoft Azure API Management Certificate_CreateOrUpdate
+      operationId: Certificate_CreateOrUpdate
+      description: Creates or updates the certificate being used for authentication with the backend.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Certificate
+    delete:
+      summary: Microsoft Azure API Management Certificate_Delete
+      operationId: Certificate_Delete
+      description: Deletes specific certificate.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Certificate
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/certificates/{certificateId}/refreshSecret
+  : post:
+      summary: Microsoft Azure API Management Certificate_RefreshSecret
+      operationId: Certificate_RefreshSecret
+      description: From KeyVault, Refresh the certificate being used for authentication with the backend.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Certificate
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation

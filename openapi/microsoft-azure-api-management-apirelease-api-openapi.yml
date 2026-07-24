@@ -1,0 +1,73 @@
+openapi: 3.0.3
+info:
+  title: Azure API Management Gateway AI ApiRelease API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+tags:
+- name: ApiRelease
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/releases
+  : get:
+      summary: Microsoft Azure API Management ApiRelease_ListByService
+      operationId: ApiRelease_ListByService
+      description: Lists all releases of an API. An API release is created when making an API Revision current. Releases are also used to rollback to previous revisions. Results will be paged and can be constrained by the $top and $skip parameters.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiRelease
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/releases/{releaseId}
+  : head:
+      summary: Microsoft Azure API Management ApiRelease_GetEntityTag
+      operationId: ApiRelease_GetEntityTag
+      description: Returns the etag of an API release.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiRelease
+    get:
+      summary: Microsoft Azure API Management ApiRelease_Get
+      operationId: ApiRelease_Get
+      description: Returns the details of an API release.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiRelease
+    put:
+      summary: Microsoft Azure API Management ApiRelease_CreateOrUpdate
+      operationId: ApiRelease_CreateOrUpdate
+      description: Creates a new Release for the API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiRelease
+    patch:
+      summary: Microsoft Azure API Management ApiRelease_Update
+      operationId: ApiRelease_Update
+      description: Updates the details of the release of the API specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiRelease
+    delete:
+      summary: Microsoft Azure API Management ApiRelease_Delete
+      operationId: ApiRelease_Delete
+      description: Deletes the specified release in the API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiRelease
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation

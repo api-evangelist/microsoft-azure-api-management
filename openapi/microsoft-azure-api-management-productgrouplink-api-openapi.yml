@@ -1,0 +1,55 @@
+openapi: 3.0.3
+info:
+  title: Azure API Management Gateway AI ProductGroupLink API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+tags:
+- name: ProductGroupLink
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/groupLinks
+  : get:
+      summary: Microsoft Azure API Management ProductGroupLink_ListByProduct
+      operationId: ProductGroupLink_ListByProduct
+      description: Lists a collection of the group links associated with a product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductGroupLink
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/groupLinks/{groupLinkId}
+  : get:
+      summary: Microsoft Azure API Management ProductGroupLink_Get
+      operationId: ProductGroupLink_Get
+      description: Gets the group link for the product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductGroupLink
+    put:
+      summary: Microsoft Azure API Management ProductGroupLink_CreateOrUpdate
+      operationId: ProductGroupLink_CreateOrUpdate
+      description: Adds a group to the specified product via link.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductGroupLink
+    delete:
+      summary: Microsoft Azure API Management ProductGroupLink_Delete
+      operationId: ProductGroupLink_Delete
+      description: Deletes the specified group from the specified product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductGroupLink
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation

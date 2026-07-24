@@ -1,0 +1,64 @@
+openapi: 3.0.3
+info:
+  title: Azure API Management Gateway AI GatewayHostnameConfiguration API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+tags:
+- name: GatewayHostnameConfiguration
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/hostnameConfigurations
+  : get:
+      summary: Microsoft Azure API Management GatewayHostnameConfiguration_ListByService
+      operationId: GatewayHostnameConfiguration_ListByService
+      description: Lists the collection of hostname configurations for the specified gateway.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GatewayHostnameConfiguration
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}/hostnameConfigurations/{hcId}
+  : head:
+      summary: Microsoft Azure API Management GatewayHostnameConfiguration_GetEntityTag
+      operationId: GatewayHostnameConfiguration_GetEntityTag
+      description: Checks that hostname configuration entity specified by identifier exists for specified Gateway entity.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GatewayHostnameConfiguration
+    get:
+      summary: Microsoft Azure API Management GatewayHostnameConfiguration_Get
+      operationId: GatewayHostnameConfiguration_Get
+      description: Get details of a hostname configuration
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GatewayHostnameConfiguration
+    put:
+      summary: Microsoft Azure API Management GatewayHostnameConfiguration_CreateOrUpdate
+      operationId: GatewayHostnameConfiguration_CreateOrUpdate
+      description: Creates of updates hostname configuration for a Gateway.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GatewayHostnameConfiguration
+    delete:
+      summary: Microsoft Azure API Management GatewayHostnameConfiguration_Delete
+      operationId: GatewayHostnameConfiguration_Delete
+      description: Deletes the specified hostname configuration from the specified Gateway.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - GatewayHostnameConfiguration
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation

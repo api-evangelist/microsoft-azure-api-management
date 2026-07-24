@@ -1,0 +1,46 @@
+openapi: 3.0.3
+info:
+  title: Azure API Management Gateway AI Notification API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+tags:
+- name: Notification
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/notifications
+  : get:
+      summary: Microsoft Azure API Management WorkspaceNotification_ListByService
+      operationId: WorkspaceNotification_ListByService
+      description: Lists a collection of properties defined within a service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Notification
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/notifications/{notificationName}
+  : get:
+      summary: Microsoft Azure API Management WorkspaceNotification_Get
+      operationId: WorkspaceNotification_Get
+      description: Gets the details of the Notification specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Notification
+    put:
+      summary: Microsoft Azure API Management WorkspaceNotification_CreateOrUpdate
+      operationId: WorkspaceNotification_CreateOrUpdate
+      description: Create or Update API Management publisher notification for the workspace.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Notification
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation

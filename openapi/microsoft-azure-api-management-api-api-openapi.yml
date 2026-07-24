@@ -1,0 +1,350 @@
+openapi: 3.0.3
+info:
+  title: Azure Management Gateway AI Api API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+tags:
+- name: Api
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis
+  : get:
+      summary: Microsoft Azure API Management Api_ListByService
+      operationId: Api_ListByService
+      description: Lists all APIs of the API Management service instance.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiCollection'
+              examples:
+                ApiListExample:
+                  summary: List of APIs
+                  value:
+                    value:
+                    - id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api
+                      name: petstore-api
+                      type: Microsoft.ApiManagement/service/apis
+                      properties:
+                        displayName: Petstore API
+                        description: A sample API for managing pets.
+                        serviceUrl: https://petstore.example.com/v1
+                        path: petstore
+                        protocols:
+                        - https
+                        subscriptionRequired: true
+                        apiRevision: '1'
+                    count: 1
+                    nextLink: ''
+              x-microcks-default:
+                value: []
+                count: 0
+                nextLink: ''
+      tags:
+      - Api
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}
+  : head:
+      summary: Microsoft Azure API Management Api_GetEntityTag
+      operationId: Api_GetEntityTag
+      description: Gets the entity state (Etag) version of the API specified by its identifier.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Api
+    get:
+      summary: Microsoft Azure API Management Api_Get
+      operationId: Api_Get
+      description: Gets the details of the API specified by its identifier.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiContract'
+              examples:
+                ApiGetExample:
+                  summary: Get API details
+                  value:
+                    id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api
+                    name: petstore-api
+                    type: Microsoft.ApiManagement/service/apis
+                    properties:
+                      displayName: Petstore API
+                      description: A sample API for managing pets.
+                      serviceUrl: https://petstore.example.com/v1
+                      path: petstore
+                      protocols:
+                      - https
+                      subscriptionRequired: true
+                      apiRevision: '1'
+              x-microcks-default:
+                id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api
+                name: petstore-api
+      tags:
+      - Api
+    put:
+      summary: Microsoft Azure API Management Api_CreateOrUpdate
+      operationId: Api_CreateOrUpdate
+      description: Creates new or updates existing specified API of the API Management service instance.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiCreateOrUpdateParameter'
+            examples:
+              CreateApiExample:
+                summary: Create a new API
+                value:
+                  properties:
+                    displayName: Petstore API
+                    description: A sample API for managing pets.
+                    serviceUrl: https://petstore.example.com/v1
+                    path: petstore
+                    protocols:
+                    - https
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiContract'
+              examples:
+                CreateApiExample:
+                  summary: Created API
+                  value:
+                    id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api
+                    name: petstore-api
+                    type: Microsoft.ApiManagement/service/apis
+                    properties:
+                      displayName: Petstore API
+                      description: A sample API for managing pets.
+                      serviceUrl: https://petstore.example.com/v1
+                      path: petstore
+                      protocols:
+                      - https
+                      subscriptionRequired: true
+                      apiRevision: '1'
+              x-microcks-default:
+                id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api
+                name: petstore-api
+      tags:
+      - Api
+    patch:
+      summary: Microsoft Azure API Management Api_Update
+      operationId: Api_Update
+      description: Updates the specified API of the API Management service instance.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiCreateOrUpdateParameter'
+            examples:
+              UpdateApiExample:
+                summary: Update API description
+                value:
+                  properties:
+                    description: Updated API description for managing pets and inventory.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiContract'
+              examples:
+                UpdateApiExample:
+                  summary: Updated API
+                  value:
+                    id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api
+                    name: petstore-api
+                    type: Microsoft.ApiManagement/service/apis
+                    properties:
+                      displayName: Petstore API
+                      description: Updated API description for managing pets and inventory.
+                      serviceUrl: https://petstore.example.com/v1
+                      path: petstore
+                      protocols:
+                      - https
+                      subscriptionRequired: true
+                      apiRevision: '1'
+              x-microcks-default:
+                id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api
+                name: petstore-api
+      tags:
+      - Api
+    delete:
+      summary: Microsoft Azure API Management Api_Delete
+      operationId: Api_Delete
+      description: Deletes the specified API of the API Management service instance.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Api
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis
+  : get:
+      summary: Microsoft Azure API Management WorkspaceApi_ListByService
+      operationId: WorkspaceApi_ListByService
+      description: Lists all APIs of the workspace in an API Management service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Api
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis/{apiId}
+  : head:
+      summary: Microsoft Azure API Management WorkspaceApi_GetEntityTag
+      operationId: WorkspaceApi_GetEntityTag
+      description: Gets the entity state (Etag) version of the API specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Api
+    get:
+      summary: Microsoft Azure API Management WorkspaceApi_Get
+      operationId: WorkspaceApi_Get
+      description: Gets the details of the API specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Api
+    put:
+      summary: Microsoft Azure API Management WorkspaceApi_CreateOrUpdate
+      operationId: WorkspaceApi_CreateOrUpdate
+      description: Creates new or updates existing specified API of the workspace in an API Management service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Api
+    patch:
+      summary: Microsoft Azure API Management WorkspaceApi_Update
+      operationId: WorkspaceApi_Update
+      description: Updates the specified API of the workspace in an API Management service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Api
+    delete:
+      summary: Microsoft Azure API Management WorkspaceApi_Delete
+      operationId: WorkspaceApi_Delete
+      description: Deletes the specified API of the workspace in an API Management service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Api
+components:
+  schemas:
+    ApiContract:
+      type: object
+      properties:
+        id:
+          type: string
+          example: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api
+        name:
+          type: string
+          example: petstore-api
+        type:
+          type: string
+          example: Microsoft.ApiManagement/service/apis
+        properties:
+          type: object
+          properties:
+            displayName:
+              type: string
+              example: Petstore API
+            description:
+              type: string
+              example: A sample API for managing pets.
+            serviceUrl:
+              type: string
+              example: https://petstore.example.com/v1
+            path:
+              type: string
+              example: petstore
+            protocols:
+              type: array
+              items:
+                type: string
+              example:
+              - https
+            subscriptionRequired:
+              type: boolean
+              example: true
+            apiRevision:
+              type: string
+              example: '1'
+    ApiCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiContract'
+        count:
+          type: integer
+          example: 2
+        nextLink:
+          type: string
+          example: ''
+    ApiCreateOrUpdateParameter:
+      type: object
+      properties:
+        properties:
+          type: object
+          properties:
+            displayName:
+              type: string
+              example: Petstore API
+            description:
+              type: string
+              example: A sample API for managing pets.
+            serviceUrl:
+              type: string
+              example: https://petstore.example.com/v1
+            path:
+              type: string
+              example: petstore
+            protocols:
+              type: array
+              items:
+                type: string
+              example:
+              - https
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation

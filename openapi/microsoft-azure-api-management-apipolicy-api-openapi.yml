@@ -1,0 +1,64 @@
+openapi: 3.0.3
+info:
+  title: Azure API Management Gateway AI ApiPolicy API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+tags:
+- name: ApiPolicy
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/policies
+  : get:
+      summary: Microsoft Azure API Management ApiPolicy_ListByApi
+      operationId: ApiPolicy_ListByApi
+      description: Get the policy configuration at the API level.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiPolicy
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/policies/{policyId}
+  : head:
+      summary: Microsoft Azure API Management ApiPolicy_GetEntityTag
+      operationId: ApiPolicy_GetEntityTag
+      description: Gets the entity state (Etag) version of the API policy specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiPolicy
+    get:
+      summary: Microsoft Azure API Management ApiPolicy_Get
+      operationId: ApiPolicy_Get
+      description: Get the policy configuration at the API level.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiPolicy
+    put:
+      summary: Microsoft Azure API Management ApiPolicy_CreateOrUpdate
+      operationId: ApiPolicy_CreateOrUpdate
+      description: Creates or updates policy configuration for the API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiPolicy
+    delete:
+      summary: Microsoft Azure API Management ApiPolicy_Delete
+      operationId: ApiPolicy_Delete
+      description: Deletes the policy configuration at the Api.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiPolicy
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation

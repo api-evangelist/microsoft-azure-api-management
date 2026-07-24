@@ -1,0 +1,64 @@
+openapi: 3.0.3
+info:
+  title: Azure API Management Gateway AI ApiTag API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+tags:
+- name: ApiTag
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/tags
+  : get:
+      summary: Microsoft Azure API Management Tag_ListByApi
+      operationId: Tag_ListByApi
+      description: Lists all Tags associated with the API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiTag
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/tags/{tagId}
+  : head:
+      summary: Microsoft Azure API Management Tag_GetEntityStateByApi
+      operationId: Tag_GetEntityStateByApi
+      description: Gets the entity state version of the tag specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiTag
+    get:
+      summary: Microsoft Azure API Management Tag_GetByApi
+      operationId: Tag_GetByApi
+      description: Get tag associated with the API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiTag
+    put:
+      summary: Microsoft Azure API Management Tag_AssignToApi
+      operationId: Tag_AssignToApi
+      description: Assign tag to the Api.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiTag
+    delete:
+      summary: Microsoft Azure API Management Tag_DetachFromApi
+      operationId: Tag_DetachFromApi
+      description: Detach the tag from the Api.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiTag
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation

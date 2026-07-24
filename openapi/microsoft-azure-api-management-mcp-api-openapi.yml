@@ -1,0 +1,109 @@
+openapi: 3.0.3
+info:
+  title: Azure API Management Gateway AI MCP API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+tags:
+- name: MCP
+paths:
+  /mcp:
+    post:
+      summary: Microsoft Azure API Management MCP Server Request Via AI Gateway
+      operationId: AIGateway_MCP
+      tags:
+      - MCP
+      description: Routes requests to MCP (Model Context Protocol) servers configured as AI backends.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MCPRequest'
+            examples:
+              MCPToolCallExample:
+                summary: MCP tool invocation
+                value:
+                  jsonrpc: '2.0'
+                  method: tools/call
+                  id: 1
+                  params:
+                    name: get_weather
+                    arguments:
+                      location: Seattle
+      responses:
+        '200':
+          description: MCP response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MCPResponse'
+              examples:
+                MCPToolCallExample:
+                  summary: MCP tool result
+                  value:
+                    jsonrpc: '2.0'
+                    id: 1
+                    result:
+                      content:
+                      - type: text
+                        text: The weather in Seattle is 62F and partly cloudy.
+              x-microcks-default:
+                jsonrpc: '2.0'
+                id: 1
+components:
+  schemas:
+    MCPResponse:
+      type: object
+      properties:
+        jsonrpc:
+          type: string
+          example: '2.0'
+        id:
+          type: integer
+          example: 1
+        result:
+          type: object
+          properties:
+            content:
+              type: array
+              items:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    example: text
+                  text:
+                    type: string
+                    example: The weather in Seattle is 62F and partly cloudy.
+    MCPRequest:
+      type: object
+      properties:
+        jsonrpc:
+          type: string
+          example: '2.0'
+        method:
+          type: string
+          example: tools/call
+        id:
+          type: integer
+          example: 1
+        params:
+          type: object
+          properties:
+            name:
+              type: string
+              example: get_weather
+            arguments:
+              type: object
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation

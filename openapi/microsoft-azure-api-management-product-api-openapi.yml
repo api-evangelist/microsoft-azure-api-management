@@ -1,0 +1,129 @@
+openapi: 3.0.3
+info:
+  title: Azure API Management Gateway AI Product API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+tags:
+- name: Product
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products
+  : get:
+      summary: Microsoft Azure API Management Product_ListByService
+      operationId: Product_ListByService
+      description: Lists a collection of products in the specified service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Product
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}
+  : head:
+      summary: Microsoft Azure API Management Product_GetEntityTag
+      operationId: Product_GetEntityTag
+      description: Gets the entity state (Etag) version of the product specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Product
+    get:
+      summary: Microsoft Azure API Management Product_Get
+      operationId: Product_Get
+      description: Gets the details of the product specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Product
+    put:
+      summary: Microsoft Azure API Management Product_CreateOrUpdate
+      operationId: Product_CreateOrUpdate
+      description: Creates or Updates a product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Product
+    patch:
+      summary: Microsoft Azure API Management Product_Update
+      operationId: Product_Update
+      description: Update existing product details.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Product
+    delete:
+      summary: Microsoft Azure API Management Product_Delete
+      operationId: Product_Delete
+      description: Delete product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Product
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/products
+  : get:
+      summary: Microsoft Azure API Management WorkspaceProduct_ListByService
+      operationId: WorkspaceProduct_ListByService
+      description: Lists a collection of products in the specified workspace in a service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Product
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/products/{productId}
+  : head:
+      summary: Microsoft Azure API Management WorkspaceProduct_GetEntityTag
+      operationId: WorkspaceProduct_GetEntityTag
+      description: Gets the entity state (Etag) version of the product specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Product
+    get:
+      summary: Microsoft Azure API Management WorkspaceProduct_Get
+      operationId: WorkspaceProduct_Get
+      description: Gets the details of the product specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Product
+    put:
+      summary: Microsoft Azure API Management WorkspaceProduct_CreateOrUpdate
+      operationId: WorkspaceProduct_CreateOrUpdate
+      description: Creates or Updates a product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Product
+    patch:
+      summary: Microsoft Azure API Management WorkspaceProduct_Update
+      operationId: WorkspaceProduct_Update
+      description: Update existing product details.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Product
+    delete:
+      summary: Microsoft Azure API Management WorkspaceProduct_Delete
+      operationId: WorkspaceProduct_Delete
+      description: Delete product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Product
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation

@@ -1,0 +1,55 @@
+openapi: 3.0.3
+info:
+  title: Azure API Management Gateway AI TagProductLink API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+tags:
+- name: TagProductLink
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/productLinks
+  : get:
+      summary: Microsoft Azure API Management TagProductLink_ListByProduct
+      operationId: TagProductLink_ListByProduct
+      description: Lists a collection of the product links associated with a tag.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - TagProductLink
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/tags/{tagId}/productLinks/{productLinkId}
+  : get:
+      summary: Microsoft Azure API Management TagProductLink_Get
+      operationId: TagProductLink_Get
+      description: Gets the product link for the tag.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - TagProductLink
+    put:
+      summary: Microsoft Azure API Management TagProductLink_CreateOrUpdate
+      operationId: TagProductLink_CreateOrUpdate
+      description: Adds a product to the specified tag via link.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - TagProductLink
+    delete:
+      summary: Microsoft Azure API Management TagProductLink_Delete
+      operationId: TagProductLink_Delete
+      description: Deletes the specified product from the specified tag.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - TagProductLink
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation

@@ -1,23 +1,15 @@
 openapi: 3.0.3
-x-generated-from: documentation
 info:
-  title: Azure API Management Gateway
-  description: The Azure API Management gateway acts as a reverse proxy between API consumers and backend services. It routes
-    requests, applies policies (authentication, rate limiting, caching, transformation), and emits telemetry. The gateway
-    proxies calls to APIs configured in the management plane.
+  title: Azure API Management AI Gateway API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
   version: '2024-05-01'
   contact:
     name: Microsoft Azure
-    url: https://learn.microsoft.com/en-us/azure/api-management/api-management-key-concepts
-externalDocs:
-  description: Documentation
-  url: https://learn.microsoft.com/en-us/azure/api-management/api-management-key-concepts
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
 servers:
 - url: https://{service-name}.azure-api.net
-  variables:
-    service-name:
-      default: contoso-apim
-      description: The name of the API Management service instance
+tags:
+- name: Gateway
 paths:
   /{api-path}:
     get:
@@ -184,34 +176,62 @@ paths:
                     body: {}
               x-microcks-default:
                 statusCode: 204
-  /status-0123456789abcdef:
-    get:
-      summary: Gateway health check
-      operationId: Gateway_HealthCheck
-      tags:
-      - Health
-      description: Returns gateway health status.
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways
+  : get:
+      summary: Microsoft Azure API Management Gateway_ListByService
+      operationId: Gateway_ListByService
+      description: Lists a collection of gateways registered with service instance.
       responses:
         '200':
-          description: Gateway is healthy
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HealthStatus'
-              examples:
-                HealthyExample:
-                  summary: Healthy gateway
-                  value:
-                    status: Healthy
-                    timestamp: '2024-06-15T12:00:00Z'
-              x-microcks-default:
-                status: Healthy
-tags:
-- name: Gateway
-- name: Health
+          description: Success
+      tags:
+      - Gateway
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}
+  : head:
+      summary: Microsoft Azure API Management Gateway_GetEntityTag
+      operationId: Gateway_GetEntityTag
+      description: Gets the entity state (Etag) version of the Gateway specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Gateway
+    get:
+      summary: Microsoft Azure API Management Gateway_Get
+      operationId: Gateway_Get
+      description: Gets the details of the Gateway specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Gateway
+    put:
+      summary: Microsoft Azure API Management Gateway_CreateOrUpdate
+      operationId: Gateway_CreateOrUpdate
+      description: Creates or updates a Gateway to be used in Api Management instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Gateway
+    patch:
+      summary: Microsoft Azure API Management Gateway_Update
+      operationId: Gateway_Update
+      description: Updates the details of the gateway specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Gateway
+    delete:
+      summary: Microsoft Azure API Management Gateway_Delete
+      operationId: Gateway_Delete
+      description: Deletes specific Gateway.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Gateway
 components:
   schemas:
     GatewayResponse:
@@ -231,13 +251,7 @@ components:
               example: req-001
         body:
           type: object
-    HealthStatus:
-      type: object
-      properties:
-        status:
-          type: string
-          example: Healthy
-        timestamp:
-          type: string
-          format: date-time
-          example: '2024-06-15T12:00:00Z'
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation

@@ -1,0 +1,459 @@
+openapi: 3.0.3
+info:
+  title: Azure API Management Gateway AI ApiManagementService API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+tags:
+- name: ApiManagementService
+paths:
+  /subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/checkNameAvailability:
+    post:
+      summary: Microsoft Azure API Management ApiManagementService_CheckNameAvailability
+      operationId: ApiManagementService_CheckNameAvailability
+      description: Checks availability and correctness of a name for an API Management service.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: contoso-apim
+            examples:
+              CheckNameExample:
+                summary: Check name availability
+                value:
+                  name: contoso-apim
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceNameAvailabilityResult'
+              examples:
+                NameAvailableExample:
+                  summary: Name is available
+                  value:
+                    nameAvailable: true
+                    message: ''
+                    reason: ''
+              x-microcks-default:
+                nameAvailable: true
+                message: ''
+                reason: ''
+      tags:
+      - ApiManagementService
+  /subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/getDomainOwnershipIdentifier:
+    post:
+      summary: Microsoft Azure API Management ApiManagementService_GetDomainOwnershipIdentifier
+      operationId: ApiManagementService_GetDomainOwnershipIdentifier
+      description: Get the custom domain ownership identifier for an API Management service.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainOwnershipIdentifierResult'
+              examples:
+                DomainOwnershipExample:
+                  summary: Domain ownership identifier
+                  value:
+                    domainOwnershipIdentifier: abc123def456ghi789
+              x-microcks-default:
+                domainOwnershipIdentifier: abc123def456ghi789
+      tags:
+      - ApiManagementService
+  /subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/service:
+    get:
+      summary: Microsoft Azure API Management ApiManagementService_List
+      operationId: ApiManagementService_List
+      description: Lists all API Management services within an Azure subscription.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiManagementServiceListResult'
+              examples:
+                ServiceListExample:
+                  summary: List of APIM services
+                  value:
+                    value:
+                    - id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim
+                      name: contoso-apim
+                      type: Microsoft.ApiManagement/service
+                      location: West US 2
+                      sku:
+                        name: Developer
+                        capacity: 1
+                      properties:
+                        publisherEmail: admin@contoso.com
+                        publisherName: Contoso
+                        provisioningState: Succeeded
+                        gatewayUrl: https://contoso-apim.azure-api.net
+                        portalUrl: https://contoso-apim.developer.azure-api.net
+                        managementApiUrl: https://contoso-apim.management.azure-api.net
+                        createdAtUtc: '2024-01-10T08:00:00Z'
+                    count: 1
+                    nextLink: ''
+              x-microcks-default:
+                value: []
+                count: 0
+                nextLink: ''
+      tags:
+      - ApiManagementService
+  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service:
+    get:
+      summary: Microsoft Azure API Management ApiManagementService_ListByResourceGroup
+      operationId: ApiManagementService_ListByResourceGroup
+      description: List all API Management services within a resource group.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiManagementServiceListResult'
+              examples:
+                ServiceListByRgExample:
+                  summary: List of APIM services in resource group
+                  value:
+                    value:
+                    - id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim
+                      name: contoso-apim
+                      type: Microsoft.ApiManagement/service
+                      location: West US 2
+                      sku:
+                        name: Developer
+                        capacity: 1
+                      properties:
+                        publisherEmail: admin@contoso.com
+                        publisherName: Contoso
+                        provisioningState: Succeeded
+                        gatewayUrl: https://contoso-apim.azure-api.net
+                        portalUrl: https://contoso-apim.developer.azure-api.net
+                        managementApiUrl: https://contoso-apim.management.azure-api.net
+                        createdAtUtc: '2024-01-10T08:00:00Z'
+                    count: 1
+                    nextLink: ''
+              x-microcks-default:
+                value: []
+                count: 0
+                nextLink: ''
+      tags:
+      - ApiManagementService
+  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}:
+    put:
+      summary: Microsoft Azure API Management ApiManagementService_CreateOrUpdate
+      operationId: ApiManagementService_CreateOrUpdate
+      description: Creates or updates an API Management service. This is long running operation and could take several minutes to complete.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiManagementServiceResource'
+            examples:
+              CreateServiceExample:
+                summary: Create a Developer tier APIM service
+                value:
+                  location: West US 2
+                  sku:
+                    name: Developer
+                    capacity: 1
+                  properties:
+                    publisherEmail: admin@contoso.com
+                    publisherName: Contoso
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiManagementServiceResource'
+              examples:
+                CreateServiceExample:
+                  summary: Created APIM service
+                  value:
+                    id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim
+                    name: contoso-apim
+                    type: Microsoft.ApiManagement/service
+                    location: West US 2
+                    sku:
+                      name: Developer
+                      capacity: 1
+                    properties:
+                      publisherEmail: admin@contoso.com
+                      publisherName: Contoso
+                      provisioningState: Created
+                      gatewayUrl: https://contoso-apim.azure-api.net
+                      portalUrl: https://contoso-apim.developer.azure-api.net
+                      managementApiUrl: https://contoso-apim.management.azure-api.net
+                      createdAtUtc: '2024-01-10T08:00:00Z'
+              x-microcks-default:
+                id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim
+                name: contoso-apim
+                type: Microsoft.ApiManagement/service
+      tags:
+      - ApiManagementService
+    patch:
+      summary: Microsoft Azure API Management ApiManagementService_Update
+      operationId: ApiManagementService_Update
+      description: Updates an existing API Management service.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiManagementServiceResource'
+            examples:
+              UpdateServiceExample:
+                summary: Update publisher name
+                value:
+                  properties:
+                    publisherName: Contoso Ltd
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiManagementServiceResource'
+              examples:
+                UpdateServiceExample:
+                  summary: Updated APIM service
+                  value:
+                    id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim
+                    name: contoso-apim
+                    type: Microsoft.ApiManagement/service
+                    location: West US 2
+                    sku:
+                      name: Developer
+                      capacity: 1
+                    properties:
+                      publisherEmail: admin@contoso.com
+                      publisherName: Contoso Ltd
+                      provisioningState: Succeeded
+                      gatewayUrl: https://contoso-apim.azure-api.net
+                      portalUrl: https://contoso-apim.developer.azure-api.net
+                      managementApiUrl: https://contoso-apim.management.azure-api.net
+                      createdAtUtc: '2024-01-10T08:00:00Z'
+              x-microcks-default:
+                id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim
+                name: contoso-apim
+      tags:
+      - ApiManagementService
+    get:
+      summary: Microsoft Azure API Management ApiManagementService_Get
+      operationId: ApiManagementService_Get
+      description: Gets an API Management service resource description.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiManagementServiceResource'
+              examples:
+                GetServiceExample:
+                  summary: Get APIM service details
+                  value:
+                    id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim
+                    name: contoso-apim
+                    type: Microsoft.ApiManagement/service
+                    location: West US 2
+                    sku:
+                      name: Developer
+                      capacity: 1
+                    properties:
+                      publisherEmail: admin@contoso.com
+                      publisherName: Contoso
+                      provisioningState: Succeeded
+                      gatewayUrl: https://contoso-apim.azure-api.net
+                      portalUrl: https://contoso-apim.developer.azure-api.net
+                      managementApiUrl: https://contoso-apim.management.azure-api.net
+                      createdAtUtc: '2024-01-10T08:00:00Z'
+              x-microcks-default:
+                id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim
+                name: contoso-apim
+      tags:
+      - ApiManagementService
+    delete:
+      summary: Microsoft Azure API Management ApiManagementService_Delete
+      operationId: ApiManagementService_Delete
+      description: Deletes an existing API Management service.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiManagementService
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/applynetworkconfigurationupdates
+  : post:
+      summary: Microsoft Azure API Management ApiManagementService_ApplyNetworkConfigurationUpdates
+      operationId: ApiManagementService_ApplyNetworkConfigurationUpdates
+      description: Updates the Microsoft.ApiManagement resource running in the Virtual network to pick the updated DNS changes.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiManagementService
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup
+  : post:
+      summary: Microsoft Azure API Management ApiManagementService_Backup
+      operationId: ApiManagementService_Backup
+      description: Creates a backup of the API Management service to the given Azure Storage Account. This is long running operation and could take several minutes to complete.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiManagementService
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/getssotoken
+  : post:
+      summary: Microsoft Azure API Management ApiManagementService_GetSsoToken
+      operationId: ApiManagementService_GetSsoToken
+      description: Gets the Single-Sign-On token for the API Management Service which is valid for 5 Minutes.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiManagementService
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/migrateToStv2
+  : post:
+      summary: Microsoft Azure API Management ApiManagementService_MigrateToStv2
+      operationId: ApiManagementService_MigrateToStv2
+      description: Upgrades an API Management service to the Stv2 platform. For details refer to https://aka.ms/apim-migrate-stv2. This change is not reversible. This is long running operation and could take several minutes to complete.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiManagementService
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore
+  : post:
+      summary: Microsoft Azure API Management ApiManagementService_Restore
+      operationId: ApiManagementService_Restore
+      description: Restores a backup of an API Management service created using the ApiManagementService_Backup operation on the current service. This is a long running operation and could take several minutes to complete.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiManagementService
+components:
+  schemas:
+    ApiManagementServiceListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiManagementServiceResource'
+        count:
+          type: integer
+          example: 1
+        nextLink:
+          type: string
+          example: ''
+    ApiManagementServiceResource:
+      type: object
+      properties:
+        id:
+          type: string
+          example: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim
+        name:
+          type: string
+          example: contoso-apim
+        type:
+          type: string
+          example: Microsoft.ApiManagement/service
+        location:
+          type: string
+          example: West US 2
+        sku:
+          type: object
+          properties:
+            name:
+              type: string
+              example: Developer
+            capacity:
+              type: integer
+              example: 1
+        properties:
+          type: object
+          properties:
+            publisherEmail:
+              type: string
+              example: admin@contoso.com
+            publisherName:
+              type: string
+              example: Contoso
+            provisioningState:
+              type: string
+              example: Succeeded
+            gatewayUrl:
+              type: string
+              example: https://contoso-apim.azure-api.net
+            portalUrl:
+              type: string
+              example: https://contoso-apim.developer.azure-api.net
+            managementApiUrl:
+              type: string
+              example: https://contoso-apim.management.azure-api.net
+            createdAtUtc:
+              type: string
+              format: date-time
+              example: '2024-01-10T08:00:00Z'
+    DomainOwnershipIdentifierResult:
+      type: object
+      properties:
+        domainOwnershipIdentifier:
+          type: string
+          example: abc123def456ghi789
+    ServiceNameAvailabilityResult:
+      type: object
+      properties:
+        nameAvailable:
+          type: boolean
+          example: true
+        message:
+          type: string
+          example: ''
+        reason:
+          type: string
+          example: ''
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation

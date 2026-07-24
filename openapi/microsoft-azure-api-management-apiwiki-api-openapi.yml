@@ -1,0 +1,73 @@
+openapi: 3.0.3
+info:
+  title: Azure API Management Gateway AI ApiWiki API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+tags:
+- name: ApiWiki
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/wikis
+  : get:
+      summary: Microsoft Azure API Management ApiWikis_List
+      operationId: ApiWikis_List
+      description: Gets the wikis for an API specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiWiki
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/wikis/default
+  : head:
+      summary: Microsoft Azure API Management ApiWiki_GetEntityTag
+      operationId: ApiWiki_GetEntityTag
+      description: Gets the entity state (Etag) version of the Wiki for an API specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiWiki
+    get:
+      summary: Microsoft Azure API Management ApiWiki_Get
+      operationId: ApiWiki_Get
+      description: Gets the details of the Wiki for an API specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiWiki
+    put:
+      summary: Microsoft Azure API Management ApiWiki_CreateOrUpdate
+      operationId: ApiWiki_CreateOrUpdate
+      description: Creates a new Wiki for an API or updates an existing one.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiWiki
+    patch:
+      summary: Microsoft Azure API Management ApiWiki_Update
+      operationId: ApiWiki_Update
+      description: Updates the details of the Wiki for an API specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiWiki
+    delete:
+      summary: Microsoft Azure API Management ApiWiki_Delete
+      operationId: ApiWiki_Delete
+      description: Deletes the specified Wiki from an API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiWiki
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation

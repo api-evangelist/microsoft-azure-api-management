@@ -1,0 +1,55 @@
+openapi: 3.0.3
+info:
+  title: Azure API Management Gateway AI ProductApi API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+tags:
+- name: ProductApi
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/apis
+  : get:
+      summary: Microsoft Azure API Management ProductApi_ListByProduct
+      operationId: ProductApi_ListByProduct
+      description: Lists a collection of the APIs associated with a product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductApi
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/apis/{apiId}
+  : head:
+      summary: Microsoft Azure API Management ProductApi_CheckEntityExists
+      operationId: ProductApi_CheckEntityExists
+      description: Checks that API entity specified by identifier is associated with the Product entity.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductApi
+    put:
+      summary: Microsoft Azure API Management ProductApi_CreateOrUpdate
+      operationId: ProductApi_CreateOrUpdate
+      description: Adds an API to the specified product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductApi
+    delete:
+      summary: Microsoft Azure API Management ProductApi_Delete
+      operationId: ProductApi_Delete
+      description: Deletes the specified API from the specified product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ProductApi
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation

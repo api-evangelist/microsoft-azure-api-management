@@ -1,0 +1,64 @@
+openapi: 3.0.3
+info:
+  title: Azure API Management Gateway AI ApiSchema API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+tags:
+- name: ApiSchema
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/schemas
+  : get:
+      summary: Microsoft Azure API Management ApiSchema_ListByApi
+      operationId: ApiSchema_ListByApi
+      description: Get the schema configuration at the API level.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiSchema
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/schemas/{schemaId}
+  : head:
+      summary: Microsoft Azure API Management ApiSchema_GetEntityTag
+      operationId: ApiSchema_GetEntityTag
+      description: Gets the entity state (Etag) version of the schema specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiSchema
+    get:
+      summary: Microsoft Azure API Management ApiSchema_Get
+      operationId: ApiSchema_Get
+      description: Get the schema configuration at the API level.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiSchema
+    put:
+      summary: Microsoft Azure API Management ApiSchema_CreateOrUpdate
+      operationId: ApiSchema_CreateOrUpdate
+      description: Creates or updates schema configuration for the API.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiSchema
+    delete:
+      summary: Microsoft Azure API Management ApiSchema_Delete
+      operationId: ApiSchema_Delete
+      description: Deletes the schema configuration at the Api.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - ApiSchema
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation

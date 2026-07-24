@@ -1,0 +1,146 @@
+openapi: 3.0.3
+info:
+  title: Azure API Management Gateway AI User API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+tags:
+- name: User
+paths:
+  /profile:
+    get:
+      summary: User profile and subscriptions
+      operationId: DevPortal_Profile
+      tags:
+      - User
+      description: Returns the user profile page with subscription and API key management.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: User profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+              examples:
+                UserProfileExample:
+                  summary: User profile
+                  value:
+                    id: user-001
+                    firstName: Jane
+                    lastName: Developer
+                    email: jane.developer@contoso.com
+                    registrationDate: '2024-01-15T10:30:00Z'
+                    subscriptions:
+                    - id: sub-abc123
+                      productName: Starter
+                      state: active
+                      primaryKey: '********************************'
+              x-microcks-default:
+                id: user-001
+                firstName: Jane
+                lastName: Developer
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users
+  : get:
+      summary: Microsoft Azure API Management User_ListByService
+      operationId: User_ListByService
+      description: Lists a collection of registered users in the specified service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - User
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}
+  : head:
+      summary: Microsoft Azure API Management User_GetEntityTag
+      operationId: User_GetEntityTag
+      description: Gets the entity state (Etag) version of the user specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - User
+    get:
+      summary: Microsoft Azure API Management User_Get
+      operationId: User_Get
+      description: Gets the details of the user specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - User
+    put:
+      summary: Microsoft Azure API Management User_CreateOrUpdate
+      operationId: User_CreateOrUpdate
+      description: Creates or Updates a user.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - User
+    patch:
+      summary: Microsoft Azure API Management User_Update
+      operationId: User_Update
+      description: Updates the details of the user specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - User
+    delete:
+      summary: Microsoft Azure API Management User_Delete
+      operationId: User_Delete
+      description: Deletes specific user.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - User
+components:
+  schemas:
+    UserProfile:
+      type: object
+      properties:
+        id:
+          type: string
+          example: user-001
+        firstName:
+          type: string
+          example: Jane
+        lastName:
+          type: string
+          example: Developer
+        email:
+          type: string
+          example: jane.developer@contoso.com
+        registrationDate:
+          type: string
+          format: date-time
+          example: '2024-01-15T10:30:00Z'
+        subscriptions:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: sub-abc123
+              productName:
+                type: string
+                example: Starter
+              state:
+                type: string
+                example: active
+              primaryKey:
+                type: string
+                example: '********************************'
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation

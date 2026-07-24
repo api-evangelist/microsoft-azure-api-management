@@ -1,0 +1,81 @@
+openapi: 3.0.3
+info:
+  title: Azure API Management Gateway AI ApiManagementOperations API
+  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+servers:
+- url: https://{service-name}.azure-api.net
+tags:
+- name: ApiManagementOperations
+paths:
+  /providers/Microsoft.ApiManagement/operations:
+    get:
+      summary: Microsoft Azure API Management ApiManagementOperations_List
+      operationId: ApiManagementOperations_List
+      description: Lists all of the available REST API operations of the Microsoft.ApiManagement provider.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationListResult'
+              examples:
+                OperationListExample:
+                  summary: List of available operations
+                  value:
+                    value:
+                    - name: Microsoft.ApiManagement/service/read
+                      display:
+                        provider: Microsoft API Management
+                        resource: Service
+                        operation: Read API Management Service
+                    - name: Microsoft.ApiManagement/service/write
+                      display:
+                        provider: Microsoft API Management
+                        resource: Service
+                        operation: Create or Update API Management Service
+                    nextLink: ''
+              x-microcks-default:
+                value: []
+                nextLink: ''
+      tags:
+      - ApiManagementOperations
+components:
+  schemas:
+    OperationListResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                example: Microsoft.ApiManagement/service/read
+              display:
+                type: object
+                properties:
+                  provider:
+                    type: string
+                    example: Microsoft API Management
+                  resource:
+                    type: string
+                    example: Service
+                  operation:
+                    type: string
+                    example: Read API Management Service
+        nextLink:
+          type: string
+          example: ''
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-generated-from: documentation
