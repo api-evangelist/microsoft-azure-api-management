@@ -1,0 +1,373 @@
+openapi: 3.0.3
+x-generated-from: documentation
+info:
+  title: Azure API Management Developer Portal
+  description: The developer portal is a customizable website for API consumers to discover APIs, read documentation, test
+    APIs via an interactive console, create accounts, subscribe to products, and manage API keys.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize
+servers:
+- url: https://{service-name}.developer.azure-api.net
+paths:
+  /:
+    get:
+      summary: Developer portal home page
+      operationId: DevPortal_Home
+      tags:
+      - Portal
+      description: Returns the developer portal home page.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Portal HTML
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PortalPage'
+              examples:
+                HomePage:
+                  summary: Developer portal home
+                  value:
+                    title: Contoso API Developer Portal
+                    description: Welcome to the Contoso API Developer Portal. Browse our APIs and get started.
+                    links:
+                    - rel: apis
+                      href: /apis
+                    - rel: products
+                      href: /products
+              x-microcks-default:
+                title: Contoso API Developer Portal
+  /apis:
+    get:
+      summary: List available APIs
+      operationId: DevPortal_ListApis
+      tags:
+      - APIs
+      description: Returns the list of published APIs available on the developer portal.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: List of APIs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiList'
+              examples:
+                ApiListExample:
+                  summary: List of available APIs
+                  value:
+                    count: 2
+                    value:
+                    - id: petstore-api
+                      name: Petstore API
+                      description: Manage pet inventory and orders.
+                      serviceUrl: https://petstore.example.com
+                    - id: weather-api
+                      name: Weather API
+                      description: Retrieve weather forecasts and current conditions.
+                      serviceUrl: https://weather.example.com
+              x-microcks-default:
+                count: 2
+  /apis/{api-id}:
+    get:
+      summary: Get API details
+      operationId: DevPortal_GetApi
+      tags:
+      - APIs
+      description: Returns details and documentation for a specific API.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: api-id
+        in: path
+        required: true
+        schema:
+          type: string
+        example: petstore-api
+      responses:
+        '200':
+          description: API details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDetail'
+              examples:
+                ApiDetailExample:
+                  summary: API detail response
+                  value:
+                    id: petstore-api
+                    name: Petstore API
+                    description: Manage pet inventory and orders.
+                    serviceUrl: https://petstore.example.com
+                    protocols:
+                    - https
+                    subscriptionRequired: true
+              x-microcks-default:
+                id: petstore-api
+                name: Petstore API
+  /products:
+    get:
+      summary: List available products
+      operationId: DevPortal_ListProducts
+      tags:
+      - Products
+      description: Returns the list of API products available for subscription.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: List of products
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductList'
+              examples:
+                ProductListExample:
+                  summary: List of products
+                  value:
+                    count: 1
+                    value:
+                    - id: starter-product
+                      name: Starter
+                      description: Free tier with rate-limited access to all APIs.
+                      subscriptionRequired: true
+                      approvalRequired: false
+              x-microcks-default:
+                count: 1
+  /signin:
+    get:
+      summary: Sign in page
+      operationId: DevPortal_SignIn
+      tags:
+      - Authentication
+      description: Returns the sign in page for developer authentication.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Sign in page
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PortalPage'
+              examples:
+                SignInPage:
+                  summary: Sign in page
+                  value:
+                    title: Sign In
+                    description: Sign in with your developer account.
+              x-microcks-default:
+                title: Sign In
+  /signup:
+    get:
+      summary: Sign up page
+      operationId: DevPortal_SignUp
+      tags:
+      - Authentication
+      description: Returns the sign up page for new developer account registration.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Sign up page
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PortalPage'
+              examples:
+                SignUpPage:
+                  summary: Sign up page
+                  value:
+                    title: Sign Up
+                    description: Create a new developer account.
+              x-microcks-default:
+                title: Sign Up
+  /profile:
+    get:
+      summary: User profile and subscriptions
+      operationId: DevPortal_Profile
+      tags:
+      - User
+      description: Returns the user profile page with subscription and API key management.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: User profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+              examples:
+                UserProfileExample:
+                  summary: User profile
+                  value:
+                    id: user-001
+                    firstName: Jane
+                    lastName: Developer
+                    email: jane.developer@contoso.com
+                    registrationDate: '2024-01-15T10:30:00Z'
+                    subscriptions:
+                    - id: sub-abc123
+                      productName: Starter
+                      state: active
+                      primaryKey: '********************************'
+              x-microcks-default:
+                id: user-001
+                firstName: Jane
+                lastName: Developer
+tags:
+- name: Portal
+- name: APIs
+- name: Products
+- name: Authentication
+- name: User
+components:
+  schemas:
+    PortalPage:
+      type: object
+      properties:
+        title:
+          type: string
+          example: Contoso API Developer Portal
+        description:
+          type: string
+          example: Welcome to the developer portal.
+        links:
+          type: array
+          items:
+            type: object
+            properties:
+              rel:
+                type: string
+                example: apis
+              href:
+                type: string
+                example: /apis
+    ApiList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 2
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiSummary'
+    ApiSummary:
+      type: object
+      properties:
+        id:
+          type: string
+          example: petstore-api
+        name:
+          type: string
+          example: Petstore API
+        description:
+          type: string
+          example: Manage pet inventory and orders.
+        serviceUrl:
+          type: string
+          example: https://petstore.example.com
+    ApiDetail:
+      type: object
+      properties:
+        id:
+          type: string
+          example: petstore-api
+        name:
+          type: string
+          example: Petstore API
+        description:
+          type: string
+          example: Manage pet inventory and orders.
+        serviceUrl:
+          type: string
+          example: https://petstore.example.com
+        protocols:
+          type: array
+          items:
+            type: string
+          example:
+          - https
+        subscriptionRequired:
+          type: boolean
+          example: true
+    ProductList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 1
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductSummary'
+    ProductSummary:
+      type: object
+      properties:
+        id:
+          type: string
+          example: starter-product
+        name:
+          type: string
+          example: Starter
+        description:
+          type: string
+          example: Free tier with rate-limited access to all APIs.
+        subscriptionRequired:
+          type: boolean
+          example: true
+        approvalRequired:
+          type: boolean
+          example: false
+    UserProfile:
+      type: object
+      properties:
+        id:
+          type: string
+          example: user-001
+        firstName:
+          type: string
+          example: Jane
+        lastName:
+          type: string
+          example: Developer
+        email:
+          type: string
+          example: jane.developer@contoso.com
+        registrationDate:
+          type: string
+          format: date-time
+          example: '2024-01-15T10:30:00Z'
+        subscriptions:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: sub-abc123
+              productName:
+                type: string
+                example: Starter
+              state:
+                type: string
+                example: active
+              primaryKey:
+                type: string
+                example: '********************************'

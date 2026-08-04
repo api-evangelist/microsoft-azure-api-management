@@ -1,0 +1,211 @@
+openapi: 3.0.3
+x-generated-from: documentation
+info:
+  title: Azure API Management Self-Hosted Gateway
+  description: The self-hosted gateway is a containerized version of the Azure API Management gateway that can be deployed
+    on-premises, in other clouds, or on Kubernetes. It connects to a cloud-based API Management instance for configuration
+    and reports telemetry back.
+  version: 2.6.0
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/self-hosted-gateway-overview
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/self-hosted-gateway-overview
+servers:
+- url: https://{gateway-hostname}
+  variables:
+    gateway-hostname:
+      default: apim-gateway.contoso.com
+      description: The hostname of the self-hosted gateway instance
+paths:
+  /{api-path}:
+    get:
+      summary: Proxy GET request through self-hosted gateway
+      operationId: SelfHostedGateway_ProxyGet
+      tags:
+      - Gateway
+      description: Routes GET request through the self-hosted gateway.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: api-path
+        in: path
+        required: true
+        schema:
+          type: string
+        example: inventory/v1/items
+      responses:
+        '200':
+          description: Response from backend API
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayResponse'
+              examples:
+                ProxyGetExample:
+                  summary: Proxied GET response
+                  value:
+                    statusCode: 200
+                    headers:
+                      x-apim-request-id: f1e2d3c4-b5a6-7890-fedc-ba0987654321
+                    body:
+                      message: Response from on-premises backend
+              x-microcks-default:
+                statusCode: 200
+    post:
+      summary: Proxy POST request through self-hosted gateway
+      operationId: SelfHostedGateway_ProxyPost
+      tags:
+      - Gateway
+      description: Routes POST request through the self-hosted gateway.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: api-path
+        in: path
+        required: true
+        schema:
+          type: string
+        example: inventory/v1/items
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              ProxyPostExample:
+                summary: Proxied POST request body
+                value:
+                  sku: ITEM-456
+                  name: Widget Pro
+                  quantity: 100
+      responses:
+        '200':
+          description: Response from backend API
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayResponse'
+              examples:
+                ProxyPostExample:
+                  summary: Proxied POST response
+                  value:
+                    statusCode: 201
+                    headers:
+                      x-apim-request-id: a9b8c7d6-e5f4-3210-abcd-ef9876543210
+                    body:
+                      id: item-789
+                      sku: ITEM-456
+                      name: Widget Pro
+              x-microcks-default:
+                statusCode: 201
+  /status-0123456789abcdef:
+    get:
+      summary: Self-hosted gateway health check
+      operationId: SelfHostedGateway_HealthCheck
+      tags:
+      - Health
+      description: Returns the health status of the self-hosted gateway container.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Gateway is healthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthStatus'
+              examples:
+                HealthyExample:
+                  summary: Healthy self-hosted gateway
+                  value:
+                    status: Healthy
+                    timestamp: '2024-06-15T12:00:00Z'
+              x-microcks-default:
+                status: Healthy
+  /internal/status:
+    get:
+      summary: Internal status endpoint
+      operationId: SelfHostedGateway_InternalStatus
+      tags:
+      - Health
+      description: Returns detailed internal status of the self-hosted gateway container.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Internal status details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalStatus'
+              examples:
+                InternalStatusExample:
+                  summary: Internal status details
+                  value:
+                    status: Running
+                    version: 2.6.0
+                    configurationStatus: Synced
+                    lastConfigurationUpdate: '2024-06-15T11:55:00Z'
+                    connectedToManagementPlane: true
+                    uptimeSeconds: 86400
+              x-microcks-default:
+                status: Running
+                version: 2.6.0
+                configurationStatus: Synced
+tags:
+- name: Gateway
+- name: Health
+components:
+  schemas:
+    GatewayResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          example: 200
+        headers:
+          type: object
+          properties:
+            x-apim-request-id:
+              type: string
+              example: f1e2d3c4-b5a6-7890-fedc-ba0987654321
+        body:
+          type: object
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+          example: Healthy
+        timestamp:
+          type: string
+          format: date-time
+          example: '2024-06-15T12:00:00Z'
+    InternalStatus:
+      type: object
+      properties:
+        status:
+          type: string
+          example: Running
+        version:
+          type: string
+          example: 2.6.0
+        configurationStatus:
+          type: string
+          example: Synced
+        lastConfigurationUpdate:
+          type: string
+          format: date-time
+          example: '2024-06-15T11:55:00Z'
+        connectedToManagementPlane:
+          type: boolean
+          example: true
+        uptimeSeconds:
+          type: integer
+          example: 86400

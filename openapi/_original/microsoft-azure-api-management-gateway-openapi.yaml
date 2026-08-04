@@ -1,0 +1,243 @@
+openapi: 3.0.3
+x-generated-from: documentation
+info:
+  title: Azure API Management Gateway
+  description: The Azure API Management gateway acts as a reverse proxy between API consumers and backend services. It routes
+    requests, applies policies (authentication, rate limiting, caching, transformation), and emits telemetry. The gateway
+    proxies calls to APIs configured in the management plane.
+  version: '2024-05-01'
+  contact:
+    name: Microsoft Azure
+    url: https://learn.microsoft.com/en-us/azure/api-management/api-management-key-concepts
+externalDocs:
+  description: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/api-management-key-concepts
+servers:
+- url: https://{service-name}.azure-api.net
+  variables:
+    service-name:
+      default: contoso-apim
+      description: The name of the API Management service instance
+paths:
+  /{api-path}:
+    get:
+      summary: Proxy GET request to backend API
+      operationId: Gateway_ProxyGet
+      tags:
+      - Gateway
+      description: Routes GET request through the gateway, applying configured policies.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: api-path
+        in: path
+        required: true
+        schema:
+          type: string
+        example: petstore/v1/pets
+      responses:
+        '200':
+          description: Response from backend API
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayResponse'
+              examples:
+                ProxyGetExample:
+                  summary: Proxied GET response
+                  value:
+                    statusCode: 200
+                    headers:
+                      x-apim-request-id: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+                      x-ms-request-id: req-001
+                    body:
+                      message: Response from backend service
+              x-microcks-default:
+                statusCode: 200
+                headers:
+                  x-apim-request-id: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+    post:
+      summary: Proxy POST request to backend API
+      operationId: Gateway_ProxyPost
+      tags:
+      - Gateway
+      description: Routes POST request through the gateway, applying configured policies.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: api-path
+        in: path
+        required: true
+        schema:
+          type: string
+        example: petstore/v1/pets
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              ProxyPostExample:
+                summary: Proxied POST request body
+                value:
+                  name: Fluffy
+                  species: cat
+      responses:
+        '200':
+          description: Response from backend API
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayResponse'
+              examples:
+                ProxyPostExample:
+                  summary: Proxied POST response
+                  value:
+                    statusCode: 201
+                    headers:
+                      x-apim-request-id: b2c3d4e5-f6a7-8901-bcde-f12345678901
+                    body:
+                      id: pet-123
+                      name: Fluffy
+                      species: cat
+              x-microcks-default:
+                statusCode: 201
+    put:
+      summary: Proxy PUT request to backend API
+      operationId: Gateway_ProxyPut
+      tags:
+      - Gateway
+      description: Routes PUT request through the gateway, applying configured policies.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: api-path
+        in: path
+        required: true
+        schema:
+          type: string
+        example: petstore/v1/pets/pet-123
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+            examples:
+              ProxyPutExample:
+                summary: Proxied PUT request body
+                value:
+                  name: Fluffy Updated
+                  species: cat
+      responses:
+        '200':
+          description: Response from backend API
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayResponse'
+              examples:
+                ProxyPutExample:
+                  summary: Proxied PUT response
+                  value:
+                    statusCode: 200
+                    headers:
+                      x-apim-request-id: c3d4e5f6-a7b8-9012-cdef-123456789012
+                    body:
+                      id: pet-123
+                      name: Fluffy Updated
+                      species: cat
+              x-microcks-default:
+                statusCode: 200
+    delete:
+      summary: Proxy DELETE request to backend API
+      operationId: Gateway_ProxyDelete
+      tags:
+      - Gateway
+      description: Routes DELETE request through the gateway, applying configured policies.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      parameters:
+      - name: api-path
+        in: path
+        required: true
+        schema:
+          type: string
+        example: petstore/v1/pets/pet-123
+      responses:
+        '200':
+          description: Response from backend API
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayResponse'
+              examples:
+                ProxyDeleteExample:
+                  summary: Proxied DELETE response
+                  value:
+                    statusCode: 204
+                    headers:
+                      x-apim-request-id: d4e5f6a7-b8c9-0123-defa-234567890123
+                    body: {}
+              x-microcks-default:
+                statusCode: 204
+  /status-0123456789abcdef:
+    get:
+      summary: Gateway health check
+      operationId: Gateway_HealthCheck
+      tags:
+      - Health
+      description: Returns gateway health status.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: Gateway is healthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthStatus'
+              examples:
+                HealthyExample:
+                  summary: Healthy gateway
+                  value:
+                    status: Healthy
+                    timestamp: '2024-06-15T12:00:00Z'
+              x-microcks-default:
+                status: Healthy
+tags:
+- name: Gateway
+- name: Health
+components:
+  schemas:
+    GatewayResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          example: 200
+        headers:
+          type: object
+          properties:
+            x-apim-request-id:
+              type: string
+              example: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+            x-ms-request-id:
+              type: string
+              example: req-001
+        body:
+          type: object
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+          example: Healthy
+        timestamp:
+          type: string
+          format: date-time
+          example: '2024-06-15T12:00:00Z'
