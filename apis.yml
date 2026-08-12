@@ -8,6 +8,19 @@ description: Microsoft Azure API Management is a hybrid, multicloud management p
   APIs - with token rate limiting, semantic caching, content safety, backend load balancing, circuit breakers, and token
   emission to Application Insights. It pairs with Azure API Center for design-time inventory, governance, and discovery.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: true
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - pricing
+  - repository-unlicensed
+  generated: '2026-08-11'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -9567,6 +9580,16 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 common:
+  - type: IssueTracker
+    url: https://github.com/Azure/api-management-self-hosted-gateway/issues
+  - type: Releases
+    url: https://github.com/Azure/api-management-self-hosted-gateway/releases
+  - type: SecurityPolicy
+    url: https://github.com/Azure/api-management-self-hosted-gateway/blob/main/SECURITY.md
+  - type: CodeOfConduct
+    url: https://github.com/Azure/api-management-self-hosted-gateway/blob/main/CODE_OF_CONDUCT.md
+  - type: ContributionGuide
+    url: https://github.com/Azure/api-management-self-hosted-gateway/blob/main/CONTRIBUTING.md
   - type: AgenticAccess
     url: agentic-access/microsoft-azure-api-management-agentic-access.yml
   - type: VulnerabilityDisclosure
