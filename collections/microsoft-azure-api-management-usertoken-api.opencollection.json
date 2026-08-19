@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI UserToken API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "UserToken",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management User_GetSharedAccessToken",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/users/:userId/token"
+          },
+          "docs": "Gets the Shared Access Authorization Token for the User."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

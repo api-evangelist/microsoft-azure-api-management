@@ -1,0 +1,350 @@
+{
+  "item": [
+    {
+      "id": "67c543d6-f87b-4ef7-a315-cd47fde4ad04",
+      "name": "ProductApiLink",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f6376b8c-de6a-408a-901d-973e0b561e1c",
+          "name": "Microsoft Azure API Management ProductApiLink_ListByProduct",
+          "request": {
+            "name": "Microsoft Azure API Management ProductApiLink_ListByProduct",
+            "description": {
+              "content": "Lists a collection of the API links associated with a product.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.ApiManagement",
+                "service",
+                ":serviceName",
+                "products",
+                ":productId",
+                "apiLinks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b51ea7f1-196c-4d1e-860a-7033feb01076",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.ApiManagement",
+                    "service",
+                    ":serviceName",
+                    "products",
+                    ":productId",
+                    "apiLinks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "157696c3-d3ca-40e8-bc67-0af2e0c16e63",
+          "name": "Microsoft Azure API Management ProductApiLink_Get",
+          "request": {
+            "name": "Microsoft Azure API Management ProductApiLink_Get",
+            "description": {
+              "content": "Gets the API link for the product.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.ApiManagement",
+                "service",
+                ":serviceName",
+                "products",
+                ":productId",
+                "apiLinks",
+                ":apiLinkId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4f3d196f-743a-4514-835f-84c70a32a917",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.ApiManagement",
+                    "service",
+                    ":serviceName",
+                    "products",
+                    ":productId",
+                    "apiLinks",
+                    ":apiLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a1a1f96c-4722-4a8c-aacf-dc31b9cae187",
+          "name": "Microsoft Azure API Management ProductApiLink_CreateOrUpdate",
+          "request": {
+            "name": "Microsoft Azure API Management ProductApiLink_CreateOrUpdate",
+            "description": {
+              "content": "Adds an API to the specified product via link.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.ApiManagement",
+                "service",
+                ":serviceName",
+                "products",
+                ":productId",
+                "apiLinks",
+                ":apiLinkId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "22d58f07-6110-4c06-82fc-c1bd8e3ae41c",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.ApiManagement",
+                    "service",
+                    ":serviceName",
+                    "products",
+                    ":productId",
+                    "apiLinks",
+                    ":apiLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a406f937-83fa-40a5-a307-ac5e7408e65e",
+          "name": "Microsoft Azure API Management ProductApiLink_Delete",
+          "request": {
+            "name": "Microsoft Azure API Management ProductApiLink_Delete",
+            "description": {
+              "content": "Deletes the specified API from the specified product.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.ApiManagement",
+                "service",
+                ":serviceName",
+                "products",
+                ":productId",
+                "apiLinks",
+                ":apiLinkId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "617dae8f-3400-4bfb-b06e-1fcd48b0a375",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.ApiManagement",
+                    "service",
+                    ":serviceName",
+                    "products",
+                    ":productId",
+                    "apiLinks",
+                    ":apiLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://{{service-name}}.azure-api.net",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "38576d7d-02a0-4cfd-9a62-10b89b4fa9e9",
+    "name": "Azure API Management Gateway AI ProductApiLink API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.\n\nContact Support:\n Name: Microsoft Azure",
+      "type": "text/plain"
+    }
+  }
+}

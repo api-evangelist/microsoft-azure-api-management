@@ -1,0 +1,110 @@
+{
+  "item": [
+    {
+      "id": "48cac1eb-9119-480b-84d9-88ab43b1babd",
+      "name": "Users",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "302c0e86-524e-4753-bfba-42804c14a383",
+          "name": "Microsoft Azure API Management User_GenerateSsoUrl",
+          "request": {
+            "name": "Microsoft Azure API Management User_GenerateSsoUrl",
+            "description": {
+              "content": "Retrieves a redirection URL containing an authentication token for signing a given user into the developer portal.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.ApiManagement",
+                "service",
+                ":serviceName",
+                "users",
+                ":userId",
+                "generateSsoUrl"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "730d3251-0dfb-4b26-a49a-534d739c04bc",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.ApiManagement",
+                    "service",
+                    ":serviceName",
+                    "users",
+                    ":userId",
+                    "generateSsoUrl"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://{{service-name}}.azure-api.net",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "27d99de2-44a3-4ca1-a237-932919e77ab6",
+    "name": "Azure API Management Gateway AI Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.\n\nContact Support:\n Name: Microsoft Azure",
+      "type": "text/plain"
+    }
+  }
+}

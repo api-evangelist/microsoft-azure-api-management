@@ -1,0 +1,174 @@
+{
+  "item": [
+    {
+      "id": "8e0cfdf9-ddd9-4ba8-b907-ad09b0482a0c",
+      "name": "Health",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6ce180ea-bdce-4ccf-9c93-695252e26fb4",
+          "name": "Gateway health check",
+          "request": {
+            "name": "Gateway health check",
+            "description": {
+              "content": "Returns gateway health status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "status-0123456789abcdef"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eaa00d50-7b2e-4705-982a-364d2358cf26",
+              "name": "Gateway is healthy",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "status-0123456789abcdef"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"Healthy\",\n  \"timestamp\": \"2024-06-15T12:00:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb1bba04-2bb7-41fa-960c-131905863d2d",
+          "name": "Internal status endpoint",
+          "request": {
+            "name": "Internal status endpoint",
+            "description": {
+              "content": "Returns detailed internal status of the self-hosted gateway container.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "internal",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4fcaac24-f392-4249-9785-2b97ddf3309f",
+              "name": "Internal status details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "internal",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"Running\",\n  \"version\": \"2.6.0\",\n  \"configurationStatus\": \"Synced\",\n  \"lastConfigurationUpdate\": \"2024-06-15T11:55:00Z\",\n  \"connectedToManagementPlane\": true,\n  \"uptimeSeconds\": 86400\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://{{service-name}}.azure-api.net",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f10b3049-db1d-4412-b0a2-f1d3d1e75d34",
+    "name": "Azure API Management Gateway AI Health API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.\n\nContact Support:\n Name: Microsoft Azure",
+      "type": "text/plain"
+    }
+  }
+}

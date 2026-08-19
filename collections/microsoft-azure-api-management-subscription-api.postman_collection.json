@@ -1,0 +1,1278 @@
+{
+  "item": [
+    {
+      "id": "bbf99549-b6b4-4e44-9832-3617ca696eee",
+      "name": "Subscription",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a7279d50-d3af-4e38-b23a-b7763baaadc3",
+          "name": "Microsoft Azure API Management Subscription_List",
+          "request": {
+            "name": "Microsoft Azure API Management Subscription_List",
+            "description": {
+              "content": "Lists all subscriptions of the API Management service instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.ApiManagement",
+                "service",
+                ":serviceName",
+                "subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7eafc954-97e6-4f31-ae77-4bc9157a6d44",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.ApiManagement",
+                    "service",
+                    ":serviceName",
+                    "subscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "45b28d29-01b7-4e74-bf31-01b6639aace3",
+          "name": "Microsoft Azure API Management Subscription_GetEntityTag",
+          "request": {
+            "name": "Microsoft Azure API Management Subscription_GetEntityTag",
+            "description": {
+              "content": "Gets the entity state (Etag) version of the apimanagement subscription specified by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.ApiManagement",
+                "service",
+                ":serviceName",
+                "subscriptions",
+                ":sid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "HEAD",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "445502dd-7385-40fa-844c-2ed4c737c4fe",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.ApiManagement",
+                    "service",
+                    ":serviceName",
+                    "subscriptions",
+                    ":sid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "HEAD",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f1cd84c3-9b3c-4f8e-9853-61de45fe6927",
+          "name": "Microsoft Azure API Management Subscription_Get",
+          "request": {
+            "name": "Microsoft Azure API Management Subscription_Get",
+            "description": {
+              "content": "Gets the specified Subscription entity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.ApiManagement",
+                "service",
+                ":serviceName",
+                "subscriptions",
+                ":sid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7ad6c670-21a9-48e6-80b1-0dc94c72da3d",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.ApiManagement",
+                    "service",
+                    ":serviceName",
+                    "subscriptions",
+                    ":sid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9337fe3c-dabd-4532-97ac-08b100636875",
+          "name": "Microsoft Azure API Management Subscription_CreateOrUpdate",
+          "request": {
+            "name": "Microsoft Azure API Management Subscription_CreateOrUpdate",
+            "description": {
+              "content": "Creates or updates the subscription of specified user to the specified product.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.ApiManagement",
+                "service",
+                ":serviceName",
+                "subscriptions",
+                ":sid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "78001b94-acc6-47b8-94db-0cbffbf9a7fa",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.ApiManagement",
+                    "service",
+                    ":serviceName",
+                    "subscriptions",
+                    ":sid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "02b9070e-7b65-4c1f-b5fc-e7f612a0e29e",
+          "name": "Microsoft Azure API Management Subscription_Update",
+          "request": {
+            "name": "Microsoft Azure API Management Subscription_Update",
+            "description": {
+              "content": "Updates the details of a subscription specified by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.ApiManagement",
+                "service",
+                ":serviceName",
+                "subscriptions",
+                ":sid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bb5727b8-4bb4-4a6d-bc03-6e3b98007592",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.ApiManagement",
+                    "service",
+                    ":serviceName",
+                    "subscriptions",
+                    ":sid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4d0aad4a-5f1b-4cda-ab87-0ecc6e91f23f",
+          "name": "Microsoft Azure API Management Subscription_Delete",
+          "request": {
+            "name": "Microsoft Azure API Management Subscription_Delete",
+            "description": {
+              "content": "Deletes the specified subscription.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.ApiManagement",
+                "service",
+                ":serviceName",
+                "subscriptions",
+                ":sid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2c6d05ad-1517-4f30-94fc-054c575a809b",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.ApiManagement",
+                    "service",
+                    ":serviceName",
+                    "subscriptions",
+                    ":sid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "314c0347-7dab-4947-8ed5-81ff148fcb17",
+          "name": "Microsoft Azure API Management Subscription_ListSecrets",
+          "request": {
+            "name": "Microsoft Azure API Management Subscription_ListSecrets",
+            "description": {
+              "content": "Gets the specified Subscription keys.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.ApiManagement",
+                "service",
+                ":serviceName",
+                "subscriptions",
+                ":sid",
+                "listSecrets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7759b1f2-0615-4c64-9da5-db44fde4cf8b",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.ApiManagement",
+                    "service",
+                    ":serviceName",
+                    "subscriptions",
+                    ":sid",
+                    "listSecrets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2c3b4b77-16dc-4be6-8656-d178ca61542f",
+          "name": "Microsoft Azure API Management Subscription_RegeneratePrimaryKey",
+          "request": {
+            "name": "Microsoft Azure API Management Subscription_RegeneratePrimaryKey",
+            "description": {
+              "content": "Regenerates primary key of existing subscription of the API Management service instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.ApiManagement",
+                "service",
+                ":serviceName",
+                "subscriptions",
+                ":sid",
+                "regeneratePrimaryKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7a2b86d2-40b6-48ef-88a5-234e4745d3ec",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.ApiManagement",
+                    "service",
+                    ":serviceName",
+                    "subscriptions",
+                    ":sid",
+                    "regeneratePrimaryKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c654b2b-84f3-4888-8b17-a546eb9f68d1",
+          "name": "Microsoft Azure API Management Subscription_RegenerateSecondaryKey",
+          "request": {
+            "name": "Microsoft Azure API Management Subscription_RegenerateSecondaryKey",
+            "description": {
+              "content": "Regenerates secondary key of existing subscription of the API Management service instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.ApiManagement",
+                "service",
+                ":serviceName",
+                "subscriptions",
+                ":sid",
+                "regenerateSecondaryKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1884e6d2-26fd-4fb5-870a-159b3c04c2fd",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.ApiManagement",
+                    "service",
+                    ":serviceName",
+                    "subscriptions",
+                    ":sid",
+                    "regenerateSecondaryKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cea5ea95-b62c-46ce-8a92-8ed4f594bd8c",
+          "name": "Microsoft Azure API Management UserSubscription_Get",
+          "request": {
+            "name": "Microsoft Azure API Management UserSubscription_Get",
+            "description": {
+              "content": "Gets the specified Subscription entity associated with a particular user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.ApiManagement",
+                "service",
+                ":serviceName",
+                "users",
+                ":userId",
+                "subscriptions",
+                ":sid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3cbb1128-87af-44d0-95c7-b65ff49e24a3",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.ApiManagement",
+                    "service",
+                    ":serviceName",
+                    "users",
+                    ":userId",
+                    "subscriptions",
+                    ":sid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "69654745-684f-43e1-82d6-64b534d3c8e2",
+          "name": "Microsoft Azure API Management WorkspaceSubscription_List",
+          "request": {
+            "name": "Microsoft Azure API Management WorkspaceSubscription_List",
+            "description": {
+              "content": "Lists all subscriptions of the workspace in an API Management service instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.ApiManagement",
+                "service",
+                ":serviceName",
+                "workspaces",
+                ":workspaceId",
+                "subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "48b56693-3faf-48e7-b9f7-75fe71408cbf",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.ApiManagement",
+                    "service",
+                    ":serviceName",
+                    "workspaces",
+                    ":workspaceId",
+                    "subscriptions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "88370baa-ccd8-4304-a6f3-277cdd1754a4",
+          "name": "Microsoft Azure API Management WorkspaceSubscription_GetEntityTag",
+          "request": {
+            "name": "Microsoft Azure API Management WorkspaceSubscription_GetEntityTag",
+            "description": {
+              "content": "Gets the entity state (Etag) version of the apimanagement subscription specified by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.ApiManagement",
+                "service",
+                ":serviceName",
+                "workspaces",
+                ":workspaceId",
+                "subscriptions",
+                ":sid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "HEAD",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f2329759-eaf4-4e35-b003-f1d68f248ae4",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.ApiManagement",
+                    "service",
+                    ":serviceName",
+                    "workspaces",
+                    ":workspaceId",
+                    "subscriptions",
+                    ":sid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "HEAD",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "188b59eb-11da-4999-be8f-95d132413ca4",
+          "name": "Microsoft Azure API Management WorkspaceSubscription_Get",
+          "request": {
+            "name": "Microsoft Azure API Management WorkspaceSubscription_Get",
+            "description": {
+              "content": "Gets the specified Subscription entity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.ApiManagement",
+                "service",
+                ":serviceName",
+                "workspaces",
+                ":workspaceId",
+                "subscriptions",
+                ":sid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c8a26d65-6d36-47a5-9730-aee0061b9a07",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.ApiManagement",
+                    "service",
+                    ":serviceName",
+                    "workspaces",
+                    ":workspaceId",
+                    "subscriptions",
+                    ":sid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d46db09-9bec-4baa-9b98-75bdcb2c832a",
+          "name": "Microsoft Azure API Management WorkspaceSubscription_CreateOrUpdate",
+          "request": {
+            "name": "Microsoft Azure API Management WorkspaceSubscription_CreateOrUpdate",
+            "description": {
+              "content": "Creates or updates the subscription of specified user to the specified product.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.ApiManagement",
+                "service",
+                ":serviceName",
+                "workspaces",
+                ":workspaceId",
+                "subscriptions",
+                ":sid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "617e72cc-5b08-414a-ad54-99c761e6f9fe",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.ApiManagement",
+                    "service",
+                    ":serviceName",
+                    "workspaces",
+                    ":workspaceId",
+                    "subscriptions",
+                    ":sid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e38bdfca-0e40-42a4-ae35-e6a77d69a925",
+          "name": "Microsoft Azure API Management WorkspaceSubscription_Update",
+          "request": {
+            "name": "Microsoft Azure API Management WorkspaceSubscription_Update",
+            "description": {
+              "content": "Updates the details of a subscription specified by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.ApiManagement",
+                "service",
+                ":serviceName",
+                "workspaces",
+                ":workspaceId",
+                "subscriptions",
+                ":sid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "PATCH",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2c11bdc2-b023-4acf-9bf0-65d32dfd48b9",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.ApiManagement",
+                    "service",
+                    ":serviceName",
+                    "workspaces",
+                    ":workspaceId",
+                    "subscriptions",
+                    ":sid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "927a014a-8aa3-424b-adcf-48a64bd3f057",
+          "name": "Microsoft Azure API Management WorkspaceSubscription_Delete",
+          "request": {
+            "name": "Microsoft Azure API Management WorkspaceSubscription_Delete",
+            "description": {
+              "content": "Deletes the specified subscription.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.ApiManagement",
+                "service",
+                ":serviceName",
+                "workspaces",
+                ":workspaceId",
+                "subscriptions",
+                ":sid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "341e9f30-0d2b-4365-be97-fefb849a8f54",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.ApiManagement",
+                    "service",
+                    ":serviceName",
+                    "workspaces",
+                    ":workspaceId",
+                    "subscriptions",
+                    ":sid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://{{service-name}}.azure-api.net",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "fb924ca8-18a0-4a05-9f77-5a637f8d0fa7",
+    "name": "Azure API Management Gateway AI Subscription API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.\n\nContact Support:\n Name: Microsoft Azure",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI Workspace API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Workspace",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Workspace_ListByService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces"
+          },
+          "docs": "Lists all workspaces of the API Management service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Workspace_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId"
+          },
+          "docs": "Gets the details of the workspace specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Workspace_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId"
+          },
+          "docs": "Creates a new workspace or updates an existing one."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Workspace_Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId"
+          },
+          "docs": "Updates the details of the workspace specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Workspace_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId"
+          },
+          "docs": "Deletes the specified workspace."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Workspace_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId"
+          },
+          "docs": "Gets the entity state (Etag) version of the workspace specified by its identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

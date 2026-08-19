@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI Backend API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Backend",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Backend_ListByService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/backends"
+          },
+          "docs": "Lists a collection of backends in the specified service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Backend_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/backends/:backendId"
+          },
+          "docs": "Gets the details of the backend specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Backend_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/backends/:backendId"
+          },
+          "docs": "Creates or Updates a backend."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Backend_Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/backends/:backendId"
+          },
+          "docs": "Updates an existing backend."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Backend_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/backends/:backendId"
+          },
+          "docs": "Deletes the specified backend."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Backend_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/backends/:backendId"
+          },
+          "docs": "Gets the entity state (Etag) version of the backend specified by its identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

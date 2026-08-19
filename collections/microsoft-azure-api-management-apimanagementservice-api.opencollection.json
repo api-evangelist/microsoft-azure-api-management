@@ -1,0 +1,173 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI ApiManagementService API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ApiManagementService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiManagementService_CheckNameAvailability",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/providers/Microsoft.ApiManagement/checkNameAvailability",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Checks availability and correctness of a name for an API Management service."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiManagementService_GetDomainOwnershipIdentifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/providers/Microsoft.ApiManagement/getDomainOwnershipIdentifier"
+          },
+          "docs": "Get the custom domain ownership identifier for an API Management service."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiManagementService_List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/providers/Microsoft.ApiManagement/service"
+          },
+          "docs": "Lists all API Management services within an Azure subscription."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiManagementService_ListByResourceGroup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service"
+          },
+          "docs": "List all API Management services within a resource group."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiManagementService_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName"
+          },
+          "docs": "Gets an API Management service resource description."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiManagementService_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or updates an API Management service. This is long running operation and could take several minutes to complete."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiManagementService_Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing API Management service."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiManagementService_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName"
+          },
+          "docs": "Deletes an existing API Management service."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiManagementService_ApplyNetworkConfigurationUpdates",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/applynetworkconfigurationupdates"
+          },
+          "docs": "Updates the Microsoft.ApiManagement resource running in the Virtual network to pick the updated DNS changes."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiManagementService_Backup",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/backup"
+          },
+          "docs": "Creates a backup of the API Management service to the given Azure Storage Account. This is long running operation and could take several minutes to complete."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiManagementService_GetSsoToken",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/getssotoken"
+          },
+          "docs": "Gets the Single-Sign-On token for the API Management Service which is valid for 5 Minutes."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiManagementService_MigrateToStv2",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/migrateToStv2"
+          },
+          "docs": "Upgrades an API Management service to the Stv2 platform. For details refer to https://aka.ms/apim-migrate-stv2. This change is not reversible. This is long running operation and could take several minutes to complete."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiManagementService_Restore",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/restore"
+          },
+          "docs": "Restores a backup of an API Management service created using the ApiManagementService_Backup operation on the current service. This is a long running operation and could take several minutes to complete."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

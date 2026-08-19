@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI Logger API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Logger",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Logger_ListByService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/loggers"
+          },
+          "docs": "Lists a collection of loggers in the specified service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Logger_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/loggers/:loggerId"
+          },
+          "docs": "Gets the details of the logger specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Logger_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/loggers/:loggerId"
+          },
+          "docs": "Creates or Updates a logger."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Logger_Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/loggers/:loggerId"
+          },
+          "docs": "Updates an existing logger."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Logger_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/loggers/:loggerId"
+          },
+          "docs": "Deletes the specified logger."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Logger_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/loggers/:loggerId"
+          },
+          "docs": "Gets the entity state (Etag) version of the logger specified by its identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

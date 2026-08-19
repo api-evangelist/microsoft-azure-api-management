@@ -1,0 +1,150 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI Product API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Product",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Product_ListByService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products"
+          },
+          "docs": "Lists a collection of products in the specified service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Product_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId"
+          },
+          "docs": "Gets the details of the product specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Product_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId"
+          },
+          "docs": "Creates or Updates a product."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Product_Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId"
+          },
+          "docs": "Update existing product details."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Product_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId"
+          },
+          "docs": "Delete product."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Product_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId"
+          },
+          "docs": "Gets the entity state (Etag) version of the product specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceProduct_ListByService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/products"
+          },
+          "docs": "Lists a collection of products in the specified workspace in a service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceProduct_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/products/:productId"
+          },
+          "docs": "Gets the details of the product specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceProduct_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/products/:productId"
+          },
+          "docs": "Creates or Updates a product."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceProduct_Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/products/:productId"
+          },
+          "docs": "Update existing product details."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceProduct_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/products/:productId"
+          },
+          "docs": "Delete product."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceProduct_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/products/:productId"
+          },
+          "docs": "Gets the entity state (Etag) version of the product specified by its identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI Schema API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Schema",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceGlobalSchema_ListByService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/schemas"
+          },
+          "docs": "Lists a collection of schemas registered with workspace in a service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceGlobalSchema_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/schemas/:schemaId"
+          },
+          "docs": "Gets the details of the Schema specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceGlobalSchema_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/schemas/:schemaId"
+          },
+          "docs": "Creates new or updates existing specified Schema of the workspace in an API Management service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceGlobalSchema_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/schemas/:schemaId"
+          },
+          "docs": "Deletes specific Schema."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceGlobalSchema_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/schemas/:schemaId"
+          },
+          "docs": "Gets the entity state (Etag) version of the Schema specified by its identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,164 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management AI Gateway API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Gateway",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Proxy GET request to backend API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/:api-path",
+            "params": [
+              {
+                "name": "api-path",
+                "value": "petstore/v1/pets",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Routes GET request through the gateway, applying configured policies."
+        },
+        {
+          "info": {
+            "name": "Proxy POST request to backend API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{service-name}.azure-api.net/:api-path",
+            "params": [
+              {
+                "name": "api-path",
+                "value": "petstore/v1/pets",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Routes POST request through the gateway, applying configured policies."
+        },
+        {
+          "info": {
+            "name": "Proxy PUT request to backend API",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/:api-path",
+            "params": [
+              {
+                "name": "api-path",
+                "value": "petstore/v1/pets/pet-123",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Routes PUT request through the gateway, applying configured policies."
+        },
+        {
+          "info": {
+            "name": "Proxy DELETE request to backend API",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/:api-path",
+            "params": [
+              {
+                "name": "api-path",
+                "value": "petstore/v1/pets/pet-123",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Routes DELETE request through the gateway, applying configured policies."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Gateway_ListByService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/gateways"
+          },
+          "docs": "Lists a collection of gateways registered with service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Gateway_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/gateways/:gatewayId"
+          },
+          "docs": "Gets the details of the Gateway specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Gateway_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/gateways/:gatewayId"
+          },
+          "docs": "Creates or updates a Gateway to be used in Api Management instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Gateway_Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/gateways/:gatewayId"
+          },
+          "docs": "Updates the details of the gateway specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Gateway_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/gateways/:gatewayId"
+          },
+          "docs": "Deletes specific Gateway."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Gateway_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/gateways/:gatewayId"
+          },
+          "docs": "Gets the entity state (Etag) version of the Gateway specified by its identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

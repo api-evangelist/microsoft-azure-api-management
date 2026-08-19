@@ -1,0 +1,190 @@
+{
+  "item": [
+    {
+      "id": "361aa288-a02d-4de9-af5a-8ccc4c4d04ab",
+      "name": "APIs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "65a55940-fe75-44e1-ad33-7e5b305b536d",
+          "name": "List available APIs",
+          "request": {
+            "name": "List available APIs",
+            "description": {
+              "content": "Returns the list of published APIs available on the developer portal.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apis"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "338fd9ec-d103-4f35-9b48-61595a82821a",
+              "name": "List of APIs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apis"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 2,\n  \"value\": [\n    {\n      \"id\": \"petstore-api\",\n      \"name\": \"Petstore API\",\n      \"description\": \"Manage pet inventory and orders.\",\n      \"serviceUrl\": \"https://petstore.example.com\"\n    },\n    {\n      \"id\": \"weather-api\",\n      \"name\": \"Weather API\",\n      \"description\": \"Retrieve weather forecasts and current conditions.\",\n      \"serviceUrl\": \"https://weather.example.com\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b9d1ee7e-6f20-4846-9aa8-e2b3413b4cd3",
+          "name": "Get API details",
+          "request": {
+            "name": "Get API details",
+            "description": {
+              "content": "Returns details and documentation for a specific API.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apis",
+                ":api-id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "api-id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ec644997-a45c-487b-8e2d-5688fc189f1f",
+              "name": "API details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apis",
+                    ":api-id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "api-id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"petstore-api\",\n  \"name\": \"Petstore API\",\n  \"description\": \"Manage pet inventory and orders.\",\n  \"serviceUrl\": \"https://petstore.example.com\",\n  \"protocols\": [\n    \"https\"\n  ],\n  \"subscriptionRequired\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://{{service-name}}.azure-api.net",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6e9803a4-ee12-46a0-82e3-8bc0ec406731",
+    "name": "Azure API Management Gateway AI APIs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.\n\nContact Support:\n Name: Microsoft Azure",
+      "type": "text/plain"
+    }
+  }
+}

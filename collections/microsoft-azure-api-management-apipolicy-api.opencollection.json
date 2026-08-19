@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI ApiPolicy API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ApiPolicy",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiPolicy_ListByApi",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/policies"
+          },
+          "docs": "Get the policy configuration at the API level."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiPolicy_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/policies/:policyId"
+          },
+          "docs": "Get the policy configuration at the API level."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiPolicy_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/policies/:policyId"
+          },
+          "docs": "Creates or updates policy configuration for the API."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiPolicy_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/policies/:policyId"
+          },
+          "docs": "Deletes the policy configuration at the Api."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiPolicy_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/policies/:policyId"
+          },
+          "docs": "Gets the entity state (Etag) version of the API policy specified by its identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

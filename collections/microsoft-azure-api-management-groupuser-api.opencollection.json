@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI GroupUser API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GroupUser",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management GroupUser_List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/groups/:groupId/users"
+          },
+          "docs": "Lists a collection of user entities associated with the group."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management GroupUser_Create",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/groups/:groupId/users/:userId"
+          },
+          "docs": "Add existing user to existing group"
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management GroupUser_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/groups/:groupId/users/:userId"
+          },
+          "docs": "Remove existing user from existing group."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management GroupUser_CheckEntityExists",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/groups/:groupId/users/:userId"
+          },
+          "docs": "Checks that user entity specified by identifier is associated with the group entity."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI ApiVersionSet API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ApiVersionSet",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceApiVersionSet_ListByService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/apiVersionSets"
+          },
+          "docs": "Lists a collection of API Version Sets in the specified workspace with a service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceApiVersionSet_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/apiVersionSets/:versionSetId"
+          },
+          "docs": "Gets the details of the Api Version Set specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceApiVersionSet_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/apiVersionSets/:versionSetId"
+          },
+          "docs": "Creates or Updates a Api Version Set."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceApiVersionSet_Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/apiVersionSets/:versionSetId"
+          },
+          "docs": "Updates the details of the Api VersionSet specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceApiVersionSet_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/apiVersionSets/:versionSetId"
+          },
+          "docs": "Gets the entity state (Etag) version of the Api Version Set specified by its identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

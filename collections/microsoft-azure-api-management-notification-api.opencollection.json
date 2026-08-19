@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI Notification API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Notification",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceNotification_ListByService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/notifications"
+          },
+          "docs": "Lists a collection of properties defined within a service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceNotification_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/notifications/:notificationName"
+          },
+          "docs": "Gets the details of the Notification specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceNotification_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/notifications/:notificationName"
+          },
+          "docs": "Create or Update API Management publisher notification for the workspace."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

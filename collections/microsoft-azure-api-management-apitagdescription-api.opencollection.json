@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI ApiTagDescription API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ApiTagDescription",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiTagDescription_ListByService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/tagDescriptions"
+          },
+          "docs": "Lists all Tags descriptions in scope of API. Model similar to swagger - tagDescription is defined on API level but tag may be assigned to the Operations"
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiTagDescription_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/tagDescriptions/:tagDescriptionId"
+          },
+          "docs": "Get Tag description in scope of API"
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiTagDescription_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/tagDescriptions/:tagDescriptionId"
+          },
+          "docs": "Create/Update tag description in scope of the Api."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiTagDescription_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/tagDescriptions/:tagDescriptionId"
+          },
+          "docs": "Delete tag description for the Api."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiTagDescription_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/tagDescriptions/:tagDescriptionId"
+          },
+          "docs": "Gets the entity state version of the tag specified by its identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

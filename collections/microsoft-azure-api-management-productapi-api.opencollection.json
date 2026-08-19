@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI ProductApi API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ProductApi",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ProductApi_ListByProduct",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/apis"
+          },
+          "docs": "Lists a collection of the APIs associated with a product."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ProductApi_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/apis/:apiId"
+          },
+          "docs": "Adds an API to the specified product."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ProductApi_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/apis/:apiId"
+          },
+          "docs": "Deletes the specified API from the specified product."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ProductApi_CheckEntityExists",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/apis/:apiId"
+          },
+          "docs": "Checks that API entity specified by identifier is associated with the Product entity."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

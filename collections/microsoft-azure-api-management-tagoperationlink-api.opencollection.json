@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI TagOperationLink API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "TagOperationLink",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management TagOperationLink_ListByProduct",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/tags/:tagId/operationLinks"
+          },
+          "docs": "Lists a collection of the operation links associated with a tag."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management TagOperationLink_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/tags/:tagId/operationLinks/:operationLinkId"
+          },
+          "docs": "Gets the operation link for the tag."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management TagOperationLink_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/tags/:tagId/operationLinks/:operationLinkId"
+          },
+          "docs": "Adds an operation to the specified tag via link."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management TagOperationLink_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/tags/:tagId/operationLinks/:operationLinkId"
+          },
+          "docs": "Deletes the specified operation from the specified tag."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

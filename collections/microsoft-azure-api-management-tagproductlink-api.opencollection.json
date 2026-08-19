@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI TagProductLink API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "TagProductLink",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management TagProductLink_ListByProduct",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/tags/:tagId/productLinks"
+          },
+          "docs": "Lists a collection of the product links associated with a tag."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management TagProductLink_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/tags/:tagId/productLinks/:productLinkId"
+          },
+          "docs": "Gets the product link for the tag."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management TagProductLink_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/tags/:tagId/productLinks/:productLinkId"
+          },
+          "docs": "Adds a product to the specified tag via link."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management TagProductLink_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/tags/:tagId/productLinks/:productLinkId"
+          },
+          "docs": "Deletes the specified product from the specified tag."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

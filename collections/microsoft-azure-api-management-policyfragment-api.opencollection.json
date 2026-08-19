@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI PolicyFragment API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PolicyFragment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspacePolicyFragment_ListByService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/policyFragments"
+          },
+          "docs": "Gets all policy fragments defined within a workspace."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspacePolicyFragment_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/policyFragments/:id"
+          },
+          "docs": "Gets a policy fragment."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspacePolicyFragment_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/policyFragments/:id"
+          },
+          "docs": "Creates or updates a policy fragment."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspacePolicyFragment_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/policyFragments/:id"
+          },
+          "docs": "Deletes a policy fragment."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspacePolicyFragment_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/policyFragments/:id"
+          },
+          "docs": "Gets the entity state (Etag) version of a policy fragment."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

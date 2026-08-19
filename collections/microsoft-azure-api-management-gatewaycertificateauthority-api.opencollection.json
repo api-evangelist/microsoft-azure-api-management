@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI GatewayCertificateAuthority API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GatewayCertificateAuthority",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management GatewayCertificateAuthority_ListByService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/gateways/:gatewayId/certificateAuthorities"
+          },
+          "docs": "Lists the collection of Certificate Authorities for the specified Gateway entity."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management GatewayCertificateAuthority_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/gateways/:gatewayId/certificateAuthorities/:certificateId"
+          },
+          "docs": "Get assigned Gateway Certificate Authority details."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management GatewayCertificateAuthority_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/gateways/:gatewayId/certificateAuthorities/:certificateId"
+          },
+          "docs": "Assign Certificate entity to Gateway entity as Certificate Authority."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management GatewayCertificateAuthority_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/gateways/:gatewayId/certificateAuthorities/:certificateId"
+          },
+          "docs": "Remove relationship between Certificate Authority and Gateway entity."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management GatewayCertificateAuthority_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/gateways/:gatewayId/certificateAuthorities/:certificateId"
+          },
+          "docs": "Checks if Certificate entity is assigned to Gateway entity as Certificate Authority."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

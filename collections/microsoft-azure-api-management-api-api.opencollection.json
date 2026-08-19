@@ -1,0 +1,158 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure Management Gateway AI Api API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Api",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Api_ListByService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis"
+          },
+          "docs": "Lists all APIs of the API Management service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Api_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId"
+          },
+          "docs": "Gets the details of the API specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Api_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates new or updates existing specified API of the API Management service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Api_Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified API of the API Management service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Api_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId"
+          },
+          "docs": "Deletes the specified API of the API Management service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Api_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId"
+          },
+          "docs": "Gets the entity state (Etag) version of the API specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceApi_ListByService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/apis"
+          },
+          "docs": "Lists all APIs of the workspace in an API Management service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceApi_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/apis/:apiId"
+          },
+          "docs": "Gets the details of the API specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceApi_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/apis/:apiId"
+          },
+          "docs": "Creates new or updates existing specified API of the workspace in an API Management service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceApi_Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/apis/:apiId"
+          },
+          "docs": "Updates the specified API of the workspace in an API Management service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceApi_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/apis/:apiId"
+          },
+          "docs": "Deletes the specified API of the workspace in an API Management service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceApi_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/apis/:apiId"
+          },
+          "docs": "Gets the entity state (Etag) version of the API specified by its identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

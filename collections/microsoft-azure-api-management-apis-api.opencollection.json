@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI APIs API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "APIs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List available APIs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/apis"
+          },
+          "docs": "Returns the list of published APIs available on the developer portal."
+        },
+        {
+          "info": {
+            "name": "Get API details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/apis/:api-id",
+            "params": [
+              {
+                "name": "api-id",
+                "value": "petstore-api",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns details and documentation for a specific API."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

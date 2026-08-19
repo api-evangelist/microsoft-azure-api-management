@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI GraphQLApiResolver API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GraphQLApiResolver",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management GraphQLApiResolver_ListByApi",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/resolvers"
+          },
+          "docs": "Lists a collection of the resolvers for the specified GraphQL API."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management GraphQLApiResolver_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/resolvers/:resolverId"
+          },
+          "docs": "Gets the details of the GraphQL API Resolver specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management GraphQLApiResolver_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/resolvers/:resolverId"
+          },
+          "docs": "Creates a new resolver in the GraphQL API or updates an existing one."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management GraphQLApiResolver_Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/resolvers/:resolverId"
+          },
+          "docs": "Updates the details of the resolver in the GraphQL API specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management GraphQLApiResolver_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/resolvers/:resolverId"
+          },
+          "docs": "Deletes the specified resolver in the GraphQL API."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management GraphQLApiResolver_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/resolvers/:resolverId"
+          },
+          "docs": "Gets the entity state (Etag) version of the GraphQL API resolver specified by its identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

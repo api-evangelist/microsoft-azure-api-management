@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI TagApiLink API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "TagApiLink",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management TagApiLink_ListByProduct",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/tags/:tagId/apiLinks"
+          },
+          "docs": "Lists a collection of the API links associated with a tag."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management TagApiLink_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/tags/:tagId/apiLinks/:apiLinkId"
+          },
+          "docs": "Gets the API link for the tag."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management TagApiLink_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/tags/:tagId/apiLinks/:apiLinkId"
+          },
+          "docs": "Adds an API to the specified tag via link."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management TagApiLink_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/tags/:tagId/apiLinks/:apiLinkId"
+          },
+          "docs": "Deletes the specified API from the specified tag."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI ProductTag API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ProductTag",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Tag_ListByProduct",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/tags"
+          },
+          "docs": "Lists all Tags associated with the Product."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Tag_GetByProduct",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/tags/:tagId"
+          },
+          "docs": "Get tag associated with the Product."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Tag_AssignToProduct",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/tags/:tagId"
+          },
+          "docs": "Assign tag to the Product."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Tag_DetachFromProduct",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/tags/:tagId"
+          },
+          "docs": "Detach the tag from the Product."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Tag_GetEntityStateByProduct",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/tags/:tagId"
+          },
+          "docs": "Gets the entity state version of the tag specified by its identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

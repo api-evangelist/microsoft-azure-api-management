@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI ProductApiLink API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ProductApiLink",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ProductApiLink_ListByProduct",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/apiLinks"
+          },
+          "docs": "Lists a collection of the API links associated with a product."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ProductApiLink_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/apiLinks/:apiLinkId"
+          },
+          "docs": "Gets the API link for the product."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ProductApiLink_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/apiLinks/:apiLinkId"
+          },
+          "docs": "Adds an API to the specified product via link."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ProductApiLink_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/apiLinks/:apiLinkId"
+          },
+          "docs": "Deletes the specified API from the specified product."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

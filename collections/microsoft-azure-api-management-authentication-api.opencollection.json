@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI Authentication API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sign in page",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/signin"
+          },
+          "docs": "Returns the sign in page for developer authentication."
+        },
+        {
+          "info": {
+            "name": "Sign up page",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/signup"
+          },
+          "docs": "Returns the sign up page for new developer account registration."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

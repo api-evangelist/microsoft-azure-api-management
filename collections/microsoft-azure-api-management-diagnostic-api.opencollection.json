@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI Diagnostic API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Diagnostic",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Diagnostic_ListByService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/diagnostics"
+          },
+          "docs": "Lists all diagnostics of the API Management service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Diagnostic_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/diagnostics/:diagnosticId"
+          },
+          "docs": "Gets the details of the Diagnostic specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Diagnostic_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/diagnostics/:diagnosticId"
+          },
+          "docs": "Creates a new Diagnostic or updates an existing one."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Diagnostic_Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/diagnostics/:diagnosticId"
+          },
+          "docs": "Updates the details of the Diagnostic specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Diagnostic_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/diagnostics/:diagnosticId"
+          },
+          "docs": "Deletes the specified Diagnostic."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Diagnostic_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/diagnostics/:diagnosticId"
+          },
+          "docs": "Gets the entity state (Etag) version of the Diagnostic specified by its identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI ProductPolicy API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ProductPolicy",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ProductPolicy_ListByProduct",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/policies"
+          },
+          "docs": "Get the policy configuration at the Product level."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ProductPolicy_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/policies/:policyId"
+          },
+          "docs": "Get the policy configuration at the Product level."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ProductPolicy_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/policies/:policyId"
+          },
+          "docs": "Creates or updates policy configuration for the Product."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ProductPolicy_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/policies/:policyId"
+          },
+          "docs": "Deletes the policy configuration at the Product."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ProductPolicy_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/policies/:policyId"
+          },
+          "docs": "Get the ETag of the policy configuration at the Product level."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

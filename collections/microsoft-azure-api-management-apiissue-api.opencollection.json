@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI ApiIssue API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ApiIssue",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiIssue_ListByService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/issues"
+          },
+          "docs": "Lists all issues associated with the specified API."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiIssue_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/issues/:issueId"
+          },
+          "docs": "Gets the details of the Issue for an API specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiIssue_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/issues/:issueId"
+          },
+          "docs": "Creates a new Issue for an API or updates an existing one."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiIssue_Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/issues/:issueId"
+          },
+          "docs": "Updates an existing issue for an API."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiIssue_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/issues/:issueId"
+          },
+          "docs": "Deletes the specified Issue from an API."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiIssue_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/issues/:issueId"
+          },
+          "docs": "Gets the entity state (Etag) version of the Issue for an API specified by its identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

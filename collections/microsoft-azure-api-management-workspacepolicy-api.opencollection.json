@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI WorkspacePolicy API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "WorkspacePolicy",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspacePolicy_ListByApi",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/policies"
+          },
+          "docs": "Get the policy configuration at the workspace level."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspacePolicy_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/policies/:policyId"
+          },
+          "docs": "Get the policy configuration at the API level."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspacePolicy_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/policies/:policyId"
+          },
+          "docs": "Creates or updates policy configuration for the workspace."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspacePolicy_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/policies/:policyId"
+          },
+          "docs": "Deletes the policy configuration at the workspace."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspacePolicy_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/policies/:policyId"
+          },
+          "docs": "Gets the entity state (Etag) version of the workspace policy specified by its identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

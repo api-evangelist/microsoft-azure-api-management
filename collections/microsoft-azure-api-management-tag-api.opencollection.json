@@ -1,0 +1,150 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI Tag API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tag",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Tag_ListByService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/tags"
+          },
+          "docs": "Lists a collection of tags defined within a service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Tag_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/tags/:tagId"
+          },
+          "docs": "Gets the details of the tag specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Tag_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/tags/:tagId"
+          },
+          "docs": "Creates a tag."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Tag_Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/tags/:tagId"
+          },
+          "docs": "Updates the details of the tag specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Tag_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/tags/:tagId"
+          },
+          "docs": "Deletes specific tag of the API Management service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Tag_GetEntityState",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/tags/:tagId"
+          },
+          "docs": "Gets the entity state version of the tag specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceTag_ListByService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/tags"
+          },
+          "docs": "Lists a collection of tags defined within a workspace in a service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceTag_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/tags/:tagId"
+          },
+          "docs": "Gets the details of the tag specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceTag_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/tags/:tagId"
+          },
+          "docs": "Creates a tag."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceTag_Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/tags/:tagId"
+          },
+          "docs": "Updates the details of the tag specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceTag_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/tags/:tagId"
+          },
+          "docs": "Deletes specific tag of the workspace in an API Management service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceTag_GetEntityState",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/tags/:tagId"
+          },
+          "docs": "Gets the entity state version of the tag specified by its identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

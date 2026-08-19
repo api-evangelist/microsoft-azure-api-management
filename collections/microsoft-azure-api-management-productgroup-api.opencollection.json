@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI ProductGroup API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ProductGroup",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ProductGroup_ListByProduct",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/groups"
+          },
+          "docs": "Lists the collection of developer groups associated with the specified product."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ProductGroup_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/groups/:groupId"
+          },
+          "docs": "Adds the association between the specified developer group with the specified product."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ProductGroup_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/groups/:groupId"
+          },
+          "docs": "Deletes the association between the specified group and product."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ProductGroup_CheckEntityExists",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/groups/:groupId"
+          },
+          "docs": "Checks that Group entity specified by identifier is associated with the Product entity."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

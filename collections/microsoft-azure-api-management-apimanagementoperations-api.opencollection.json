@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI ApiManagementOperations API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ApiManagementOperations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiManagementOperations_List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/providers/Microsoft.ApiManagement/operations"
+          },
+          "docs": "Lists all of the available REST API operations of the Microsoft.ApiManagement provider."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

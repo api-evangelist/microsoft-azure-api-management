@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI Health API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gateway health check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/status-0123456789abcdef"
+          },
+          "docs": "Returns gateway health status."
+        },
+        {
+          "info": {
+            "name": "Internal status endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/internal/status"
+          },
+          "docs": "Returns detailed internal status of the self-hosted gateway container."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

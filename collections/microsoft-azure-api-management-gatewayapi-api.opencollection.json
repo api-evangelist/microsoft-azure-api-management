@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI GatewayApi API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GatewayApi",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management GatewayApi_ListByService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/gateways/:gatewayId/apis"
+          },
+          "docs": "Lists a collection of the APIs associated with a gateway."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management GatewayApi_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/gateways/:gatewayId/apis/:apiId"
+          },
+          "docs": "Adds an API to the specified Gateway."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management GatewayApi_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/gateways/:gatewayId/apis/:apiId"
+          },
+          "docs": "Deletes the specified API from the specified Gateway."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management GatewayApi_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/gateways/:gatewayId/apis/:apiId"
+          },
+          "docs": "Checks that API entity specified by identifier is associated with the Gateway entity."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

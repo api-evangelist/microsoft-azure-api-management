@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI Users API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management User_GenerateSsoUrl",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/users/:userId/generateSsoUrl"
+          },
+          "docs": "Retrieves a redirection URL containing an authentication token for signing a given user into the developer portal."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

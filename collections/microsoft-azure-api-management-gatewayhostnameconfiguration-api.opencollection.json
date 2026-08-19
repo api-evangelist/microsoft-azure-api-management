@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI GatewayHostnameConfiguration API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GatewayHostnameConfiguration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management GatewayHostnameConfiguration_ListByService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/gateways/:gatewayId/hostnameConfigurations"
+          },
+          "docs": "Lists the collection of hostname configurations for the specified gateway."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management GatewayHostnameConfiguration_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/gateways/:gatewayId/hostnameConfigurations/:hcId"
+          },
+          "docs": "Get details of a hostname configuration"
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management GatewayHostnameConfiguration_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/gateways/:gatewayId/hostnameConfigurations/:hcId"
+          },
+          "docs": "Creates of updates hostname configuration for a Gateway."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management GatewayHostnameConfiguration_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/gateways/:gatewayId/hostnameConfigurations/:hcId"
+          },
+          "docs": "Deletes the specified hostname configuration from the specified Gateway."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management GatewayHostnameConfiguration_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/gateways/:gatewayId/hostnameConfigurations/:hcId"
+          },
+          "docs": "Checks that hostname configuration entity specified by identifier exists for specified Gateway entity."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

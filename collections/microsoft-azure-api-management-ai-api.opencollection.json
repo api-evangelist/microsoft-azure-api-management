@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AI",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Chat Completions Via AI Gateway",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{service-name}.azure-api.net/deployments/:deployment-id/chat/completions",
+            "params": [
+              {
+                "name": "deployment-id",
+                "value": "gpt-4o-deployment",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Proxies chat completion requests to Azure OpenAI or compatible backends with token rate limiting, semantic caching, and load balancing."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Completions Via AI Gateway",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{service-name}.azure-api.net/deployments/:deployment-id/completions",
+            "params": [
+              {
+                "name": "deployment-id",
+                "value": "gpt-4o-deployment",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Proxies completion requests to AI backends."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Embeddings Via AI Gateway",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{service-name}.azure-api.net/deployments/:deployment-id/embeddings",
+            "params": [
+              {
+                "name": "deployment-id",
+                "value": "text-embedding-ada-002-deployment",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Proxies embedding requests to AI backends."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

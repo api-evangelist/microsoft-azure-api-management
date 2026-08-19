@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI Certificate API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Certificate",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Certificate_ListByService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/certificates"
+          },
+          "docs": "Lists a collection of all certificates in the specified service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Certificate_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/certificates/:certificateId"
+          },
+          "docs": "Gets the details of the certificate specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Certificate_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/certificates/:certificateId"
+          },
+          "docs": "Creates or updates the certificate being used for authentication with the backend."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Certificate_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/certificates/:certificateId"
+          },
+          "docs": "Deletes specific certificate."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Certificate_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/certificates/:certificateId"
+          },
+          "docs": "Gets the entity state (Etag) version of the certificate specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Certificate_RefreshSecret",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/certificates/:certificateId/refreshSecret"
+          },
+          "docs": "From KeyVault, Refresh the certificate being used for authentication with the backend."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

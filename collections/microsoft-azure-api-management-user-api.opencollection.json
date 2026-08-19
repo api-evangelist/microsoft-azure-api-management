@@ -1,0 +1,95 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI User API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "User profile and subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/profile"
+          },
+          "docs": "Returns the user profile page with subscription and API key management."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management User_ListByService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/users"
+          },
+          "docs": "Lists a collection of registered users in the specified service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management User_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/users/:userId"
+          },
+          "docs": "Gets the details of the user specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management User_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/users/:userId"
+          },
+          "docs": "Creates or Updates a user."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management User_Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/users/:userId"
+          },
+          "docs": "Updates the details of the user specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management User_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/users/:userId"
+          },
+          "docs": "Deletes specific user."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management User_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/users/:userId"
+          },
+          "docs": "Gets the entity state (Etag) version of the user specified by its identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

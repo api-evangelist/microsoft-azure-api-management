@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI ApiTag API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ApiTag",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Tag_ListByApi",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/tags"
+          },
+          "docs": "Lists all Tags associated with the API."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Tag_GetByApi",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/tags/:tagId"
+          },
+          "docs": "Get tag associated with the API."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Tag_AssignToApi",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/tags/:tagId"
+          },
+          "docs": "Assign tag to the Api."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Tag_DetachFromApi",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/tags/:tagId"
+          },
+          "docs": "Detach the tag from the Api."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Tag_GetEntityStateByApi",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/tags/:tagId"
+          },
+          "docs": "Gets the entity state version of the tag specified by its identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

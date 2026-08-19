@@ -1,0 +1,194 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI Subscription API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Subscription",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Subscription_List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/subscriptions"
+          },
+          "docs": "Lists all subscriptions of the API Management service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Subscription_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/subscriptions/:sid"
+          },
+          "docs": "Gets the specified Subscription entity."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Subscription_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/subscriptions/:sid"
+          },
+          "docs": "Creates or updates the subscription of specified user to the specified product."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Subscription_Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/subscriptions/:sid"
+          },
+          "docs": "Updates the details of a subscription specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Subscription_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/subscriptions/:sid"
+          },
+          "docs": "Deletes the specified subscription."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Subscription_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/subscriptions/:sid"
+          },
+          "docs": "Gets the entity state (Etag) version of the apimanagement subscription specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Subscription_ListSecrets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/subscriptions/:sid/listSecrets"
+          },
+          "docs": "Gets the specified Subscription keys."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Subscription_RegeneratePrimaryKey",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/subscriptions/:sid/regeneratePrimaryKey"
+          },
+          "docs": "Regenerates primary key of existing subscription of the API Management service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Subscription_RegenerateSecondaryKey",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/subscriptions/:sid/regenerateSecondaryKey"
+          },
+          "docs": "Regenerates secondary key of existing subscription of the API Management service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management UserSubscription_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/users/:userId/subscriptions/:sid"
+          },
+          "docs": "Gets the specified Subscription entity associated with a particular user."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceSubscription_List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/subscriptions"
+          },
+          "docs": "Lists all subscriptions of the workspace in an API Management service instance."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceSubscription_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/subscriptions/:sid"
+          },
+          "docs": "Gets the specified Subscription entity."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceSubscription_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/subscriptions/:sid"
+          },
+          "docs": "Creates or updates the subscription of specified user to the specified product."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceSubscription_Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/subscriptions/:sid"
+          },
+          "docs": "Updates the details of a subscription specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceSubscription_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/subscriptions/:sid"
+          },
+          "docs": "Deletes the specified subscription."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management WorkspaceSubscription_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/workspaces/:workspaceId/subscriptions/:sid"
+          },
+          "docs": "Gets the entity state (Etag) version of the apimanagement subscription specified by its identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

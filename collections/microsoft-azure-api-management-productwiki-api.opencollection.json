@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI ProductWiki API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ProductWiki",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ProductWikis_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/wikis"
+          },
+          "docs": "Gets the details of the Wiki for a Product specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ProductWiki_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/wikis/default"
+          },
+          "docs": "Gets the details of the Wiki for a Product specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ProductWiki_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/wikis/default"
+          },
+          "docs": "Creates a new Wiki for a Product or updates an existing one."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ProductWiki_Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/wikis/default"
+          },
+          "docs": "Updates the details of the Wiki for a Product specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ProductWiki_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/wikis/default"
+          },
+          "docs": "Deletes the specified Wiki from a Product."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ProductWiki_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/products/:productId/wikis/default"
+          },
+          "docs": "Gets the entity state (Etag) version of the Wiki for a Product specified by its identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

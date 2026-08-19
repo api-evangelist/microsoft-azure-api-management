@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI ApiWiki API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ApiWiki",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiWikis_List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/wikis"
+          },
+          "docs": "Gets the wikis for an API specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiWiki_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/wikis/default"
+          },
+          "docs": "Gets the details of the Wiki for an API specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiWiki_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/wikis/default"
+          },
+          "docs": "Creates a new Wiki for an API or updates an existing one."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiWiki_Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/wikis/default"
+          },
+          "docs": "Updates the details of the Wiki for an API specified by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiWiki_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/wikis/default"
+          },
+          "docs": "Deletes the specified Wiki from an API."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management ApiWiki_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/apis/:apiId/wikis/default"
+          },
+          "docs": "Gets the entity state (Etag) version of the Wiki for an API specified by its identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

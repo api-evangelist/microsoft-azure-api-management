@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure API Management Gateway AI Policy API",
+    "version": "2024-05-01"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Policy",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Policy_ListByService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/policies"
+          },
+          "docs": "Lists all the Global Policy definitions of the Api Management service."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Policy_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/policies/:policyId"
+          },
+          "docs": "Get the Global policy definition of the Api Management service."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Policy_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/policies/:policyId"
+          },
+          "docs": "Creates or updates the global policy configuration of the Api Management service."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Policy_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/policies/:policyId"
+          },
+          "docs": "Deletes the global policy configuration of the Api Management Service."
+        },
+        {
+          "info": {
+            "name": "Microsoft Azure API Management Policy_GetEntityTag",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://{service-name}.azure-api.net/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.ApiManagement/service/:serviceName/policies/:policyId"
+          },
+          "docs": "Gets the entity state (Etag) version of the Global policy definition in the Api Management service."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
