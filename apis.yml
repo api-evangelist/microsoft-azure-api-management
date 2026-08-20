@@ -92,6 +92,8 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
   tags:
+  - Artificial Intelligence
+  tags_raw:
   - AI
   properties:
   - type: OpenAPI
@@ -226,7 +228,8 @@ apis:
   description: The Api API from Microsoft Azure API Management — 4 operation(s) for api.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
-  tags:
+  tags: []
+  tags_raw:
   - Api
   properties:
   - type: OpenAPI
@@ -1855,7 +1858,8 @@ apis:
   description: The APIs API from Microsoft Azure API Management — 2 operation(s) for apis.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
-  tags:
+  tags: []
+  tags_raw:
   - APIs
   properties:
   - type: OpenAPI
@@ -3617,6 +3621,8 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
   tags:
+  - Gateway API
+  tags_raw:
   - GatewayApi
   properties:
   - type: OpenAPI
@@ -6740,6 +6746,8 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
   tags:
+  - Product Group
+  tags_raw:
   - ProductGroup
   properties:
   - type: OpenAPI
@@ -7147,6 +7155,8 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
@@ -7418,6 +7428,8 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
   tags:
+  - Product Tag
+  tags_raw:
   - ProductTag
   properties:
   - type: OpenAPI
@@ -8773,6 +8785,8 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
   tags:
+  - User Identity
+  tags_raw:
   - UserIdentity
   properties:
   - type: OpenAPI
@@ -8908,6 +8922,8 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
@@ -9044,6 +9060,8 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
   tags:
+  - User Subscription
+  tags_raw:
   - UserSubscription
   properties:
   - type: OpenAPI
@@ -9179,6 +9197,8 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
   tags:
+  - User Token
+  tags_raw:
   - UserToken
   properties:
   - type: OpenAPI
