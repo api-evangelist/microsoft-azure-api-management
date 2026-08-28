@@ -11,8 +11,11 @@ info:
     without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: azureApiManagementApi
-  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+- name: diagnosticApi
+  url: ../openapi/microsoft-azure-api-management-diagnostic-api-openapi.yml
+  type: openapi
+- name: loggerApi
+  url: ../openapi/microsoft-azure-api-management-logger-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: configure-logger-diagnostic

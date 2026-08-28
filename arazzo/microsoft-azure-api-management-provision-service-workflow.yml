@@ -12,8 +12,8 @@ info:
     OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: azureApiManagementApi
-  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+- name: apimanagementserviceApi
+  url: ../openapi/microsoft-azure-api-management-apimanagementservice-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: provision-apim-service

@@ -11,8 +11,14 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: azureApiManagementApi
-  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+- name: groupApi
+  url: ../openapi/microsoft-azure-api-management-group-api-openapi.yml
+  type: openapi
+- name: groupuserApi
+  url: ../openapi/microsoft-azure-api-management-groupuser-api-openapi.yml
+  type: openapi
+- name: userApi
+  url: ../openapi/microsoft-azure-api-management-user-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: onboard-user-to-group

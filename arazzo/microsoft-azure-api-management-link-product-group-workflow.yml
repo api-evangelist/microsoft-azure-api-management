@@ -10,8 +10,17 @@ info:
     executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: azureApiManagementApi
-  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+- name: groupApi
+  url: ../openapi/microsoft-azure-api-management-group-api-openapi.yml
+  type: openapi
+- name: productApi
+  url: ../openapi/microsoft-azure-api-management-product-api-openapi.yml
+  type: openapi
+- name: productgroupApi
+  url: ../openapi/microsoft-azure-api-management-productgroup-api-openapi.yml
+  type: openapi
+- name: productgrouplinkApi
+  url: ../openapi/microsoft-azure-api-management-productgrouplink-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: link-product-group

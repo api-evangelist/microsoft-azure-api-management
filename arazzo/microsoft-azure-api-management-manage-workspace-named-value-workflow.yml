@@ -10,8 +10,8 @@ info:
     read and executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: azureApiManagementApi
-  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+- name: namedvalueApi
+  url: ../openapi/microsoft-azure-api-management-namedvalue-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: manage-workspace-named-value

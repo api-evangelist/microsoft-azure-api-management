@@ -10,8 +10,11 @@ info:
     and executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: azureApiManagementApi
-  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+- name: producttagApi
+  url: ../openapi/microsoft-azure-api-management-producttag-api-openapi.yml
+  type: openapi
+- name: tagApi
+  url: ../openapi/microsoft-azure-api-management-tag-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: tag-product

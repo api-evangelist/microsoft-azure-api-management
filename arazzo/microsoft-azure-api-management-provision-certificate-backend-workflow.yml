@@ -10,8 +10,11 @@ info:
     be read and executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: azureApiManagementApi
-  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+- name: backendApi
+  url: ../openapi/microsoft-azure-api-management-backend-api-openapi.yml
+  type: openapi
+- name: certificateApi
+  url: ../openapi/microsoft-azure-api-management-certificate-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: provision-certificate-backend

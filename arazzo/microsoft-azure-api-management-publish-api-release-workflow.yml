@@ -12,8 +12,11 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: azureApiManagementApi
-  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+- name: apiApi
+  url: ../openapi/microsoft-azure-api-management-api-api-openapi.yml
+  type: openapi
+- name: apireleaseApi
+  url: ../openapi/microsoft-azure-api-management-apirelease-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: publish-api-release

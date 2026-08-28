@@ -11,11 +11,11 @@ info:
     without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: devPortalApi
-  url: ../openapi/microsoft-azure-api-management-developer-portal-openapi.yaml
+- name: apisApi
+  url: ../openapi/microsoft-azure-api-management-apis-api-openapi.yml
   type: openapi
 - name: gatewayApi
-  url: ../openapi/microsoft-azure-api-management-gateway-openapi.yaml
+  url: ../openapi/microsoft-azure-api-management-gateway-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: devportal-discover-and-invoke

@@ -11,8 +11,14 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: azureApiManagementApi
-  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+- name: gatewayApi
+  url: ../openapi/microsoft-azure-api-management-gateway-api-openapi.yml
+  type: openapi
+- name: gatewayapiApi
+  url: ../openapi/microsoft-azure-api-management-gatewayapi-api-openapi.yml
+  type: openapi
+- name: gatewaygeneratetokenApi
+  url: ../openapi/microsoft-azure-api-management-gatewaygeneratetoken-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: register-gateway-link-api

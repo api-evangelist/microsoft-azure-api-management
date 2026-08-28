@@ -11,8 +11,14 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: azureApiManagementApi
-  url: ../openapi/microsoft-azure-api-management-rest-api-openapi.yaml
+- name: productApi
+  url: ../openapi/microsoft-azure-api-management-product-api-openapi.yml
+  type: openapi
+- name: productapiApi
+  url: ../openapi/microsoft-azure-api-management-productapi-api-openapi.yml
+  type: openapi
+- name: productapilinkApi
+  url: ../openapi/microsoft-azure-api-management-productapilink-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: provision-product-link-api
