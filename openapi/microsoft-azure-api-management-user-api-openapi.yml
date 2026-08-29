@@ -1,13 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Azure API Management Gateway AI User API
-  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  title: Microsoft Azure Api Management User API
   version: '2024-05-01'
-  contact:
-    name: Microsoft Azure
-    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+  x-refined-note:
+  - x-source differs across the merged source definitions and was not carried
+  description: 'Operations tagged User across 2 of this provider''s published API definitions: microsoft-azure-api-management-developer-portal-openapi.yaml, microsoft-azure-api-management-rest-api-openapi.yaml. Each path carries the servers of the definition it was published in.'
 servers:
-- url: https://{service-name}.azure-api.net
+- url: https://{service-name}.developer.azure-api.net
+- url: https://management.azure.com
 tags:
 - name: User
 paths:
@@ -46,6 +46,8 @@ paths:
                 id: user-001
                 firstName: Jane
                 lastName: Developer
+    servers:
+    - url: https://{service-name}.developer.azure-api.net
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users
   : get:
       summary: Microsoft Azure API Management User_ListByService
@@ -56,6 +58,11 @@ paths:
           description: Success
       tags:
       - User
+      security:
+      - azure_auth:
+        - user_impersonation
+    servers:
+    - url: https://management.azure.com
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}
   : head:
       summary: Microsoft Azure API Management User_GetEntityTag
@@ -66,6 +73,9 @@ paths:
           description: Success
       tags:
       - User
+      security:
+      - azure_auth:
+        - user_impersonation
     get:
       summary: Microsoft Azure API Management User_Get
       operationId: User_Get
@@ -75,6 +85,9 @@ paths:
           description: Success
       tags:
       - User
+      security:
+      - azure_auth:
+        - user_impersonation
     put:
       summary: Microsoft Azure API Management User_CreateOrUpdate
       operationId: User_CreateOrUpdate
@@ -84,6 +97,9 @@ paths:
           description: Success
       tags:
       - User
+      security:
+      - azure_auth:
+        - user_impersonation
     patch:
       summary: Microsoft Azure API Management User_Update
       operationId: User_Update
@@ -93,6 +109,9 @@ paths:
           description: Success
       tags:
       - User
+      security:
+      - azure_auth:
+        - user_impersonation
     delete:
       summary: Microsoft Azure API Management User_Delete
       operationId: User_Delete
@@ -102,6 +121,11 @@ paths:
           description: Success
       tags:
       - User
+      security:
+      - azure_auth:
+        - user_impersonation
+    servers:
+    - url: https://management.azure.com
 components:
   schemas:
     UserProfile:
@@ -140,7 +164,15 @@ components:
               primaryKey:
                 type: string
                 example: '********************************'
-externalDocs:
-  description: Documentation
-  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+  securitySchemes:
+    azure_auth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+          scopes:
+            user_impersonation: impersonate your user account
+x-refined-from:
+- microsoft-azure-api-management-developer-portal-openapi.yaml
+- microsoft-azure-api-management-rest-api-openapi.yaml
 x-generated-from: documentation

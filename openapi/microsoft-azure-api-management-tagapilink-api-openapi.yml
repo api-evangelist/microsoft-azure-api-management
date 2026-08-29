@@ -1,13 +1,20 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Azure API Management Gateway AI TagApiLink API
-  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  title: Azure API Management REST Tag API Link API
+  description: REST APIs for managing Azure API Management service instances and their entities including APIs, products, subscriptions, users, groups, policies, gateways, backends, certificates, and workspaces. Uses Azure Resource Manager conventions.
   version: '2024-05-01'
   contact:
     name: Microsoft Azure
-    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+    url: https://learn.microsoft.com/en-us/rest/api/apimanagement/
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  x-source: https://github.com/Azure/azure-rest-api-specs/tree/main/specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01
 servers:
-- url: https://{service-name}.azure-api.net
+- url: https://management.azure.com
+security:
+- azure_auth:
+  - user_impersonation
 tags:
 - name: TagApiLink
 paths:
@@ -49,7 +56,15 @@ paths:
           description: Success
       tags:
       - TagApiLink
+components:
+  securitySchemes:
+    azure_auth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+          scopes:
+            user_impersonation: impersonate your user account
 externalDocs:
-  description: Documentation
-  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
-x-generated-from: documentation
+  description: Azure API Management REST API Reference
+  url: https://learn.microsoft.com/en-us/rest/api/apimanagement/

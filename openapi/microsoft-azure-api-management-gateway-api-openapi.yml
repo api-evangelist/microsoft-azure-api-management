@@ -1,13 +1,22 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Azure API Management AI Gateway API
-  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
-  version: '2024-05-01'
-  contact:
-    name: Microsoft Azure
-    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+  title: Microsoft Azure Api Management Gateway API
+  x-refined-note:
+  - x-source differs across the merged source definitions and was not carried
+  version: '1.0'
+  description: 'Operations tagged Gateway across 3 of this provider''s published API definitions: microsoft-azure-api-management-gateway-openapi.yaml, microsoft-azure-api-management-rest-api-openapi.yaml, microsoft-azure-api-management-self-hosted-gateway-openapi.yaml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://{service-name}.azure-api.net
+  variables:
+    service-name:
+      default: contoso-apim
+      description: The name of the API Management service instance
+- url: https://management.azure.com
+- url: https://{gateway-hostname}
+  variables:
+    gateway-hostname:
+      default: apim-gateway.contoso.com
+      description: The hostname of the self-hosted gateway instance
 tags:
 - name: Gateway
 paths:
@@ -176,6 +185,12 @@ paths:
                     body: {}
               x-microcks-default:
                 statusCode: 204
+    servers:
+    - url: https://{service-name}.azure-api.net
+      variables:
+        service-name:
+          default: contoso-apim
+          description: The name of the API Management service instance
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways
   : get:
       summary: Microsoft Azure API Management Gateway_ListByService
@@ -186,6 +201,11 @@ paths:
           description: Success
       tags:
       - Gateway
+      security:
+      - azure_auth:
+        - user_impersonation
+    servers:
+    - url: https://management.azure.com
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}
   : head:
       summary: Microsoft Azure API Management Gateway_GetEntityTag
@@ -196,6 +216,9 @@ paths:
           description: Success
       tags:
       - Gateway
+      security:
+      - azure_auth:
+        - user_impersonation
     get:
       summary: Microsoft Azure API Management Gateway_Get
       operationId: Gateway_Get
@@ -205,6 +228,9 @@ paths:
           description: Success
       tags:
       - Gateway
+      security:
+      - azure_auth:
+        - user_impersonation
     put:
       summary: Microsoft Azure API Management Gateway_CreateOrUpdate
       operationId: Gateway_CreateOrUpdate
@@ -214,6 +240,9 @@ paths:
           description: Success
       tags:
       - Gateway
+      security:
+      - azure_auth:
+        - user_impersonation
     patch:
       summary: Microsoft Azure API Management Gateway_Update
       operationId: Gateway_Update
@@ -223,6 +252,9 @@ paths:
           description: Success
       tags:
       - Gateway
+      security:
+      - azure_auth:
+        - user_impersonation
     delete:
       summary: Microsoft Azure API Management Gateway_Delete
       operationId: Gateway_Delete
@@ -232,6 +264,11 @@ paths:
           description: Success
       tags:
       - Gateway
+      security:
+      - azure_auth:
+        - user_impersonation
+    servers:
+    - url: https://management.azure.com
 components:
   schemas:
     GatewayResponse:
@@ -251,7 +288,30 @@ components:
               example: req-001
         body:
           type: object
-externalDocs:
-  description: Documentation
-  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+    GatewayResponse_2:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          example: 200
+        headers:
+          type: object
+          properties:
+            x-apim-request-id:
+              type: string
+              example: f1e2d3c4-b5a6-7890-fedc-ba0987654321
+        body:
+          type: object
+  securitySchemes:
+    azure_auth:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+          scopes:
+            user_impersonation: impersonate your user account
+x-refined-from:
+- microsoft-azure-api-management-gateway-openapi.yaml
+- microsoft-azure-api-management-rest-api-openapi.yaml
+- microsoft-azure-api-management-self-hosted-gateway-openapi.yaml
 x-generated-from: documentation

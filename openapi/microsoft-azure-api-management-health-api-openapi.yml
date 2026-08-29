@@ -1,13 +1,19 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Azure API Management Gateway AI Health API
-  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
-  version: '2024-05-01'
-  contact:
-    name: Microsoft Azure
-    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+  title: Microsoft Azure Api Management Health API
+  version: '1.0'
+  description: 'Operations tagged Health across 2 of this provider''s published API definitions: microsoft-azure-api-management-gateway-openapi.yaml, microsoft-azure-api-management-self-hosted-gateway-openapi.yaml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://{service-name}.azure-api.net
+  variables:
+    service-name:
+      default: contoso-apim
+      description: The name of the API Management service instance
+- url: https://{gateway-hostname}
+  variables:
+    gateway-hostname:
+      default: apim-gateway.contoso.com
+      description: The hostname of the self-hosted gateway instance
 tags:
 - name: Health
 paths:
@@ -36,6 +42,12 @@ paths:
                     timestamp: '2024-06-15T12:00:00Z'
               x-microcks-default:
                 status: Healthy
+    servers:
+    - url: https://{service-name}.azure-api.net
+      variables:
+        service-name:
+          default: contoso-apim
+          description: The name of the API Management service instance
   /internal/status:
     get:
       summary: Internal status endpoint
@@ -67,8 +79,24 @@ paths:
                 status: Running
                 version: 2.6.0
                 configurationStatus: Synced
+    servers:
+    - url: https://{gateway-hostname}
+      variables:
+        gateway-hostname:
+          default: apim-gateway.contoso.com
+          description: The hostname of the self-hosted gateway instance
 components:
   schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+          example: Healthy
+        timestamp:
+          type: string
+          format: date-time
+          example: '2024-06-15T12:00:00Z'
     InternalStatus:
       type: object
       properties:
@@ -91,17 +119,7 @@ components:
         uptimeSeconds:
           type: integer
           example: 86400
-    HealthStatus:
-      type: object
-      properties:
-        status:
-          type: string
-          example: Healthy
-        timestamp:
-          type: string
-          format: date-time
-          example: '2024-06-15T12:00:00Z'
-externalDocs:
-  description: Documentation
-  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+x-refined-from:
+- microsoft-azure-api-management-gateway-openapi.yaml
+- microsoft-azure-api-management-self-hosted-gateway-openapi.yaml
 x-generated-from: documentation

@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Azure API Management Gateway AI API
   description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
@@ -188,39 +188,6 @@ paths:
                 model: text-embedding-ada-002
 components:
   schemas:
-    EmbeddingResponse:
-      type: object
-      properties:
-        object:
-          type: string
-          example: list
-        data:
-          type: array
-          items:
-            type: object
-            properties:
-              object:
-                type: string
-                example: embedding
-              index:
-                type: integer
-                example: 0
-              embedding:
-                type: array
-                items:
-                  type: number
-        model:
-          type: string
-          example: text-embedding-ada-002
-        usage:
-          type: object
-          properties:
-            prompt_tokens:
-              type: integer
-              example: 12
-            total_tokens:
-              type: integer
-              example: 12
     ChatCompletionResponse:
       type: object
       properties:
@@ -268,6 +235,47 @@ components:
             total_tokens:
               type: integer
               example: 42
+    CompletionRequest:
+      type: object
+      properties:
+        prompt:
+          type: string
+          example: Explain the benefits of API management in
+        max_tokens:
+          type: integer
+          example: 128
+        temperature:
+          type: number
+          example: 0.7
+    ChatCompletionRequest:
+      type: object
+      properties:
+        messages:
+          type: array
+          items:
+            type: object
+            properties:
+              role:
+                type: string
+                example: user
+              content:
+                type: string
+                example: What is Azure API Management?
+        max_tokens:
+          type: integer
+          example: 256
+        temperature:
+          type: number
+          example: 0.7
+    EmbeddingRequest:
+      type: object
+      properties:
+        input:
+          type: string
+          example: Azure API Management provides a unified gateway for APIs.
+        model:
+          type: string
+          example: text-embedding-ada-002
     CompletionResponse:
       type: object
       properties:
@@ -309,47 +317,39 @@ components:
             total_tokens:
               type: integer
               example: 25
-    EmbeddingRequest:
+    EmbeddingResponse:
       type: object
       properties:
-        input:
+        object:
           type: string
-          example: Azure API Management provides a unified gateway for APIs.
-        model:
-          type: string
-          example: text-embedding-ada-002
-    ChatCompletionRequest:
-      type: object
-      properties:
-        messages:
+          example: list
+        data:
           type: array
           items:
             type: object
             properties:
-              role:
+              object:
                 type: string
-                example: user
-              content:
-                type: string
-                example: What is Azure API Management?
-        max_tokens:
-          type: integer
-          example: 256
-        temperature:
-          type: number
-          example: 0.7
-    CompletionRequest:
-      type: object
-      properties:
-        prompt:
+                example: embedding
+              index:
+                type: integer
+                example: 0
+              embedding:
+                type: array
+                items:
+                  type: number
+        model:
           type: string
-          example: Explain the benefits of API management in
-        max_tokens:
-          type: integer
-          example: 128
-        temperature:
-          type: number
-          example: 0.7
+          example: text-embedding-ada-002
+        usage:
+          type: object
+          properties:
+            prompt_tokens:
+              type: integer
+              example: 12
+            total_tokens:
+              type: integer
+              example: 12
 externalDocs:
   description: Documentation
   url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities

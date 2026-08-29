@@ -1,13 +1,13 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Azure API Management Gateway AI APIs API
-  description: The AI gateway capabilities in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs including Azure OpenAI, OpenAI-compatible LLMs, MCP servers, and A2A agent APIs. Includes token rate limiting, semantic caching, load balancing across AI backends, and content safety enforcement.
+  title: Azure API Management Developer Portal AP Is API
+  description: The developer portal is a customizable website for API consumers to discover APIs, read documentation, test APIs via an interactive console, create accounts, subscribe to products, and manage API keys.
   version: '2024-05-01'
   contact:
     name: Microsoft Azure
-    url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+    url: https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize
 servers:
-- url: https://{service-name}.azure-api.net
+- url: https://{service-name}.developer.azure-api.net
 tags:
 - name: APIs
 paths:
@@ -108,6 +108,16 @@ components:
         subscriptionRequired:
           type: boolean
           example: true
+    ApiList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 2
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiSummary'
     ApiSummary:
       type: object
       properties:
@@ -123,17 +133,7 @@ components:
         serviceUrl:
           type: string
           example: https://petstore.example.com
-    ApiList:
-      type: object
-      properties:
-        count:
-          type: integer
-          example: 2
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApiSummary'
 externalDocs:
   description: Documentation
-  url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
+  url: https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize
 x-generated-from: documentation
