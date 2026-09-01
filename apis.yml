@@ -3621,7 +3621,7 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
   tags:
-  - GatewayApi
+  - Gateway API
   tags_raw:
   - GatewayApi
   properties:
@@ -6748,7 +6748,7 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
   tags:
-  - ProductGroup
+  - Product Group
   tags_raw:
   - ProductGroup
   properties:
@@ -7430,7 +7430,7 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
   tags:
-  - ProductTag
+  - Product Tag
   tags_raw:
   - ProductTag
   properties:
@@ -8787,7 +8787,7 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
   tags:
-  - UserIdentity
+  - User Identity
   tags_raw:
   - UserIdentity
   properties:
@@ -9062,7 +9062,7 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
   tags:
-  - UserSubscription
+  - User Subscription
   tags_raw:
   - UserSubscription
   properties:
@@ -9199,7 +9199,7 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
   tags:
-  - UserToken
+  - User Token
   tags_raw:
   - UserToken
   properties:
