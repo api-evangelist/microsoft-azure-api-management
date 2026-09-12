@@ -44,7 +44,7 @@ tags:
 - Enterprise
 - MCP
 - Microsoft Azure
-url: https://raw.githubusercontent.com/api-evangelist/microsoft-azure-api-management/refs/heads/main/apis.yml
+url: https://azure.microsoft.com/products/api-management/
 created: '2026-03-16'
 modified: '2026-05-22'
 specificationVersion: '0.23'
