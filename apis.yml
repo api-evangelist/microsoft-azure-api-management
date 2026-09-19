@@ -3082,6 +3082,8 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
   tags:
+  - Diagnostics
+  tags_raw:
   - Diagnostic
   properties:
   - type: OpenAPI
@@ -3217,6 +3219,8 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
   tags:
+  - Gateways
+  tags_raw:
   - Gateway
   properties:
   - type: OpenAPI
@@ -8242,7 +8246,8 @@ apis:
   description: The APIs API from Microsoft Azure API Management — 2 operation(s) for apis.
   humanURL: https://learn.microsoft.com/en-us/azure/api-center/overview
   baseURL: https://management.azure.com/
-  tags:
+  tags: []
+  tags_raw:
   - APIs
   properties:
   - type: OpenAPI
@@ -9057,6 +9062,8 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/azure/api-center/overview
   baseURL: https://management.azure.com/
   tags:
+  - UserGroup
+  tags_raw:
   - User Group
   properties:
   - type: OpenAPI
