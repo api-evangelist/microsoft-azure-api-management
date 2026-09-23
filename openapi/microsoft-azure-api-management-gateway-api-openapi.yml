@@ -4,14 +4,14 @@ info:
   x-refined-note:
   - x-source differs across the merged source definitions and was not carried
   version: '1.0'
-  description: 'Operations tagged Gateway across 3 of this provider''s published API definitions: microsoft-azure-api-management-gateway-openapi.yaml, microsoft-azure-api-management-rest-api-openapi.yaml, microsoft-azure-api-management-self-hosted-gateway-openapi.yaml. Each path carries the servers of the definition it was published in.'
+  description: 'Operations tagged Gateway across 3 of this provider''s published API definitions: microsoft-azure-api-management-rest-api-openapi.yaml, microsoft-azure-api-management-gateway-openapi.yaml, microsoft-azure-api-management-self-hosted-gateway-openapi.yaml. Each path carries the servers of the definition it was published in.'
 servers:
+- url: https://management.azure.com
 - url: https://{service-name}.azure-api.net
   variables:
     service-name:
       default: contoso-apim
       description: The name of the API Management service instance
-- url: https://management.azure.com
 - url: https://{gateway-hostname}
   variables:
     gateway-hostname:
@@ -20,6 +20,84 @@ servers:
 tags:
 - name: Gateway
 paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways
+  : get:
+      summary: Microsoft Azure API Management Gateway_ListByService
+      operationId: Gateway_ListByService
+      description: Lists a collection of gateways registered with service instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Gateway
+      security:
+      - azure_auth:
+        - user_impersonation
+    servers:
+    - url: https://management.azure.com
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}
+  : head:
+      summary: Microsoft Azure API Management Gateway_GetEntityTag
+      operationId: Gateway_GetEntityTag
+      description: Gets the entity state (Etag) version of the Gateway specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Gateway
+      security:
+      - azure_auth:
+        - user_impersonation
+    get:
+      summary: Microsoft Azure API Management Gateway_Get
+      operationId: Gateway_Get
+      description: Gets the details of the Gateway specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Gateway
+      security:
+      - azure_auth:
+        - user_impersonation
+    put:
+      summary: Microsoft Azure API Management Gateway_CreateOrUpdate
+      operationId: Gateway_CreateOrUpdate
+      description: Creates or updates a Gateway to be used in Api Management instance.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Gateway
+      security:
+      - azure_auth:
+        - user_impersonation
+    patch:
+      summary: Microsoft Azure API Management Gateway_Update
+      operationId: Gateway_Update
+      description: Updates the details of the gateway specified by its identifier.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Gateway
+      security:
+      - azure_auth:
+        - user_impersonation
+    delete:
+      summary: Microsoft Azure API Management Gateway_Delete
+      operationId: Gateway_Delete
+      description: Deletes specific Gateway.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Gateway
+      security:
+      - azure_auth:
+        - user_impersonation
+    servers:
+    - url: https://management.azure.com
   /{api-path}:
     get:
       summary: Proxy GET request to backend API
@@ -191,84 +269,6 @@ paths:
         service-name:
           default: contoso-apim
           description: The name of the API Management service instance
-  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways
-  : get:
-      summary: Microsoft Azure API Management Gateway_ListByService
-      operationId: Gateway_ListByService
-      description: Lists a collection of gateways registered with service instance.
-      responses:
-        '200':
-          description: Success
-      tags:
-      - Gateway
-      security:
-      - azure_auth:
-        - user_impersonation
-    servers:
-    - url: https://management.azure.com
-  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/gateways/{gatewayId}
-  : head:
-      summary: Microsoft Azure API Management Gateway_GetEntityTag
-      operationId: Gateway_GetEntityTag
-      description: Gets the entity state (Etag) version of the Gateway specified by its identifier.
-      responses:
-        '200':
-          description: Success
-      tags:
-      - Gateway
-      security:
-      - azure_auth:
-        - user_impersonation
-    get:
-      summary: Microsoft Azure API Management Gateway_Get
-      operationId: Gateway_Get
-      description: Gets the details of the Gateway specified by its identifier.
-      responses:
-        '200':
-          description: Success
-      tags:
-      - Gateway
-      security:
-      - azure_auth:
-        - user_impersonation
-    put:
-      summary: Microsoft Azure API Management Gateway_CreateOrUpdate
-      operationId: Gateway_CreateOrUpdate
-      description: Creates or updates a Gateway to be used in Api Management instance.
-      responses:
-        '200':
-          description: Success
-      tags:
-      - Gateway
-      security:
-      - azure_auth:
-        - user_impersonation
-    patch:
-      summary: Microsoft Azure API Management Gateway_Update
-      operationId: Gateway_Update
-      description: Updates the details of the gateway specified by its identifier.
-      responses:
-        '200':
-          description: Success
-      tags:
-      - Gateway
-      security:
-      - azure_auth:
-        - user_impersonation
-    delete:
-      summary: Microsoft Azure API Management Gateway_Delete
-      operationId: Gateway_Delete
-      description: Deletes specific Gateway.
-      responses:
-        '200':
-          description: Success
-      tags:
-      - Gateway
-      security:
-      - azure_auth:
-        - user_impersonation
-    servers:
-    - url: https://management.azure.com
 components:
   schemas:
     GatewayResponse:
@@ -311,7 +311,6 @@ components:
           scopes:
             user_impersonation: impersonate your user account
 x-refined-from:
-- microsoft-azure-api-management-gateway-openapi.yaml
 - microsoft-azure-api-management-rest-api-openapi.yaml
+- microsoft-azure-api-management-gateway-openapi.yaml
 - microsoft-azure-api-management-self-hosted-gateway-openapi.yaml
-x-generated-from: documentation

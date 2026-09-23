@@ -16,7 +16,7 @@ security:
 - azure_auth:
   - user_impersonation
 tags:
-- name: Api
+- name: api
 paths:
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis
   : get:
@@ -57,7 +57,7 @@ paths:
                 count: 0
                 nextLink: ''
       tags:
-      - Api
+      - api
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}
   : head:
       summary: Microsoft Azure API Management Api_GetEntityTag
@@ -70,7 +70,7 @@ paths:
         '200':
           description: Success
       tags:
-      - Api
+      - api
     get:
       summary: Microsoft Azure API Management Api_Get
       operationId: Api_Get
@@ -105,7 +105,7 @@ paths:
                 id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api
                 name: petstore-api
       tags:
-      - Api
+      - api
     put:
       summary: Microsoft Azure API Management Api_CreateOrUpdate
       operationId: Api_CreateOrUpdate
@@ -157,7 +157,7 @@ paths:
                 id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api
                 name: petstore-api
       tags:
-      - Api
+      - api
     patch:
       summary: Microsoft Azure API Management Api_Update
       operationId: Api_Update
@@ -204,7 +204,7 @@ paths:
                 id: /subscriptions/a1b2c3d4-e5f6-7890-abcd-ef1234567890/resourceGroups/contoso-rg/providers/Microsoft.ApiManagement/service/contoso-apim/apis/petstore-api
                 name: petstore-api
       tags:
-      - Api
+      - api
     delete:
       summary: Microsoft Azure API Management Api_Delete
       operationId: Api_Delete
@@ -216,7 +216,7 @@ paths:
         '200':
           description: Success
       tags:
-      - Api
+      - api
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis
   : get:
       summary: Microsoft Azure API Management WorkspaceApi_ListByService
@@ -226,7 +226,7 @@ paths:
         '200':
           description: Success
       tags:
-      - Api
+      - api
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}/apis/{apiId}
   : head:
       summary: Microsoft Azure API Management WorkspaceApi_GetEntityTag
@@ -236,7 +236,7 @@ paths:
         '200':
           description: Success
       tags:
-      - Api
+      - api
     get:
       summary: Microsoft Azure API Management WorkspaceApi_Get
       operationId: WorkspaceApi_Get
@@ -245,7 +245,7 @@ paths:
         '200':
           description: Success
       tags:
-      - Api
+      - api
     put:
       summary: Microsoft Azure API Management WorkspaceApi_CreateOrUpdate
       operationId: WorkspaceApi_CreateOrUpdate
@@ -254,7 +254,7 @@ paths:
         '200':
           description: Success
       tags:
-      - Api
+      - api
     patch:
       summary: Microsoft Azure API Management WorkspaceApi_Update
       operationId: WorkspaceApi_Update
@@ -263,7 +263,7 @@ paths:
         '200':
           description: Success
       tags:
-      - Api
+      - api
     delete:
       summary: Microsoft Azure API Management WorkspaceApi_Delete
       operationId: WorkspaceApi_Delete
@@ -272,7 +272,7 @@ paths:
         '200':
           description: Success
       tags:
-      - Api
+      - api
 components:
   schemas:
     ApiCreateOrUpdateParameter:

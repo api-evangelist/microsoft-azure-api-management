@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Azure API Management REST User Identity API
+  title: Azure API Management REST User Subscription API
   description: REST APIs for managing Azure API Management service instances and their entities including APIs, products, subscriptions, users, groups, policies, gateways, backends, certificates, and workspaces. Uses Azure Resource Manager conventions.
   version: '2024-05-01'
   contact:
@@ -16,18 +16,18 @@ security:
 - azure_auth:
   - user_impersonation
 tags:
-- name: UserIdentity
+- name: User Subscription
 paths:
-  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}/identities
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}/subscriptions
   : get:
-      summary: Microsoft Azure API Management UserIdentities_List
-      operationId: UserIdentities_List
-      description: List of all user identities.
+      summary: Microsoft Azure API Management UserSubscription_List
+      operationId: UserSubscription_List
+      description: Lists the collection of subscriptions of the specified user.
       responses:
         '200':
           description: Success
       tags:
-      - UserIdentity
+      - User Subscription
 components:
   securitySchemes:
     azure_auth:

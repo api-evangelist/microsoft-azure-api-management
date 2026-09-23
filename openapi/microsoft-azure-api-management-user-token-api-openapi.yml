@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Azure API Management REST API Product API
+  title: Azure API Management REST User Token API
   description: REST APIs for managing Azure API Management service instances and their entities including APIs, products, subscriptions, users, groups, policies, gateways, backends, certificates, and workspaces. Uses Azure Resource Manager conventions.
   version: '2024-05-01'
   contact:
@@ -16,18 +16,18 @@ security:
 - azure_auth:
   - user_impersonation
 tags:
-- name: ApiProduct
+- name: User Token
 paths:
-  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/products
-  : get:
-      summary: Microsoft Azure API Management ApiProduct_ListByApis
-      operationId: ApiProduct_ListByApis
-      description: Lists all Products, which the API is part of.
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users/{userId}/token
+  : post:
+      summary: Microsoft Azure API Management User_GetSharedAccessToken
+      operationId: User_GetSharedAccessToken
+      description: Gets the Shared Access Authorization Token for the User.
       responses:
         '200':
           description: Success
       tags:
-      - ApiProduct
+      - User Token
 components:
   securitySchemes:
     azure_auth:

@@ -4,50 +4,13 @@ info:
   version: '2024-05-01'
   x-refined-note:
   - x-source differs across the merged source definitions and was not carried
-  description: 'Operations tagged User across 2 of this provider''s published API definitions: microsoft-azure-api-management-developer-portal-openapi.yaml, microsoft-azure-api-management-rest-api-openapi.yaml. Each path carries the servers of the definition it was published in.'
+  description: 'Operations tagged User across 2 of this provider''s published API definitions: microsoft-azure-api-management-rest-api-openapi.yaml, microsoft-azure-api-management-developer-portal-openapi.yaml. Each path carries the servers of the definition it was published in.'
 servers:
-- url: https://{service-name}.developer.azure-api.net
 - url: https://management.azure.com
+- url: https://{service-name}.developer.azure-api.net
 tags:
 - name: User
 paths:
-  /profile:
-    get:
-      summary: User profile and subscriptions
-      operationId: DevPortal_Profile
-      tags:
-      - User
-      description: Returns the user profile page with subscription and API key management.
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
-      responses:
-        '200':
-          description: User profile
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserProfile'
-              examples:
-                UserProfileExample:
-                  summary: User profile
-                  value:
-                    id: user-001
-                    firstName: Jane
-                    lastName: Developer
-                    email: jane.developer@contoso.com
-                    registrationDate: '2024-01-15T10:30:00Z'
-                    subscriptions:
-                    - id: sub-abc123
-                      productName: Starter
-                      state: active
-                      primaryKey: '********************************'
-              x-microcks-default:
-                id: user-001
-                firstName: Jane
-                lastName: Developer
-    servers:
-    - url: https://{service-name}.developer.azure-api.net
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/users
   : get:
       summary: Microsoft Azure API Management User_ListByService
@@ -126,6 +89,43 @@ paths:
         - user_impersonation
     servers:
     - url: https://management.azure.com
+  /profile:
+    get:
+      summary: User profile and subscriptions
+      operationId: DevPortal_Profile
+      tags:
+      - User
+      description: Returns the user profile page with subscription and API key management.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      responses:
+        '200':
+          description: User profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+              examples:
+                UserProfileExample:
+                  summary: User profile
+                  value:
+                    id: user-001
+                    firstName: Jane
+                    lastName: Developer
+                    email: jane.developer@contoso.com
+                    registrationDate: '2024-01-15T10:30:00Z'
+                    subscriptions:
+                    - id: sub-abc123
+                      productName: Starter
+                      state: active
+                      primaryKey: '********************************'
+              x-microcks-default:
+                id: user-001
+                firstName: Jane
+                lastName: Developer
+    servers:
+    - url: https://{service-name}.developer.azure-api.net
 components:
   schemas:
     UserProfile:
@@ -173,6 +173,5 @@ components:
           scopes:
             user_impersonation: impersonate your user account
 x-refined-from:
-- microsoft-azure-api-management-developer-portal-openapi.yaml
 - microsoft-azure-api-management-rest-api-openapi.yaml
-x-generated-from: documentation
+- microsoft-azure-api-management-developer-portal-openapi.yaml

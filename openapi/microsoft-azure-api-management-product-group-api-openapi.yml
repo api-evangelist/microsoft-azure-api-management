@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Azure API Management REST Product API
+  title: Azure API Management REST Product Group API
   description: REST APIs for managing Azure API Management service instances and their entities including APIs, products, subscriptions, users, groups, policies, gateways, backends, certificates, and workspaces. Uses Azure Resource Manager conventions.
   version: '2024-05-01'
   contact:
@@ -16,46 +16,46 @@ security:
 - azure_auth:
   - user_impersonation
 tags:
-- name: ProductApi
+- name: Product Group
 paths:
-  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/apis
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/groups
   : get:
-      summary: Microsoft Azure API Management ProductApi_ListByProduct
-      operationId: ProductApi_ListByProduct
-      description: Lists a collection of the APIs associated with a product.
+      summary: Microsoft Azure API Management ProductGroup_ListByProduct
+      operationId: ProductGroup_ListByProduct
+      description: Lists the collection of developer groups associated with the specified product.
       responses:
         '200':
           description: Success
       tags:
-      - ProductApi
-  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/apis/{apiId}
+      - Product Group
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/groups/{groupId}
   : head:
-      summary: Microsoft Azure API Management ProductApi_CheckEntityExists
-      operationId: ProductApi_CheckEntityExists
-      description: Checks that API entity specified by identifier is associated with the Product entity.
+      summary: Microsoft Azure API Management ProductGroup_CheckEntityExists
+      operationId: ProductGroup_CheckEntityExists
+      description: Checks that Group entity specified by identifier is associated with the Product entity.
       responses:
         '200':
           description: Success
       tags:
-      - ProductApi
+      - Product Group
     put:
-      summary: Microsoft Azure API Management ProductApi_CreateOrUpdate
-      operationId: ProductApi_CreateOrUpdate
-      description: Adds an API to the specified product.
+      summary: Microsoft Azure API Management ProductGroup_CreateOrUpdate
+      operationId: ProductGroup_CreateOrUpdate
+      description: Adds the association between the specified developer group with the specified product.
       responses:
         '200':
           description: Success
       tags:
-      - ProductApi
+      - Product Group
     delete:
-      summary: Microsoft Azure API Management ProductApi_Delete
-      operationId: ProductApi_Delete
-      description: Deletes the specified API from the specified product.
+      summary: Microsoft Azure API Management ProductGroup_Delete
+      operationId: ProductGroup_Delete
+      description: Deletes the association between the specified group and product.
       responses:
         '200':
           description: Success
       tags:
-      - ProductApi
+      - Product Group
 components:
   securitySchemes:
     azure_auth:

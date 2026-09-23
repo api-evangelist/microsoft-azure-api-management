@@ -122,4 +122,3 @@ components:
 x-refined-from:
 - microsoft-azure-api-management-gateway-openapi.yaml
 - microsoft-azure-api-management-self-hosted-gateway-openapi.yaml
-x-generated-from: documentation

@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Azure API Management REST Group User API
+  title: Azure API Management REST Product Tag API
   description: REST APIs for managing Azure API Management service instances and their entities including APIs, products, subscriptions, users, groups, policies, gateways, backends, certificates, and workspaces. Uses Azure Resource Manager conventions.
   version: '2024-05-01'
   contact:
@@ -16,46 +16,55 @@ security:
 - azure_auth:
   - user_impersonation
 tags:
-- name: GroupUser
+- name: Product Tag
 paths:
-  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups/{groupId}/users
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/tags
   : get:
-      summary: Microsoft Azure API Management GroupUser_List
-      operationId: GroupUser_List
-      description: Lists a collection of user entities associated with the group.
+      summary: Microsoft Azure API Management Tag_ListByProduct
+      operationId: Tag_ListByProduct
+      description: Lists all Tags associated with the Product.
       responses:
         '200':
           description: Success
       tags:
-      - GroupUser
-  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/groups/{groupId}/users/{userId}
+      - Product Tag
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/products/{productId}/tags/{tagId}
   : head:
-      summary: Microsoft Azure API Management GroupUser_CheckEntityExists
-      operationId: GroupUser_CheckEntityExists
-      description: Checks that user entity specified by identifier is associated with the group entity.
+      summary: Microsoft Azure API Management Tag_GetEntityStateByProduct
+      operationId: Tag_GetEntityStateByProduct
+      description: Gets the entity state version of the tag specified by its identifier.
       responses:
         '200':
           description: Success
       tags:
-      - GroupUser
+      - Product Tag
+    get:
+      summary: Microsoft Azure API Management Tag_GetByProduct
+      operationId: Tag_GetByProduct
+      description: Get tag associated with the Product.
+      responses:
+        '200':
+          description: Success
+      tags:
+      - Product Tag
     put:
-      summary: Microsoft Azure API Management GroupUser_Create
-      operationId: GroupUser_Create
-      description: Add existing user to existing group
+      summary: Microsoft Azure API Management Tag_AssignToProduct
+      operationId: Tag_AssignToProduct
+      description: Assign tag to the Product.
       responses:
         '200':
           description: Success
       tags:
-      - GroupUser
+      - Product Tag
     delete:
-      summary: Microsoft Azure API Management GroupUser_Delete
-      operationId: GroupUser_Delete
-      description: Remove existing user from existing group.
+      summary: Microsoft Azure API Management Tag_DetachFromProduct
+      operationId: Tag_DetachFromProduct
+      description: Detach the tag from the Product.
       responses:
         '200':
           description: Success
       tags:
-      - GroupUser
+      - Product Tag
 components:
   securitySchemes:
     azure_auth:

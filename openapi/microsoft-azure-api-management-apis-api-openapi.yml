@@ -84,6 +84,31 @@ paths:
                 name: Petstore API
 components:
   schemas:
+    ApiSummary:
+      type: object
+      properties:
+        id:
+          type: string
+          example: petstore-api
+        name:
+          type: string
+          example: Petstore API
+        description:
+          type: string
+          example: Manage pet inventory and orders.
+        serviceUrl:
+          type: string
+          example: https://petstore.example.com
+    ApiList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 2
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiSummary'
     ApiDetail:
       type: object
       properties:
@@ -108,31 +133,6 @@ components:
         subscriptionRequired:
           type: boolean
           example: true
-    ApiList:
-      type: object
-      properties:
-        count:
-          type: integer
-          example: 2
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApiSummary'
-    ApiSummary:
-      type: object
-      properties:
-        id:
-          type: string
-          example: petstore-api
-        name:
-          type: string
-          example: Petstore API
-        description:
-          type: string
-          example: Manage pet inventory and orders.
-        serviceUrl:
-          type: string
-          example: https://petstore.example.com
 externalDocs:
   description: Documentation
   url: https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize

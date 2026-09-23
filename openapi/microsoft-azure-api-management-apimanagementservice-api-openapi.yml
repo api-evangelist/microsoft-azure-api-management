@@ -330,7 +330,7 @@ paths:
       - ApiManagementService
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/applynetworkconfigurationupdates
   : post:
-      summary: Microsoft Azure API Management ApiManagementService_ApplyNetworkConfigurationUpdates
+      summary: Microsoft Azure API Management ApiManagementService_ApplyNetworkConfigurationUpd…
       operationId: ApiManagementService_ApplyNetworkConfigurationUpdates
       description: Updates the Microsoft.ApiManagement resource running in the Virtual network to pick the updated DNS changes.
       responses:
@@ -380,24 +380,6 @@ paths:
       - ApiManagementService
 components:
   schemas:
-    ServiceNameAvailabilityResult:
-      type: object
-      properties:
-        nameAvailable:
-          type: boolean
-          example: true
-        message:
-          type: string
-          example: ''
-        reason:
-          type: string
-          example: ''
-    DomainOwnershipIdentifierResult:
-      type: object
-      properties:
-        domainOwnershipIdentifier:
-          type: string
-          example: abc123def456ghi789
     ApiManagementServiceListResult:
       type: object
       properties:
@@ -460,6 +442,24 @@ components:
               type: string
               format: date-time
               example: '2024-01-10T08:00:00Z'
+    ServiceNameAvailabilityResult:
+      type: object
+      properties:
+        nameAvailable:
+          type: boolean
+          example: true
+        message:
+          type: string
+          example: ''
+        reason:
+          type: string
+          example: ''
+    DomainOwnershipIdentifierResult:
+      type: object
+      properties:
+        domainOwnershipIdentifier:
+          type: string
+          example: abc123def456ghi789
   securitySchemes:
     azure_auth:
       type: oauth2
