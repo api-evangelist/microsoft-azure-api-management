@@ -9057,6 +9057,8 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 common:
+- type: VendorFacets
+  url: vendor-facets/microsoft-azure-api-management-vendor-facets.yml
 - type: IssueTracker
   url: https://github.com/Azure/api-management-self-hosted-gateway/issues
 - type: Releases
