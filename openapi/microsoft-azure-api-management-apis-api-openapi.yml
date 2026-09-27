@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Azure API Management Developer Portal AP Is API
+  title: Azure API Management Developer Portal APIs API
   description: The developer portal is a customizable website for API consumers to discover APIs, read documentation, test APIs via an interactive console, create accounts, subscribe to products, and manage API keys.
   version: '2024-05-01'
   contact:
@@ -84,6 +84,30 @@ paths:
                 name: Petstore API
 components:
   schemas:
+    ApiDetail:
+      type: object
+      properties:
+        id:
+          type: string
+          example: petstore-api
+        name:
+          type: string
+          example: Petstore API
+        description:
+          type: string
+          example: Manage pet inventory and orders.
+        serviceUrl:
+          type: string
+          example: https://petstore.example.com
+        protocols:
+          type: array
+          items:
+            type: string
+          example:
+          - https
+        subscriptionRequired:
+          type: boolean
+          example: true
     ApiSummary:
       type: object
       properties:
@@ -109,30 +133,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ApiSummary'
-    ApiDetail:
-      type: object
-      properties:
-        id:
-          type: string
-          example: petstore-api
-        name:
-          type: string
-          example: Petstore API
-        description:
-          type: string
-          example: Manage pet inventory and orders.
-        serviceUrl:
-          type: string
-          example: https://petstore.example.com
-        protocols:
-          type: array
-          items:
-            type: string
-          example:
-          - https
-        subscriptionRequired:
-          type: boolean
-          example: true
 externalDocs:
   description: Documentation
   url: https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize
