@@ -188,79 +188,6 @@ paths:
                 model: text-embedding-ada-002
 components:
   schemas:
-    CompletionRequest:
-      type: object
-      properties:
-        prompt:
-          type: string
-          example: Explain the benefits of API management in
-        max_tokens:
-          type: integer
-          example: 128
-        temperature:
-          type: number
-          example: 0.7
-    ChatCompletionRequest:
-      type: object
-      properties:
-        messages:
-          type: array
-          items:
-            type: object
-            properties:
-              role:
-                type: string
-                example: user
-              content:
-                type: string
-                example: What is Azure API Management?
-        max_tokens:
-          type: integer
-          example: 256
-        temperature:
-          type: number
-          example: 0.7
-    CompletionResponse:
-      type: object
-      properties:
-        id:
-          type: string
-          example: cmpl-xyz789
-        object:
-          type: string
-          example: text_completion
-        created:
-          type: integer
-          example: 1714000000
-        model:
-          type: string
-          example: gpt-4o
-        choices:
-          type: array
-          items:
-            type: object
-            properties:
-              index:
-                type: integer
-                example: 0
-              text:
-                type: string
-                example: enterprise environments includes centralized governance and security.
-              finish_reason:
-                type: string
-                example: stop
-        usage:
-          type: object
-          properties:
-            prompt_tokens:
-              type: integer
-              example: 10
-            completion_tokens:
-              type: integer
-              example: 15
-            total_tokens:
-              type: integer
-              example: 25
     ChatCompletionResponse:
       type: object
       properties:
@@ -308,6 +235,38 @@ components:
             total_tokens:
               type: integer
               example: 42
+    CompletionRequest:
+      type: object
+      properties:
+        prompt:
+          type: string
+          example: Explain the benefits of API management in
+        max_tokens:
+          type: integer
+          example: 128
+        temperature:
+          type: number
+          example: 0.7
+    ChatCompletionRequest:
+      type: object
+      properties:
+        messages:
+          type: array
+          items:
+            type: object
+            properties:
+              role:
+                type: string
+                example: user
+              content:
+                type: string
+                example: What is Azure API Management?
+        max_tokens:
+          type: integer
+          example: 256
+        temperature:
+          type: number
+          example: 0.7
     EmbeddingRequest:
       type: object
       properties:
@@ -317,6 +276,47 @@ components:
         model:
           type: string
           example: text-embedding-ada-002
+    CompletionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: cmpl-xyz789
+        object:
+          type: string
+          example: text_completion
+        created:
+          type: integer
+          example: 1714000000
+        model:
+          type: string
+          example: gpt-4o
+        choices:
+          type: array
+          items:
+            type: object
+            properties:
+              index:
+                type: integer
+                example: 0
+              text:
+                type: string
+                example: enterprise environments includes centralized governance and security.
+              finish_reason:
+                type: string
+                example: stop
+        usage:
+          type: object
+          properties:
+            prompt_tokens:
+              type: integer
+              example: 10
+            completion_tokens:
+              type: integer
+              example: 15
+            total_tokens:
+              type: integer
+              example: 25
     EmbeddingResponse:
       type: object
       properties:

@@ -60,26 +60,6 @@ paths:
                 id: 1
 components:
   schemas:
-    MCPRequest:
-      type: object
-      properties:
-        jsonrpc:
-          type: string
-          example: '2.0'
-        method:
-          type: string
-          example: tools/call
-        id:
-          type: integer
-          example: 1
-        params:
-          type: object
-          properties:
-            name:
-              type: string
-              example: get_weather
-            arguments:
-              type: object
     MCPResponse:
       type: object
       properties:
@@ -103,6 +83,26 @@ components:
                   text:
                     type: string
                     example: The weather in Seattle is 62F and partly cloudy.
+    MCPRequest:
+      type: object
+      properties:
+        jsonrpc:
+          type: string
+          example: '2.0'
+        method:
+          type: string
+          example: tools/call
+        id:
+          type: integer
+          example: 1
+        params:
+          type: object
+          properties:
+            name:
+              type: string
+              example: get_weather
+            arguments:
+              type: object
 externalDocs:
   description: Documentation
   url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
