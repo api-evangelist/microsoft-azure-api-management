@@ -188,85 +188,39 @@ paths:
                 model: text-embedding-ada-002
 components:
   schemas:
-    ChatCompletionResponse:
+    EmbeddingResponse:
       type: object
       properties:
-        id:
-          type: string
-          example: chatcmpl-abc123def456
         object:
           type: string
-          example: chat.completion
-        created:
-          type: integer
-          example: 1714000000
-        model:
-          type: string
-          example: gpt-4o
-        choices:
+          example: list
+        data:
           type: array
           items:
             type: object
             properties:
+              object:
+                type: string
+                example: embedding
               index:
                 type: integer
                 example: 0
-              message:
-                type: object
-                properties:
-                  role:
-                    type: string
-                    example: assistant
-                  content:
-                    type: string
-                    example: Azure API Management is a hybrid, multicloud management platform for APIs across all environments.
-              finish_reason:
-                type: string
-                example: stop
+              embedding:
+                type: array
+                items:
+                  type: number
+        model:
+          type: string
+          example: text-embedding-ada-002
         usage:
           type: object
           properties:
             prompt_tokens:
               type: integer
-              example: 24
-            completion_tokens:
-              type: integer
-              example: 18
+              example: 12
             total_tokens:
               type: integer
-              example: 42
-    CompletionRequest:
-      type: object
-      properties:
-        prompt:
-          type: string
-          example: Explain the benefits of API management in
-        max_tokens:
-          type: integer
-          example: 128
-        temperature:
-          type: number
-          example: 0.7
-    ChatCompletionRequest:
-      type: object
-      properties:
-        messages:
-          type: array
-          items:
-            type: object
-            properties:
-              role:
-                type: string
-                example: user
-              content:
-                type: string
-                example: What is Azure API Management?
-        max_tokens:
-          type: integer
-          example: 256
-        temperature:
-          type: number
-          example: 0.7
+              example: 12
     EmbeddingRequest:
       type: object
       properties:
@@ -317,39 +271,85 @@ components:
             total_tokens:
               type: integer
               example: 25
-    EmbeddingResponse:
+    CompletionRequest:
       type: object
       properties:
-        object:
+        prompt:
           type: string
-          example: list
-        data:
+          example: Explain the benefits of API management in
+        max_tokens:
+          type: integer
+          example: 128
+        temperature:
+          type: number
+          example: 0.7
+    ChatCompletionRequest:
+      type: object
+      properties:
+        messages:
           type: array
           items:
             type: object
             properties:
-              object:
+              role:
                 type: string
-                example: embedding
+                example: user
+              content:
+                type: string
+                example: What is Azure API Management?
+        max_tokens:
+          type: integer
+          example: 256
+        temperature:
+          type: number
+          example: 0.7
+    ChatCompletionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          example: chatcmpl-abc123def456
+        object:
+          type: string
+          example: chat.completion
+        created:
+          type: integer
+          example: 1714000000
+        model:
+          type: string
+          example: gpt-4o
+        choices:
+          type: array
+          items:
+            type: object
+            properties:
               index:
                 type: integer
                 example: 0
-              embedding:
-                type: array
-                items:
-                  type: number
-        model:
-          type: string
-          example: text-embedding-ada-002
+              message:
+                type: object
+                properties:
+                  role:
+                    type: string
+                    example: assistant
+                  content:
+                    type: string
+                    example: Azure API Management is a hybrid, multicloud management platform for APIs across all environments.
+              finish_reason:
+                type: string
+                example: stop
         usage:
           type: object
           properties:
             prompt_tokens:
               type: integer
-              example: 12
+              example: 24
+            completion_tokens:
+              type: integer
+              example: 18
             total_tokens:
               type: integer
-              example: 12
+              example: 42
 externalDocs:
   description: Documentation
   url: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities

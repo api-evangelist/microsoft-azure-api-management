@@ -1,5 +1,7 @@
 aid: microsoft-azure-api-management
+
 name: Microsoft Azure API Management
+
 description: Microsoft Azure API Management is a hybrid, multicloud management platform for APIs across
   all environments. It is composed of an API gateway (data plane), a management plane, and a developer
   portal, and supports the complete API lifecycle for publishing, securing, monitoring, and transforming
@@ -9,7 +11,9 @@ description: Microsoft Azure API Management is a hybrid, multicloud management p
   rate limiting, semantic caching, content safety, backend load balancing, circuit breakers, and token
   emission to Application Insights. It pairs with Azure API Center for design-time inventory, governance,
   and discovery.
+
 type: Index
+
 deliveryModel:
   model: saas
   license_evidence:
@@ -28,6 +32,7 @@ deliveryModel:
   - repository-not-product
   generated: '2026-09-25'
   method: derived
+
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -41,7 +46,9 @@ accessModel:
   - authentication
   generated: '2026-07-22'
   method: derived
+
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/microsoft-azure-api-management.png
+
 tags:
 - A2A
 - AI Gateway
@@ -51,10 +58,252 @@ tags:
 - Enterprise
 - MCP
 - Microsoft Azure
+
 url: https://azure.microsoft.com/products/api-management/
+
 created: '2026-03-16'
+
 modified: '2026-09-16'
+
 specificationVersion: '0.23'
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+
+common:
+- type: Spectral
+  url: rules/microsoft-azure-api-management-rules.yml
+- type: Spectral
+  url: rules/microsoft-azure-api-management-jsonschema-spectral-rules.yml
+- type: JSONLD
+  url: json-ld/microsoft-azure-api-management-context.jsonld
+- type: Vocabulary
+  url: vocabulary/microsoft-azure-api-management-vocabulary.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: DataModel
+  url: data-model/microsoft-azure-api-management-data-model.yml
+- type: Conformance
+  url: conformance/microsoft-azure-api-management-conformance.yml
+- type: LLMsTxt
+  url: llms/microsoft-azure-api-management-llms.txt
+- type: ToolCrosswalk
+  url: mcp/microsoft-azure-api-management-tool-crosswalk.yml
+- type: SecurityTxt
+  url: well-known/microsoft-azure-api-management-www-security.txt
+- type: WellKnown
+  url: well-known/microsoft-azure-api-management-well-known.yml
+- type: Hosts
+  url: hosts/microsoft-azure-api-management-hosts.yml
+- type: Vendors
+  url: vendors/microsoft-azure-api-management-vendors.yml
+- type: VendorFacets
+  url: vendor-facets/microsoft-azure-api-management-vendor-facets.yml
+- type: IssueTracker
+  url: https://github.com/Azure/api-management-self-hosted-gateway/issues
+- type: Releases
+  url: https://github.com/Azure/api-management-self-hosted-gateway/releases
+- type: SecurityPolicy
+  url: https://github.com/Azure/api-management-self-hosted-gateway/blob/main/SECURITY.md
+- type: CodeOfConduct
+  url: https://github.com/Azure/api-management-self-hosted-gateway/blob/main/CODE_OF_CONDUCT.md
+- type: ContributionGuide
+  url: https://github.com/Azure/api-management-self-hosted-gateway/blob/main/CONTRIBUTING.md
+- type: AgenticAccess
+  url: agentic-access/microsoft-azure-api-management-agentic-access.yml
+- type: VulnerabilityDisclosure
+  url: security/microsoft-azure-api-management-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/microsoft-azure-api-management-domain-security.yml
+- type: Authentication
+  url: authentication/microsoft-azure-api-management-authentication.yml
+- type: OAuthScopes
+  url: scopes/microsoft-azure-api-management-scopes.yml
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/microsoft-azure-api-management/overview
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-ai-gateway-chat-and-embed-workflow.yml
+  name: Azure API Management AI Gateway Chat and Embed
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-apply-api-policy-workflow.yml
+  name: Azure API Management Apply API Policy
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-backup-service-workflow.yml
+  name: Azure API Management Backup Service
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-configure-api-diagnostic-workflow.yml
+  name: Azure API Management Configure API Diagnostic
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-configure-graphql-resolver-workflow.yml
+  name: Azure API Management Configure GraphQL Resolver
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-configure-logger-diagnostic-workflow.yml
+  name: Azure API Management Configure Logger and Service Diagnostic
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-configure-product-policy-workflow.yml
+  name: Azure API Management Configure Product Policy
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-define-api-operation-workflow.yml
+  name: Azure API Management Define API Operation
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-link-product-group-workflow.yml
+  name: Azure API Management Link Product to Group
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-manage-workspace-named-value-workflow.yml
+  name: Azure API Management Manage Workspace Named Value
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-onboard-user-to-group-workflow.yml
+  name: Azure API Management Onboard User to Group
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-provision-backend-workflow.yml
+  name: Azure API Management Provision Backend
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-provision-certificate-backend-workflow.yml
+  name: Azure API Management Provision Certificate for Backend
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-provision-product-link-api-workflow.yml
+  name: Azure API Management Provision Product and Link API
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-provision-service-workflow.yml
+  name: Azure API Management Provision Service
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-provision-subscription-keys-workflow.yml
+  name: Azure API Management Provision Subscription and Retrieve Keys
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-provision-workspace-api-workflow.yml
+  name: Azure API Management Provision Workspace API
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-provision-workspace-product-subscription-workflow.yml
+  name: Azure API Management Provision Workspace Product and Subscription
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-publish-api-release-workflow.yml
+  name: Azure API Management Publish API Release
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-register-api-schema-workflow.yml
+  name: Azure API Management Register API Schema
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-register-gateway-link-api-workflow.yml
+  name: Azure API Management Register Gateway and Link API
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-rotate-subscription-keys-workflow.yml
+  name: Azure API Management Rotate Subscription Keys
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-set-service-policy-workflow.yml
+  name: Azure API Management Set Global Service Policy
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-tag-api-workflow.yml
+  name: Azure API Management Tag and Label an API
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-tag-product-workflow.yml
+  name: Azure API Management Tag a Product
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-upsert-api-workflow.yml
+  name: Azure API Management Upsert API
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-upsert-product-workflow.yml
+  name: Azure API Management Upsert Product
+- type: Arazzo
+  url: arazzo/microsoft-azure-api-management-upsert-user-workflow.yml
+  name: Azure API Management Upsert User
+- type: Website
+  url: https://azure.microsoft.com/products/api-management/
+- type: Documentation
+  url: https://learn.microsoft.com/en-us/azure/api-management/
+- type: GettingStarted
+  url: https://learn.microsoft.com/en-us/azure/api-management/get-started-create-service-instance
+- type: GettingStarted
+  url: https://learn.microsoft.com/en-us/azure/api-management/get-started-create-service-instance-cli
+- type: APIReference
+  url: https://learn.microsoft.com/en-us/rest/api/apimanagement/
+- type: Authentication
+  url: https://learn.microsoft.com/en-us/azure/api-management/authentication-authorization-overview
+- type: Pricing
+  url: https://azure.microsoft.com/pricing/details/api-management/
+- type: Tiers
+  url: https://learn.microsoft.com/en-us/azure/api-management/api-management-features
+- type: ChangeLog
+  url: https://learn.microsoft.com/en-us/azure/api-management/breaking-changes/overview
+- type: Support
+  url: https://learn.microsoft.com/answers/tags/29/azure-api-management/
+- type: Console
+  url: https://portal.azure.com/
+- type: CLI
+  url: https://learn.microsoft.com/en-us/cli/azure/apim
+- type: SDKs
+  url: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/apimanagement
+- type: Tutorials
+  url: https://learn.microsoft.com/en-us/azure/api-management/import-and-publish
+- type: Training
+  url: https://learn.microsoft.com/en-us/training/modules/explore-api-management/
+- type: Security
+  url: https://learn.microsoft.com/en-us/azure/api-management/authentication-authorization-overview
+- type: BestPractices
+  url: https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-policies
+- type: Blog
+  url: https://techcommunity.microsoft.com/t5/azure/ct-p/Azure
+- type: GitHubRepository
+  url: https://github.com/Azure/api-management-samples
+- type: GitHubOrganization
+  url: https://github.com/Azure
+- type: TermsOfService
+  url: https://azure.microsoft.com/support/legal/
+- type: PrivacyPolicy
+  url: https://privacy.microsoft.com/privacystatement
+- type: Regions
+  url: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/
+- type: Compliance
+  url: https://learn.microsoft.com/en-us/azure/compliance/
+- type: TrustCenter
+  url: https://www.microsoft.com/trust-center
+- type: Signup
+  url: https://azure.microsoft.com/free/
+- type: StatusPage
+  url: https://status.azure.com/
+- type: DeveloperPortal
+  url: https://learn.microsoft.com/en-us/azure/api-management/developer-portal-overview
+- type: SDKs
+  url: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/apimanagement
+- type: SDKs
+  url: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/apimanagement
+- type: SDKs
+  url: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement
+- type: SDKs
+  url: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/apimanagement
+- type: CodeExamples
+  url: https://github.com/Azure/api-management-samples
+- type: PolicySnippets
+  url: https://github.com/Azure/api-management-policy-snippets
+- type: Tools
+  url: https://github.com/Azure/azure-api-management-policy-toolkit
+- type: ChangeLog
+  url: https://github.com/Azure/API-Management/blob/master/changelogs/api-management-service.md
+- type: BreakingChanges
+  url: https://learn.microsoft.com/en-us/azure/api-management/breaking-changes/overview
+- type: APICenter
+  url: https://learn.microsoft.com/en-us/azure/api-center/overview
+- type: FoundryIntegration
+  url: https://learn.microsoft.com/en-us/azure/ai-foundry/configuration/enable-ai-api-management-gateway-portal
+- type: AIGatewaySamples
+  url: https://github.com/Azure-Samples/ai-gateway
+- type: AIGatewayWorkshop
+  url: https://aka.ms/ai-gateway/workshop
+- type: VSCodeExtension
+  url: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement
+- type: SpectralRules
+  url: rules/microsoft-azure-api-management-rules.yaml
+- type: Vocabulary
+  url: vocabulary/microsoft-azure-api-management-vocabulary.yaml
+- type: Plans
+  url: plans/microsoft-azure-api-management-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/microsoft-azure-api-management-rate-limits.yml
+- type: FinOps
+  url: finops/microsoft-azure-api-management-finops.yml
+- name: MCP Server
+  url: https://github.com/Azure/azure-api-mcp
+  type: MCPServer
+
 apis:
 - aid: microsoft-azure-api-management:azure-api-center
   name: Azure API Center
@@ -9607,214 +9856,12 @@ apis:
       https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
-common:
-- type: VendorFacets
-  url: vendor-facets/microsoft-azure-api-management-vendor-facets.yml
-- type: IssueTracker
-  url: https://github.com/Azure/api-management-self-hosted-gateway/issues
-- type: Releases
-  url: https://github.com/Azure/api-management-self-hosted-gateway/releases
-- type: SecurityPolicy
-  url: https://github.com/Azure/api-management-self-hosted-gateway/blob/main/SECURITY.md
-- type: CodeOfConduct
-  url: https://github.com/Azure/api-management-self-hosted-gateway/blob/main/CODE_OF_CONDUCT.md
-- type: ContributionGuide
-  url: https://github.com/Azure/api-management-self-hosted-gateway/blob/main/CONTRIBUTING.md
-- type: AgenticAccess
-  url: agentic-access/microsoft-azure-api-management-agentic-access.yml
-- type: VulnerabilityDisclosure
-  url: security/microsoft-azure-api-management-vulnerability-disclosure.yml
-- type: DomainSecurity
-  url: security/microsoft-azure-api-management-domain-security.yml
-- type: Authentication
-  url: authentication/microsoft-azure-api-management-authentication.yml
-- type: OAuthScopes
-  url: scopes/microsoft-azure-api-management-scopes.yml
-- type: PostmanWorkspace
-  url: https://www.postman.com/kinlaneapi/microsoft-azure-api-management/overview
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-ai-gateway-chat-and-embed-workflow.yml
-  name: Azure API Management AI Gateway Chat and Embed
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-apply-api-policy-workflow.yml
-  name: Azure API Management Apply API Policy
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-backup-service-workflow.yml
-  name: Azure API Management Backup Service
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-configure-api-diagnostic-workflow.yml
-  name: Azure API Management Configure API Diagnostic
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-configure-graphql-resolver-workflow.yml
-  name: Azure API Management Configure GraphQL Resolver
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-configure-logger-diagnostic-workflow.yml
-  name: Azure API Management Configure Logger and Service Diagnostic
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-configure-product-policy-workflow.yml
-  name: Azure API Management Configure Product Policy
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-define-api-operation-workflow.yml
-  name: Azure API Management Define API Operation
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-link-product-group-workflow.yml
-  name: Azure API Management Link Product to Group
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-manage-workspace-named-value-workflow.yml
-  name: Azure API Management Manage Workspace Named Value
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-onboard-user-to-group-workflow.yml
-  name: Azure API Management Onboard User to Group
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-provision-backend-workflow.yml
-  name: Azure API Management Provision Backend
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-provision-certificate-backend-workflow.yml
-  name: Azure API Management Provision Certificate for Backend
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-provision-product-link-api-workflow.yml
-  name: Azure API Management Provision Product and Link API
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-provision-service-workflow.yml
-  name: Azure API Management Provision Service
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-provision-subscription-keys-workflow.yml
-  name: Azure API Management Provision Subscription and Retrieve Keys
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-provision-workspace-api-workflow.yml
-  name: Azure API Management Provision Workspace API
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-provision-workspace-product-subscription-workflow.yml
-  name: Azure API Management Provision Workspace Product and Subscription
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-publish-api-release-workflow.yml
-  name: Azure API Management Publish API Release
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-register-api-schema-workflow.yml
-  name: Azure API Management Register API Schema
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-register-gateway-link-api-workflow.yml
-  name: Azure API Management Register Gateway and Link API
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-rotate-subscription-keys-workflow.yml
-  name: Azure API Management Rotate Subscription Keys
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-set-service-policy-workflow.yml
-  name: Azure API Management Set Global Service Policy
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-tag-api-workflow.yml
-  name: Azure API Management Tag and Label an API
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-tag-product-workflow.yml
-  name: Azure API Management Tag a Product
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-upsert-api-workflow.yml
-  name: Azure API Management Upsert API
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-upsert-product-workflow.yml
-  name: Azure API Management Upsert Product
-- type: Arazzo
-  url: arazzo/microsoft-azure-api-management-upsert-user-workflow.yml
-  name: Azure API Management Upsert User
-- type: Website
-  url: https://azure.microsoft.com/products/api-management/
-- type: Documentation
-  url: https://learn.microsoft.com/en-us/azure/api-management/
-- type: GettingStarted
-  url: https://learn.microsoft.com/en-us/azure/api-management/get-started-create-service-instance
-- type: GettingStarted
-  url: https://learn.microsoft.com/en-us/azure/api-management/get-started-create-service-instance-cli
-- type: APIReference
-  url: https://learn.microsoft.com/en-us/rest/api/apimanagement/
-- type: Authentication
-  url: https://learn.microsoft.com/en-us/azure/api-management/authentication-authorization-overview
-- type: Pricing
-  url: https://azure.microsoft.com/pricing/details/api-management/
-- type: Tiers
-  url: https://learn.microsoft.com/en-us/azure/api-management/api-management-features
-- type: ChangeLog
-  url: https://learn.microsoft.com/en-us/azure/api-management/breaking-changes/overview
-- type: Support
-  url: https://learn.microsoft.com/answers/tags/29/azure-api-management/
-- type: Console
-  url: https://portal.azure.com/
-- type: CLI
-  url: https://learn.microsoft.com/en-us/cli/azure/apim
-- type: SDKs
-  url: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/apimanagement
-- type: Tutorials
-  url: https://learn.microsoft.com/en-us/azure/api-management/import-and-publish
-- type: Training
-  url: https://learn.microsoft.com/en-us/training/modules/explore-api-management/
-- type: Security
-  url: https://learn.microsoft.com/en-us/azure/api-management/authentication-authorization-overview
-- type: BestPractices
-  url: https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-policies
-- type: Blog
-  url: https://techcommunity.microsoft.com/t5/azure/ct-p/Azure
-- type: GitHubRepository
-  url: https://github.com/Azure/api-management-samples
-- type: GitHubOrganization
-  url: https://github.com/Azure
-- type: TermsOfService
-  url: https://azure.microsoft.com/support/legal/
-- type: PrivacyPolicy
-  url: https://privacy.microsoft.com/privacystatement
-- type: Regions
-  url: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/
-- type: Compliance
-  url: https://learn.microsoft.com/en-us/azure/compliance/
-- type: TrustCenter
-  url: https://www.microsoft.com/trust-center
-- type: Signup
-  url: https://azure.microsoft.com/free/
-- type: StatusPage
-  url: https://status.azure.com/
-- type: DeveloperPortal
-  url: https://learn.microsoft.com/en-us/azure/api-management/developer-portal-overview
-- type: SDKs
-  url: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/apimanagement
-- type: SDKs
-  url: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/apimanagement
-- type: SDKs
-  url: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement
-- type: SDKs
-  url: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/apimanagement
-- type: CodeExamples
-  url: https://github.com/Azure/api-management-samples
-- type: PolicySnippets
-  url: https://github.com/Azure/api-management-policy-snippets
-- type: Tools
-  url: https://github.com/Azure/azure-api-management-policy-toolkit
-- type: ChangeLog
-  url: https://github.com/Azure/API-Management/blob/master/changelogs/api-management-service.md
-- type: BreakingChanges
-  url: https://learn.microsoft.com/en-us/azure/api-management/breaking-changes/overview
-- type: APICenter
-  url: https://learn.microsoft.com/en-us/azure/api-center/overview
-- type: FoundryIntegration
-  url: https://learn.microsoft.com/en-us/azure/ai-foundry/configuration/enable-ai-api-management-gateway-portal
-- type: AIGatewaySamples
-  url: https://github.com/Azure-Samples/ai-gateway
-- type: AIGatewayWorkshop
-  url: https://aka.ms/ai-gateway/workshop
-- type: VSCodeExtension
-  url: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement
-- type: SpectralRules
-  url: rules/microsoft-azure-api-management-rules.yaml
-- type: Vocabulary
-  url: vocabulary/microsoft-azure-api-management-vocabulary.yaml
-- type: Plans
-  url: plans/microsoft-azure-api-management-plans-pricing.yml
-- type: RateLimits
-  url: rate-limits/microsoft-azure-api-management-rate-limits.yml
-- type: FinOps
-  url: finops/microsoft-azure-api-management-finops.yml
-- name: MCP Server
-  url: https://github.com/Azure/azure-api-mcp
-  type: MCPServer
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
 x-parent: microsoft-azure
+
 x-relationship: product
+x-enrichment:
+  date: '2026-10-04'
+  status: enriched
+  artifacts_added: 16
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local
