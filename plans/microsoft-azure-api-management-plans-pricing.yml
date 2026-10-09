@@ -202,3 +202,78 @@ plans:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - metered
+  - subscription
+  units:
+  - compute
+  - period
+  - request
+  plans:
+  - name: Consumption
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - request
+    periods:
+    - month
+  - name: Developer
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - compute
+    periods:
+    - hour
+  - name: Basic
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - compute
+    periods:
+    - hour
+  - name: Basic v2
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - period
+    periods:
+    - month
+  - name: Standard
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - compute
+    periods:
+    - hour
+  - name: Standard v2
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - period
+    periods:
+    - month
+  - name: Premium
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - compute
+    periods:
+    - hour
+  - name: Premium v2
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - period
+    periods:
+    - month
