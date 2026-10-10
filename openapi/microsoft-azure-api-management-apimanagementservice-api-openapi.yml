@@ -393,6 +393,18 @@ components:
         nextLink:
           type: string
           example: ''
+    ServiceNameAvailabilityResult:
+      type: object
+      properties:
+        nameAvailable:
+          type: boolean
+          example: true
+        message:
+          type: string
+          example: ''
+        reason:
+          type: string
+          example: ''
     ApiManagementServiceResource:
       type: object
       properties:
@@ -448,18 +460,6 @@ components:
         domainOwnershipIdentifier:
           type: string
           example: abc123def456ghi789
-    ServiceNameAvailabilityResult:
-      type: object
-      properties:
-        nameAvailable:
-          type: boolean
-          example: true
-        message:
-          type: string
-          example: ''
-        reason:
-          type: string
-          example: ''
   securitySchemes:
     azure_auth:
       type: oauth2

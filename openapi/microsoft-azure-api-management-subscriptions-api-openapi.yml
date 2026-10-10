@@ -275,6 +275,30 @@ paths:
       - Subscriptions
 components:
   schemas:
+    ApiCreateOrUpdateParameter:
+      type: object
+      properties:
+        properties:
+          type: object
+          properties:
+            displayName:
+              type: string
+              example: Petstore API
+            description:
+              type: string
+              example: A sample API for managing pets.
+            serviceUrl:
+              type: string
+              example: https://petstore.example.com/v1
+            path:
+              type: string
+              example: petstore
+            protocols:
+              type: array
+              items:
+                type: string
+              example:
+              - https
     ApiContract:
       type: object
       properties:
@@ -314,30 +338,6 @@ components:
             apiRevision:
               type: string
               example: '1'
-    ApiCreateOrUpdateParameter:
-      type: object
-      properties:
-        properties:
-          type: object
-          properties:
-            displayName:
-              type: string
-              example: Petstore API
-            description:
-              type: string
-              example: A sample API for managing pets.
-            serviceUrl:
-              type: string
-              example: https://petstore.example.com/v1
-            path:
-              type: string
-              example: petstore
-            protocols:
-              type: array
-              items:
-                type: string
-              example:
-              - https
     ApiCollection:
       type: object
       properties:

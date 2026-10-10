@@ -1,0 +1,53 @@
+# Kin Score artifact — microsoft-azure-api-management — 2026-10-09T213714
+# The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
+---
+kin_score:
+  slug: microsoft-azure-api-management
+  schema_version: 0.23.0
+  scored_at: '2026-10-09'
+  run_ts: 2026-10-09T213714
+  composite: 73.6
+  band: exemplar
+  facets:
+    discoverability: 68.3
+    contract_quality: 57.6
+    contract_governance: 43.6
+    operational_transparency: 52.6
+    developer_ergonomics: 95.7
+    access_clarity: 76.3
+  agent_readiness:
+    score: 30.0
+    band: agent-ready
+    dimensions:
+      spec_presence: true
+      agentic_access: derived
+      reversibility_documented: documented
+      mcp_server: templated
+      auth_clarity: bearer
+      idempotency: false
+      error_semantics: false
+      openapi_examples: partial
+      rate_limit_signal: derived
+      event_surface_described: false
+      agent_skills: unknown
+      well_known_catalog: false
+      consent_identity: false
+      agent_card: false
+      dry_run_mode: false
+      delegated_identity: false
+      protected_resource_metadata: false
+      dynamic_client_registration: false
+      agentic_commerce: false
+  regulatory:
+    applies: true
+    regime: Horizontal (data, software, accessibility, platform)
+    regime_id: horizontal
+    score: 45.1
+    matched_via: fallback
+  provenance:
+    agentic_access: derived
+    contracts:
+      total: 74
+      derived: 10
+      coverage: 13.5
+      callable: 100.0

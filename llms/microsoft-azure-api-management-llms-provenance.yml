@@ -1,0 +1,6 @@
+generated: '2026-10-04'
+method: probed
+generator: harvest-llms.py
+source: https://about.ads.microsoft.com/llms.txt
+bytes: 10604
+note: saved verbatim; the provider's own document

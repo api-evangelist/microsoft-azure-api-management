@@ -1,0 +1,23 @@
+generated: '2026-10-04'
+method: generated
+generator: extract-docs-artifacts.py skills (local)
+source: openapi/microsoft-azure-api-management-apimanagementservice-api-openapi.yml
+skills:
+- file: skills/microsoft-azure-api-management-create-or-update-service.md
+  name: microsoft-azure-api-management-create-or-update-service
+  api: openapi/microsoft-azure-api-management-apimanagementservice-api-openapi.yml
+  operations:
+  - ApiManagementService_CreateOrUpdate
+  - ApiManagementService_Get
+- file: skills/microsoft-azure-api-management-gateway-create-or-update.md
+  name: microsoft-azure-api-management-gateway-create-or-update
+  api: openapi/microsoft-azure-api-management-gateway-api-openapi.yml
+  operations:
+  - Gateway_CreateOrUpdate
+  - Gateway_Get
+- file: skills/microsoft-azure-api-management-certificate-create.md
+  name: microsoft-azure-api-management-certificate-create
+  api: openapi/microsoft-azure-api-management-certificate-api-openapi.yml
+  operations:
+  - Certificate_CreateOrUpdate
+  - Certificate_Get

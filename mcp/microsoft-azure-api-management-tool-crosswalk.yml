@@ -1,0 +1,10 @@
+generated: '2026-10-04'
+method: derived
+source: openapi/microsoft-azure-api-management-mcp-api-openapi.yml
+crosswalk:
+  - tool: AIGateway_MCP
+    rest:
+      - AIGateway_MCP
+    confidence: high
+coverage:
+  total_operations: 1

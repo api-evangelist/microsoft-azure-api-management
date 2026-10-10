@@ -72,6 +72,8 @@ maintainers:
   email: kin@apievangelist.com
 
 common:
+- type: Overlay
+  url: overlays/microsoft-azure-api-management-api-product-api-openapi-overlay.yml
 - type: Spectral
   url: rules/microsoft-azure-api-management-rules.yml
 - type: Spectral
@@ -9318,8 +9320,6 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/azure/api-center/overview
   baseURL: https://management.azure.com/
   tags:
-  - UserGroup
-  tags_raw:
   - User Group
   properties:
   - type: OpenAPI
@@ -9860,8 +9860,8 @@ x-parent: microsoft-azure
 
 x-relationship: product
 x-enrichment:
-  date: '2026-10-04'
+  date: '2026-10-10'
   status: enriched
-  artifacts_added: 16
+  artifacts_added: 22
   pass: modular-v1
   engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local

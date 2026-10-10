@@ -1,0 +1,242 @@
+{
+  "@context": {
+    "@vocab": "https://microsoft.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "microsoft": "https://microsoft.com/schema#",
+    "ChatCompletionResponse": "microsoft:ChatCompletionResponse",
+    "id": {
+      "@id": "microsoft:id",
+      "@type": "xsd:string"
+    },
+    "object": {
+      "@id": "microsoft:object",
+      "@type": "xsd:string"
+    },
+    "created": {
+      "@id": "microsoft:created",
+      "@type": "xsd:integer"
+    },
+    "model": {
+      "@id": "microsoft:model",
+      "@type": "xsd:string"
+    },
+    "choices": {
+      "@id": "microsoft:choices",
+      "@container": "@list"
+    },
+    "usage": {
+      "@id": "microsoft:usage"
+    },
+    "CompletionRequest": "microsoft:CompletionRequest",
+    "prompt": {
+      "@id": "microsoft:prompt",
+      "@type": "xsd:string"
+    },
+    "max_tokens": {
+      "@id": "microsoft:max_tokens",
+      "@type": "xsd:integer"
+    },
+    "temperature": {
+      "@id": "microsoft:temperature",
+      "@type": "xsd:decimal"
+    },
+    "ChatCompletionRequest": "microsoft:ChatCompletionRequest",
+    "messages": {
+      "@id": "microsoft:messages",
+      "@container": "@list"
+    },
+    "EmbeddingRequest": "microsoft:EmbeddingRequest",
+    "input": {
+      "@id": "microsoft:input",
+      "@type": "xsd:string"
+    },
+    "CompletionResponse": "microsoft:CompletionResponse",
+    "EmbeddingResponse": "microsoft:EmbeddingResponse",
+    "data": {
+      "@id": "microsoft:data",
+      "@container": "@list"
+    },
+    "DiagnosticCollection": "microsoft:DiagnosticCollection",
+    "value": {
+      "@id": "microsoft:value",
+      "@container": "@list"
+    },
+    "count": {
+      "@id": "microsoft:count",
+      "@type": "xsd:integer"
+    },
+    "nextLink": {
+      "@id": "microsoft:nextLink",
+      "@type": "xsd:string"
+    },
+    "DiagnosticContract": "microsoft:DiagnosticContract",
+    "name": {
+      "@id": "microsoft:name",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "microsoft:type",
+      "@type": "xsd:string"
+    },
+    "properties": {
+      "@id": "microsoft:properties"
+    },
+    "OperationListResult": "microsoft:OperationListResult",
+    "DomainOwnershipIdentifierResult": "microsoft:DomainOwnershipIdentifierResult",
+    "domainOwnershipIdentifier": {
+      "@id": "microsoft:domainOwnershipIdentifier",
+      "@type": "xsd:string"
+    },
+    "ApiManagementServiceListResult": "microsoft:ApiManagementServiceListResult",
+    "ServiceNameAvailabilityResult": "microsoft:ServiceNameAvailabilityResult",
+    "nameAvailable": {
+      "@id": "microsoft:nameAvailable",
+      "@type": "xsd:boolean"
+    },
+    "message": {
+      "@id": "microsoft:message",
+      "@type": "xsd:string"
+    },
+    "reason": {
+      "@id": "microsoft:reason",
+      "@type": "xsd:string"
+    },
+    "ApiManagementServiceResource": "microsoft:ApiManagementServiceResource",
+    "location": {
+      "@id": "microsoft:location",
+      "@type": "xsd:string"
+    },
+    "sku": {
+      "@id": "microsoft:sku"
+    },
+    "ApiDetail": "microsoft:ApiDetail",
+    "description": {
+      "@id": "microsoft:description",
+      "@type": "xsd:string"
+    },
+    "serviceUrl": {
+      "@id": "microsoft:serviceUrl",
+      "@type": "xsd:string"
+    },
+    "protocols": {
+      "@id": "microsoft:protocols",
+      "@container": "@list"
+    },
+    "subscriptionRequired": {
+      "@id": "microsoft:subscriptionRequired",
+      "@type": "xsd:boolean"
+    },
+    "ApiSummary": "microsoft:ApiSummary",
+    "ApiList": "microsoft:ApiList",
+    "PortalPage": "microsoft:PortalPage",
+    "title": {
+      "@id": "microsoft:title",
+      "@type": "xsd:string"
+    },
+    "links": {
+      "@id": "microsoft:links",
+      "@container": "@list"
+    },
+    "GatewayResponse": "microsoft:GatewayResponse",
+    "statusCode": {
+      "@id": "microsoft:statusCode",
+      "@type": "xsd:integer"
+    },
+    "headers": {
+      "@id": "microsoft:headers"
+    },
+    "body": {
+      "@id": "microsoft:body"
+    },
+    "GatewayResponse_2": "microsoft:GatewayResponse_2",
+    "HealthStatus": "microsoft:HealthStatus",
+    "status": {
+      "@id": "microsoft:status",
+      "@type": "xsd:string"
+    },
+    "timestamp": {
+      "@id": "microsoft:timestamp",
+      "@type": "xsd:dateTime"
+    },
+    "InternalStatus": "microsoft:InternalStatus",
+    "version": {
+      "@id": "microsoft:version",
+      "@type": "xsd:string"
+    },
+    "configurationStatus": {
+      "@id": "microsoft:configurationStatus",
+      "@type": "xsd:string"
+    },
+    "lastConfigurationUpdate": {
+      "@id": "microsoft:lastConfigurationUpdate",
+      "@type": "xsd:dateTime"
+    },
+    "connectedToManagementPlane": {
+      "@id": "microsoft:connectedToManagementPlane",
+      "@type": "xsd:boolean"
+    },
+    "uptimeSeconds": {
+      "@id": "microsoft:uptimeSeconds",
+      "@type": "xsd:integer"
+    },
+    "MCPResponse": "microsoft:MCPResponse",
+    "jsonrpc": {
+      "@id": "microsoft:jsonrpc",
+      "@type": "xsd:string"
+    },
+    "result": {
+      "@id": "microsoft:result"
+    },
+    "MCPRequest": "microsoft:MCPRequest",
+    "method": {
+      "@id": "microsoft:method",
+      "@type": "xsd:string"
+    },
+    "params": {
+      "@id": "microsoft:params"
+    },
+    "ProductSummary": "microsoft:ProductSummary",
+    "approvalRequired": {
+      "@id": "microsoft:approvalRequired",
+      "@type": "xsd:boolean"
+    },
+    "ProductList": "microsoft:ProductList",
+    "ApiContract": "microsoft:ApiContract",
+    "ApiCollection": "microsoft:ApiCollection",
+    "ApiCreateOrUpdateParameter": "microsoft:ApiCreateOrUpdateParameter",
+    "UserProfile": "microsoft:UserProfile",
+    "firstName": {
+      "@id": "microsoft:firstName",
+      "@type": "xsd:string"
+    },
+    "lastName": {
+      "@id": "microsoft:lastName",
+      "@type": "xsd:string"
+    },
+    "email": {
+      "@id": "microsoft:email",
+      "@type": "xsd:string"
+    },
+    "registrationDate": {
+      "@id": "microsoft:registrationDate",
+      "@type": "xsd:dateTime"
+    },
+    "subscriptions": {
+      "@id": "microsoft:subscriptions",
+      "@container": "@list"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Microsoft Azure API Management API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Microsoft Azure API Management's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-04) from openapi/microsoft-azure-api-management-ai-api-openapi.yml, openapi/microsoft-azure-api-management-api-product-api-openapi.yml, openapi/microsoft-azure-api-management-apidiagnostic-api-openapi.yml.",
+  "dcterms:created": "2026-10-04",
+  "dcterms:source": [
+    "openapi/microsoft-azure-api-management-ai-api-openapi.yml",
+    "openapi/microsoft-azure-api-management-api-product-api-openapi.yml",
+    "openapi/microsoft-azure-api-management-apidiagnostic-api-openapi.yml",
+    "openapi/microsoft-azure-api-management-apiissue-api-openapi.yml",
+    "openapi/microsoft-azure-api-management-apimanagementoperations-api-openapi.yml"
+  ]
+}

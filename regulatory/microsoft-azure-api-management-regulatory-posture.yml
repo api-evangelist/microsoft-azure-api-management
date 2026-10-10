@@ -1,0 +1,25 @@
+generated: '2026-10-04'
+method: probed
+source: "https://privacy.microsoft.com/privacystatement"
+signals:
+  data_subject_request:
+    evidence:
+      - source: "https://privacy.microsoft.com/privacystatement"
+        http_status: 200
+        fetched: "/tmp/privacy.html"
+        quote: "You can request access to, erasure of, and updates to your personal data."
+    note: "Provides data subject rights to access, delete, and correct personal data."
+  data_retention:
+    evidence:
+      - source: "https://privacy.microsoft.com/privacystatement"
+        http_status: 200
+        fetched: "/tmp/privacy.html"
+        quote: "Microsoft retains personal data for as long necessary to provide the products and services you use and to fulfill the transactions you request."
+    note: "States retention period is as long as necessary, varies by data type."
+  subprocessors:
+    evidence:
+      - source: "https://privacy.microsoft.com/privacystatement"
+        http_status: 200
+        fetched: "/tmp/privacy.html"
+        quote: "We also receive data from Microsoft affiliates, subsidiaries, and third parties."
+    note: "Acknowledges use of subprocessors and third parties."
