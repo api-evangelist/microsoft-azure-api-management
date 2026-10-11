@@ -30,9 +30,6 @@ artifacts:
   arazzo/microsoft-azure-api-management-define-api-operation-workflow.yml:
     method: unknown
     evidence: no authorship recorded
-  arazzo/microsoft-azure-api-management-devportal-discover-and-invoke-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
   arazzo/microsoft-azure-api-management-link-product-group-workflow.yml:
     method: unknown
     evidence: no authorship recorded
@@ -157,11 +154,11 @@ artifacts:
     method: derived
     evidence: openapi/microsoft-azure-api-management-apipolicy-api
   collections/microsoft-azure-api-management-apiproduct-api.opencollection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-apiproduct-api
+    method: unknown
+    evidence: no authorship recorded
   collections/microsoft-azure-api-management-apiproduct-api.postman_collection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-apiproduct-api
+    method: unknown
+    evidence: no authorship recorded
   collections/microsoft-azure-api-management-apirelease-api.opencollection.json:
     method: derived
     evidence: openapi/microsoft-azure-api-management-apirelease-api
@@ -174,12 +171,6 @@ artifacts:
   collections/microsoft-azure-api-management-apirevision-api.postman_collection.json:
     method: derived
     evidence: openapi/microsoft-azure-api-management-apirevision-api
-  collections/microsoft-azure-api-management-apis-api.opencollection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-apis-api
-  collections/microsoft-azure-api-management-apis-api.postman_collection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-apis-api
   collections/microsoft-azure-api-management-apischema-api.opencollection.json:
     method: derived
     evidence: openapi/microsoft-azure-api-management-apischema-api
@@ -216,12 +207,6 @@ artifacts:
   collections/microsoft-azure-api-management-apiwiki-api.postman_collection.json:
     method: derived
     evidence: openapi/microsoft-azure-api-management-apiwiki-api
-  collections/microsoft-azure-api-management-authentication-api.opencollection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-authentication-api
-  collections/microsoft-azure-api-management-authentication-api.postman_collection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-authentication-api
   collections/microsoft-azure-api-management-backend-api.opencollection.json:
     method: derived
     evidence: openapi/microsoft-azure-api-management-backend-api
@@ -319,11 +304,11 @@ artifacts:
     method: derived
     evidence: openapi/microsoft-azure-api-management-group-api
   collections/microsoft-azure-api-management-groupuser-api.opencollection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-groupuser-api
+    method: unknown
+    evidence: no authorship recorded
   collections/microsoft-azure-api-management-groupuser-api.postman_collection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-groupuser-api
+    method: unknown
+    evidence: no authorship recorded
   collections/microsoft-azure-api-management-health-api.opencollection.json:
     method: derived
     evidence: openapi/microsoft-azure-api-management-health-api
@@ -366,12 +351,6 @@ artifacts:
   collections/microsoft-azure-api-management-policyfragment-api.postman_collection.json:
     method: derived
     evidence: openapi/microsoft-azure-api-management-policyfragment-api
-  collections/microsoft-azure-api-management-portal-api.opencollection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-portal-api
-  collections/microsoft-azure-api-management-portal-api.postman_collection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-portal-api
   collections/microsoft-azure-api-management-product-api.opencollection.json:
     method: derived
     evidence: openapi/microsoft-azure-api-management-product-api
@@ -379,11 +358,11 @@ artifacts:
     method: derived
     evidence: openapi/microsoft-azure-api-management-product-api
   collections/microsoft-azure-api-management-productapi-api.opencollection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-productapi-api
+    method: unknown
+    evidence: no authorship recorded
   collections/microsoft-azure-api-management-productapi-api.postman_collection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-productapi-api
+    method: unknown
+    evidence: no authorship recorded
   collections/microsoft-azure-api-management-productapilink-api.opencollection.json:
     method: derived
     evidence: openapi/microsoft-azure-api-management-productapilink-api
@@ -391,11 +370,11 @@ artifacts:
     method: derived
     evidence: openapi/microsoft-azure-api-management-productapilink-api
   collections/microsoft-azure-api-management-productgroup-api.opencollection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-productgroup-api
+    method: unknown
+    evidence: no authorship recorded
   collections/microsoft-azure-api-management-productgroup-api.postman_collection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-productgroup-api
+    method: unknown
+    evidence: no authorship recorded
   collections/microsoft-azure-api-management-productgrouplink-api.opencollection.json:
     method: derived
     evidence: openapi/microsoft-azure-api-management-productgrouplink-api
@@ -408,12 +387,6 @@ artifacts:
   collections/microsoft-azure-api-management-productpolicy-api.postman_collection.json:
     method: derived
     evidence: openapi/microsoft-azure-api-management-productpolicy-api
-  collections/microsoft-azure-api-management-products-api.opencollection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-products-api
-  collections/microsoft-azure-api-management-products-api.postman_collection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-products-api
   collections/microsoft-azure-api-management-productsubscription-api.opencollection.json:
     method: derived
     evidence: openapi/microsoft-azure-api-management-productsubscription-api
@@ -421,11 +394,11 @@ artifacts:
     method: derived
     evidence: openapi/microsoft-azure-api-management-productsubscription-api
   collections/microsoft-azure-api-management-producttag-api.opencollection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-producttag-api
+    method: unknown
+    evidence: no authorship recorded
   collections/microsoft-azure-api-management-producttag-api.postman_collection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-producttag-api
+    method: unknown
+    evidence: no authorship recorded
   collections/microsoft-azure-api-management-productwiki-api.opencollection.json:
     method: derived
     evidence: openapi/microsoft-azure-api-management-productwiki-api
@@ -475,17 +448,17 @@ artifacts:
     method: derived
     evidence: openapi/microsoft-azure-api-management-user-api
   collections/microsoft-azure-api-management-usergroup-api.opencollection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-usergroup-api
+    method: unknown
+    evidence: no authorship recorded
   collections/microsoft-azure-api-management-usergroup-api.postman_collection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-usergroup-api
+    method: unknown
+    evidence: no authorship recorded
   collections/microsoft-azure-api-management-useridentity-api.opencollection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-useridentity-api
+    method: unknown
+    evidence: no authorship recorded
   collections/microsoft-azure-api-management-useridentity-api.postman_collection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-useridentity-api
+    method: unknown
+    evidence: no authorship recorded
   collections/microsoft-azure-api-management-users-api.opencollection.json:
     method: derived
     evidence: openapi/microsoft-azure-api-management-users-api
@@ -493,17 +466,17 @@ artifacts:
     method: derived
     evidence: openapi/microsoft-azure-api-management-users-api
   collections/microsoft-azure-api-management-usersubscription-api.opencollection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-usersubscription-api
+    method: unknown
+    evidence: no authorship recorded
   collections/microsoft-azure-api-management-usersubscription-api.postman_collection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-usersubscription-api
+    method: unknown
+    evidence: no authorship recorded
   collections/microsoft-azure-api-management-usertoken-api.opencollection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-usertoken-api
+    method: unknown
+    evidence: no authorship recorded
   collections/microsoft-azure-api-management-usertoken-api.postman_collection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-usertoken-api
+    method: unknown
+    evidence: no authorship recorded
   collections/microsoft-azure-api-management-workspace-api.opencollection.json:
     method: derived
     evidence: openapi/microsoft-azure-api-management-workspace-api
@@ -597,27 +570,6 @@ artifacts:
   examples/microsoft-azure-api-management-apimanagementservice-update-example.json:
     method: unknown
     evidence: no authorship recorded
-  examples/microsoft-azure-api-management-devportal-getapi-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/microsoft-azure-api-management-devportal-home-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/microsoft-azure-api-management-devportal-listapis-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/microsoft-azure-api-management-devportal-listproducts-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/microsoft-azure-api-management-devportal-profile-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/microsoft-azure-api-management-devportal-signin-example.json:
-    method: unknown
-    evidence: no authorship recorded
-  examples/microsoft-azure-api-management-devportal-signup-example.json:
-    method: unknown
-    evidence: no authorship recorded
   examples/microsoft-azure-api-management-gateway-healthcheck-example.json:
     method: unknown
     evidence: no authorship recorded
@@ -648,7 +600,7 @@ artifacts:
   finops/microsoft-azure-api-management-finops.yml:
     method: generated
     evidence: declared in the artifact
-  graphql/microsoft-azure-api-management-graphql.md:
+  front-door-ai/2026-09-17.yml:
     method: unknown
     evidence: no authorship recorded
   json-ld/microsoft-azure-api-management-ai-gateway-context.jsonld:
@@ -747,9 +699,6 @@ artifacts:
   json-schema/microsoft-azure-api-management-operationlistresult-schema.json:
     method: unknown
     evidence: no authorship recorded
-  json-schema/microsoft-azure-api-management-portalpage-schema.json:
-    method: unknown
-    evidence: no authorship recorded
   json-schema/microsoft-azure-api-management-productlist-schema.json:
     method: unknown
     evidence: no authorship recorded
@@ -789,55 +738,7 @@ artifacts:
   json-structure/microsoft-azure-api-management-structure.json:
     method: unknown
     evidence: no authorship recorded
-  kin/checks-2026-09-05T072335.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-06T210741.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-07T135032.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-10T093022.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-10T111628.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-11T211707.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-12T193225.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-17T064519.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-19T080027.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-19T082702.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-19T114122.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-20T165047.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-20T191845.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-20T205517.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-21T110057.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-24T064859.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-24T171257.yml:
+  kin/checks-2026-09-24T161608.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-08-25T125852.yml:
@@ -924,6 +825,123 @@ artifacts:
   kin/score-2026-09-05T072335.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-05T144739.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-05T195450.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-05T211839.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-06T011047.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-06T211804.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-06T224210.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-07T200636.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-07T213054.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-08T214843.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-08T232836.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-10T204815.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-10T222408.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T062655.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T080032.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T204651.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T221936.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-13T214537.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-14T064754.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-14T210656.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-14T225847.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-15T211329.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-15T230249.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-16T210549.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-16T225339.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-17T211151.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-17T233623.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-18T205255.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-18T231945.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-19T165737.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-19T193153.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-20T205903.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-20T232958.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-21T211425.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-21T233935.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-22T213221.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-23T000603.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-24T064009.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-24T090406.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-24T161608.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
   llms/microsoft-azure-api-management-llms.txt:
     method: searched
     evidence: 'derive-llms-provenance.py: harvested'
@@ -932,11 +950,15 @@ artifacts:
     evidence: no authorship recorded
   openapi/_original/microsoft-azure-api-management-rest-api-openapi.yaml:
     method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
+    evidence: fetched from https://github.com/Azure/azure-rest-api-specs/tree/main/specification/apimanagement/resource-manager/Microsoft.ApiManagement/ApiManagement/stable/2024-05-01
+      (recorded in the document)
   openapi/microsoft-azure-api-management-ai-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
   openapi/microsoft-azure-api-management-api-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/microsoft-azure-api-management-api-product-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/microsoft-azure-api-management-apidiagnostic-api-openapi.yml:
@@ -963,18 +985,12 @@ artifacts:
   openapi/microsoft-azure-api-management-apipolicy-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/microsoft-azure-api-management-apiproduct-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/microsoft-azure-api-management-apirelease-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/microsoft-azure-api-management-apirevision-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/microsoft-azure-api-management-apis-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
   openapi/microsoft-azure-api-management-apischema-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
@@ -993,9 +1009,6 @@ artifacts:
   openapi/microsoft-azure-api-management-apiwiki-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/microsoft-azure-api-management-authentication-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
   openapi/microsoft-azure-api-management-backend-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
@@ -1044,7 +1057,7 @@ artifacts:
   openapi/microsoft-azure-api-management-group-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/microsoft-azure-api-management-groupuser-api-openapi.yml:
+  openapi/microsoft-azure-api-management-group-user-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/microsoft-azure-api-management-health-api-openapi.yml:
@@ -1068,19 +1081,19 @@ artifacts:
   openapi/microsoft-azure-api-management-policyfragment-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/microsoft-azure-api-management-portal-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+  openapi/microsoft-azure-api-management-product-api-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/microsoft-azure-api-management-product-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/microsoft-azure-api-management-productapi-api-openapi.yml:
+  openapi/microsoft-azure-api-management-product-group-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/microsoft-azure-api-management-product-tag-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/microsoft-azure-api-management-productapilink-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/microsoft-azure-api-management-productgroup-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/microsoft-azure-api-management-productgrouplink-api-openapi.yml:
@@ -1089,13 +1102,7 @@ artifacts:
   openapi/microsoft-azure-api-management-productpolicy-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/microsoft-azure-api-management-products-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
   openapi/microsoft-azure-api-management-productsubscription-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/microsoft-azure-api-management-producttag-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/microsoft-azure-api-management-productwiki-api-openapi.yml:
@@ -1120,21 +1127,21 @@ artifacts:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/microsoft-azure-api-management-user-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
-  openapi/microsoft-azure-api-management-usergroup-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/microsoft-azure-api-management-useridentity-api-openapi.yml:
+  openapi/microsoft-azure-api-management-user-group-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/microsoft-azure-api-management-user-identity-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/microsoft-azure-api-management-user-subscription-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/microsoft-azure-api-management-user-token-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/microsoft-azure-api-management-users-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/microsoft-azure-api-management-usersubscription-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/microsoft-azure-api-management-usertoken-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/microsoft-azure-api-management-workspace-api-openapi.yml:
@@ -1179,6 +1186,9 @@ artifacts:
   security/microsoft-azure-api-management-vulnerability-disclosure.yml:
     method: searched
     evidence: declared in the artifact
+  vendor-facets/microsoft-azure-api-management-vendor-facets.yml:
+    method: unknown
+    evidence: no authorship recorded
   vocabulary/microsoft-azure-api-management-vocabulary.yaml:
     method: unknown
     evidence: no authorship recorded
