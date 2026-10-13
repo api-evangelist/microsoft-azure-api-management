@@ -1,0 +1,24 @@
+edges:
+- partner_name: OpenAI
+  partner: openai
+  partner_match: domain
+  type: contract
+  channel: provider-built
+  relationship: compatible
+  direction: provider-built
+  evidence: https://github.com/api-evangelist/microsoft-azure-api-management/blob/main/openapi/microsoft-azure-api-management-ai-api-openapi.yml#L4
+  contract_reference:
+    repo: microsoft-azure-api-management
+    spec_file: microsoft-azure-api-management-ai-api-openapi.yml
+    property: description
+    value: OpenAI-compatible
+    note: 'microsoft-azure-api-management declares OpenAI compatibility: ''description: The AI gateway capabilities
+      in Azure API Management provide specialized features for managing, securing, and observing AI backend APIs
+      including Az'''
+    detected_by: sweep-model-routing.py
+    detected: '2026-10-13'
+  detected_by: sweep-model-routing.py
+  first_seen: '2026-10-13'
+generated: '2026-10-13'
+method: searched
+checked: []
