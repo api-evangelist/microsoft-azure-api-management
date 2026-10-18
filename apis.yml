@@ -6332,6 +6332,8 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
   tags:
+  - Product Subscription
+  tags_raw:
   - ProductSubscription
   properties:
   - type: OpenAPI
@@ -9320,6 +9322,8 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/azure/api-center/overview
   baseURL: https://management.azure.com/
   tags:
+  - UserGroup
+  tags_raw:
   - User Group
   properties:
   - type: OpenAPI
