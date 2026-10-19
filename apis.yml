@@ -482,7 +482,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-apidiagnostic-api
-  name: Microsoft Azure API Management ApiDiagnostic API
+  name: Microsoft Azure API Management API Diagnostic API
   description: >-
     The ApiDiagnostic API from Microsoft Azure API Management — 2 operation(s) for apidiagnostic.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -618,7 +618,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-apiissue-api
-  name: Microsoft Azure API Management ApiIssue API
+  name: Microsoft Azure API Management API Issue API
   description: The ApiIssue API from Microsoft Azure API Management — 2 operation(s) for apiissue.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
@@ -754,7 +754,7 @@ apis:
     url: https://github.com/Azure/api-management-developer-portal
 - aid: >-
     microsoft-azure-api-management:microsoft-azure-api-management-apimanagementoperations-api
-  name: Microsoft Azure API Management ApiManagementOperations API
+  name: Microsoft Azure API Management Operations API
   description: >-
     The ApiManagementOperations API from Microsoft Azure API Management — 1 operation(s) for apimanagementoperations.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -890,7 +890,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-apimanagementservice-api
-  name: Microsoft Azure API Management ApiManagementService API
+  name: Microsoft Azure API Management Service API
   description: >-
     The ApiManagementService API from Microsoft Azure API Management — 10 operation(s) for apimanagementservice.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -1027,7 +1027,7 @@ apis:
     url: https://github.com/Azure/api-management-developer-portal
 - aid: >-
     microsoft-azure-api-management:microsoft-azure-api-management-apimanagementserviceskus-api
-  name: Microsoft Azure API Management ApiManagementServiceSkus API
+  name: Microsoft Azure API Management Service SKUs API
   description: >-
     The ApiManagementServiceSkus API from Microsoft Azure API Management — 1 operation(s) for apimanagementserviceskus.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -1163,7 +1163,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-apioperation-api
-  name: Microsoft Azure API Management ApiOperation API
+  name: Microsoft Azure API Management API Operation API
   description: >-
     The ApiOperation API from Microsoft Azure API Management — 2 operation(s) for apioperation.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -1299,7 +1299,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-apioperationsbytag-api
-  name: Microsoft Azure API Management ApiOperationsByTag API
+  name: Microsoft Azure API Management API Operations By Tag API
   description: >-
     The ApiOperationsByTag API from Microsoft Azure API Management — 1 operation(s) for apioperationsbytag.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -1435,7 +1435,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-apipolicy-api
-  name: Microsoft Azure API Management ApiPolicy API
+  name: Microsoft Azure API Management API Policy API
   description: The ApiPolicy API from Microsoft Azure API Management — 2 operation(s) for apipolicy.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
@@ -1570,7 +1570,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-apirelease-api
-  name: Microsoft Azure API Management ApiRelease API
+  name: Microsoft Azure API Management API Release API
   description: The ApiRelease API from Microsoft Azure API Management — 2 operation(s) for apirelease.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
@@ -1705,7 +1705,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-apirevision-api
-  name: Microsoft Azure API Management ApiRevision API
+  name: Microsoft Azure API Management API Revision API
   description: >-
     The ApiRevision API from Microsoft Azure API Management — 1 operation(s) for apirevision.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -1841,7 +1841,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-apischema-api
-  name: Microsoft Azure API Management ApiSchema API
+  name: Microsoft Azure API Management API Schema API
   description: The ApiSchema API from Microsoft Azure API Management — 2 operation(s) for apischema.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
@@ -1976,7 +1976,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-apitag-api
-  name: Microsoft Azure API Management ApiTag API
+  name: Microsoft Azure API Management API Tag API
   description: The ApiTag API from Microsoft Azure API Management — 2 operation(s) for apitag.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
@@ -2111,7 +2111,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-apitagdescription-api
-  name: Microsoft Azure API Management ApiTagDescription API
+  name: Microsoft Azure API Management API Tag Description API
   description: >-
     The ApiTagDescription API from Microsoft Azure API Management — 2 operation(s) for apitagdescription.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -2247,7 +2247,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-apiversionset-api
-  name: Microsoft Azure API Management ApiVersionSet API
+  name: Microsoft Azure API Management API Version Set API
   description: >-
     The ApiVersionSet API from Microsoft Azure API Management — 2 operation(s) for apiversionset.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -2383,7 +2383,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-apiversionsets-api
-  name: Microsoft Azure API Management ApiVersionSets API
+  name: Microsoft Azure API Management API Version Sets API
   description: >-
     The ApiVersionSets API from Microsoft Azure API Management — 1 operation(s) for apiversionsets.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -2519,7 +2519,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-apiwiki-api
-  name: Microsoft Azure API Management ApiWiki API
+  name: Microsoft Azure API Management API Wiki API
   description: The ApiWiki API from Microsoft Azure API Management — 2 operation(s) for apiwiki.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
@@ -2789,7 +2789,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-backendreconnect-api
-  name: Microsoft Azure API Management BackendReconnect API
+  name: Microsoft Azure API Management Backend Reconnect API
   description: >-
     The BackendReconnect API from Microsoft Azure API Management — 1 operation(s) for backendreconnect.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -3335,7 +3335,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-gatewayapi-api
-  name: Microsoft Azure API Management GatewayApi API
+  name: Microsoft Azure API Management Gateway API API
   description: The GatewayApi API from Microsoft Azure API Management — 2 operation(s) for gatewayapi.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
@@ -3473,7 +3473,7 @@ apis:
     url: https://github.com/Azure/api-management-developer-portal
 - aid: >-
     microsoft-azure-api-management:microsoft-azure-api-management-gatewaycertificateauthority-api
-  name: Microsoft Azure API Management GatewayCertificateAuthority API
+  name: Microsoft Azure API Management Gateway Certificate Authority API
   description: >-
     The GatewayCertificateAuthority API from Microsoft Azure API Management — 2 operation(s) for gatewaycertificateauthority.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -3609,7 +3609,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-gatewaygeneratetoken-api
-  name: Microsoft Azure API Management GatewayGenerateToken API
+  name: Microsoft Azure API Management Gateway Generate Token API
   description: >-
     The GatewayGenerateToken API from Microsoft Azure API Management — 1 operation(s) for gatewaygeneratetoken.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -3746,7 +3746,7 @@ apis:
     url: https://github.com/Azure/api-management-developer-portal
 - aid: >-
     microsoft-azure-api-management:microsoft-azure-api-management-gatewayhostnameconfiguration-api
-  name: Microsoft Azure API Management GatewayHostnameConfiguration API
+  name: Microsoft Azure API Management Gateway Hostname Configuration API
   description: >-
     The GatewayHostnameConfiguration API from Microsoft Azure API Management — 2 operation(s) for gatewayhostnameconfiguration.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -3883,7 +3883,7 @@ apis:
     url: https://github.com/Azure/api-management-developer-portal
 - aid: >-
     microsoft-azure-api-management:microsoft-azure-api-management-gatewayinvalidatedebugcredentials-api
-  name: Microsoft Azure API Management GatewayInvalidateDebugCredentials API
+  name: Microsoft Azure API Management Gateway Invalidate Debug Credentials API
   description: >-
     The GatewayInvalidateDebugCredentials API from Microsoft Azure API Management — 1 operation(s) for
     gatewayinvalidatedebugcredentials.
@@ -4021,7 +4021,7 @@ apis:
     url: https://github.com/Azure/api-management-developer-portal
 - aid: >-
     microsoft-azure-api-management:microsoft-azure-api-management-gatewaylistdebugcredentials-api
-  name: Microsoft Azure API Management GatewayListDebugCredentials API
+  name: Microsoft Azure API Management Gateway List Debug Credentials API
   description: >-
     The GatewayListDebugCredentials API from Microsoft Azure API Management — 1 operation(s) for gatewaylistdebugcredentials.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -4157,7 +4157,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-gatewaylistkeys-api
-  name: Microsoft Azure API Management GatewayListKeys API
+  name: Microsoft Azure API Management Gateway List Keys API
   description: >-
     The GatewayListKeys API from Microsoft Azure API Management — 1 operation(s) for gatewaylistkeys.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -4293,7 +4293,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-gatewaylisttrace-api
-  name: Microsoft Azure API Management GatewayListTrace API
+  name: Microsoft Azure API Management Gateway List Trace API
   description: >-
     The GatewayListTrace API from Microsoft Azure API Management — 1 operation(s) for gatewaylisttrace.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -4429,7 +4429,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-gatewayregeneratekey-api
-  name: Microsoft Azure API Management GatewayRegenerateKey API
+  name: Microsoft Azure API Management Gateway Regenerate Key API
   description: >-
     The GatewayRegenerateKey API from Microsoft Azure API Management — 1 operation(s) for gatewayregeneratekey.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -4565,7 +4565,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-graphqlapiresolver-api
-  name: Microsoft Azure API Management GraphQLApiResolver API
+  name: Microsoft Azure API Management GraphQL API Resolver API
   description: >-
     The GraphQLApiResolver API from Microsoft Azure API Management — 2 operation(s) for graphqlapiresolver.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -5241,7 +5241,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-namedvalue-api
-  name: Microsoft Azure API Management NamedValue API
+  name: Microsoft Azure API Management Named Value API
   description: The NamedValue API from Microsoft Azure API Management — 2 operation(s) for namedvalue.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
@@ -5647,7 +5647,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-policyfragment-api
-  name: Microsoft Azure API Management PolicyFragment API
+  name: Microsoft Azure API Management Policy Fragment API
   description: >-
     The PolicyFragment API from Microsoft Azure API Management — 2 operation(s) for policyfragment.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -5918,7 +5918,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-productapilink-api
-  name: Microsoft Azure API Management ProductApiLink API
+  name: Microsoft Azure API Management Product API Link API
   description: >-
     The ProductApiLink API from Microsoft Azure API Management — 2 operation(s) for productapilink.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -6054,7 +6054,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-productgrouplink-api
-  name: Microsoft Azure API Management ProductGroupLink API
+  name: Microsoft Azure API Management Product Group Link API
   description: >-
     The ProductGroupLink API from Microsoft Azure API Management — 2 operation(s) for productgrouplink.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -6190,7 +6190,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-productpolicy-api
-  name: Microsoft Azure API Management ProductPolicy API
+  name: Microsoft Azure API Management Product Policy API
   description: >-
     The ProductPolicy API from Microsoft Azure API Management — 2 operation(s) for productpolicy.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -6326,7 +6326,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-productsubscription-api
-  name: Microsoft Azure API Management ProductSubscription API
+  name: Microsoft Azure API Management Product Subscription API
   description: >-
     The ProductSubscription API from Microsoft Azure API Management — 1 operation(s) for productsubscription.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -6464,7 +6464,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-productwiki-api
-  name: Microsoft Azure API Management ProductWiki API
+  name: Microsoft Azure API Management Product Wiki API
   description: >-
     The ProductWiki API from Microsoft Azure API Management — 2 operation(s) for productwiki.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -7006,7 +7006,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-tagapilink-api
-  name: Microsoft Azure API Management TagApiLink API
+  name: Microsoft Azure API Management Tag API Link API
   description: The TagApiLink API from Microsoft Azure API Management — 2 operation(s) for tagapilink.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
   baseURL: https://management.azure.com/
@@ -7141,7 +7141,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-tagoperationlink-api
-  name: Microsoft Azure API Management TagOperationLink API
+  name: Microsoft Azure API Management Tag Operation Link API
   description: >-
     The TagOperationLink API from Microsoft Azure API Management — 2 operation(s) for tagoperationlink.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -7277,7 +7277,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-tagproductlink-api
-  name: Microsoft Azure API Management TagProductLink API
+  name: Microsoft Azure API Management Tag Product Link API
   description: >-
     The TagProductLink API from Microsoft Azure API Management — 2 operation(s) for tagproductlink.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
@@ -7820,7 +7820,7 @@ apis:
   - type: GitHubRepository
     url: https://github.com/Azure/api-management-developer-portal
 - aid: microsoft-azure-api-management:microsoft-azure-api-management-workspacepolicy-api
-  name: Microsoft Azure API Management WorkspacePolicy API
+  name: Microsoft Azure API Management Workspace Policy API
   description: >-
     The WorkspacePolicy API from Microsoft Azure API Management — 2 operation(s) for workspacepolicy.
   humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
