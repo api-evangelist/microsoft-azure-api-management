@@ -7,89 +7,89 @@ artifacts:
     method: generated
     evidence: declared in the artifact
   arazzo/microsoft-azure-api-management-ai-gateway-chat-and-embed-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-apply-api-policy-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-backup-service-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-configure-api-diagnostic-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-configure-graphql-resolver-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-configure-logger-diagnostic-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-configure-product-policy-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-define-api-operation-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-link-product-group-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-manage-workspace-named-value-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-onboard-user-to-group-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-provision-backend-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-provision-certificate-backend-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-provision-product-link-api-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-provision-service-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-provision-subscription-keys-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-provision-workspace-api-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-provision-workspace-product-subscription-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-publish-api-release-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-register-api-schema-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-register-gateway-link-api-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-rotate-subscription-keys-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-set-service-policy-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-tag-api-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-tag-product-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-upsert-api-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-upsert-product-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/microsoft-azure-api-management-upsert-user-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   authentication/microsoft-azure-api-management-authentication.yml:
     method: derived
     evidence: declared in the artifact
@@ -100,11 +100,11 @@ artifacts:
     method: derived
     evidence: openapi/microsoft-azure-api-management-ai-api
   collections/microsoft-azure-api-management-api-api.opencollection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-api-api
+    method: unknown
+    evidence: no authorship recorded
   collections/microsoft-azure-api-management-api-api.postman_collection.json:
-    method: derived
-    evidence: openapi/microsoft-azure-api-management-api-api
+    method: unknown
+    evidence: no authorship recorded
   collections/microsoft-azure-api-management-apidiagnostic-api.opencollection.json:
     method: derived
     evidence: openapi/microsoft-azure-api-management-apidiagnostic-api
@@ -489,6 +489,12 @@ artifacts:
   collections/microsoft-azure-api-management-workspacepolicy-api.postman_collection.json:
     method: derived
     evidence: openapi/microsoft-azure-api-management-workspacepolicy-api
+  conformance/microsoft-azure-api-management-conformance.yml:
+    method: searched
+    evidence: declared in the artifact
+  data-model/microsoft-azure-api-management-data-model.yml:
+    method: derived
+    evidence: declared in the artifact
   examples/ai-gateway-chat-completion-request-example.json:
     method: unknown
     evidence: no authorship recorded
@@ -603,7 +609,19 @@ artifacts:
   front-door-ai/2026-09-17.yml:
     method: unknown
     evidence: no authorship recorded
+  hosts/microsoft-azure-api-management-hosts.yml:
+    method: derived
+    evidence: declared in the artifact
+  integrations/_index.yml:
+    method: generated
+    evidence: carries an API Evangelist house phrase
+  integrations/microsoft-azure-api-management-integration-edges.yml:
+    method: searched
+    evidence: declared in the artifact
   json-ld/microsoft-azure-api-management-ai-gateway-context.jsonld:
+    method: unknown
+    evidence: no authorship recorded
+  json-ld/microsoft-azure-api-management-context.jsonld:
     method: unknown
     evidence: no authorship recorded
   json-schema/ai-gateway-chat-completion-request-schema.json:
@@ -738,127 +756,10 @@ artifacts:
   json-structure/microsoft-azure-api-management-structure.json:
     method: unknown
     evidence: no authorship recorded
-  kin/checks-2026-09-24T161608.yml:
+  kin/checks-2026-10-09T213714.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T125852.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T133943.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T143147.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T154045.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-26T215308.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T094438.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T103455.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T123021.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T132314.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T140727.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-28T221322.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-29T213958.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-29T230545.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-30T203505.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-30T220315.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-31T223420.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-01T063623.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-01T210448.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-01T222808.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-02T211804.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-02T224043.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-03T161828.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-03T174231.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-04T062714.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-04T212454.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-04T224856.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T055819.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T072335.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T144739.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T195450.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T211839.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-06T011047.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-06T211804.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-06T224210.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-07T200636.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-07T213054.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-08T214843.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-08T232836.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-10T204815.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-10T222408.yml:
+  kin/checks-2026-10-11T110117.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-12T062655.yml:
@@ -942,9 +843,42 @@ artifacts:
   kin/score-2026-09-24T161608.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-25T210408.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-25T232841.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-03T000835.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-03T024842.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-04T202412.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-04T225258.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-09T213714.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-11T110117.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  llms/microsoft-azure-api-management-llms-provenance.yml:
+    method: generated
+    evidence: 'derive-llms-provenance.py: generated'
   llms/microsoft-azure-api-management-llms.txt:
-    method: searched
-    evidence: 'derive-llms-provenance.py: harvested'
+    method: generated
+    evidence: 'derive-llms-provenance.py: generated'
+  mcp/microsoft-azure-api-management-mcp.yml:
+    method: derived
+    evidence: declared in the artifact
+  mcp/microsoft-azure-api-management-tool-crosswalk.yml:
+    method: derived
+    evidence: declared in the artifact
   onboarding/azure-apim-api-auth.mjs:
     method: unknown
     evidence: no authorship recorded
@@ -955,9 +889,6 @@ artifacts:
   openapi/microsoft-azure-api-management-ai-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
-  openapi/microsoft-azure-api-management-api-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/microsoft-azure-api-management-api-product-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
@@ -991,6 +922,9 @@ artifacts:
   openapi/microsoft-azure-api-management-apirevision-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/microsoft-azure-api-management-apis-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
   openapi/microsoft-azure-api-management-apischema-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
@@ -1009,6 +943,9 @@ artifacts:
   openapi/microsoft-azure-api-management-apiwiki-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/microsoft-azure-api-management-authentication-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
   openapi/microsoft-azure-api-management-backend-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
@@ -1081,6 +1018,9 @@ artifacts:
   openapi/microsoft-azure-api-management-policyfragment-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/microsoft-azure-api-management-portal-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
   openapi/microsoft-azure-api-management-product-api-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
@@ -1102,6 +1042,9 @@ artifacts:
   openapi/microsoft-azure-api-management-productpolicy-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/microsoft-azure-api-management-products-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
   openapi/microsoft-azure-api-management-productsubscription-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
@@ -1112,6 +1055,9 @@ artifacts:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/microsoft-azure-api-management-subscription-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/microsoft-azure-api-management-subscriptions-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/microsoft-azure-api-management-tag-api-openapi.yml:
@@ -1127,8 +1073,8 @@ artifacts:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/microsoft-azure-api-management-user-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+    method: unknown
+    evidence: no authorship recorded
   openapi/microsoft-azure-api-management-user-group-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
@@ -1150,6 +1096,222 @@ artifacts:
   openapi/microsoft-azure-api-management-workspacepolicy-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  overlays/microsoft-azure-api-management-ai-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-api-product-api-openapi-overlay.yml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-api-product-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-apidiagnostic-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-apiissue-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-apimanagementoperations-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-apimanagementservice-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-apimanagementserviceskus-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-apioperation-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-apioperationsbytag-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-apipolicy-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-apirelease-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-apirevision-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-apis-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-apischema-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-apitag-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-apitagdescription-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-apiversionset-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-apiversionsets-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-apiwiki-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-authentication-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-backend-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-backendreconnect-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-certificate-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-diagnostic-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-gateway-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-gatewayapi-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-gatewaycertificateauthority-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-gatewaygeneratetoken-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-gatewayhostnameconfiguration-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-gatewayinvalidatedebugcredentials-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-gatewaylistdebugcredentials-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-gatewaylistkeys-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-gatewaylisttrace-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-gatewayregeneratekey-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-graphqlapiresolver-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-group-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-group-user-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-health-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-logger-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-mcp-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-namedvalue-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-notification-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-policy-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-policyfragment-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-portal-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-product-api-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-product-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-product-group-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-product-tag-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-productapilink-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-productgrouplink-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-productpolicy-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-products-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-productsubscription-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-productwiki-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-schema-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-subscription-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-subscriptions-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-tag-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-tagapilink-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-tagoperationlink-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-tagproductlink-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-user-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-user-group-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-user-identity-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-user-subscription-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-user-token-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-users-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-workspace-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/microsoft-azure-api-management-workspacepolicy-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  packages/microsoft-azure-api-management-packages.yml:
+    method: unknown
+    evidence: no authorship recorded
   plans/microsoft-azure-api-management-plans-pricing.yml:
     method: generated
     evidence: declared in the artifact
@@ -1171,12 +1333,18 @@ artifacts:
   rate-limits/microsoft-azure-api-management-rate-limits.yml:
     method: generated
     evidence: declared in the artifact
+  regulatory/microsoft-azure-api-management-regulatory-posture.yml:
+    method: unknown
+    evidence: no authorship recorded
   rules/microsoft-azure-api-management-jsonschema-spectral-rules.yml:
     method: generated
     evidence: declared in the artifact
   rules/microsoft-azure-api-management-rules.yaml:
     method: unknown
     evidence: no authorship recorded
+  rules/microsoft-azure-api-management-rules.yml:
+    method: generated
+    evidence: declared in the artifact
   scopes/microsoft-azure-api-management-scopes.yml:
     method: derived
     evidence: declared in the artifact
@@ -1186,12 +1354,33 @@ artifacts:
   security/microsoft-azure-api-management-vulnerability-disclosure.yml:
     method: searched
     evidence: declared in the artifact
+  skills/_index.yml:
+    method: generated
+    evidence: declared in the artifact
+  skills/microsoft-azure-api-management-certificate-create.md:
+    method: generated
+    evidence: declared in the artifact
+  skills/microsoft-azure-api-management-create-or-update-service.md:
+    method: generated
+    evidence: declared in the artifact
+  skills/microsoft-azure-api-management-gateway-create-or-update.md:
+    method: generated
+    evidence: declared in the artifact
   vendor-facets/microsoft-azure-api-management-vendor-facets.yml:
     method: unknown
     evidence: no authorship recorded
-  vocabulary/microsoft-azure-api-management-vocabulary.yaml:
+  vendors/microsoft-azure-api-management-vendors.yml:
     method: unknown
     evidence: no authorship recorded
+  vocabulary/microsoft-azure-api-management-vocabulary.yaml:
+    method: generated
+    evidence: 'vocabulary carrying the pipeline''s generated: stamp, no fetch record'
   vocabulary/microsoft-azure-api-management-vocabulary.yml:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/microsoft-azure-api-management-well-known.yml:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/microsoft-azure-api-management-www-security.txt:
     method: unknown
     evidence: no authorship recorded
