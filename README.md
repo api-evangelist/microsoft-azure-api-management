@@ -1,4 +1,4 @@
-# Microsoft Azure API Management (microsoft-azure-api-management)
+# Microsoft Azure API Management
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,196 +66,400 @@
 
 Microsoft Azure API Management is a hybrid, multicloud management platform for APIs across all environments. It is composed of an API gateway (data plane), a management plane, and a developer portal, and supports the complete API lifecycle for publishing, securing, monitoring, and transforming APIs for external, partner, and internal developers. It now includes an AI gateway for governing OpenAI Chat Completions, OpenAI Responses, Anthropic Messages, Microsoft Foundry models, Amazon Bedrock, MCP servers exposed from REST APIs or proxied from external MCP backends, and A2A agent APIs - with token rate limiting, semantic caching, content safety, backend load balancing, circuit breakers, and token emission to Application Insights. It pairs with Azure API Center for design-time inventory, governance, and discovery.
 
-**URL:** [apis.yml](https://raw.githubusercontent.com/api-evangelist/microsoft-azure-api-management/refs/heads/main/apis.yml)
+**Areas:** A2A · AI Gateway · API Center · API Gateway · API Management · Enterprise · MCP · Microsoft Azure
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Microsoft Azure API Management on APIs.io
 
-## Tags
-- A2A
-- AI Gateway
-- API Center
-- API Gateway
-- API Management
-- Enterprise
-- MCP
-- Microsoft Azure
+Everything profiled for Microsoft Azure API Management is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/microsoft-azure-api-management/](https://apis.io/providers/microsoft-azure-api-management/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
-- **Created:** 2026-03-16
-- **Modified:** 2026-05-22
+### APIs (71)
 
-## APIs
+- [Azure API Center](https://apis.io/apis/microsoft-azure-api-management/azure-api-center/) — Azure API Center is the design-time governance and centralized discovery counterpart to Azure API Management. It enables organizations to track all of their…
+- [Microsoft Azure API Management AI API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-ai-api/) — The AI API from Microsoft Azure API Management — 3 operation(s) for ai.
+- [Microsoft Azure API Management ApiDiagnostic API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-apidiagnostic-api/) — The ApiDiagnostic API from Microsoft Azure API Management — 2 operation(s) for apidiagnostic.
+- [Microsoft Azure API Management ApiIssue API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-apiissue-api/) — The ApiIssue API from Microsoft Azure API Management — 2 operation(s) for apiissue.
+- [Microsoft Azure API Management ApiManagementOperations API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-apimanagementoperations-api/) — The ApiManagementOperations API from Microsoft Azure API Management — 1 operation(s) for apimanagementoperations.
+- [Microsoft Azure API Management ApiManagementService API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-apimanagementservice-api/) — The ApiManagementService API from Microsoft Azure API Management — 10 operation(s) for apimanagementservice.
+- [Microsoft Azure API Management ApiManagementServiceSkus API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-apimanagementserviceskus-api/) — The ApiManagementServiceSkus API from Microsoft Azure API Management — 1 operation(s) for apimanagementserviceskus.
+- [Microsoft Azure API Management ApiOperation API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-apioperation-api/) — The ApiOperation API from Microsoft Azure API Management — 2 operation(s) for apioperation.
+- [Microsoft Azure API Management ApiOperationsByTag API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-apioperationsbytag-api/) — The ApiOperationsByTag API from Microsoft Azure API Management — 1 operation(s) for apioperationsbytag.
+- [Microsoft Azure API Management ApiPolicy API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-apipolicy-api/) — The ApiPolicy API from Microsoft Azure API Management — 2 operation(s) for apipolicy.
+- [Microsoft Azure API Management ApiRelease API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-apirelease-api/) — The ApiRelease API from Microsoft Azure API Management — 2 operation(s) for apirelease.
+- [Microsoft Azure API Management ApiRevision API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-apirevision-api/) — The ApiRevision API from Microsoft Azure API Management — 1 operation(s) for apirevision.
+- [Microsoft Azure API Management ApiSchema API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-apischema-api/) — The ApiSchema API from Microsoft Azure API Management — 2 operation(s) for apischema.
+- [Microsoft Azure API Management ApiTag API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-apitag-api/) — The ApiTag API from Microsoft Azure API Management — 2 operation(s) for apitag.
+- [Microsoft Azure API Management ApiTagDescription API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-apitagdescription-api/) — The ApiTagDescription API from Microsoft Azure API Management — 2 operation(s) for apitagdescription.
+- [Microsoft Azure API Management ApiVersionSet API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-apiversionset-api/) — The ApiVersionSet API from Microsoft Azure API Management — 2 operation(s) for apiversionset.
+- [Microsoft Azure API Management ApiVersionSets API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-apiversionsets-api/) — The ApiVersionSets API from Microsoft Azure API Management — 1 operation(s) for apiversionsets.
+- [Microsoft Azure API Management ApiWiki API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-apiwiki-api/) — The ApiWiki API from Microsoft Azure API Management — 2 operation(s) for apiwiki.
+- [Microsoft Azure API Management Backend API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-backend-api/) — The Backend API from Microsoft Azure API Management — 2 operation(s) for backend.
+- [Microsoft Azure API Management BackendReconnect API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-backendreconnect-api/) — The BackendReconnect API from Microsoft Azure API Management — 1 operation(s) for backendreconnect.
+- [Microsoft Azure API Management Certificate API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-certificate-api/) — The Certificate API from Microsoft Azure API Management — 3 operation(s) for certificate.
+- [Microsoft Azure API Management Diagnostic API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-diagnostic-api/) — The Diagnostic API from Microsoft Azure API Management — 2 operation(s) for diagnostic.
+- [Microsoft Azure API Management Gateway API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-gateway-api/) — The Gateway API from Microsoft Azure API Management — 3 operation(s) for gateway.
+- [Microsoft Azure API Management GatewayApi API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-gatewayapi-api/) — The GatewayApi API from Microsoft Azure API Management — 2 operation(s) for gatewayapi.
+- [Microsoft Azure API Management GatewayCertificateAuthority API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-gatewaycertificateauthority-api/) — The GatewayCertificateAuthority API from Microsoft Azure API Management — 2 operation(s) for gatewaycertificateauthority.
+- [Microsoft Azure API Management GatewayGenerateToken API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-gatewaygeneratetoken-api/) — The GatewayGenerateToken API from Microsoft Azure API Management — 1 operation(s) for gatewaygeneratetoken.
+- [Microsoft Azure API Management GatewayHostnameConfiguration API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-gatewayhostnameconfiguration-api/) — The GatewayHostnameConfiguration API from Microsoft Azure API Management — 2 operation(s) for gatewayhostnameconfiguration.
+- [Microsoft Azure API Management GatewayInvalidateDebugCredentials API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-gatewayinvalidatedebugcredentials-api/) — The GatewayInvalidateDebugCredentials API from Microsoft Azure API Management — 1 operation(s) for gatewayinvalidatedebugcredentials.
+- [Microsoft Azure API Management GatewayListDebugCredentials API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-gatewaylistdebugcredentials-api/) — The GatewayListDebugCredentials API from Microsoft Azure API Management — 1 operation(s) for gatewaylistdebugcredentials.
+- [Microsoft Azure API Management GatewayListKeys API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-gatewaylistkeys-api/) — The GatewayListKeys API from Microsoft Azure API Management — 1 operation(s) for gatewaylistkeys.
+- [Microsoft Azure API Management GatewayListTrace API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-gatewaylisttrace-api/) — The GatewayListTrace API from Microsoft Azure API Management — 1 operation(s) for gatewaylisttrace.
+- [Microsoft Azure API Management GatewayRegenerateKey API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-gatewayregeneratekey-api/) — The GatewayRegenerateKey API from Microsoft Azure API Management — 1 operation(s) for gatewayregeneratekey.
+- [Microsoft Azure API Management GraphQLApiResolver API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-graphqlapiresolver-api/) — The GraphQLApiResolver API from Microsoft Azure API Management — 2 operation(s) for graphqlapiresolver.
+- [Microsoft Azure API Management Group API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-group-api/) — The Group API from Microsoft Azure API Management — 4 operation(s) for group.
+- [Microsoft Azure API Management Health API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-health-api/) — The Health API from Microsoft Azure API Management — 2 operation(s) for health.
+- [Microsoft Azure API Management Logger API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-logger-api/) — The Logger API from Microsoft Azure API Management — 2 operation(s) for logger.
+- [Microsoft Azure API Management MCP API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-mcp-api/) — The MCP API from Microsoft Azure API Management — 1 operation(s) for mcp.
+- [Microsoft Azure API Management NamedValue API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-namedvalue-api/) — The NamedValue API from Microsoft Azure API Management — 2 operation(s) for namedvalue.
+- [Microsoft Azure API Management Notification API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-notification-api/) — The Notification API from Microsoft Azure API Management — 2 operation(s) for notification.
+- [Microsoft Azure API Management Policy API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-policy-api/) — The Policy API from Microsoft Azure API Management — 2 operation(s) for policy.
+- [Microsoft Azure API Management PolicyFragment API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-policyfragment-api/) — The PolicyFragment API from Microsoft Azure API Management — 2 operation(s) for policyfragment.
+- [Microsoft Azure API Management Product API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-product-api/) — The Product API from Microsoft Azure API Management — 4 operation(s) for product.
+- [Microsoft Azure API Management ProductApiLink API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-productapilink-api/) — The ProductApiLink API from Microsoft Azure API Management — 2 operation(s) for productapilink.
+- [Microsoft Azure API Management ProductGroupLink API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-productgrouplink-api/) — The ProductGroupLink API from Microsoft Azure API Management — 2 operation(s) for productgrouplink.
+- [Microsoft Azure API Management ProductPolicy API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-productpolicy-api/) — The ProductPolicy API from Microsoft Azure API Management — 2 operation(s) for productpolicy.
+- [Microsoft Azure API Management ProductSubscription API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-productsubscription-api/) — The ProductSubscription API from Microsoft Azure API Management — 1 operation(s) for productsubscription.
+- [Microsoft Azure API Management ProductWiki API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-productwiki-api/) — The ProductWiki API from Microsoft Azure API Management — 2 operation(s) for productwiki.
+- [Microsoft Azure API Management Schema API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-schema-api/) — The Schema API from Microsoft Azure API Management — 2 operation(s) for schema.
+- [Microsoft Azure API Management Subscription API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-subscription-api/) — The Subscription API from Microsoft Azure API Management — 8 operation(s) for subscription.
+- [Microsoft Azure API Management Tag API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-tag-api/) — The Tag API from Microsoft Azure API Management — 4 operation(s) for tag.
+- [Microsoft Azure API Management TagApiLink API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-tagapilink-api/) — The TagApiLink API from Microsoft Azure API Management — 2 operation(s) for tagapilink.
+- [Microsoft Azure API Management TagOperationLink API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-tagoperationlink-api/) — The TagOperationLink API from Microsoft Azure API Management — 2 operation(s) for tagoperationlink.
+- [Microsoft Azure API Management TagProductLink API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-tagproductlink-api/) — The TagProductLink API from Microsoft Azure API Management — 2 operation(s) for tagproductlink.
+- [Microsoft Azure API Management User API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-user-api/) — The User API from Microsoft Azure API Management — 3 operation(s) for user.
+- [Microsoft Azure API Management Users API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-users-api/) — The Users API from Microsoft Azure API Management — 1 operation(s) for users.
+- [Microsoft Azure API Management Workspace API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-workspace-api/) — The Workspace API from Microsoft Azure API Management — 2 operation(s) for workspace.
+- [Microsoft Azure API Management WorkspacePolicy API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-workspacepolicy-api/) — The WorkspacePolicy API from Microsoft Azure API Management — 2 operation(s) for workspacepolicy.
+- [Microsoft Azure API Management APIs API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-apis-api/) — The APIs API from Microsoft Azure API Management — 2 operation(s) for apis.
+- [Microsoft Azure API Management Authentication API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-authentication-api/) — The Authentication API from Microsoft Azure API Management — 2 operation(s) for authentication.
+- [Microsoft Azure API Management Portal API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-portal-api/) — The Portal API from Microsoft Azure API Management — 1 operation(s) for portal.
+- [Microsoft Azure API Management Products API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-products-api/) — The Products API from Microsoft Azure API Management — 1 operation(s) for products.
+- [Microsoft Azure API Management Subscriptions API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-subscriptions-api/) — The Subscriptions API from Microsoft Azure API Management — 4 operation(s) for subscriptions.
+- [Microsoft Azure API Management Api Product API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-api-product-api/) — The Api Product API from Microsoft Azure API Management — 1 operation(s) for api product.
+- [Microsoft Azure API Management Group User API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-group-user-api/) — The Group User API from Microsoft Azure API Management — 2 operation(s) for group user.
+- [Microsoft Azure API Management Product API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-product-api-api/) — The Product API API from Microsoft Azure API Management — 2 operation(s) for product api.
+- [Microsoft Azure API Management Product Group API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-product-group-api/) — The Product Group API from Microsoft Azure API Management — 2 operation(s) for product group.
+- [Microsoft Azure API Management Product Tag API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-product-tag-api/) — The Product Tag API from Microsoft Azure API Management — 2 operation(s) for product tag.
+- [Microsoft Azure API Management User Group API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-user-group-api/) — The User Group API from Microsoft Azure API Management — 1 operation(s) for user group.
+- [Microsoft Azure API Management User Identity API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-user-identity-api/) — The User Identity API from Microsoft Azure API Management — 1 operation(s) for user identity.
+- [Microsoft Azure API Management User Subscription API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-user-subscription-api/) — The User Subscription API from Microsoft Azure API Management — 1 operation(s) for user subscription.
+- [Microsoft Azure API Management User Token API](https://apis.io/apis/microsoft-azure-api-management/microsoft-azure-api-management-user-token-api/) — The User Token API from Microsoft Azure API Management — 1 operation(s) for user token.
 
-### Azure API Management REST API
-Programmatic management plane for API Management instances and their child entities (APIs, products, subscriptions, users, groups, policies, gateways, backends, certificates, workspaces). Uses Azure Resource Manager conventions; API versions through 2024-05-01. Over 100 operation groups.
-- humanURL: https://learn.microsoft.com/en-us/rest/api/apimanagement/
-- baseURL: https://management.azure.com/
-- OpenAPI: `openapi/microsoft-azure-api-management-rest-api-openapi.yaml`
-- Capabilities: 60+ entity-level capability YAMLs under `capabilities/rest-*.yaml`
+### Published properties
 
-### Azure API Management Gateway
-Cloud-hosted data plane that accepts API calls, verifies credentials, applies policies (rate limits, quotas, transformations, caching, content safety), and emits telemetry.
-- humanURL: https://learn.microsoft.com/en-us/azure/api-management/api-management-key-concepts
-- baseURL: https://{instance}.azure-api.net
-- OpenAPI: `openapi/microsoft-azure-api-management-gateway-openapi.yaml`
-- Capabilities: `capabilities/gateway-gateway.yaml`, `capabilities/gateway-health.yaml`
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Azure API Management Self-Hosted Gateway
-Linux-based container image of the gateway runtime, deployable to Kubernetes (AKS, Arc-enabled Kubernetes), Docker, or any orchestration platform, federated with a cloud-based API Management instance.
-- humanURL: https://learn.microsoft.com/en-us/azure/api-management/self-hosted-gateway-overview
-- baseURL: https://mcr.microsoft.com/product/azure-api-management/gateway
-- OpenAPI: `openapi/microsoft-azure-api-management-self-hosted-gateway-openapi.yaml`
-- Capabilities: `capabilities/self-hosted-gateway-gateway.yaml`, `capabilities/self-hosted-gateway-health.yaml`
+#### Arazzo workflows (29)
 
-### Azure API Management AI Gateway
-AI gateway capabilities layered on the API Management gateway: TPM/token quota policies, semantic caching with Azure Managed Redis, backend load balancing (round-robin / weighted / priority / session-aware) with dynamic circuit breakers, Azure AI Content Safety policy, and `llm-emit-token-metric` for Application Insights. Supports OpenAI Chat Completions, OpenAI Responses, Anthropic Messages (v2 tiers), Microsoft Foundry models, Amazon Bedrock, self-hosted models, MCP servers, and A2A agent APIs. Available across Developer, Basic, Basic v2, Standard, Standard v2, Premium, and Premium v2 tiers.
-- humanURL: https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities
-- OpenAPI: `openapi/microsoft-azure-api-management-ai-gateway-openapi.yaml`
-- MCP server overview: https://learn.microsoft.com/en-us/azure/api-management/mcp-server-overview
-- Capabilities: `capabilities/ai-gateway-ai.yaml`, `capabilities/ai-gateway-mcp.yaml`
+Multi-step workflows that chain operations into a business task.
 
-### Azure API Center
-Design-time API inventory, governance, and discovery service that complements API Management's runtime governance. Includes a VS Code extension with linting and breaking-change detection, an enterprise API Center portal, MCP server registry, and Copilot Studio connector. Standard plan included at no extra cost when linked to API Management Standard, Standard v2, Premium, or Premium v2.
-- humanURL: https://learn.microsoft.com/en-us/azure/api-center/overview
-- baseURL: https://management.azure.com/
-- MCP registry: https://learn.microsoft.com/en-us/azure/api-center/register-discover-mcp-server
+- [Azure API Management AI Gateway Chat and Embed](https://apis.io/arazzos/microsoft-azure-api-management/microsoft-azure-api-management-ai-gateway-chat-and-embed-workflow/)
+- [Azure API Management Apply API Policy](https://apis.io/arazzos/microsoft-azure-api-management/microsoft-azure-api-management-apply-api-policy-workflow/)
+- [Azure API Management Backup Service](https://apis.io/arazzos/microsoft-azure-api-management/microsoft-azure-api-management-backup-service-workflow/)
+- [Azure API Management Configure API Diagnostic](https://apis.io/arazzos/microsoft-azure-api-management/microsoft-azure-api-management-configure-api-diagnostic-workflow/)
+- [Azure API Management Configure GraphQL Resolver](https://apis.io/arazzos/microsoft-azure-api-management/microsoft-azure-api-management-configure-graphql-resolver-workflow/)
+- [Azure API Management Configure Logger and Service Diagnostic](https://apis.io/arazzos/microsoft-azure-api-management/microsoft-azure-api-management-configure-logger-diagnostic-workflow/)
+- [Azure API Management Configure Product Policy](https://apis.io/arazzos/microsoft-azure-api-management/microsoft-azure-api-management-configure-product-policy-workflow/)
+- [Azure API Management Define API Operation](https://apis.io/arazzos/microsoft-azure-api-management/microsoft-azure-api-management-define-api-operation-workflow/)
+- [Moved to /providers/microsoft-azure-api-management/](https://apis.io/arazzos/microsoft-azure-api-management/microsoft-azure-api-management-devportal-discover-and-invoke-workflow/)
+- [Azure API Management Link Product to Group](https://apis.io/arazzos/microsoft-azure-api-management/microsoft-azure-api-management-link-product-group-workflow/)
+- [Azure API Management Manage Workspace Named Value](https://apis.io/arazzos/microsoft-azure-api-management/microsoft-azure-api-management-manage-workspace-named-value-workflow/)
+- [Azure API Management Onboard User to Group](https://apis.io/arazzos/microsoft-azure-api-management/microsoft-azure-api-management-onboard-user-to-group-workflow/)
+- [Azure API Management Provision Backend](https://apis.io/arazzos/microsoft-azure-api-management/microsoft-azure-api-management-provision-backend-workflow/)
+- [Azure API Management Provision Certificate for Backend](https://apis.io/arazzos/microsoft-azure-api-management/microsoft-azure-api-management-provision-certificate-backend-workflow/)
+- [Azure API Management Provision Product and Link API](https://apis.io/arazzos/microsoft-azure-api-management/microsoft-azure-api-management-provision-product-link-api-workflow/)
+- [Azure API Management Provision Service](https://apis.io/arazzos/microsoft-azure-api-management/microsoft-azure-api-management-provision-service-workflow/)
+- [Azure API Management Provision Subscription and Retrieve Keys](https://apis.io/arazzos/microsoft-azure-api-management/microsoft-azure-api-management-provision-subscription-keys-workflow/)
+- [Azure API Management Provision Workspace API](https://apis.io/arazzos/microsoft-azure-api-management/microsoft-azure-api-management-provision-workspace-api-workflow/)
+- [Azure API Management Provision Workspace Product and Subscription](https://apis.io/arazzos/microsoft-azure-api-management/microsoft-azure-api-management-provision-workspace-product-subscription-workflow/)
+- [Azure API Management Publish API Release](https://apis.io/arazzos/microsoft-azure-api-management/microsoft-azure-api-management-publish-api-release-workflow/)
+- [Azure API Management Register API Schema](https://apis.io/arazzos/microsoft-azure-api-management/microsoft-azure-api-management-register-api-schema-workflow/)
+- [Azure API Management Register Gateway and Link API](https://apis.io/arazzos/microsoft-azure-api-management/microsoft-azure-api-management-register-gateway-link-api-workflow/)
+- [Azure API Management Rotate Subscription Keys](https://apis.io/arazzos/microsoft-azure-api-management/microsoft-azure-api-management-rotate-subscription-keys-workflow/)
+- [Azure API Management Set Global Service Policy](https://apis.io/arazzos/microsoft-azure-api-management/microsoft-azure-api-management-set-service-policy-workflow/)
+- [Azure API Management Tag and Label an API](https://apis.io/arazzos/microsoft-azure-api-management/microsoft-azure-api-management-tag-api-workflow/)
+- …and 4 more published on APIs.io
 
-### Azure API Management Developer Portal
-Auto-generated, fully customizable developer portal. Open-source TypeScript codebase (latest 2.34.0, October 2025) that can be self-hosted and extended with custom branding.
-- humanURL: https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize
-- baseURL: https://{instance}.developer.azure-api.net
-- OpenAPI: `openapi/microsoft-azure-api-management-developer-portal-openapi.yaml`
-- Source: https://github.com/Azure/api-management-developer-portal
-- Capabilities: `capabilities/developer-portal-apis.yaml`, `capabilities/developer-portal-authentication.yaml`, `capabilities/developer-portal-portal.yaml`, `capabilities/developer-portal-products.yaml`, `capabilities/developer-portal-user.yaml`
+#### GraphQL (1)
 
-## Common Properties
-| Type | URL |
+GraphQL schemas.
+
+- [Moved to /providers/microsoft-azure-api-management/](https://apis.io/graphqls/microsoft-azure-api-management/microsoft-azure-api-management-graphql/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [MCP Server](https://apis.io/servers/microsoft-azure-api-management/mcp-server/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Microsoft Azure Api Management Agentic Access](https://apis.io/agentic-access/microsoft-azure-api-management/microsoft-azure-api-management-agentic-access/)
+
+#### JSON Schema (36)
+
+The data models the API reads and writes.
+
+- [ChatCompletionRequest](https://apis.io/schemas/microsoft-azure-api-management/ai-gateway-chat-completion-request/)
+- [ChatCompletionResponse](https://apis.io/schemas/microsoft-azure-api-management/ai-gateway-chat-completion-response/)
+- [CompletionRequest](https://apis.io/schemas/microsoft-azure-api-management/ai-gateway-completion-request/)
+- [CompletionResponse](https://apis.io/schemas/microsoft-azure-api-management/ai-gateway-completion-response/)
+- [EmbeddingRequest](https://apis.io/schemas/microsoft-azure-api-management/ai-gateway-embedding-request/)
+- [EmbeddingResponse](https://apis.io/schemas/microsoft-azure-api-management/ai-gateway-embedding-response/)
+- [MCPRequest](https://apis.io/schemas/microsoft-azure-api-management/ai-gateway-mcp-request/)
+- [MCPResponse](https://apis.io/schemas/microsoft-azure-api-management/ai-gateway-mcp-response/)
+- [ApiCollection](https://apis.io/schemas/microsoft-azure-api-management/microsoft-azure-api-management-apicollection/)
+- [ApiContract](https://apis.io/schemas/microsoft-azure-api-management/microsoft-azure-api-management-apicontract/)
+- [ApiCreateOrUpdateParameter](https://apis.io/schemas/microsoft-azure-api-management/microsoft-azure-api-management-apicreateorupdateparameter/)
+- [ApiDetail](https://apis.io/schemas/microsoft-azure-api-management/microsoft-azure-api-management-apidetail/)
+- [ApiList](https://apis.io/schemas/microsoft-azure-api-management/microsoft-azure-api-management-apilist/)
+- [ApiManagementServiceListResult](https://apis.io/schemas/microsoft-azure-api-management/microsoft-azure-api-management-apimanagementservicelistresult/)
+- [ApiManagementServiceResource](https://apis.io/schemas/microsoft-azure-api-management/microsoft-azure-api-management-apimanagementserviceresource/)
+- [ApiSummary](https://apis.io/schemas/microsoft-azure-api-management/microsoft-azure-api-management-apisummary/)
+- [ChatCompletionRequest](https://apis.io/schemas/microsoft-azure-api-management/microsoft-azure-api-management-chatcompletionrequest/)
+- [ChatCompletionResponse](https://apis.io/schemas/microsoft-azure-api-management/microsoft-azure-api-management-chatcompletionresponse/)
+- [CompletionRequest](https://apis.io/schemas/microsoft-azure-api-management/microsoft-azure-api-management-completionrequest/)
+- [CompletionResponse](https://apis.io/schemas/microsoft-azure-api-management/microsoft-azure-api-management-completionresponse/)
+- [DiagnosticCollection](https://apis.io/schemas/microsoft-azure-api-management/microsoft-azure-api-management-diagnosticcollection/)
+- [DiagnosticContract](https://apis.io/schemas/microsoft-azure-api-management/microsoft-azure-api-management-diagnosticcontract/)
+- [DomainOwnershipIdentifierResult](https://apis.io/schemas/microsoft-azure-api-management/microsoft-azure-api-management-domainownershipidentifierresult/)
+- [EmbeddingRequest](https://apis.io/schemas/microsoft-azure-api-management/microsoft-azure-api-management-embeddingrequest/)
+- [EmbeddingResponse](https://apis.io/schemas/microsoft-azure-api-management/microsoft-azure-api-management-embeddingresponse/)
+- …and 11 more published on APIs.io
+
+#### JSON Structure (9)
+
+Data models expressed in JSON Structure.
+
+- [Ai Gateway Chat Completion Request Structure](https://apis.io/json-structure/microsoft-azure-api-management/ai-gateway-chat-completion-request-structure/)
+- [Ai Gateway Chat Completion Response Structure](https://apis.io/json-structure/microsoft-azure-api-management/ai-gateway-chat-completion-response-structure/)
+- [Ai Gateway Completion Request Structure](https://apis.io/json-structure/microsoft-azure-api-management/ai-gateway-completion-request-structure/)
+- [Ai Gateway Completion Response Structure](https://apis.io/json-structure/microsoft-azure-api-management/ai-gateway-completion-response-structure/)
+- [Ai Gateway Embedding Request Structure](https://apis.io/json-structure/microsoft-azure-api-management/ai-gateway-embedding-request-structure/)
+- [Ai Gateway Embedding Response Structure](https://apis.io/json-structure/microsoft-azure-api-management/ai-gateway-embedding-response-structure/)
+- [Ai Gateway Mcp Request Structure](https://apis.io/json-structure/microsoft-azure-api-management/ai-gateway-mcp-request-structure/)
+- [Ai Gateway Mcp Response Structure](https://apis.io/json-structure/microsoft-azure-api-management/ai-gateway-mcp-response-structure/)
+- [Microsoft Azure Api Management Structure](https://apis.io/json-structure/microsoft-azure-api-management/microsoft-azure-api-management-structure/)
+
+#### JSON-LD (2)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Microsoft Azure Api Management Ai Gateway Context](https://apis.io/jsonld/microsoft-azure-api-management/microsoft-azure-api-management-ai-gateway-context/)
+- [Microsoft Azure Api Management Context](https://apis.io/jsonld/microsoft-azure-api-management/microsoft-azure-api-management-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Microsoft Azure API Management Domain Vocabulary](https://apis.io/vocabularies/microsoft-azure-api-management/microsoft-azure-api-management-vocabulary/)
+
+#### Examples (43)
+
+Example requests and responses.
+
+- [Ai Gateway Chat Completion Request Example](https://apis.io/examples/microsoft-azure-api-management/ai-gateway-chat-completion-request-example/)
+- [Ai Gateway Chat Completion Response Example](https://apis.io/examples/microsoft-azure-api-management/ai-gateway-chat-completion-response-example/)
+- [Ai Gateway Completion Request Example](https://apis.io/examples/microsoft-azure-api-management/ai-gateway-completion-request-example/)
+- [Ai Gateway Completion Response Example](https://apis.io/examples/microsoft-azure-api-management/ai-gateway-completion-response-example/)
+- [Ai Gateway Embedding Request Example](https://apis.io/examples/microsoft-azure-api-management/ai-gateway-embedding-request-example/)
+- [Ai Gateway Embedding Response Example](https://apis.io/examples/microsoft-azure-api-management/ai-gateway-embedding-response-example/)
+- [Ai Gateway Mcp Request Example](https://apis.io/examples/microsoft-azure-api-management/ai-gateway-mcp-request-example/)
+- [Ai Gateway Mcp Response Example](https://apis.io/examples/microsoft-azure-api-management/ai-gateway-mcp-response-example/)
+- [Microsoft Azure Api Management Aigateway Chatcompletions Example](https://apis.io/examples/microsoft-azure-api-management/microsoft-azure-api-management-aigateway-chatcompletions-example/)
+- [Microsoft Azure Api Management Aigateway Completions Example](https://apis.io/examples/microsoft-azure-api-management/microsoft-azure-api-management-aigateway-completions-example/)
+- [Microsoft Azure Api Management Aigateway Embeddings Example](https://apis.io/examples/microsoft-azure-api-management/microsoft-azure-api-management-aigateway-embeddings-example/)
+- [Microsoft Azure Api Management Aigateway Mcp Example](https://apis.io/examples/microsoft-azure-api-management/microsoft-azure-api-management-aigateway-mcp-example/)
+- [Microsoft Azure Api Management Api Createorupdate Example](https://apis.io/examples/microsoft-azure-api-management/microsoft-azure-api-management-api-createorupdate-example/)
+- [Microsoft Azure Api Management Api Get Example](https://apis.io/examples/microsoft-azure-api-management/microsoft-azure-api-management-api-get-example/)
+- [Microsoft Azure Api Management Api Listbyservice Example](https://apis.io/examples/microsoft-azure-api-management/microsoft-azure-api-management-api-listbyservice-example/)
+- [Microsoft Azure Api Management Api Update Example](https://apis.io/examples/microsoft-azure-api-management/microsoft-azure-api-management-api-update-example/)
+- [Microsoft Azure Api Management Apidiagnostic Createorupdate Example](https://apis.io/examples/microsoft-azure-api-management/microsoft-azure-api-management-apidiagnostic-createorupdate-example/)
+- [Microsoft Azure Api Management Apidiagnostic Get Example](https://apis.io/examples/microsoft-azure-api-management/microsoft-azure-api-management-apidiagnostic-get-example/)
+- [Microsoft Azure Api Management Apidiagnostic Listbyservice Example](https://apis.io/examples/microsoft-azure-api-management/microsoft-azure-api-management-apidiagnostic-listbyservice-example/)
+- [Microsoft Azure Api Management Apimanagementoperations List Example](https://apis.io/examples/microsoft-azure-api-management/microsoft-azure-api-management-apimanagementoperations-list-example/)
+- [Microsoft Azure Api Management Apimanagementservice Checknameavailability Example](https://apis.io/examples/microsoft-azure-api-management/microsoft-azure-api-management-apimanagementservice-checknameavailability-example/)
+- [Microsoft Azure Api Management Apimanagementservice Createorupdate Example](https://apis.io/examples/microsoft-azure-api-management/microsoft-azure-api-management-apimanagementservice-createorupdate-example/)
+- [Microsoft Azure Api Management Apimanagementservice Get Example](https://apis.io/examples/microsoft-azure-api-management/microsoft-azure-api-management-apimanagementservice-get-example/)
+- [Microsoft Azure Api Management Apimanagementservice Getdomainownershipidentifier Example](https://apis.io/examples/microsoft-azure-api-management/microsoft-azure-api-management-apimanagementservice-getdomainownershipidentifier-example/)
+- [Microsoft Azure Api Management Apimanagementservice List Example](https://apis.io/examples/microsoft-azure-api-management/microsoft-azure-api-management-apimanagementservice-list-example/)
+- …and 18 more published on APIs.io
+
+#### Collections (75)
+
+Postman and Open Collection request collections.
+
+- [Azure API Management Gateway AI API](https://apis.io/collections/microsoft-azure-api-management/open-microsoft-azure-api-management-ai-api/)
+- [Azure Management Gateway AI Api API](https://apis.io/collections/microsoft-azure-api-management/open-microsoft-azure-api-management-api-api/)
+- [Azure API Management Gateway AI ApiDiagnostic API](https://apis.io/collections/microsoft-azure-api-management/open-microsoft-azure-api-management-apidiagnostic-api/)
+- [Azure API Management Gateway AI ApiIssue API](https://apis.io/collections/microsoft-azure-api-management/open-microsoft-azure-api-management-apiissue-api/)
+- [Azure API Management Gateway AI ApiManagementOperations API](https://apis.io/collections/microsoft-azure-api-management/open-microsoft-azure-api-management-apimanagementoperations-api/)
+- [Azure API Management Gateway AI ApiManagementService API](https://apis.io/collections/microsoft-azure-api-management/open-microsoft-azure-api-management-apimanagementservice-api/)
+- [Azure API Management Gateway AI ApiManagementServiceSkus API](https://apis.io/collections/microsoft-azure-api-management/open-microsoft-azure-api-management-apimanagementserviceskus-api/)
+- [Azure API Management Gateway AI ApiOperation API](https://apis.io/collections/microsoft-azure-api-management/open-microsoft-azure-api-management-apioperation-api/)
+- [Azure API Management Gateway AI ApiOperationsByTag API](https://apis.io/collections/microsoft-azure-api-management/open-microsoft-azure-api-management-apioperationsbytag-api/)
+- [Azure API Management Gateway AI ApiPolicy API](https://apis.io/collections/microsoft-azure-api-management/open-microsoft-azure-api-management-apipolicy-api/)
+- [Azure API Management Gateway AI ApiProduct API](https://apis.io/collections/microsoft-azure-api-management/open-microsoft-azure-api-management-apiproduct-api/)
+- [Azure API Management Gateway AI ApiRelease API](https://apis.io/collections/microsoft-azure-api-management/open-microsoft-azure-api-management-apirelease-api/)
+- [Azure API Management Gateway AI ApiRevision API](https://apis.io/collections/microsoft-azure-api-management/open-microsoft-azure-api-management-apirevision-api/)
+- [Moved to /providers/microsoft-azure-api-management/](https://apis.io/collections/microsoft-azure-api-management/open-microsoft-azure-api-management-apis-api/)
+- [Azure API Management Gateway AI ApiSchema API](https://apis.io/collections/microsoft-azure-api-management/open-microsoft-azure-api-management-apischema-api/)
+- [Azure API Management Gateway AI ApiTag API](https://apis.io/collections/microsoft-azure-api-management/open-microsoft-azure-api-management-apitag-api/)
+- [Azure API Management Gateway AI ApiTagDescription API](https://apis.io/collections/microsoft-azure-api-management/open-microsoft-azure-api-management-apitagdescription-api/)
+- [Azure API Management Gateway AI ApiVersionSet API](https://apis.io/collections/microsoft-azure-api-management/open-microsoft-azure-api-management-apiversionset-api/)
+- [Azure API Management Gateway AI ApiVersionSets API](https://apis.io/collections/microsoft-azure-api-management/open-microsoft-azure-api-management-apiversionsets-api/)
+- [Azure API Management Gateway AI ApiWiki API](https://apis.io/collections/microsoft-azure-api-management/open-microsoft-azure-api-management-apiwiki-api/)
+- [Moved to /providers/microsoft-azure-api-management/](https://apis.io/collections/microsoft-azure-api-management/open-microsoft-azure-api-management-authentication-api/)
+- [Azure API Management Gateway AI Backend API](https://apis.io/collections/microsoft-azure-api-management/open-microsoft-azure-api-management-backend-api/)
+- [Azure API Management Gateway AI BackendReconnect API](https://apis.io/collections/microsoft-azure-api-management/open-microsoft-azure-api-management-backendreconnect-api/)
+- [Azure API Management Gateway AI Certificate API](https://apis.io/collections/microsoft-azure-api-management/open-microsoft-azure-api-management-certificate-api/)
+- [Azure API Management Gateway AI Diagnostic API](https://apis.io/collections/microsoft-azure-api-management/open-microsoft-azure-api-management-diagnostic-api/)
+- …and 50 more published on APIs.io
+
+#### Overlays (71)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Microsoft Azure Api Management Ai Api Phrasing Overlay](https://apis.io/overlays/microsoft-azure-api-management/microsoft-azure-api-management-ai-api-phrasing-overlay/)
+- [Microsoft Azure Api Management Api Product Api Openapi Overlay](https://apis.io/overlays/microsoft-azure-api-management/microsoft-azure-api-management-api-product-api-openapi-overlay/)
+- [Microsoft Azure Api Management Api Product Api Phrasing Overlay](https://apis.io/overlays/microsoft-azure-api-management/microsoft-azure-api-management-api-product-api-phrasing-overlay/)
+- [Microsoft Azure Api Management Apidiagnostic Api Phrasing Overlay](https://apis.io/overlays/microsoft-azure-api-management/microsoft-azure-api-management-apidiagnostic-api-phrasing-overlay/)
+- [Microsoft Azure Api Management Apiissue Api Phrasing Overlay](https://apis.io/overlays/microsoft-azure-api-management/microsoft-azure-api-management-apiissue-api-phrasing-overlay/)
+- [Microsoft Azure Api Management Apimanagementoperations Api Phrasing Overlay](https://apis.io/overlays/microsoft-azure-api-management/microsoft-azure-api-management-apimanagementoperations-api-phrasing-overlay/)
+- [Microsoft Azure Api Management Apimanagementservice Api Phrasing Overlay](https://apis.io/overlays/microsoft-azure-api-management/microsoft-azure-api-management-apimanagementservice-api-phrasing-overlay/)
+- [Microsoft Azure Api Management Apimanagementserviceskus Api Phrasing Overlay](https://apis.io/overlays/microsoft-azure-api-management/microsoft-azure-api-management-apimanagementserviceskus-api-phrasing-overlay/)
+- [Microsoft Azure Api Management Apioperation Api Phrasing Overlay](https://apis.io/overlays/microsoft-azure-api-management/microsoft-azure-api-management-apioperation-api-phrasing-overlay/)
+- [Microsoft Azure Api Management Apioperationsbytag Api Phrasing Overlay](https://apis.io/overlays/microsoft-azure-api-management/microsoft-azure-api-management-apioperationsbytag-api-phrasing-overlay/)
+- [Microsoft Azure Api Management Apipolicy Api Phrasing Overlay](https://apis.io/overlays/microsoft-azure-api-management/microsoft-azure-api-management-apipolicy-api-phrasing-overlay/)
+- [Microsoft Azure Api Management Apirelease Api Phrasing Overlay](https://apis.io/overlays/microsoft-azure-api-management/microsoft-azure-api-management-apirelease-api-phrasing-overlay/)
+- [Microsoft Azure Api Management Apirevision Api Phrasing Overlay](https://apis.io/overlays/microsoft-azure-api-management/microsoft-azure-api-management-apirevision-api-phrasing-overlay/)
+- [Microsoft Azure Api Management Apis Api Phrasing Overlay](https://apis.io/overlays/microsoft-azure-api-management/microsoft-azure-api-management-apis-api-phrasing-overlay/)
+- [Microsoft Azure Api Management Apischema Api Phrasing Overlay](https://apis.io/overlays/microsoft-azure-api-management/microsoft-azure-api-management-apischema-api-phrasing-overlay/)
+- [Microsoft Azure Api Management Apitag Api Phrasing Overlay](https://apis.io/overlays/microsoft-azure-api-management/microsoft-azure-api-management-apitag-api-phrasing-overlay/)
+- [Microsoft Azure Api Management Apitagdescription Api Phrasing Overlay](https://apis.io/overlays/microsoft-azure-api-management/microsoft-azure-api-management-apitagdescription-api-phrasing-overlay/)
+- [Microsoft Azure Api Management Apiversionset Api Phrasing Overlay](https://apis.io/overlays/microsoft-azure-api-management/microsoft-azure-api-management-apiversionset-api-phrasing-overlay/)
+- [Microsoft Azure Api Management Apiversionsets Api Phrasing Overlay](https://apis.io/overlays/microsoft-azure-api-management/microsoft-azure-api-management-apiversionsets-api-phrasing-overlay/)
+- [Microsoft Azure Api Management Apiwiki Api Phrasing Overlay](https://apis.io/overlays/microsoft-azure-api-management/microsoft-azure-api-management-apiwiki-api-phrasing-overlay/)
+- [Microsoft Azure Api Management Authentication Api Phrasing Overlay](https://apis.io/overlays/microsoft-azure-api-management/microsoft-azure-api-management-authentication-api-phrasing-overlay/)
+- [Microsoft Azure Api Management Backend Api Phrasing Overlay](https://apis.io/overlays/microsoft-azure-api-management/microsoft-azure-api-management-backend-api-phrasing-overlay/)
+- [Microsoft Azure Api Management Backendreconnect Api Phrasing Overlay](https://apis.io/overlays/microsoft-azure-api-management/microsoft-azure-api-management-backendreconnect-api-phrasing-overlay/)
+- [Microsoft Azure Api Management Certificate Api Phrasing Overlay](https://apis.io/overlays/microsoft-azure-api-management/microsoft-azure-api-management-certificate-api-phrasing-overlay/)
+- [Microsoft Azure Api Management Diagnostic Api Phrasing Overlay](https://apis.io/overlays/microsoft-azure-api-management/microsoft-azure-api-management-diagnostic-api-phrasing-overlay/)
+- …and 46 more published on APIs.io
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Microsoft Azure API Management — jsonschema rules](https://apis.io/rules/microsoft-azure-api-management/microsoft-azure-api-management-jsonschema-spectral-rules/)
+- [Microsoft Azure API Management API Rules](https://apis.io/rules/microsoft-azure-api-management/microsoft-azure-api-management-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Microsoft Azure Api Management Authentication](https://apis.io/security/microsoft-azure-api-management/microsoft-azure-api-management-authentication/)
+- [Microsoft Azure Api Management Domain Security](https://apis.io/security/microsoft-azure-api-management/microsoft-azure-api-management-domain-security/)
+- [Microsoft Azure Api Management Vulnerability Disclosure](https://apis.io/security/microsoft-azure-api-management/microsoft-azure-api-management-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Microsoft Azure Api Management Scopes](https://apis.io/scopes/microsoft-azure-api-management/microsoft-azure-api-management-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Microsoft Azure Api Management Plans Pricing](https://apis.io/plans/microsoft-azure-api-management/microsoft-azure-api-management-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Microsoft Azure Api Management Rate Limits](https://apis.io/rate-limits/microsoft-azure-api-management/microsoft-azure-api-management-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Microsoft Azure Api Management Finops](https://apis.io/finops/microsoft-azure-api-management/microsoft-azure-api-management-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://azure.microsoft.com/products/api-management/)
+- [Documentation](https://learn.microsoft.com/en-us/azure/api-management/)
+- [Getting started](https://learn.microsoft.com/en-us/azure/api-management/get-started-create-service-instance)
+- [API reference](https://learn.microsoft.com/en-us/rest/api/apimanagement/)
+- [Pricing](https://azure.microsoft.com/pricing/details/api-management/)
+- [Support](https://learn.microsoft.com/answers/tags/29/azure-api-management/)
+- [Changelog](https://learn.microsoft.com/en-us/azure/api-management/breaking-changes/overview)
+- [Blog](https://techcommunity.microsoft.com/t5/azure/ct-p/Azure)
+- [Security](https://learn.microsoft.com/en-us/azure/api-management/authentication-authorization-overview)
+- [Compliance](https://learn.microsoft.com/en-us/azure/compliance/)
+- [Trust centre](https://www.microsoft.com/trust-center)
+- [Terms of service](https://azure.microsoft.com/support/legal/)
+- [Privacy policy](https://privacy.microsoft.com/privacystatement)
+- [GitHub](https://github.com/Azure)
+- [Status](https://status.azure.com/)
+
+## API Evangelist rating
+
+**Kin Score 71.4** — exemplar · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
 |---|---|
-| Website | https://azure.microsoft.com/products/api-management/ |
-| Documentation | https://learn.microsoft.com/en-us/azure/api-management/ |
-| GettingStarted | https://learn.microsoft.com/en-us/azure/api-management/get-started-create-service-instance |
-| Quickstart | https://learn.microsoft.com/en-us/azure/api-management/get-started-create-service-instance-cli |
-| APIReference | https://learn.microsoft.com/en-us/rest/api/apimanagement/ |
-| Authentication | https://learn.microsoft.com/en-us/azure/api-management/authentication-authorization-overview |
-| Pricing | https://azure.microsoft.com/pricing/details/api-management/ |
-| Tiers | https://learn.microsoft.com/en-us/azure/api-management/api-management-features |
-| ChangeLog | https://learn.microsoft.com/en-us/azure/api-management/breaking-changes/overview |
-| Support | https://learn.microsoft.com/answers/tags/29/azure-api-management/ |
-| Console | https://portal.azure.com/ |
-| CLI | https://learn.microsoft.com/en-us/cli/azure/apim |
-| SDK (.NET) | https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/apimanagement |
-| SDK (Java) | https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/apimanagement |
-| SDK (JavaScript) | https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/apimanagement |
-| SDK (Python) | https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/apimanagement |
-| SDK (Go) | https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/apimanagement |
-| VSCodeExtension | https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement |
-| Training | https://learn.microsoft.com/en-us/training/modules/explore-api-management/ |
-| Security | https://learn.microsoft.com/en-us/azure/api-management/authentication-authorization-overview |
-| BestPractices | https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-policies |
-| Blog | https://techcommunity.microsoft.com/t5/azure/ct-p/Azure |
-| GitHubRepository | https://github.com/Azure/api-management-samples |
-| GitHubOrganization | https://github.com/Azure |
-| TermsOfService | https://azure.microsoft.com/support/legal/ |
-| PrivacyPolicy | https://privacy.microsoft.com/privacystatement |
-| Regions | https://azure.microsoft.com/explore/global-infrastructure/products-by-region/ |
-| Compliance | https://learn.microsoft.com/en-us/azure/compliance/ |
-| TrustCenter | https://www.microsoft.com/trust-center |
-| SignUp | https://azure.microsoft.com/free/ |
-| StatusPage | https://status.azure.com/ |
-| DeveloperPortal | https://learn.microsoft.com/en-us/azure/api-management/developer-portal-overview |
-| PolicySnippets | https://github.com/Azure/api-management-policy-snippets |
-| PolicyToolkit | https://github.com/Azure/azure-api-management-policy-toolkit |
-| AIGatewaySamples | https://github.com/Azure-Samples/ai-gateway |
-| AIGatewayWorkshop | https://aka.ms/ai-gateway/workshop |
-| AIHubReferenceArchitecture | https://github.com/Azure-Samples/ai-hub-gateway-solution-accelerator |
-| APICenter | https://learn.microsoft.com/en-us/azure/api-center/overview |
-| FoundryIntegration | https://learn.microsoft.com/en-us/azure/ai-foundry/configuration/enable-ai-api-management-gateway-portal |
-| MCPServer | https://github.com/Azure/azure-api-mcp |
+| Discoverability | 68.3 |
+| Contract quality | 57.6 |
+| Contract governance | 45.5 |
+| Operational transparency | 52.6 |
+| Developer ergonomics | 91.1 |
+| Access clarity | 68.4 |
 
-## Pricing Tiers (May 2026)
+**Agent readiness 25.9** — agent-aware
 
-| Tier | Capacity | Notable Features | List Price |
-|---|---|---|---|
-| Consumption | Auto-scaled, per-call | Serverless, no dedicated capacity | First 1M calls/month free; ~$3.50 per additional 1M |
-| Developer | 1 scale unit | Non-production, all features, no SLA | Hourly per unit |
-| Basic | Up to 2 units | 50 MB cache, production SLA | ~$0.21/hour (~$150/unit/month) |
-| Basic v2 | Up to 10 units | Autoscaling, 250 MB cache, includes 10M req/month | ~$150/unit/month + ~$3 per additional 1M |
-| Standard | Up to 4 units | 1 GB cache, backup/restore | ~$0.96/hour (~$700/unit/month) |
-| Standard v2 | Up to 10 units | Outbound VNet integration, autoscaling, includes 50M req/month, free linked API Center Standard | ~$700/unit/month + ~$2.50 per additional 1M |
-| Premium | Up to 12 units per region | Multi-region, VNet injection, self-hosted gateway, workspaces, 5 GB cache | ~$3.83/hour (~$2,795/unit/month) |
-| Premium v2 | Up to 30 units | Availability zones, outbound VNet integration, workspaces, unlimited requests, 99.99% SLA, free linked API Center Standard | starts ~$2,801/unit/month |
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | templated |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
 
-See `plans/microsoft-azure-api-management-plans-pricing.yml`, `rate-limits/microsoft-azure-api-management-rate-limits.yml`, and `finops/microsoft-azure-api-management-finops.yml` for machine-readable detail.
+**Regulatory alignment 45.1** — Horizontal (data, software, accessibility, platform)
 
-## Notable Breaking Changes and Retirements
-Source: https://learn.microsoft.com/en-us/azure/api-management/breaking-changes/overview
-- **stv1 platform retirement** — Global Azure (Aug 31, 2024); sovereign clouds (Feb 24, 2025).
-- **Git repository retirement** and **Direct management API retirement** — March 15, 2025.
-- **Managed certificates suspension** — Aug 15, 2025 through March 15, 2026.
-- **ADAL-based Microsoft Entra ID identity provider retirement** — Sep 30, 2025.
-- **Trusted service connectivity retirement** — March 15, 2026.
-- **Built-in analytics dashboard retirement** — March 15, 2027.
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/microsoft-azure-api-management/](https://apis.io/providers/microsoft-azure-api-management/).
 
-## Artifacts
+## How this profile is made
 
-### openapi/
-- microsoft-azure-api-management-ai-gateway-openapi.yaml
-- microsoft-azure-api-management-developer-portal-openapi.yaml
-- microsoft-azure-api-management-gateway-openapi.yaml
-- microsoft-azure-api-management-rest-api-openapi.yaml
-- microsoft-azure-api-management-self-hosted-gateway-openapi.yaml
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-### capabilities/
-72 capability YAMLs covering:
-- AI gateway: `ai-gateway-ai.yaml`, `ai-gateway-mcp.yaml`
-- Cloud gateway: `gateway-gateway.yaml`, `gateway-health.yaml`
-- Self-hosted gateway: `self-hosted-gateway-gateway.yaml`, `self-hosted-gateway-health.yaml`
-- Developer portal: `developer-portal-apis.yaml`, `developer-portal-authentication.yaml`, `developer-portal-portal.yaml`, `developer-portal-products.yaml`, `developer-portal-user.yaml`
-- REST API management plane: 60+ `rest-*.yaml` capabilities (apis, products, subscriptions, gateways, backends, certificates, named values, policies, workspaces, tags, users, groups, etc.)
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Microsoft Azure API Management: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-### json-schema/
-- ai-gateway-chat-completion-request-schema.json
-- ai-gateway-chat-completion-response-schema.json
-- ai-gateway-completion-request-schema.json
-- ai-gateway-completion-response-schema.json
-- ai-gateway-embedding-request-schema.json
-- ai-gateway-embedding-response-schema.json
-- ai-gateway-mcp-request-schema.json
-- ai-gateway-mcp-response-schema.json
+## Open an issue
 
-### json-structure/
-- ai-gateway-chat-completion-request-structure.json
-- ai-gateway-chat-completion-response-structure.json
-- ai-gateway-completion-request-structure.json
-- ai-gateway-completion-response-structure.json
-- ai-gateway-embedding-request-structure.json
-- ai-gateway-embedding-response-structure.json
-- ai-gateway-mcp-request-structure.json
-- ai-gateway-mcp-response-structure.json
-
-### json-ld/
-- microsoft-azure-api-management-ai-gateway-context.jsonld
-
-### examples/
-- ai-gateway-chat-completion-request-example.json
-- ai-gateway-chat-completion-response-example.json
-- ai-gateway-completion-request-example.json
-- ai-gateway-completion-response-example.json
-- ai-gateway-embedding-request-example.json
-- ai-gateway-embedding-response-example.json
-- ai-gateway-mcp-request-example.json
-- ai-gateway-mcp-response-example.json
-
-### rules/
-- microsoft-azure-api-management-rules.yaml
-
-### vocabulary/
-- microsoft-azure-api-management-vocabulary.yaml
-
-### plans/, rate-limits/, finops/
-- plans/microsoft-azure-api-management-plans-pricing.yml
-- rate-limits/microsoft-azure-api-management-rate-limits.yml
-- finops/microsoft-azure-api-management-finops.yml
-
-## Maintainers
-- Kin Lane — kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/microsoft-azure-api-management/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
