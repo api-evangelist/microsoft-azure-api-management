@@ -92,6 +92,12 @@ artifacts:
   authentication/microsoft-azure-api-management-authentication.yml:
     method: derived
     evidence: declared in the artifact
+  changelog/microsoft-azure-api-management-changelog.yml:
+    method: searched
+    evidence: declared in the artifact
+  cli/microsoft-azure-api-management-cli.yml:
+    method: searched
+    evidence: declared in the artifact
   collections/microsoft-azure-api-management-ai-api.opencollection.json:
     method: derived
     evidence: openapi/microsoft-azure-api-management-ai-api
@@ -491,6 +497,9 @@ artifacts:
   conformance/microsoft-azure-api-management-conformance.yml:
     method: searched
     evidence: declared in the artifact
+  conventions/microsoft-azure-api-management-conventions.yml:
+    method: searched
+    evidence: declared in the artifact
   data-model/microsoft-azure-api-management-data-model.yml:
     method: derived
     evidence: declared in the artifact
@@ -824,6 +833,9 @@ artifacts:
   kin/score-2026-11-02T082323.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  lifecycle/microsoft-azure-api-management-lifecycle.yml:
+    method: searched
+    evidence: declared in the artifact
   llms/microsoft-azure-api-management-llms-provenance.yml:
     method: generated
     evidence: 'derive-llms-provenance.py: generated'
@@ -1269,6 +1281,9 @@ artifacts:
   packages/microsoft-azure-api-management-packages.yml:
     method: unknown
     evidence: no authorship recorded
+  patterns/microsoft-azure-api-management-patterns.yml:
+    method: derived
+    evidence: declared in the artifact
   plans/microsoft-azure-api-management-plans-pricing.yml:
     method: searched
     evidence: declared in the artifact
@@ -1288,7 +1303,7 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   rate-limits/microsoft-azure-api-management-rate-limits.yml:
-    method: generated
+    method: searched
     evidence: declared in the artifact
   regulatory/microsoft-azure-api-management-regulatory-posture.yml:
     method: unknown
@@ -1336,8 +1351,8 @@ artifacts:
     method: generated
     evidence: 'vocabulary carrying the pipeline''s generated: stamp, no fetch record'
   vocabulary/microsoft-azure-api-management-vocabulary.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: declared in the artifact
   well-known/microsoft-azure-api-management-well-known.yml:
     method: unknown
     evidence: no authorship recorded

@@ -2,6 +2,7 @@
 generated: '2026-10-28'
 method: searched
 source: https://azure.microsoft.com/en-us/pricing/details/api-management/
+name: Microsoft Azure API Management API Plans
 sources:
 - https://azure.microsoft.com/en-us/pricing/details/api-management/
 - https://azure.microsoft.com/pricing/details/api-management/
@@ -99,7 +100,7 @@ rate_limit_statements:
 - Limit of 20 domain names per instance
 - 12 per region (call support to add more)
 x-canonical:
-  generated: '2026-11-02'
+  generated: '2026-11-06'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - metered
